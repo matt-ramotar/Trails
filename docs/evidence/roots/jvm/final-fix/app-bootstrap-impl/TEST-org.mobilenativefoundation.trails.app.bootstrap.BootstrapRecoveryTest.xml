@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.app.bootstrap.BootstrapRecoveryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-20T06:58:06.934Z" hostname="Matts-MacBook-Pro.local" time="1.685">
+  <properties/>
+  <testcase name="switchHidesPrivateUiAndWaitsForRetirementBeforeOpeningNextAccount[jvm]" classname="org.mobilenativefoundation.trails.app.bootstrap.BootstrapRecoveryTest" time="1.669"/>
+  <testcase name="failedOpenRetriesRestoredAccountWithoutParallelAttempts[jvm]" classname="org.mobilenativefoundation.trails.app.bootstrap.BootstrapRecoveryTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

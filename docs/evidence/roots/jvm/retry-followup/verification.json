@@ -1,0 +1,104 @@
+{
+  "base": "cea43d35fe4bcd0c94e59b1003f477c2d2ef8aaf",
+  "final_command": "./gradlew :multiplatform:foundation:designsystem:jvmTest --rerun :multiplatform:data:trail:impl:jvmTest --rerun :multiplatform:feat:savetrail:impl:jvmTest --rerun :multiplatform:feat:filters:impl:jvmTest --rerun :multiplatform:screen:explore:impl:jvmTest --rerun :multiplatform:screen:traildetail:impl:jvmTest --rerun :multiplatform:screen:saved:impl:jvmTest --rerun :multiplatform:screen:navigate:impl:jvmTest --rerun :multiplatform:screen:activity:impl:jvmTest --rerun :multiplatform:screen:foryou:impl:jvmTest --rerun :multiplatform:di:graph:active:jvmTest --rerun :multiplatform:app:bootstrap:impl:jvmTest --rerun :multiplatform:app:core:jvmTest --rerun :multiplatform:app:core:compileKotlinJvm > /private/tmp/roots-retry-followup-full.log 2>&1",
+  "result": "BUILD SUCCESSFUL",
+  "duration_seconds": 24,
+  "fresh_test_modules": 13,
+  "test_count": 137,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "compiler_warnings": [],
+  "compile_policy": "Incremental compilation; test tasks each forced with --rerun. app:core:compileKotlinJvm UP-TO-DATE.",
+  "per_module": {
+    "foundation/designsystem": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "data/trail/impl": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "feat/savetrail/impl": {
+      "tests": 22,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "feat/filters/impl": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "screen/explore/impl": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "screen/traildetail/impl": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "screen/saved/impl": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "screen/navigate/impl": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "screen/activity/impl": {
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "screen/foryou/impl": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "di/graph/active": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app/bootstrap/impl": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app/core": {
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "source_manifest": "full/source-sha256.json",
+  "focused_source_matches_full": true,
+  "first_behavioral_red": "red/gradle.log",
+  "known_baseline_warnings": [
+    "DeveloperToolsDrawerHost LocalClipboardManager deprecation",
+    "DeveloperToolsDrawerHost existing BackendControl unnecessary safe call"
+  ],
+  "introduced_warning": "ActivityRecoveryTest unnecessary safe call in focused-1, removed before final focused/full gates",
+  "cold_ui_failure_resolution": "Preserved full real cold UI regression; defer shared lazy checkpoint restoration with requestScrollToItem. No installed Android crash claimed.",
+  "boundary": "No adb, install, clear, reseed or schema mutation. Installed acceptance remains controller-owned.",
+  "diagnostic_format_dependency": "Fail-closed recognition of exact known Store6 Offline fetch diagnostic; changed/unrecognized errors stay visible."
+}

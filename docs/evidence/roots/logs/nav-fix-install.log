@@ -1,0 +1,3 @@
+Command: adb -P 5038 -s emulator-5554 install -r apps/android/build/outputs/apk/debug/android-debug.apk
+Performing Streamed Install
+Success

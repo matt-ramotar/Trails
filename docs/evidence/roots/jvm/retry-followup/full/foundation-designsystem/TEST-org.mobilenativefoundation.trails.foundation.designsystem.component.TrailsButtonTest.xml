@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsButtonTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:07.980Z" hostname="Matts-MacBook-Pro.local" time="5.095">
+  <properties/>
+  <testcase name="commitToneFillsDark[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsButtonTest" time="4.807"/>
+  <testcase name="secondaryToneFillsSoft[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsButtonTest" time="0.058"/>
+  <testcase name="loadingSpinnerDrawsInTheDisabledContentColourNotTheTonesOwn[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsButtonTest" time="0.193"/>
+  <testcase name="heroToneFillsCitron[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsButtonTest" time="0.037"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

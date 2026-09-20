@@ -1,0 +1,76 @@
+CREATE TABLE backend_value (
+    namespace TEXT NOT NULL,
+    canonical_id TEXT NOT NULL,
+    payload BLOB NOT NULL,
+    PRIMARY KEY (namespace, canonical_id)
+);
+
+CREATE TABLE backend_receipt (
+    account TEXT NOT NULL,
+    installation_id TEXT NOT NULL,
+    idempotency_key TEXT NOT NULL,
+    namespace TEXT NOT NULL,
+    canonical_id TEXT NOT NULL,
+    request_schema INTEGER NOT NULL,
+    request_payload BLOB NOT NULL,
+    payload BLOB NOT NULL,
+    PRIMARY KEY (account, installation_id, idempotency_key)
+);
+
+CREATE TABLE backend_client (
+    account TEXT NOT NULL,
+    installation_id TEXT NOT NULL,
+    client_id TEXT NOT NULL,
+    retired_through INTEGER NOT NULL,
+    push_count INTEGER NOT NULL,
+    PRIMARY KEY (account, installation_id, client_id)
+);
+
+CREATE TABLE backend_settings (
+    id INTEGER NOT NULL PRIMARY KEY CHECK(id = 1),
+    offline INTEGER NOT NULL,
+    fail_next_ack INTEGER NOT NULL,
+    apply_count INTEGER NOT NULL
+);
+
+initializeSettings:
+INSERT OR IGNORE INTO backend_settings(id, offline, fail_next_ack, apply_count) VALUES (1, 0, 0, 0);
+
+settings:
+SELECT * FROM backend_settings WHERE id = 1;
+
+setOffline:
+UPDATE backend_settings SET offline = ? WHERE id = 1;
+
+setFailNextAck:
+UPDATE backend_settings SET fail_next_ack = ? WHERE id = 1;
+
+incrementApplyCount:
+UPDATE backend_settings SET apply_count = apply_count + 1 WHERE id = 1;
+
+readValue:
+SELECT * FROM backend_value WHERE namespace = ? AND canonical_id = ?;
+
+writeValue:
+INSERT OR REPLACE INTO backend_value(namespace, canonical_id, payload) VALUES (?, ?, ?);
+
+readReceipt:
+SELECT * FROM backend_receipt WHERE account = ? AND installation_id = ? AND idempotency_key = ?;
+
+writeReceipt:
+INSERT INTO backend_receipt(account, installation_id, idempotency_key, namespace, canonical_id, request_schema, request_payload, payload) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+initializeClient:
+INSERT OR IGNORE INTO backend_client(account, installation_id, client_id, retired_through, push_count) VALUES (?, ?, ?, 0, 0);
+
+incrementPushCount:
+UPDATE backend_client SET push_count = push_count + 1 WHERE account = ? AND installation_id = ? AND client_id = ?;
+
+pushCount:
+SELECT coalesce(sum(push_count), 0) FROM backend_client;
+
+clientIds:
+SELECT client_id FROM backend_client WHERE account = ? AND installation_id = ? ORDER BY client_id;
+
+recordRetirement:
+UPDATE backend_client SET retired_through = max(retired_through, ?) WHERE account = ? AND installation_id = ? AND client_id = ?;

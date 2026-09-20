@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsFloatingNavTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:13.076Z" hostname="Matts-MacBook-Pro.local" time="1.907">
+  <properties/>
+  <testcase name="defaultScaleKeepsTheSingleRowPill[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsFloatingNavTest" time="1.158"/>
+  <testcase name="allFiveLabelsFitAtDoubleFontScaleOnPhone[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsFloatingNavTest" time="0.367"/>
+  <testcase name="selectingSavedReportsTheDestination[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsFloatingNavTest" time="0.036"/>
+  <testcase name="allFiveLabelsFitAtDoubleFontScaleOnNarrowPhone[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsFloatingNavTest" time="0.345"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

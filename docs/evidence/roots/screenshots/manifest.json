@@ -1,0 +1,20 @@
+[
+  {
+    "frame": "f02",
+    "width": 390,
+    "height": 844,
+    "sha256": "6ae1cf6f2d8a0dcd950da673dc10aadbb58c1e80c2c362784f9941d5a7818d80"
+  },
+  {
+    "frame": "f25",
+    "width": 390,
+    "height": 844,
+    "sha256": "74173e387ee533d6a200887a6dd2b9a9aeb0b8480a2f0eafa83f6b88449e7e08"
+  },
+  {
+    "frame": "f07",
+    "width": 390,
+    "height": 844,
+    "sha256": "74db4ce0a0dadc02ee820ef80b332ff38c67c11412d1c86eeb0961ed8a0cc046"
+  }
+]

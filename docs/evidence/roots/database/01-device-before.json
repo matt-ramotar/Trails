@@ -1,0 +1,14 @@
+{
+  "fontScale": "1.0",
+  "accessibilityEnabled": "0",
+  "accessibilityServices": "null",
+  "size": "Physical size: 1280x2856",
+  "density": "Physical density: 480",
+  "androidVersion": "15",
+  "api": "35",
+  "deviceTime": "2026-09-20T07:39:30+02:00",
+  "avd": "Trails_Preview_API_35\r\nOK",
+  "devices": "List of devices attached\nemulator-5554\tdevice\nemulator-5556\tdevice\n\n",
+  "installedPackagePath": "package:/data/app/~~GbFj7DczoGLDX7P5FtHT4Q==/org.mobilenativefoundation.trails.android-dN7soEstdMcAtwVAlQx4Jw==/base.apk",
+  "installedApkSha256": "efefa676e83514b59ce253c42606eec8037126cf18e1a68c8ae95bb22428b16d"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.saved.SavedUiTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-20T05:39:08.357Z" hostname="Matts-MacBook-Pro.local" time="28.604">
+  <properties/>
+  <testcase name="tilesShowCountsPlaceholdersAndTheAllTrailsTab[jvm]" classname="org.mobilenativefoundation.trails.screen.saved.SavedUiTest" time="28.002"/>
+  <testcase name="allTrailsWithoutCachedDetailsShowsTheMissingDetailsLineNotTheEmptyState[jvm]" classname="org.mobilenativefoundation.trails.screen.saved.SavedUiTest" time="0.602"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

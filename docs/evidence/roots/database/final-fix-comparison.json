@@ -1,0 +1,112 @@
+{
+  "before": {
+    "seedVersion": 4,
+    "storedConfig": {},
+    "memberships": [
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "alpine-lake-loop",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "half-dome",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "mist-trail-to-nevada-fall",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "mount-takao-trail-1",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "trolltunga",
+        "collectionIds": [
+          "weekend"
+        ]
+      }
+    ],
+    "fixtures": [
+      {
+        "namespace": "backend-activities",
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "payloadSha256": "6fd153efb17b49314b13a972a6350a4c4dfcb48919991e38a6ac0dd2a8d2d4bc"
+      },
+      {
+        "namespace": "backend-foryou",
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "payloadSha256": "9b8f2d699206f38923c090d423f801ca61eb4b4c1ffbe4ebcd2a58b4210f62f2"
+      }
+    ]
+  },
+  "after": {
+    "seedVersion": 4,
+    "storedConfig": {},
+    "memberships": [
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "alpine-lake-loop",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "half-dome",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "mist-trail-to-nevada-fall",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "mount-takao-trail-1",
+        "collectionIds": [
+          "weekend"
+        ]
+      },
+      {
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "trailId": "trolltunga",
+        "collectionIds": [
+          "weekend"
+        ]
+      }
+    ],
+    "fixtures": [
+      {
+        "namespace": "backend-activities",
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "payloadSha256": "6fd153efb17b49314b13a972a6350a4c4dfcb48919991e38a6ac0dd2a8d2d4bc"
+      },
+      {
+        "namespace": "backend-foryou",
+        "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+        "payloadSha256": "9b8f2d699206f38923c090d423f801ca61eb4b4c1ffbe4ebcd2a58b4210f62f2"
+      }
+    ]
+  },
+  "membershipsRestored": true,
+  "fixturesUnchanged": true,
+  "seedUnchanged": true,
+  "configRestored": true
+}

@@ -3,27 +3,22 @@ package org.mobilenativefoundation.trails.tooling.plugins
 import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.configurationcache.extensions.capitalized
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.mobilenativefoundation.trails.tooling.extensions.configureKotlin
 import org.mobilenativefoundation.trails.tooling.extensions.libs
-import java.io.File
+
 
 class KotlinMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
             apply("org.jetbrains.kotlin.multiplatform")
-            apply("dev.mokkery")
             apply("org.jetbrains.kotlinx.kover")
         }
 
-        version = libs.findVersion("trails")
+        version = libs.findVersion("chat")
 
         extensions.configure<KotlinMultiplatformExtension> {
             applyDefaultHierarchyTemplate()
@@ -64,7 +59,6 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
                 compilations.configureEach {
                     compilerOptions.configure {
                         freeCompilerArgs.add("-Xallocator=custom")
-                        freeCompilerArgs.add("-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion")
                         freeCompilerArgs.add("-Xadd-light-debug=enable")
 
                         freeCompilerArgs.addAll(
@@ -92,28 +86,5 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
                 }
             }
         }
-    }
-}
-
-fun Project.addKspDependencyForAllTargets(dependencyNotation: Any) =
-    addKspDependencyForAllTargets("", dependencyNotation)
-
-private fun Project.addKspDependencyForAllTargets(
-    configurationNameSuffix: String,
-    dependencyNotation: Any,
-) {
-    val kmpExtension = extensions.getByType<KotlinMultiplatformExtension>()
-    dependencies {
-        kmpExtension.targets
-            .asSequence()
-            .filter { target ->
-                target.platformType != KotlinPlatformType.common
-            }
-            .forEach { target ->
-                add(
-                    "ksp${target.targetName.capitalized()}$configurationNameSuffix",
-                    dependencyNotation,
-                )
-            }
     }
 }

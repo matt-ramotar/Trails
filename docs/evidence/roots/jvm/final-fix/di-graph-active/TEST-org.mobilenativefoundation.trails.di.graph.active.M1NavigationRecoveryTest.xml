@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-09-20T06:58:06.760Z" hostname="Matts-MacBook-Pro.local" time="1.546">
+  <properties/>
+  <testcase name="changedAppliedQueryResetsResultPositionButTypingAloneKeepsIt[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="1.44"/>
+  <testcase name="newControllerRestoresBothRootsQuerySegmentsAndRoutePositionsFromFile[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.087"/>
+  <testcase name="checkpointWrittenBeforeTheNewRootsRestoresDefaultsForThem[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.001"/>
+  <testcase name="newRootsRestoreTheirStacksAndTheLastOpenedTrail[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.004"/>
+  <testcase name="failedWritePreservesLastFileAndRetryWritesCurrentViewWithoutThrowing[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.002"/>
+  <testcase name="differentAccountFilesNeverRestoreEachOthersRoutesOrQuery[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.004"/>
+  <testcase name="platformPopCheckpointAndRootSwitchKeepTheExistingCaller[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.005"/>
+  <testcase name="unreadableCheckpointIsNotSilentlyOverwrittenByInitialHostObservation[jvm]" classname="org.mobilenativefoundation.trails.di.graph.active.M1NavigationRecoveryTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

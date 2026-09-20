@@ -1,0 +1,106 @@
+[
+  {
+    "module": ":multiplatform:foundation:designsystem",
+    "suites": 6,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:data:trail:impl",
+    "suites": 10,
+    "tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:feat:savetrail:impl",
+    "suites": 5,
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:feat:filters:impl",
+    "suites": 1,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:screen:explore:impl",
+    "suites": 2,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:screen:traildetail:impl",
+    "suites": 1,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:screen:saved:impl",
+    "suites": 1,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:screen:navigate:impl",
+    "suites": 2,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:screen:activity:impl",
+    "suites": 3,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:screen:foryou:impl",
+    "suites": 2,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:di:graph:active",
+    "suites": 1,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:app:bootstrap:impl",
+    "suites": 1,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "module": ":multiplatform:app:core",
+    "suites": 2,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+]

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:15.013Z" hostname="Matts-MacBook-Pro.local" time="0.037">
+  <properties/>
+  <testcase name="closingOldAtomCannotDeliverItsLateOutcomeToReplacementRepository[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.013"/>
+  <testcase name="editingAfterDefiniteRejectionUsesNewIdentityForChangedPayload[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.004"/>
+  <testcase name="removingKnownMembershipRequiresConfirmationButNeverSavedEmptyCannotSubmit[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.003"/>
+  <testcase name="uncertainAdmissionFreezesPayloadAndReconcilesWithoutSavingAgain[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.003"/>
+  <testcase name="repeatedSubmitWhileAdmissionRunsCallsSaveOnce[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.003"/>
+  <testcase name="projectionFailureAfterJournaledOutcomeDoesNotRelabelAdmission[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.003"/>
+  <testcase name="missingTrailMembershipInLoadedSnapshotStaysUnavailableUntilRetryReadsIt[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.003"/>
+  <testcase name="missingTrailMembershipIsRefreshedBeforeEditingExistingCollections[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.002"/>
+  <testcase name="unknownMembershipCannotBecomeAnEmptySubmission[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SaveTrailAtomTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

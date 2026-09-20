@@ -1,0 +1,37 @@
+[
+  {
+    "path": "logs/roots-final-fix-focused-green.log",
+    "bytes": 28450,
+    "sha256": "f838f2239d2d918c3b3a7eb61dcb7a27d8bf928132bc683845e54165c84c5670"
+  },
+  {
+    "path": "logs/roots-final-fix-focused.log",
+    "bytes": 32126,
+    "sha256": "fd1e57862efe5026f21ab3d5bb0a7a1b163e27a9036bc5ede78e59af0e41baed"
+  },
+  {
+    "path": "logs/roots-final-fix-jvm-gate.log",
+    "bytes": 104724,
+    "sha256": "16d5a72481407bdebe7eec3364b4708dcabb24efa4fd7e1a32685746113f62b7"
+  },
+  {
+    "path": "logs/roots-final-fix-navigate-compile-red.log",
+    "bytes": 32126,
+    "sha256": "fd1e57862efe5026f21ab3d5bb0a7a1b163e27a9036bc5ede78e59af0e41baed"
+  },
+  {
+    "path": "logs/roots-final-fix-production-red.log",
+    "bytes": 27493,
+    "sha256": "4ca2f31eb5b309cad2ceb5517b8bb0d4567688962cc359bd984d86f59f4955c9"
+  },
+  {
+    "path": "logs/roots-final-fix-recovery-behavior-red.log",
+    "bytes": 19201,
+    "sha256": "0d54b5d9166a89894a0fa84d677a6560e48c471938a80b7be7c007fb2a28aeac"
+  },
+  {
+    "path": "logs/roots-final-fix-recovery-red.log",
+    "bytes": 21597,
+    "sha256": "e2cd3662c82430ac50547ad621e7be3e81e8b916123c4fdc809d3e46465b8aa7"
+  }
+]

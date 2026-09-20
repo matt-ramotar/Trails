@@ -1,0 +1,21 @@
+CREATE TABLE value_row (
+    namespace TEXT NOT NULL,
+    canonical_id TEXT NOT NULL,
+    payload BLOB NOT NULL,
+    PRIMARY KEY (namespace, canonical_id)
+);
+
+selectRow:
+SELECT * FROM value_row WHERE namespace = ? AND canonical_id = ?;
+
+putRow:
+INSERT OR REPLACE INTO value_row(namespace, canonical_id, payload) VALUES (?, ?, ?);
+
+deleteRow:
+DELETE FROM value_row WHERE namespace = ? AND canonical_id = ?;
+
+deleteNamespace:
+DELETE FROM value_row WHERE namespace = ?;
+
+deleteAll:
+DELETE FROM value_row;

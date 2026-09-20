@@ -1,0 +1,131 @@
+CREATE TABLE cache_row (
+    namespace TEXT NOT NULL,
+    canonical_id TEXT NOT NULL,
+    payload BLOB NOT NULL,
+    PRIMARY KEY(namespace, canonical_id)
+);
+
+CREATE TABLE account_identity (
+    id INTEGER NOT NULL PRIMARY KEY CHECK(id = 1),
+    account TEXT NOT NULL,
+    installation_id TEXT NOT NULL
+);
+
+CREATE TABLE collection_row (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    position INTEGER NOT NULL
+);
+
+CREATE TABLE command_acceptance (
+    account TEXT NOT NULL,
+    command_id TEXT NOT NULL,
+    version INTEGER NOT NULL,
+    payload BLOB NOT NULL,
+    client_id TEXT NOT NULL,
+    client_sequence INTEGER NOT NULL,
+    mutation_id TEXT NOT NULL,
+    admitted_at INTEGER NOT NULL,
+    PRIMARY KEY(account, command_id)
+);
+
+CREATE TABLE backend_meta (
+    id INTEGER NOT NULL PRIMARY KEY CHECK(id = 1),
+    version INTEGER NOT NULL,
+    config TEXT NOT NULL,
+    seeded INTEGER NOT NULL,
+    applications INTEGER NOT NULL,
+    pushes INTEGER NOT NULL,
+    requests INTEGER NOT NULL,
+    rate_minute INTEGER NOT NULL,
+    rate_count INTEGER NOT NULL,
+    lose_ack INTEGER NOT NULL
+);
+
+CREATE TABLE backend_trail (id TEXT NOT NULL PRIMARY KEY, payload BLOB NOT NULL, position INTEGER NOT NULL);
+CREATE TABLE backend_saved (account TEXT NOT NULL, trail_id TEXT NOT NULL, payload BLOB NOT NULL, PRIMARY KEY(account, trail_id));
+CREATE TABLE backend_receipt (
+    account TEXT NOT NULL,
+    installation TEXT NOT NULL,
+    idempotency_key TEXT NOT NULL,
+    trail_id TEXT NOT NULL,
+    version INTEGER NOT NULL,
+    request BLOB NOT NULL,
+    result BLOB NOT NULL,
+    PRIMARY KEY(account, installation, idempotency_key)
+);
+CREATE TABLE backend_client (
+    account TEXT NOT NULL,
+    installation TEXT NOT NULL,
+    client_id TEXT NOT NULL,
+    retired_through INTEGER NOT NULL,
+    PRIMARY KEY(account, installation, client_id)
+);
+
+readCache:
+SELECT * FROM cache_row WHERE namespace = ? AND canonical_id = ?;
+writeCache:
+INSERT OR REPLACE INTO cache_row(namespace, canonical_id, payload) VALUES (?, ?, ?);
+deleteCache:
+DELETE FROM cache_row WHERE namespace = ? AND canonical_id = ?;
+deleteNamespace:
+DELETE FROM cache_row WHERE namespace = ?;
+deleteAllCache:
+DELETE FROM cache_row;
+allCache:
+SELECT * FROM cache_row WHERE namespace = ? ORDER BY canonical_id;
+
+initializeIdentity:
+INSERT OR IGNORE INTO account_identity(id, account, installation_id) VALUES (1, ?, ?);
+identity:
+SELECT * FROM account_identity WHERE id = 1;
+putCollection:
+INSERT OR IGNORE INTO collection_row(id, name, position) VALUES (?, ?, ?);
+collections:
+SELECT * FROM collection_row ORDER BY position;
+
+acceptance:
+SELECT * FROM command_acceptance WHERE account = ? AND command_id = ?;
+insertAcceptance:
+INSERT INTO command_acceptance(account, command_id, version, payload, client_id, client_sequence, mutation_id, admitted_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+acceptanceTrailIds:
+SELECT payload, version FROM command_acceptance WHERE account = ? ORDER BY admitted_at;
+
+initializeBackend:
+INSERT OR IGNORE INTO backend_meta(id, version, config, seeded, applications, pushes, requests, rate_minute, rate_count, lose_ack) VALUES (1, 1, ?, 0, 0, 0, 0, 0, 0, 0);
+backendMeta:
+SELECT * FROM backend_meta WHERE id = 1;
+setBackendConfig:
+UPDATE backend_meta SET config = ? WHERE id = 1;
+setSeeded:
+UPDATE backend_meta SET seeded = ? WHERE id = 1;
+deleteBackendTrails:
+DELETE FROM backend_trail;
+putBackendTrail:
+INSERT INTO backend_trail(id, payload, position) VALUES (?, ?, ?);
+backendTrails:
+SELECT * FROM backend_trail ORDER BY position;
+backendTrail:
+SELECT * FROM backend_trail WHERE id = ?;
+readBackendSaved:
+SELECT * FROM backend_saved WHERE account = ? AND trail_id = ?;
+writeBackendSaved:
+INSERT OR REPLACE INTO backend_saved(account, trail_id, payload) VALUES (?, ?, ?);
+readReceipt:
+SELECT * FROM backend_receipt WHERE account = ? AND installation = ? AND idempotency_key = ?;
+writeReceipt:
+INSERT INTO backend_receipt(account, installation, idempotency_key, trail_id, version, request, result) VALUES (?, ?, ?, ?, ?, ?, ?);
+receiptCount:
+SELECT count(*) FROM backend_receipt;
+incrementApplications:
+UPDATE backend_meta SET applications = applications + 1 WHERE id = 1;
+incrementPushes:
+UPDATE backend_meta SET pushes = pushes + 1 WHERE id = 1;
+recordRequest:
+UPDATE backend_meta SET requests = requests + 1, rate_minute = ?, rate_count = ? WHERE id = 1;
+setLoseAck:
+UPDATE backend_meta SET lose_ack = ? WHERE id = 1;
+initializeClient:
+INSERT OR IGNORE INTO backend_client(account, installation, client_id, retired_through) VALUES (?, ?, ?, 0);
+recordRetirement:
+UPDATE backend_client SET retired_through = max(retired_through, ?) WHERE account = ? AND installation = ? AND client_id = ?;

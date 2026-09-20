@@ -1,0 +1,146 @@
+{
+  "archiveSha256": "3084c9348495ce03f068048ebe14d31468e391fa080ea4615ccdf6f6ceaea0b9",
+  "captureStateDeclaredByCaller": "force-stopped",
+  "checkpoints": [
+    {
+      "accountSha256": "1359ac8ad57699ea0a92b9715edaa6cbb4c31355a884dd11ab9c212134a1d825",
+      "preferencesSha256": "beb8b4352ff3fd02a3c427c12bafaad9039a393c0b2c405fff725ebe18ba4e1a",
+      "checkpointSha256": "4fd9ba32590a7adfd03bc2ee60b47c50cdc006bdb1b2370c3ddeb5e266f55177",
+      "checkpoint": {
+        "version": 1,
+        "root": "EXPLORE",
+        "exploreRoutes": [
+          {
+            "name": "explore"
+          }
+        ],
+        "savedRoutes": [
+          {
+            "name": "saved"
+          }
+        ],
+        "text": "",
+        "query": {},
+        "allTrails": false,
+        "scroll": {}
+      }
+    },
+    {
+      "accountSha256": "1bc8e0cf572615e21441fecef1ef789269ce694dec1744a3bd0d48dd6ee5d0a4",
+      "preferencesSha256": "4a9039dea1ecf9259749cbd87c177ae6238c57f67f846bbbd4b5a54d1d30a8fd",
+      "checkpointSha256": "623595a972f9ab061d5bfc77c0f11b56761c3b5255b00aebdcbc5a372fb08149",
+      "checkpoint": {
+        "version": 1,
+        "root": "ACTIVITY",
+        "exploreRoutes": [
+          {
+            "name": "explore"
+          }
+        ],
+        "savedRoutes": [
+          {
+            "name": "saved"
+          }
+        ],
+        "forYouRoutes": [
+          {
+            "name": "foryou"
+          }
+        ],
+        "navigateRoutes": [
+          {
+            "name": "navigate"
+          }
+        ],
+        "activityRoutes": [
+          {
+            "name": "activity"
+          },
+          {
+            "name": "trail",
+            "id": "mount-takao-trail-1"
+          }
+        ],
+        "lastTrail": "mount-takao-trail-1",
+        "text": "",
+        "query": {},
+        "allTrails": false,
+        "scroll": {
+          "SAVED/trail:alpine-lake-loop": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:alpine-lake-loop": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:laugavegur-trail": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:mist-trail-to-nevada-fall": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:roys-peak": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:angels-landing": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:tongariro-alpine-crossing": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:tiger-s-nest": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:petra-monastery-trail": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:torres-del-paine-w-trek": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:half-dome": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:trolltunga": {
+            "index": 0,
+            "offset": 0
+          },
+          "SAVED/trail:half-dome": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:lac-blanc": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:samaria-gorge": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/trail:delicate-arch-trail": {
+            "index": 0,
+            "offset": 0
+          },
+          "EXPLORE/explore": {
+            "index": 0,
+            "offset": 0
+          },
+          "FOR_YOU/foryou": {
+            "index": 1,
+            "offset": 719
+          }
+        }
+      }
+    }
+  ],
+  "feeds": []
+}

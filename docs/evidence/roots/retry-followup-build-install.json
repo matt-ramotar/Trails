@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+  "apkSha256": "e972d12c10c33da12bf74b054122af5273b6120e5e31f2b379a81bc2841c3b83",
+  "apkBytes": 87952275,
+  "serial": "emulator-5554",
+  "adbServerPort": 5038,
+  "time": "2026-09-20T08:09:27.453457+00:00",
+  "preserveData": "install -r; no data clear or wipe",
+  "installResult": "Performing Streamed Install\nSuccess\n",
+  "installExitCode": 0,
+  "installedApkPath": "/data/app/~~gIfX5OvOUEfE6vU21yAuhw==/org.mobilenativefoundation.trails.android-O-eTR6WDcG4-glaZ7tDB9g==/base.apk",
+  "installedApkSha256": "e972d12c10c33da12bf74b054122af5273b6120e5e31f2b379a81bc2841c3b83",
+  "identityMethod": "pm path then device sha256sum; matches local SHA-256"
+}

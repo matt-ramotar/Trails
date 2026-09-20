@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.feat.savetrail.TrailSaveCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T05:39:44.439Z" hostname="Matts-MacBook-Pro.local" time="0.345">
+  <properties/>
+  <testcase name="cardShowsStructuredFactsHighlightAndHeartTarget[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.TrailSaveCardTest" time="0.345"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

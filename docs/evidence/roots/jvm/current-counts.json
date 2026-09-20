@@ -1,0 +1,145 @@
+[
+  {
+    "module": ":multiplatform:foundation:designsystem",
+    "suites": 6,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/foundation-designsystem"
+  },
+  {
+    "module": ":multiplatform:data:trail:impl",
+    "suites": 10,
+    "tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/data-trail-impl"
+  },
+  {
+    "module": ":multiplatform:feat:savetrail:impl",
+    "suites": 5,
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/feat-savetrail-impl"
+  },
+  {
+    "module": ":multiplatform:feat:filters:impl",
+    "suites": 1,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/feat-filters-impl"
+  },
+  {
+    "module": ":multiplatform:screen:explore:impl",
+    "suites": 2,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/screen-explore-impl"
+  },
+  {
+    "module": ":multiplatform:screen:traildetail:impl",
+    "suites": 1,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/screen-traildetail-impl"
+  },
+  {
+    "module": ":multiplatform:screen:saved:impl",
+    "suites": 1,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/screen-saved-impl"
+  },
+  {
+    "module": ":multiplatform:screen:navigate:impl",
+    "suites": 2,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/screen-navigate-impl"
+  },
+  {
+    "module": ":multiplatform:screen:activity:impl",
+    "suites": 5,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "a3df23f0f3367052e1ef5f53740d3c43f8bb4dfb",
+    "execution": "fresh Activity gate after test-only logger correction",
+    "xmlDirectory": "retry-followup/logger-runtime/screen-activity-impl"
+  },
+  {
+    "module": ":multiplatform:screen:foryou:impl",
+    "suites": 2,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/screen-foryou-impl"
+  },
+  {
+    "module": ":multiplatform:di:graph:active",
+    "suites": 1,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/di-graph-active"
+  },
+  {
+    "module": ":multiplatform:app:bootstrap:impl",
+    "suites": 1,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/app-bootstrap-impl"
+  },
+  {
+    "module": ":multiplatform:app:core",
+    "suites": 3,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+    "execution": "fresh authorized retry-followup whole gate",
+    "xmlDirectory": "retry-followup/full/app-core"
+  }
+]
