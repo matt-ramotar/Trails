@@ -19,7 +19,7 @@ pluginManagement {
 // Only immutable, hash-verified local publications may provide the M1 dependencies.
 val candidateDirectory = file("integration-tests/store6-consumer")
 val candidateCheck = providers.exec {
-    commandLine("python3", File(candidateDirectory, "prepare.py").absolutePath, "--check-candidate")
+    commandLine("python3", File(candidateDirectory, "prepare.py").absolutePath, "--check-candidate", "--trails-targets")
     workingDir(candidateDirectory)
     isIgnoreExitValue = true
 }

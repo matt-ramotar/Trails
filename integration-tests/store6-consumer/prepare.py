@@ -35,20 +35,36 @@ def check_source(path, revision):
     return {"path": str(path), "revision": revision, "tree": git(path, "rev-parse", "HEAD^{tree}"), "clean": True}
 
 
-def artifact_files(repository, group, artifact, version):
-    results = []
-    for suffix in ("", "-jvm", "-android"):
+def artifact_paths(group, artifact, version, trails_targets=False):
+    # The standalone C3 fixture consumes JVM/Android; the app also resolves iOS and JS.
+    publications = [("", "jar"), ("-jvm", "jar"), ("-android", "aar")]
+    if trails_targets:
+        publications += [("-iosarm64", "klib"), ("-iossimulatorarm64", "klib"),
+                         ("-iosx64", "klib"), ("-js", "klib")]
+    for suffix, binary in publications:
         module = artifact + suffix
-        directory = repository / group.replace(".", "/") / module / version
-        expected = [directory / f"{module}-{version}.pom", directory / f"{module}-{version}.module"]
+        directory = Path(group.replace(".", "/")) / module / version
         # The root KMP publication carries common metadata in its own JAR.
-        expected += [directory / f"{module}-{version}{'.aar' if suffix == '-android' else '.jar'}"]
-        for file in expected:
-            if not file.is_file():
-                raise ValueError(f"Required consumer artifact is absent: {file}")
-            if repository not in file.resolve().parents:
-                raise ValueError(f"Artifact resolves outside the isolated repository: {file}")
-            results.append({"path": str(file.relative_to(repository)), "sha256": hashlib.sha256(file.read_bytes()).hexdigest()})
+        for extension in ("pom", "module", binary):
+            yield directory / f"{module}-{version}.{extension}"
+
+
+def consumer_modules(atom_version):
+    for module in ("core", "sqldelight", "mutations", "mutations-sqldelight"):
+        yield "org.mobilenativefoundation.store", module, "6.0.0-SNAPSHOT"
+    for module in ("core", "compose"):
+        yield "dev.mattramotar.atom", module, atom_version
+
+
+def artifact_files(repository, group, artifact, version, trails_targets=False):
+    results = []
+    for relative in artifact_paths(group, artifact, version, trails_targets):
+        file = repository / relative
+        if not file.is_file():
+            raise ValueError(f"Required consumer artifact is absent: {file}")
+        if repository not in file.resolve().parents:
+            raise ValueError(f"Artifact resolves outside the isolated repository: {file}")
+        results.append({"path": str(relative), "sha256": digest(file)})
     return results
 
 
@@ -82,7 +98,7 @@ def verify_recorded_handoff(path, revision, version):
             "guarantee": "Coordinator-recorded handoff consistency only; owner approval and evidence review remain human/coordinator responsibilities."}
 
 
-def check_candidate():
+def check_candidate(trails_targets=False):
     candidate_path = ROOT / "candidate.properties"
     properties = dict(line.split("=", 1) for line in candidate_path.read_text().splitlines() if line)
     manifest_path = Path(properties["manifestPath"]).resolve(strict=True)
@@ -105,6 +121,12 @@ def check_candidate():
     repository = Path(record["isolated_repository"]).resolve(strict=True)
     if not record["artifact_files"]:
         raise ValueError("No artifact bytes were recorded.")
+    if trails_targets:
+        recorded_paths = {artifact["path"] for artifact in record["artifact_files"]}
+        for group, module, version in consumer_modules(record["atom_version"]):
+            for required in artifact_paths(group, module, version, trails_targets=True):
+                if str(required) not in recorded_paths:
+                    raise ValueError(f"Required Trails artifact was not recorded: {required}. Prepare again with --trails-targets.")
     for artifact in record["artifact_files"]:
         path = (repository / artifact["path"]).resolve(strict=True)
         if repository not in path.parents or digest(path) != artifact["sha256"]:
@@ -114,13 +136,17 @@ def check_candidate():
 
 def main(argv=None):
     arguments = sys.argv[1:] if argv is None else argv
-    if arguments == ["--check-candidate"]:
-        check_candidate()
+    parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
+    parser.add_argument("--check-candidate", action="store_true", help="Verify the recorded candidate without changing it.")
+    parser.add_argument("--trails-targets", action="store_true", help="Require iOS and JS publications in addition to the JVM/Android fixture.")
+    if "--check-candidate" in arguments:
+        # Parse only verification flags so invalid checks cannot revoke or rewrite a candidate.
+        args = parser.parse_args(arguments)
+        check_candidate(trails_targets=args.trails_targets)
         return
     # An invalid invocation or a source-only recheck must not leave an older candidate usable.
     if "--help" not in arguments and "-h" not in arguments:
         (ROOT / "candidate.properties").unlink(missing_ok=True)
-    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--store6-source", required=True, type=Path)
     parser.add_argument("--atom-source", required=True, type=Path)
     parser.add_argument("--atom-revision", required=True)
@@ -149,10 +175,8 @@ def main(argv=None):
     record = {"recorded_utc": datetime.now(timezone.utc).isoformat(), "status": "SOURCES_VERIFIED_ONLY", "sources": sources,
               "isolated_repository": str(repository), "atom_version": args.atom_version, "owner_handoff": handoff, "artifact_files": [], "gradle_executed_by_this_script": False}
     if args.verify_artifacts:
-        for module in ("core", "sqldelight", "mutations", "mutations-sqldelight"):
-            record["artifact_files"] += artifact_files(repository, "org.mobilenativefoundation.store", module, "6.0.0-SNAPSHOT")
-        for module in ("core", "compose"):
-            record["artifact_files"] += artifact_files(repository, "dev.mattramotar.atom", module, args.atom_version)
+        for group, module, version in consumer_modules(args.atom_version):
+            record["artifact_files"] += artifact_files(repository, group, module, version, args.trails_targets)
         record["status"] = "SOURCE_AND_ARTIFACT_FILES_VERIFIED_CONSUMER_UNEXECUTED"
     output = ROOT / "build" / "preparation"
     output.mkdir(parents=True, exist_ok=True)
