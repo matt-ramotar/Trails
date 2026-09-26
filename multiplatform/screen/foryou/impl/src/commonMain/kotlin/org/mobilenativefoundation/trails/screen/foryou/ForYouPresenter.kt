@@ -1,5 +1,6 @@
 package org.mobilenativefoundation.trails.screen.foryou
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.zacsweers.metro.Inject
@@ -8,16 +9,20 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
+import org.mobilenativefoundation.trails.data.trail.recommendation.ForYouRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
 
 @Inject
 class ForYouPresenter(
     private val feed: ForYouRepository,
     private val trails: TrailRepository,
     private val savedRepository: SavedRepository,
-    private val navigation: M1Navigation,
+    private val navigation: AppNavigation,
     private val saves: SaveTrailFeature,
 ) : Presenter<ForYouState> {
     @Composable

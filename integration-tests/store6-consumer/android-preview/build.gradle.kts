@@ -10,11 +10,12 @@ android {
     namespace = "org.mobilenativefoundation.trails.integration.preview"
     compileSdk = 36
     defaultConfig {
+        // Retain the installed fixture identity for update compatibility.
         applicationId = "org.mobilenativefoundation.trails.c3"
         minSdk = 31
         targetSdk = 35
         versionCode = 1
-        versionName = "c3-unverified"
+        versionName = "consumer-fixture"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

@@ -1,22 +1,25 @@
 package org.mobilenativefoundation.trails.screen.traildetail
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
-import org.mobilenativefoundation.trails.screen.explore.M1ScrollPosition
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
+import org.mobilenativefoundation.trails.app.navigation.ScrollPosition
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
 
 @Inject
 class TrailDetailPresenter(
     private val screen: TrailDetailScreen,
     private val repository: TrailRepository,
     private val savedRepository: SavedRepository,
-    private val navigation: M1Navigation,
+    private val navigation: AppNavigation,
     private val saves: SaveTrailFeature,
 ) : Presenter<TrailDetailState> {
     @Composable
@@ -34,7 +37,7 @@ class TrailDetailPresenter(
         var error by remember { mutableStateOf<String?>(null) }
         return TrailDetailState(trail.copy(loading = trail.loading || refreshing, error = error ?: trail.error), saved, navigation.scrollPosition(viewKey).offset) { intent ->
             when (intent) {
-                is TrailDetailIntent.ScrollChanged -> navigation.checkpointScroll(viewKey, M1ScrollPosition(offset = intent.offset))
+                is TrailDetailIntent.ScrollChanged -> navigation.checkpointScroll(viewKey, ScrollPosition(offset = intent.offset))
                 TrailDetailIntent.Back -> navigation.back()
                 is TrailDetailIntent.Save -> trail.data?.let { saves.open(it, intent.onDismiss) }
                 TrailDetailIntent.OpenSaved -> navigation.selectSaved()

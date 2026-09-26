@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.foundation.designsystem.component.DifficultyMarkerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:06.249Z" hostname="Matts-MacBook-Pro.local" time="1.713">
-  <properties/>
-  <testcase name="eachKindMapsToItsR2Colour[jvm]" classname="org.mobilenativefoundation.trails.foundation.designsystem.component.DifficultyMarkerTest" time="1.713"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

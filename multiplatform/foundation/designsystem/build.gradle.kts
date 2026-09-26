@@ -1,6 +1,6 @@
 plugins {
     id("plugin.trails.kotlin.android.library")
-    id("plugin.trails.feature")
+    id("plugin.trails.compose")
 }
 
 kotlin {
@@ -12,9 +12,6 @@ kotlin {
                 implementation(compose.material3)
                 implementation(compose.components.resources)
                 implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.coil.compose)
-                implementation(projects.multiplatform.foundation.networking)
-                implementation(libs.coil.network.ktor3)
             }
         }
 

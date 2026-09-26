@@ -1,5 +1,8 @@
 package org.mobilenativefoundation.trails.screen.explore
 
+import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.ui.trail.*
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
@@ -25,15 +28,14 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.data.trail.TrailQuery
-import org.mobilenativefoundation.trails.data.trail.TrailSort
-import org.mobilenativefoundation.trails.feat.filters.FilterSection
-import org.mobilenativefoundation.trails.feat.savetrail.*
-import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailSort
+import org.mobilenativefoundation.trails.feature.filters.FilterSection
+import org.mobilenativefoundation.trails.feature.savetrail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.icon.Icons
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
 
-fun TrailSort.displayName(): String = when (this) {
+internal fun TrailSort.displayName(): String = when (this) {
     TrailSort.MOST_POPULAR -> "Most popular"
     TrailSort.HIGHEST_RATED -> "Highest rated"
     TrailSort.SHORTEST -> "Shortest"
@@ -48,7 +50,7 @@ class ExploreUi : Ui<ExploreState> {
         val typography = TrailsTheme.typography
         val keyboard = LocalSoftwareKeyboardController.current
         val scroll = rememberCheckpointedListState(state.initialScroll.index, state.initialScroll.offset, state.results.data != null) { index, offset ->
-            state.send(ExploreIntent.ScrollChanged(M1ScrollPosition(index, offset)))
+            state.send(ExploreIntent.ScrollChanged(ScrollPosition(index, offset)))
         }
         val queryIdentity = state.query.toString()
         var displayedQuery by rememberSaveable { mutableStateOf(queryIdentity) }
@@ -61,7 +63,7 @@ class ExploreUi : Ui<ExploreState> {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             item(key = "search") {
-                TrailsM1SearchField(state.text, { state.send(ExploreIntent.QueryChanged(it)) }, {
+                TrailsSearchField(state.text, { state.send(ExploreIntent.QueryChanged(it)) }, {
                     state.send(ExploreIntent.SubmitSearch); keyboard?.hide()
                 }, modifier = Modifier.fillMaxWidth())
             }
@@ -70,14 +72,14 @@ class ExploreUi : Ui<ExploreState> {
                 fun open(section: FilterSection) { keyboard?.hide(); state.send(ExploreIntent.Filters(section, filtersFocus::restore)) }
                 Column {
                     Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        TrailsM1Chip(
+                        TrailsFilterChip(
                             "All", selected = false, onClick = { open(FilterSection.ALL) },
                             modifier = filtersFocus.modifier.semantics { contentDescription = "Filters" },
                             leadingIcon = { Icon(Icons.Outlined.FilterHorizontal.painter, contentDescription = null, Modifier.size(16.dp), tint = colors.textPrimary) },
                         )
-                        TrailsM1Chip("Difficulty ⌄", state.query.difficulties.isNotEmpty(), { open(FilterSection.DIFFICULTY) })
-                        TrailsM1Chip("Length ⌄", state.query.minMeters > 0 || state.query.maxMeters != null, { open(FilterSection.LENGTH) })
-                        TrailsM1Chip("Elevation gain ⌄", state.query.minElevationGain > 0 || state.query.maxElevationGain != null, { open(FilterSection.ELEVATION) })
+                        TrailsFilterChip("Difficulty ⌄", state.query.difficulties.isNotEmpty(), { open(FilterSection.DIFFICULTY) })
+                        TrailsFilterChip("Length ⌄", state.query.minMeters > 0 || state.query.maxMeters != null, { open(FilterSection.LENGTH) })
+                        TrailsFilterChip("Elevation gain ⌄", state.query.minElevationGain > 0 || state.query.maxElevationGain != null, { open(FilterSection.ELEVATION) })
                     }
                     appliedSummary(state.query)?.let {
                         Text(it, style = typography.labelSmall, color = colors.textSecondary, modifier = Modifier.padding(top = 8.dp))
@@ -85,7 +87,7 @@ class ExploreUi : Ui<ExploreState> {
                 }
             }
             val trails = state.results.data
-            if (state.results.loading) item(key = "loading") { M1Loading(if (trails == null) "Finding trails…" else "Refreshing trails…") }
+            if (state.results.loading) item(key = "loading") { TrailsLoading(if (trails == null) "Finding trails…" else "Refreshing trails…") }
             if (state.results.error != null) item(key = "error") {
                 TrailsStatusLine(
                     if (trails != null) StatusKind.FAILED else if (state.results.offline) StatusKind.OFFLINE else StatusKind.FAILED,
@@ -99,7 +101,7 @@ class ExploreUi : Ui<ExploreState> {
             if (trails != null) {
                 if (trails.isEmpty()) item(key = "empty") {
                     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                        M1Heading("No trails match yet")
+                        TrailsHeading("No trails match yet")
                         Text("Try a wider length or fewer filters.", style = typography.bodyLarge, color = colors.textSecondary)
                         TrailsButton("Clear filters", { state.send(ExploreIntent.ClearFilters) }, tone = ButtonTone.Commit, modifier = Modifier.fillMaxWidth())
                     }

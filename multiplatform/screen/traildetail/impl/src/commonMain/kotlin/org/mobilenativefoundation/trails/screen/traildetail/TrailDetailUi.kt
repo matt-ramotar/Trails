@@ -1,5 +1,7 @@
 package org.mobilenativefoundation.trails.screen.traildetail
 
+import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.ui.trail.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -21,10 +23,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.data.trail.Trail
-import org.mobilenativefoundation.trails.data.trail.TrailFeature
-import org.mobilenativefoundation.trails.feat.savetrail.*
-import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.feature.savetrail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.icon.Icons
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
 
@@ -45,9 +46,9 @@ class TrailDetailUi : Ui<TrailDetailState> {
                 if (trail == null) {
                     Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(20.dp)) {
                         TrailsIconCircle(Icons.Outlined.ArrowLeft.painter, "Back", { state.send(TrailDetailIntent.Back) })
-                        if (state.trail.loading) M1Loading("Opening this trail…")
+                        if (state.trail.loading) TrailsLoading("Opening this trail…")
                         else {
-                            M1Heading("Trail unavailable")
+                            TrailsHeading("Trail unavailable")
                             TrailsStatusLine(StatusKind.FAILED, if (state.trail.offline) "Not on this device yet" else "Couldn’t open this trail")
                             TrailsButton("Try again", { state.send(TrailDetailIntent.Retry) }, tone = ButtonTone.Commit, modifier = Modifier.fillMaxWidth())
                         }
@@ -65,7 +66,7 @@ class TrailDetailUi : Ui<TrailDetailState> {
                         ) {
                             Text(trail.name, style = typography.headlineLarge, color = colors.textPrimary, modifier = Modifier.semantics { heading() })
                             TrailFactsRow(trail, trailing = trail.region)
-                            if (state.trail.loading) M1Loading("Refreshing trail details…")
+                            if (state.trail.loading) TrailsLoading("Refreshing trail details…")
                             if (state.trail.error != null) TrailsStatusLine(StatusKind.FAILED, "Couldn’t refresh · Showing this device’s copy", actionLabel = if (state.trail.loading) null else "Try again", onAction = { state.send(TrailDetailIntent.Retry) })
                             TrailSyncNotice(snapshot?.syncByTrail?.get(trail.id), snapshot?.offline == true, snapshot?.syncing == true, { state.send(TrailDetailIntent.RetrySync) })
                             TrailFacts(trail)

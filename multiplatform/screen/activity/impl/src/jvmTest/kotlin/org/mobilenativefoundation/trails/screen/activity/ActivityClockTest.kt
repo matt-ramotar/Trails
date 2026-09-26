@@ -19,7 +19,7 @@ import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.datetime.TimeZone
-import org.mobilenativefoundation.trails.data.trail.CompletedActivity
+import org.mobilenativefoundation.trails.data.trail.activity.CompletedActivity
 
 class ActivityClockTest {
     private val zone = TimeZone.of("Europe/Madrid")

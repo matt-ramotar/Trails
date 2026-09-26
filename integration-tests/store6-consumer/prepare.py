@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify clean source handoff and record the explicitly isolated C3 dependency artifacts.
+"""Verify clean source handoff and record the isolated dependency artifacts.
 
 Does not clone, publish, invoke Gradle, or accept the dirty application/library checkout.
 The build runner must retain producer logs and execute the consumer gate separately.
@@ -36,7 +36,7 @@ def check_source(path, revision):
 
 
 def artifact_paths(group, artifact, version, trails_targets=False):
-    # The standalone C3 fixture consumes JVM/Android; the app also resolves iOS and JS.
+    # The standalone fixture consumes JVM/Android; the app also resolves iOS and JS.
     publications = [("", "jar"), ("-jvm", "jar"), ("-android", "aar")]
     if trails_targets:
         publications += [("-iosarm64", "klib"), ("-iossimulatorarm64", "klib"),
@@ -76,7 +76,7 @@ def verify_recorded_handoff(path, revision, version):
     path = path.resolve(strict=True)
     record = json.loads(path.read_text())
     if record.get("status") != "READY_FOR_C3_SOURCE_CONSUMPTION" or record.get("build_lease_released") is not True:
-        raise ValueError("The coordinator must record the owner's C3 handoff and released build lease.")
+        raise ValueError("The recorded dependency handoff must include source approval and a released build lease.")
     if record.get("revision") != revision or record.get("version") != version:
         raise ValueError("The recorded owner handoff does not match the candidate revision/version.")
     if not record.get("owner_thread_id") or not record.get("received_at_utc"):
@@ -93,9 +93,9 @@ def verify_recorded_handoff(path, revision, version):
         if not reference.is_file() or digest(reference) != item.get("sha256"):
             raise ValueError(f"Owner handoff evidence is absent or changed: {reference}")
         referenced.append({"path": str(reference), "sha256": item["sha256"]})
-    # This validates a coordinator record and its bytes, not the author's identity or test quality.
+    # This validates the recorded handoff and its bytes, not authorship or test quality.
     return {"path": str(path), "sha256": digest(path), "referenced_files": referenced,
-            "guarantee": "Coordinator-recorded handoff consistency only; owner approval and evidence review remain human/coordinator responsibilities."}
+            "guarantee": "Recorded handoff consistency only; source approval and evidence review require human verification."}
 
 
 def check_candidate(trails_targets=False):

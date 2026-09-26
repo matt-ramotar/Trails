@@ -1,5 +1,6 @@
 package org.mobilenativefoundation.trails.screen.welcome
 
+import org.mobilenativefoundation.trails.ui.trail.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,10 +28,10 @@ import androidx.compose.ui.semantics.semantics
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.ContributesBinding
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailPhoto
-import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailPhotoCredit
+import org.mobilenativefoundation.trails.ui.trail.TrailPhoto
+import org.mobilenativefoundation.trails.ui.trail.TrailPhotoCredit
 import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsBrand
-import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsM1Button
+import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsControlsButton
 import org.mobilenativefoundation.trails.foundation.designsystem.component.StatusKind
 import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsStatusLine
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
@@ -87,7 +88,7 @@ class WelcomeUi : Ui<WelcomeState> {
                         modifier = Modifier.semantics(mergeDescendants = true) { liveRegion = LiveRegionMode.Polite },
                     )
                 }
-                TrailsM1Button(
+                TrailsControlsButton(
                     text = when {
                         state.isLoading -> "Opening sample trails…"
                         state.error != null -> "Try again"

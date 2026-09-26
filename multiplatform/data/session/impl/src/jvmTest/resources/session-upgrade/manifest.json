@@ -1,0 +1,15 @@
+{
+    "producerRevision": "f096775268af503c509da32fc7f5c21ef127a137",
+    "producer": "Store5 UserStoreFactory and existing TrailsDatabase.Schema",
+    "schemaVersion": 2,
+    "rowId": "current",
+    "files": {
+        "active.db": "56b8123063ee9dad23c95377ea1c0a7dd29ad92c424057917b8f2d52aa2f0711",
+        "active.json": "f37d92fcf84cad8225799ae996e19b0e84f4096479b929cce1761a12cb9a48d8",
+        "empty.db": "26c60cd8d90223f8e11d02eef4559188f580a42caf0c2beec6bc16387615bc5b",
+        "inactive.db": "7b7b24172e3cc9cd0c9ea8a649f5b5def0fe4215bbc070a0e3b8a79c1ef8460b",
+        "inactive.json": "02cb55734bb4bcd2af0d22b1935768aede94ae1c07392e62e2af12a4421c3d63",
+        "logged-out.db": "8fb80dfec9f830215e3125f75ceff1697c46beb2ffe20c0ed5a0c7ec5eb67b93",
+        "logged-out.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+}

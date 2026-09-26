@@ -1,5 +1,5 @@
 plugins {
-    id("plugin.trails.feature")
+    id("plugin.trails.circuit")
 }
 
 kotlin {
@@ -11,8 +11,9 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.androidx.lifecycle.runtimeCompose)
-                implementation(projects.multiplatform.feat.savetrail.api)
-                implementation(projects.multiplatform.feat.savetrail.impl)
+                implementation(projects.multiplatform.feature.savetrail.api)
+                implementation(projects.multiplatform.ui.trail)
+                implementation(projects.multiplatform.feature.developertools.api)
             }
         }
 
@@ -21,7 +22,7 @@ kotlin {
                 implementation(compose.desktop.uiTestJUnit4)
                 implementation(projects.multiplatform.data.trail.impl)
                 runtimeOnly(compose.desktop.currentOs)
-                // Match the SLF4J API already selected by the JVM test runtime (Ktor).
+                // Capture JDBC diagnostics from the JVM test runtime.
                 runtimeOnly("org.slf4j:slf4j-simple:2.0.17")
             }
         }

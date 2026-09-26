@@ -1,5 +1,8 @@
 package org.mobilenativefoundation.trails.screen.activity
 
+import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.ui.trail.*
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,11 +28,10 @@ import androidx.compose.ui.unit.sp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
 import kotlinx.datetime.TimeZone
-import org.mobilenativefoundation.trails.data.trail.CompletedActivity
-import org.mobilenativefoundation.trails.feat.savetrail.*
-import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.data.trail.activity.CompletedActivity
+import org.mobilenativefoundation.trails.feature.savetrail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
-import org.mobilenativefoundation.trails.screen.explore.M1ScrollPosition
+import org.mobilenativefoundation.trails.app.navigation.ScrollPosition
 
 @Inject
 class ActivityUi : Ui<ActivityState> {
@@ -41,7 +43,7 @@ class ActivityUi : Ui<ActivityState> {
         val zone = TimeZone.currentSystemDefault()
         val history = state.history.data
         val scroll = rememberCheckpointedListState(state.initialScroll.index, state.initialScroll.offset, history != null) { index, offset ->
-            state.send(ActivityIntent.ScrollChanged(M1ScrollPosition(index, offset)))
+            state.send(ActivityIntent.ScrollChanged(ScrollPosition(index, offset)))
         }
         LazyColumn(
             modifier.fillMaxSize().background(colors.background).semantics { paneTitle = "Activity" }, state = scroll,
@@ -53,7 +55,7 @@ class ActivityUi : Ui<ActivityState> {
                     Text("A little progress. A lot of fresh air.", style = typography.bodyLarge, color = colors.textSecondary)
                 }
             }
-            if (history == null && state.history.loading) item(key = "loading") { M1Loading("Opening your activity…") }
+            if (history == null && state.history.loading) item(key = "loading") { TrailsLoading("Opening your activity…") }
             if (history == null && !state.history.loading) item(key = "unavailable") {
                 TrailsStatusLine(
                     if (state.history.offline) StatusKind.OFFLINE else StatusKind.FAILED,

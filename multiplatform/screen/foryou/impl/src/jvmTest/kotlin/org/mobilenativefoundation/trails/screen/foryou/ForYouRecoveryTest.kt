@@ -1,5 +1,6 @@
 package org.mobilenativefoundation.trails.screen.foryou
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
@@ -13,11 +14,22 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
-import org.mobilenativefoundation.trails.screen.explore.M1ScrollPosition
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
+import org.mobilenativefoundation.trails.app.navigation.ScrollPosition
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
+import org.mobilenativefoundation.trails.data.trail.recommendation.ForYouFeed
+import org.mobilenativefoundation.trails.data.trail.recommendation.ForYouRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SaveOutcome
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
+import org.mobilenativefoundation.trails.data.trail.saved.SetCollectionsCommand
 
 @OptIn(ExperimentalTestApi::class)
 class ForYouRecoveryTest {
@@ -29,7 +41,7 @@ class ForYouRecoveryTest {
         val rows = (0..23).map { trail.copy(id = "row-$it", name = "Recommendation $it") }
         val repository = TestFeed(LoadState(feed.copy(recommendedTrailIds = rows.map { it.id }), loading = false))
         val catalog = TestCatalog(LoadState(), rows + trail)
-        val checkpoint = M1ScrollPosition(12, 17)
+        val checkpoint = ScrollPosition(12, 17)
         val navigation = TestNavigation(checkpoint)
         val presenter = ForYouPresenter(repository, catalog, TestSaved(), navigation, TestSaves())
         var latest: ForYouState? = null
@@ -108,11 +120,11 @@ class ForYouRecoveryTest {
         override suspend fun retryPending() = Unit
     }
 
-    private class TestNavigation(private val initial: M1ScrollPosition = M1ScrollPosition()) : M1Navigation {
-        val checkpoints = mutableListOf<M1ScrollPosition>()
+    private class TestNavigation(private val initial: ScrollPosition = ScrollPosition()) : AppNavigation {
+        val checkpoints = mutableListOf<ScrollPosition>()
         val opened = mutableListOf<String>()
-        override fun scrollPosition(key: String): M1ScrollPosition { assertEquals("FOR_YOU/foryou", key); return initial }
-        override fun checkpointScroll(key: String, position: M1ScrollPosition) { assertEquals("FOR_YOU/foryou", key); checkpoints += position }
+        override fun scrollPosition(key: String): ScrollPosition { assertEquals("FOR_YOU/foryou", key); return initial }
+        override fun checkpointScroll(key: String, position: ScrollPosition) { assertEquals("FOR_YOU/foryou", key); checkpoints += position }
         override fun openTrail(trailId: String) { opened += trailId }
         override fun selectExplore() = Unit
         override fun selectSaved(collectionId: String?) = Unit

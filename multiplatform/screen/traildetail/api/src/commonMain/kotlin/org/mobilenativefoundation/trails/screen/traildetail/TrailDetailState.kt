@@ -2,7 +2,9 @@ package org.mobilenativefoundation.trails.screen.traildetail
 
 import com.slack.circuit.runtime.CircuitUiEvent
 import com.slack.circuit.runtime.CircuitUiState
-import org.mobilenativefoundation.trails.data.trail.*
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
 
 data class TrailDetailState(
     val trail: LoadState<Trail>,

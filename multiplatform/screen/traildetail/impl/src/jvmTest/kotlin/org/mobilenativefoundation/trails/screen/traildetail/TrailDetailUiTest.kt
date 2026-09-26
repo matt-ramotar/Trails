@@ -8,8 +8,11 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.runDesktopComposeUiTest
 import kotlin.test.Test
-import org.mobilenativefoundation.trails.data.trail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
 
 @OptIn(ExperimentalTestApi::class)
 class TrailDetailUiTest {
@@ -19,7 +22,7 @@ class TrailDetailUiTest {
     )
 
     @Test
-    fun factsUseR2LabelsAndShowMoreExpandsTheDescription() = runDesktopComposeUiTest {
+    fun factsShowTrailMeasurementsAndExpandableDescription() = runDesktopComposeUiTest {
         val state = TrailDetailState(trail = LoadState(trail, loading = false), saved = LoadState(loading = false)) {}
         setContent { TrailsTheme { TrailDetailUi().Content(state, Modifier) } }
         onNodeWithText("Elev. gain").assertIsDisplayed()

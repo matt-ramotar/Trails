@@ -1,5 +1,6 @@
 package org.mobilenativefoundation.trails.screen.navigate
 
+import org.mobilenativefoundation.trails.ui.trail.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -20,8 +21,8 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.data.trail.TrailFeature
-import org.mobilenativefoundation.trails.feat.savetrail.M1Loading
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsLoading
 import org.mobilenativefoundation.trails.foundation.designsystem.component.*
 import org.mobilenativefoundation.trails.foundation.designsystem.icon.Icons
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
@@ -40,7 +41,7 @@ class NavigateUi : Ui<NavigateState> {
             Column(Modifier.fillMaxWidth().padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 when {
                     trail != null -> TrailNamePill(trail.name) { state.send(NavigateIntent.OpenTrail) }
-                    state.trail.loading -> M1Loading("Finding your trail…")
+                    state.trail.loading -> TrailsLoading("Finding your trail…")
                     else -> TrailsStatusLine(
                         StatusKind.FAILED, if (state.trail.offline) "Not on this device yet" else "Couldn’t load this trail",
                         actionLabel = "Try again", onAction = { state.send(NavigateIntent.Retry) },

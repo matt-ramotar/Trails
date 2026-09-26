@@ -5,12 +5,12 @@ import org.gradle.api.artifacts.component.ModuleComponentIdentifier
 import org.gradle.api.artifacts.result.UnresolvedDependencyResult
 
 // Run from the Trails root with --no-configuration-cache:
-// ./gradlew -I integration-tests/store6-consumer/verify-ide-sync.init.gradle verifyC3SyncDependencies
+// ./gradlew -I integration-tests/store6-consumer/verify-ide-sync.init.gradle verifyDependencySync
 // KGP 2.3.20's resolveIdeDependencies task reports unresolved entries without failing.
 // Use its IDE resolver, collect every failure, then fail the verification explicitly.
 gradle.projectsEvaluated {
     def root = gradle.rootProject
-    root.tasks.register('verifyC3SyncDependencies') { task ->
+    root.tasks.register('verifyDependencySync') { task ->
         group = 'verification'
         description = 'Resolve every KMP IDE source set and Android compile dependency graph.'
         notCompatibleWithConfigurationCache('Diagnostic task inspects configured KMP projects.')
@@ -22,7 +22,7 @@ gradle.projectsEvaluated {
                     'org.jetbrains.kotlin.gradle.plugin.ide.IdeMultiplatformImport')
                 def importer = api.getMethod('instance', Project).invoke(null, p)
                 // Resolver prerequisites use task.project, so each must belong to its KMP project.
-                def prerequisites = p.tasks.register('prepareC3IdeResolution') { prerequisite ->
+                def prerequisites = p.tasks.register('prepareIdeResolution') { prerequisite ->
                     importer.addDependencyOnResolvers(prerequisite)
                 }
                 task.dependsOn(prerequisites)

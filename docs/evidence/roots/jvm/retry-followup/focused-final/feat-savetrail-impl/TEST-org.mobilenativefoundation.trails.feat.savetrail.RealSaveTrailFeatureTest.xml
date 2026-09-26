@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.feat.savetrail.RealSaveTrailFeatureTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:06:26.359Z" hostname="Matts-MacBook-Pro.local" time="2.791">
-  <properties/>
-  <testcase name="savingTwoCollectionsCountsThemInTheToast[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.RealSaveTrailFeatureTest" time="2.512"/>
-  <testcase name="savingOneCollectionNamesItInTheToastAndClosesTheSheet[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.RealSaveTrailFeatureTest" time="0.279"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

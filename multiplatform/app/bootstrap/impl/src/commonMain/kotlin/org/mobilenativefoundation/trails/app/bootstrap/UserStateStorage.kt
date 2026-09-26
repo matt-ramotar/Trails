@@ -1,3 +1,0 @@
-package org.mobilenativefoundation.trails.app.bootstrap
-
-interface UserStateStorage

@@ -1,5 +1,5 @@
 plugins {
-    id("plugin.trails.feature")
+    id("plugin.trails.circuit")
 }
 
 kotlin {
@@ -7,8 +7,8 @@ kotlin {
         commonMain {
             dependencies {
                 api(projects.multiplatform.data.trail.api)
-                api(projects.multiplatform.di.scope)
-                implementation(projects.multiplatform.feat.filters.api)
+                api(projects.multiplatform.app.navigation.api)
+                api(projects.multiplatform.feature.filters.api)
             }
         }
     }

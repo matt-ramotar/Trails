@@ -18,7 +18,7 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
             apply("org.jetbrains.kotlinx.kover")
         }
 
-        version = libs.findVersion("chat")
+        version = libs.findVersion("trails")
 
         extensions.configure<KotlinMultiplatformExtension> {
             applyDefaultHierarchyTemplate()
@@ -35,6 +35,11 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
 
             js {
                 browser()
+                compilerOptions {
+                    // Metro reads the compiler flag independently of Gradle's JS IC task settings.
+                    // Pin it to false for Kotlin 2.3.20 (KT-82395, KT-82989).
+                    freeCompilerArgs.add("-Xenable-incremental-compilation=false")
+                }
             }
 
             targets.all {

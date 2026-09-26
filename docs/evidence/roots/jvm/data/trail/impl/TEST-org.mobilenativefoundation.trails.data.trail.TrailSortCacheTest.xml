@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.data.trail.TrailSortCacheTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T05:39:53.305Z" hostname="Matts-MacBook-Pro.local" time="0.032">
-  <properties/>
-  <testcase name="changingSortOfflineReordersTheCachedPageWithoutAFetchOrASecondCacheRow[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailSortCacheTest" time="0.032"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

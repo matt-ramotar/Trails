@@ -1,19 +1,20 @@
 package org.mobilenativefoundation.trails.screen.collection
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
-import org.mobilenativefoundation.trails.data.trail.SavedRepository
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
 
 @Inject
 class CollectionPresenter(
     private val screen: CollectionScreen,
     private val repository: SavedRepository,
-    private val navigation: M1Navigation,
+    private val navigation: AppNavigation,
     private val saves: SaveTrailFeature,
 ) : Presenter<CollectionState> {
     @Composable

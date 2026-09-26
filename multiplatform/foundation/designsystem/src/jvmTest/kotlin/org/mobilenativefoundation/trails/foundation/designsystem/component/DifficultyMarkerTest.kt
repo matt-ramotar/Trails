@@ -7,7 +7,7 @@ import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsExt
 
 class DifficultyMarkerTest {
     @Test
-    fun eachKindMapsToItsR2Colour() {
+    fun eachKindMapsToItsDifficultyColour() {
         val colors = TrailsExtendedColorsLight
         assertEquals(Color(0xFF43A047), colors.difficulty(DifficultyMarkerKind.EASY))
         assertEquals(Color(0xFFF2B82E), colors.difficulty(DifficultyMarkerKind.MODERATE))

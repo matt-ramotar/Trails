@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.screen.traildetail.TrailDetailUiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T05:39:08.324Z" hostname="Matts-MacBook-Pro.local" time="30.692">
-  <properties/>
-  <testcase name="factsUseR2LabelsAndShowMoreExpandsTheDescription[jvm]" classname="org.mobilenativefoundation.trails.screen.traildetail.TrailDetailUiTest" time="30.692"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

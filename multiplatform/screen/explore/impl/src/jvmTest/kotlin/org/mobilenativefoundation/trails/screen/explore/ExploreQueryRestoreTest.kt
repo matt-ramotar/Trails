@@ -2,10 +2,10 @@ package org.mobilenativefoundation.trails.screen.explore
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import org.mobilenativefoundation.trails.data.trail.TrailDifficulty
-import org.mobilenativefoundation.trails.data.trail.TrailFeature
-import org.mobilenativefoundation.trails.data.trail.TrailQuery
-import org.mobilenativefoundation.trails.data.trail.TrailSort
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailSort
 
 class ExploreQueryRestoreTest {
     @Test

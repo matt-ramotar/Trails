@@ -1,5 +1,5 @@
 plugins {
-    id("plugin.trails.feature")
+    id("plugin.trails.library")
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.sqldelight)
 }
@@ -10,7 +10,7 @@ kotlin {
             dependencies {
                 api(projects.multiplatform.data.trail.api)
                 implementation(libs.kotlinx.serialization.json)
-                implementation(libs.sqldelight.runtime)
+                api(libs.sqldelight.runtime)
                 implementation(libs.store6.core)
                 implementation(libs.store6.sqldelight)
                 implementation(libs.store6.mutations)
@@ -25,7 +25,7 @@ kotlin {
 
 sqldelight {
     databases {
-        create("M1Database") { packageName.set("org.mobilenativefoundation.trails.data.trail.db") }
+        create("TrailDataDatabase") { packageName.set("org.mobilenativefoundation.trails.data.trail.storage.db") }
     }
 }
 

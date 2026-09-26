@@ -3,7 +3,7 @@ package org.mobilenativefoundation.trails.screen.activity
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlinx.datetime.TimeZone
-import org.mobilenativefoundation.trails.data.trail.CompletedActivity
+import org.mobilenativefoundation.trails.data.trail.activity.CompletedActivity
 
 class ActivitySummaryTest {
     private val zone = TimeZone.UTC

@@ -14,7 +14,7 @@ plugins {
     id("app.cash.sqldelight") version "2.1.0"
 }
 
-// Provisional C3 tuple. No consumer result is claimed until the recorded tasks execute.
+// Load the dependency versions from the hash-verified local candidate.
 val candidate = Properties().apply {
     rootProject.file("candidate.properties").inputStream().use(::load)
 }
@@ -25,7 +25,7 @@ val verifyCandidate = tasks.register("verifyCandidate") {
         val process = ProcessBuilder("python3", rootProject.file("prepare.py").absolutePath, "--check-candidate")
             .directory(rootDir).redirectErrorStream(true).start()
         val output = process.inputStream.bufferedReader().readText()
-        check(process.waitFor() == 0) { "C3 artifact verification failed before compilation:\n$output" }
+        check(process.waitFor() == 0) { "Dependency artifact verification failed before compilation:\n$output" }
     }
 }
 allprojects {

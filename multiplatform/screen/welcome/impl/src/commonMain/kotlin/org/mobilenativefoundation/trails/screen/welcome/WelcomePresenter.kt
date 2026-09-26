@@ -11,8 +11,8 @@ import dev.zacsweers.metro.ContributesBinding
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
-import org.mobilenativefoundation.trails.data.user.SampleAccounts
-import org.mobilenativefoundation.trails.data.user.UserRepository
+import org.mobilenativefoundation.trails.data.session.SampleAccounts
+import org.mobilenativefoundation.trails.data.session.UserRepository
 import org.mobilenativefoundation.trails.foundation.logging.Logger
 import org.mobilenativefoundation.trails.foundation.scope.LoggedOutScope
 

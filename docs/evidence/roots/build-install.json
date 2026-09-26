@@ -1,9 +1,0 @@
-{
-  "apkBytes": 87935891,
-  "apkSha256": "ee50f2469ad7343d66645f7b65ec380b1bf6a9c2ec6fb009ed87920105310cd6",
-  "installedApkPath": "/data/app/~~v-ZfbyTUPekVTNBDjZqSkA==/org.mobilenativefoundation.trails.android-00KPgQpkT8QTKqrtfzsYLA==/base.apk",
-  "installedApkSha256": "ee50f2469ad7343d66645f7b65ec380b1bf6a9c2ec6fb009ed87920105310cd6",
-  "serial": "emulator-5554",
-  "sourceCommit": "dc354d1a0ef777452515bf763b887602bfb0f16a",
-  "installResult": "Performing Streamed Install\nSuccess\n"
-}

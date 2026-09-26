@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.screen.explore.ExploreQueryRestoreTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-20T06:58:04.192Z" hostname="Matts-MacBook-Pro.local" time="0.383">
-  <properties/>
-  <testcase name="checkpointedTextAndRegionAreClearedWithoutLosingOtherSelectors[jvm]" classname="org.mobilenativefoundation.trails.screen.explore.ExploreQueryRestoreTest" time="0.383"/>
-  <testcase name="clearingFiltersDropsEverySelectorButKeepsTheChosenOrder[jvm]" classname="org.mobilenativefoundation.trails.screen.explore.ExploreQueryRestoreTest" time="0.0"/>
-  <testcase name="defaultCheckpointRestoresTheDefaultQuery[jvm]" classname="org.mobilenativefoundation.trails.screen.explore.ExploreQueryRestoreTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

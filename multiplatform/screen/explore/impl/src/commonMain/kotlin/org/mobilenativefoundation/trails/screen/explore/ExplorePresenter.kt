@@ -1,5 +1,6 @@
 package org.mobilenativefoundation.trails.screen.explore
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import com.slack.circuit.runtime.presenter.Presenter
@@ -9,15 +10,18 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.filters.FiltersFeature
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.feature.filters.FiltersFeature
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
 
 @Inject
 class ExplorePresenter(
     private val repository: TrailRepository,
     private val savedRepository: SavedRepository,
-    private val navigation: M1Navigation,
+    private val navigation: AppNavigation,
     private val filters: FiltersFeature,
     private val saves: SaveTrailFeature,
 ) : Presenter<ExploreState> {
@@ -30,7 +34,7 @@ class ExplorePresenter(
         val query = remember(selectors, submittedText) { selectors.copy(text = submittedText).normalized() }
         fun setSelectors(value: TrailQuery) { selectorsJson = Json.encodeToString(TrailQuery.serializer(), value.copy(text = "")) }
         LaunchedEffect(text) { delay(300); submittedText = text }
-        SideEffect { navigation.checkpointExplore(M1ExploreView(text, query)) }
+        SideEffect { navigation.checkpointExplore(ExploreViewState(text, query)) }
         val results = key(query) {
             val flow = remember(query) { repository.observeQuery(query).catch { failure ->
                 if (failure is CancellationException) throw failure
@@ -72,5 +76,5 @@ class ExplorePresenter(
 /** Clearing filters clears filters; the chosen order is not one of them. */
 internal fun clearedExploreSelectors(current: TrailQuery): TrailQuery = TrailQuery(sort = current.sort)
 
-/** Quick area selectors are retired with R2: a checkpointed region is cleared; text is re-entered from the field. */
+/** Search edits clear a checkpointed region before applying the text query. */
 internal fun restoredExploreSelectors(query: TrailQuery): TrailQuery = query.normalized().copy(text = "", region = null)

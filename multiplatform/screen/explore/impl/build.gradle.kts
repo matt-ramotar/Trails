@@ -1,5 +1,5 @@
 plugins {
-    id("plugin.trails.feature")
+    id("plugin.trails.circuit")
 }
 
 kotlin {
@@ -9,9 +9,9 @@ kotlin {
                 api(projects.multiplatform.screen.explore.api)
                 implementation(projects.multiplatform.foundation.designsystem)
                 implementation(libs.kotlinx.coroutines.core)
-                implementation(projects.multiplatform.feat.savetrail.api)
-                implementation(projects.multiplatform.feat.savetrail.impl)
-                implementation(projects.multiplatform.feat.filters.api)
+                implementation(projects.multiplatform.feature.savetrail.api)
+                implementation(projects.multiplatform.ui.trail)
+                implementation(projects.multiplatform.feature.filters.api)
                 implementation(libs.kotlinx.serialization.json)
             }
         }

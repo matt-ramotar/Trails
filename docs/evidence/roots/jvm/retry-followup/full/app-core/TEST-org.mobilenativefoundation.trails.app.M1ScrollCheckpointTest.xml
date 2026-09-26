@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.app.M1ScrollCheckpointTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:23.238Z" hostname="Matts-MacBook-Pro.local" time="0.032">
-  <properties/>
-  <testcase name="readyLazyContentDoesNotClampRestoredIndexAgainstLoadingLayout[jvm]" classname="org.mobilenativefoundation.trails.app.M1ScrollCheckpointTest" time="0.015"/>
-  <testcase name="readyDetailWaitsForActualContentPlacementBeforeRestoringOffset[jvm]" classname="org.mobilenativefoundation.trails.app.M1ScrollCheckpointTest" time="0.016"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
