@@ -128,7 +128,7 @@ class FixtureUi : Ui<FixtureState> {
     @Composable
     override fun Content(state: FixtureState, modifier: Modifier) {
         Column(modifier.padding(24.dp)) {
-            Text("C3 integration fixture")
+            Text("Store6 and Atom consumer fixture")
             Text("Eagle Peak · Weekend")
             Text("Saved projection: ${state.saved}")
             Text("Pending: ${state.durable.pending}; parked: ${state.durable.parked}")
@@ -160,7 +160,7 @@ fun FixtureComposition(services: FixtureServices, content: @Composable (FixtureG
             override fun entryFor(type: KClass<out AtomLifecycle>) = if (type == SaveAtom::class) entry else null
         }
     }
-    // Task4's repaired provider must activate staged reservations after composition is remembered.
+    // The provider must activate staged reservations after composition is remembered.
     AtomCompositionLocals(factories = registry) {
         content(graph)
     }

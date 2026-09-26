@@ -40,9 +40,19 @@ gradlePlugin {
             implementationClass = "org.mobilenativefoundation.trails.tooling.plugins.AndroidApplicationConventionPlugin"
         }
 
-        register("trailsFeaturePlugin") {
-            id = "plugin.trails.feature"
-            implementationClass = "org.mobilenativefoundation.trails.tooling.plugins.TrailsFeatureConventionPlugin"
+        register("trailsDiPlugin") {
+            id = "plugin.trails.di"
+            implementationClass = "org.mobilenativefoundation.trails.tooling.plugins.TrailsDiConventionPlugin"
+        }
+
+        register("trailsComposePlugin") {
+            id = "plugin.trails.compose"
+            implementationClass = "org.mobilenativefoundation.trails.tooling.plugins.TrailsComposeConventionPlugin"
+        }
+
+        register("trailsCircuitPlugin") {
+            id = "plugin.trails.circuit"
+            implementationClass = "org.mobilenativefoundation.trails.tooling.plugins.TrailsCircuitConventionPlugin"
         }
 
         register("trailsLibraryPlugin") {

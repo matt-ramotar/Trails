@@ -1,0 +1,28 @@
+{
+    "producerRevision": "f096775268af503c509da32fc7f5c21ef127a137",
+    "networkMode": "OFFLINE",
+    "trailId": "half-dome",
+    "collectionIds": [
+        "favorites",
+        "weekend"
+    ],
+    "installationId": "bd5be308-a9b9-4f20-8655-236ade026436",
+    "acceptance": {
+        "accountId": "cleanup-upgrade-account",
+        "commandId": "cleanup-offline-save",
+        "version": 1,
+        "payload": "{\"commandId\":\"cleanup-offline-save\",\"accountId\":\"cleanup-upgrade-account\",\"value\":{\"trailId\":\"half-dome\",\"collectionIds\":[\"favorites\",\"weekend\"]}}",
+        "clientId": "client-0",
+        "clientSequence": 1,
+        "mutationId": "mutation-1",
+        "admittedAt": 1790441861046
+    },
+    "backendApplications": 0,
+    "backendReceipts": 0,
+    "files": {
+        "trails-m1-636c65616e75702d757067726164652d6163636f756e74-journal.db": "b6a8d224dbc14c18d304ffca97ae0a0c3c81202809254410d3320b76d3b6766a",
+        "trails-m1-636c65616e75702d757067726164652d6163636f756e74-values.db": "c8de935b1411a4f34306aac962d936b8a475a94a738095124fa127ffcd31df68",
+        "trails-m1-backend.db": "898fdf450079055979ecaa386e604e8ff14148f3c0ae00946c7dc824c4ab713f",
+        "trails-m1-catalog.db": "1690a0977eb9604b5a91b1b00a1d7c307feba3715d149f0ec96a88d2e5075f55"
+    }
+}

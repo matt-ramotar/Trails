@@ -38,10 +38,7 @@ enum class ContentItemType {
     GEAR
 }
 
-/**
- * Masonry-style content grid with staggered item heights.
- * Uses a 2-column layout with random height multipliers based on item ID.
- */
+/** 2-column masonry layout. Item IDs seed the variation in height. */
 @Composable
 fun ContentGrid(
     items: List<ContentGridItem>,
@@ -50,7 +47,6 @@ fun ContentGrid(
 ) {
     val baseHeight = 180.dp
 
-    // Split items into two columns for masonry layout
     val leftColumnItems = items.filterIndexed { index, _ -> index % 2 == 0 }
     val rightColumnItems = items.filterIndexed { index, _ -> index % 2 == 1 }
 
@@ -60,7 +56,6 @@ fun ContentGrid(
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
-        // Left column
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -75,7 +70,6 @@ fun ContentGrid(
             }
         }
 
-        // Right column
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -92,10 +86,7 @@ fun ContentGrid(
     }
 }
 
-/**
- * Get a consistent random height multiplier based on item ID.
- * Returns 1.0f, 1.3f, or 1.6f for variety.
- */
+/** Item ID determines a stable height multiplier: 1.0f, 1.3f, or 1.6f. */
 private fun getHeightMultiplier(itemId: String): Float {
     val seed = itemId.hashCode()
     val random = Random(seed)
@@ -128,7 +119,6 @@ private fun ContentGridItemCard(
             )
             .clickable(onClick = onClick)
     ) {
-        // Emoji centered when provided
         if (item.emoji != null) {
             Text(
                 text = item.emoji,
@@ -137,7 +127,6 @@ private fun ContentGridItemCard(
             )
         }
 
-        // Duration badge for videos (top-left)
         if (item.type == ContentItemType.VIDEO && item.duration != null) {
             DurationBadge(
                 duration = item.duration,
@@ -147,7 +136,6 @@ private fun ContentGridItemCard(
             )
         }
 
-        // Play button for videos (centered)
         if (item.type == ContentItemType.VIDEO) {
             Box(
                 modifier = Modifier
@@ -169,7 +157,6 @@ private fun ContentGridItemCard(
             }
         }
 
-        // Type indicator for guides/gear (bottom-right)
         when (item.type) {
             ContentItemType.GUIDE -> {
                 TypeBadge(
@@ -187,7 +174,7 @@ private fun ContentGridItemCard(
                         .padding(8.dp)
                 )
             }
-            else -> { /* No badge for photos/videos in corner */ }
+            else -> {  }
         }
     }
 }

@@ -1,50 +1,93 @@
-# Native M1 accessibility acceptance runner
+# Android accessibility instrumentation
 
-`M1AccessibilityInstrumentation` uses only Android framework APIs. The Gradle runner field generates the test manifest entry; no AndroidX test dependency, production manifest change or debug fault receiver change is required.
+`TrailsAccessibilityInstrumentation` checks native control semantics, modal
+traversal, TalkBack sheet opening, and focus return through Android framework
+automation.
 
-## Preconditions and execution
+## Run
 
-The serialized root runner builds the debug app and its test APK, installs both with existing data preserved, and runs this instrumentation. Start with an active sample account, a readable saved projection, and an Explore query that includes **Half Dome**, the first world-catalog route. Use the default distance bounds (0 km / no maximum) for this bounded acceptance run. TalkBack must already be enabled, bound, and providing touch exploration; the runner intentionally fails if any are absent. Close TalkBack's onboarding before starting. Do not run `uiautomator dump` or another automation session concurrently.
+Start with an active sample account, a readable saved projection, an Explore
+query containing **Half Dome**, and the **Weekend adventures** and **Favorites**
+lists. Use default length bounds: 0 km and no maximum (50 on the native range).
+TalkBack must be enabled, bound, and providing touch exploration with its default
+previous/next and double-tap mappings. Close TalkBack onboarding first. Do not
+run another automation connection or `uiautomator dump` concurrently.
 
 ```bash
 ./gradlew :apps:android:assembleDebug :apps:android:assembleDebugAndroidTest
 adb install -r apps/android/build/outputs/apk/debug/android-debug.apk
 adb install -r apps/android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
-adb shell am instrument -w -r org.mobilenativefoundation.trails.android.test/org.mobilenativefoundation.trails.android.accessibility.M1AccessibilityInstrumentation
+adb shell am instrument -w -r org.mobilenativefoundation.trails.android.test/org.mobilenativefoundation.trails.android.accessibility.TrailsAccessibilityInstrumentation
 ```
 
-The commands above are a recipe, not execution evidence. Capture the entire command output, including the first failure. For the separate Offline preview application, both installed APKs must be built with the same preview property and the test application ID changes accordingly.
+Select the device with `adb -s <serial>` when several devices are
+connected. For the separate Offline preview application, build both APKs with
+the same preview property and use that test application ID. Preserve complete
+command output, including the first failure.
 
-## Checks and evidence
+The runner uses
+`getUiAutomation(UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES)` and
+checks the spoken-feedback service, touch exploration, and bound-service state
+before launch and after each sheet. It allows 30 seconds for recognized app
+content, polling every 250 ms. Individual control waits allow eight seconds.
+Welcome or bootstrap failure stops the run. An unknown startup window never
+receives Back.
 
-The runner acquires automation only with `getUiAutomation(UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES)`. It checks Android's enabled spoken-feedback TalkBack service, touch exploration, and the `dumpsys accessibility` bound-service line before launch, after the filter checks, and after the save-sheet checks. After launch it waits up to **30 seconds**, polling every 250 ms, for recognizable M1 content: visible Explore/Saved labels with at least one actionable tab, actionable Filters, or a defined M1 modal. The selected native tab correctly omits a redundant click action; requiring both tab clicks incorrectly rejected an already rendered Saved screen. This separate startup budget follows an observed normal TalkBack cold start that reached Explore after the original eight-second deadline. Control waits remain eight seconds. The `launch_to_ready` record reports the actual measured duration; the readiness condition recognizes either selected tab without accepting a package-only window. A package-matching window alone is insufficient while Compose/bootstrap starts. It does not send Back from an unknown startup state; Welcome or a known bootstrap failure stops the run, and other unavailable states time out with evidence. Every wait has a finite deadline; failure stops the journey and emits the current native node tree.
+## Gesture and focus checks
 
-## TalkBack-driven sheet openers
+Sheet openers use the Android test method
+`UiAutomation.injectInputEventToInputFilter(InputEvent)`. Ordinary
+`injectInputEvent` skips the accessibility input filter and cannot establish
+TalkBack gesture behavior. The runner fails if the test method is unavailable.
+It does not substitute direct focus. If hidden-API enforcement blocks it, add
+`--no-hidden-api-checks` to the instrumentation command and preserve the original
+failure. Do not change global hidden-API settings.
 
-Filters and Save openers now use a separate gesture path. Android's ordinary `UiAutomation.injectInputEvent` deliberately skips the accessibility input filter, so it cannot establish TalkBack gesture/history behavior. The runner reflectively resolves only Android's public-runtime, hidden `@TestApi` method `UiAutomation.injectInputEventToInputFilter(InputEvent)` from **androidTest**. It records method availability and fails if unavailable or blocked; no private Binder access or direct-focus fallback is used. [Android 15 source](https://github.com/aosp-mirror/platform_frameworks_base/blob/android-15.0.0_r1/core/java/android/app/UiAutomation.java#L943-L958)
+Each opener allows at most 24 gestures within 30 seconds, including activation
+and modal readiness. A gesture must produce a new app-window
+`TYPE_VIEW_ACCESSIBILITY_FOCUSED` event within three seconds. Before activation,
+the runner requires `TYPE_TOUCH_INTERACTION_END` followed by 500 ms of event
+quiet. Each synchronization phase is bounded by five seconds and the opener's
+overall deadline. Zero gestures is valid only when the opener already has
+accessibility focus.
 
-If hidden-API enforcement blocks this test method, root may rerun the changed test invocation with `adb shell am instrument --no-hidden-api-checks -w -r <test-package>/<runner>`. That option applies to the instrumentation process; do not change global hidden-API settings. Preserve the first failure. Standard/default TalkBack previous/next and double-tap mappings are required.
+Inside a sheet, direct `ACTION_ACCESSIBILITY_FOCUS` traversal verifies focus
+ownership and rejects exposed actionable background controls. Modal readiness
+requires 500 ms of event quiet, bounded by five seconds, and existing focus in
+the modal before any focus request. The Filters sheet exposes the **Filters**
+heading and **Close filters** action. Its **Minimum length** and **Maximum length**
+SeekBars must expose range actions and updated kilometer values after
+`ACTION_SET_PROGRESS`. A maximum of 50 exposes **No maximum length**.
+Cancelling and reopening verifies that draft adjustments did not change applied
+filters or saved membership. The runner does not submit a save, change backend
+settings, or clear app data.
 
-Before any swipe, the runner requires existing accessibility focus in the app window and finite event quiet, so startup autofocus cannot count as the first gesture result. It chooses left/previous or right/next from the visible invoker's vertical position relative to current focus, then keeps that direction for at most **24 gestures within 30 seconds total**, including activation and modal readiness. Each input-filter swipe consists of a touchscreen finger down, eight move samples over approximately 160 ms, and up. Each gesture must produce a new app-window `TYPE_VIEW_ACCESSIBILITY_FOCUSED` event timestamped after that swipe began within three seconds.
+After filter Cancel/Back and save-sheet Back, the runner waits up to eight seconds
+for natural focus return before forcing focus or navigating. Focus
+must return to the actual opener or its non-actionable label/role descendant.
+An enclosing ancestor or another actionable control does not satisfy the check.
+**Save to a list** identifies the save sheet. The persistent **Save trail** or
+**Edit saved collections** action identifies trail detail after the sheet closes.
+Final Saved navigation sends Back only from a recognized detail/collection and
+stops at the **Lists**/**All trails** root. Selected-tab checks inspect every
+matching label because the page heading also says **Saved**.
 
-Before reading final focus or sending another gesture, the runner requires a `TYPE_TOUCH_INTERACTION_END` timestamp at or after the swipe start and then 500 ms of event quiet. Each synchronization phase is capped at five seconds and by the remaining 30-second opener deadline. The listener retains global touch-interaction start/end events even though their package is null. `talkback_gesture_settled` records actual start/end timestamps, idle result, elapsed time, and current focus. Final focus must match the observed gesture target; no retries mask a later focus takeover. Only after this settlement does the two-tap input-filter sequence activate the actual invoker, and the expected modal must appear. Logs contain each attempt, focus event, before/after focus, and activation. Zero gestures means the invoker already owned focus and is recorded explicitly by the count.
+## Results and limits
 
-This follows the platform's separate [touch-interaction end event](https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent#TYPE_TOUCH_INTERACTION_END) and bounded [accessibility event-idle API](https://developer.android.com/reference/android/app/UiAutomation#waitForIdle(long,%20long)); it is not a fixed sleep or a longer timeout. The first gesture-delivery run is preserved: four observed focus changes reached Filters, but opening failed and focus moved again before the final touch-interaction end. That trace justified separating gesture completion from its earlier focus event.
+`TRAILS_A11Y` output records native focus/click/progress observations, service
+checks, node semantics, and the last 200 relevant events. The terminal bundle
+must contain `outcome=passed`. Shell instrumentation completion alone is
+insufficient. A failed run includes the first failure and native tree. Startup
+probes distinguish cached automation trees from fresh reads and inspect an
+already-created app graph without creating services or retrying bootstrap.
 
-The original direct-focus helper remains for native modal-control traversal and setup navigation. It refreshes each target and compares the current `FOCUS_ACCESSIBILITY` owner before deciding whether to request focus; a cached node's focused flag is not authoritative after traversing another control. It still checks ownership immediately after the focus event and never retries. It is never called to focus or activate a sheet opener. Natural dismissal-return assertions remain unchanged and never force focus to pass. The first direct-action return failures remain valid observations of that programmatic path; they are not automatically equivalent to TalkBack gesture/history failures.
+Passing establishes the measured native actions and observed TalkBack gesture
+openers. It does not establish human listening, pronunciation, or complete
+TalkBack swipe traversal through every sheet. The instrumentation may restart
+the app process while preserving its data. Restore device settings after the
+run and report the exact APK and test package used.
 
-## Remaining observations
-
-Before readiness, the event listener records event type, time, text and description without resolving each source node and its actions. This avoids extra accessibility IPC during startup event bursts; full native source-node evidence resumes after readiness. It is an instrumentation overhead reduction, not a claim that event logging caused the measured delay. The original startup-timeout evidence remains preserved.
-
-If startup is still pending at 10 or 20 seconds, and at the 30-second failure deadline, `app_graph_snapshot` records the existing public bootstrap route class, backend configuration synchronizer state, current user class, and current backend configuration. It reads those getters only after observing graph-backed app content, such as “Restoring your trails…”; an icon-only launch window defers inspection because `App.trailsApp` is lazy. No graph, service lifecycle, retry, or private reflective state is created or changed. Failures also include this snapshot. Each timed checkpoint records `startup_cache_probe`: the cached native tree, `UiAutomation.clearCache()` result, fresh tree, and whether they differ. Cache clearing affects the runner's connection only and retains `FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES`. This distinguishes a stale automation tree from app startup state without assuming either explanation. The initial deadline remains 30 seconds; the final diagnostic adds no new readiness wait.
-
-It verifies the two actual distance SeekBars expose labels, range actions and updated kilometer/no-maximum state descriptions after `ACTION_SET_PROGRESS`; cancels the draft and reopens to confirm applied bounds are unchanged. Before manually traversing either sheet, it waits for 500 ms of native accessibility event quiet with a five-second limit, records `modal_event_idle`, and observes focus inside that modal window before any focus request. `modal_initial_focus` records that starting node. A quiet-period timeout or absent modal focus fails the run; this synchronization does not retry forced focus or relax immediate ownership assertions. It then traverses the visible actionable nodes in each active sheet window with `ACTION_ACCESSIBILITY_FOCUS`, checks actual focus ownership/events, and rejects exposed underlying Explore/tab actions in the modal tree. The save flow reads current checkbox membership, toggles only a draft, dismisses with native global Back, reopens to verify membership is unchanged, then reaches Saved. It never clicks Save trail inside the save modal and never changes backend configuration or clears data.
-
-Immediately after filter Cancel, filter Back, and both save-sheet Back dismissals, it observes natural accessibility focus for up to eight seconds **before** any later forced focus or navigation. The expected node is the actual control focused and clicked to open that sheet. A non-actionable label/role descendant inside that same control is allowed for Compose's accessibility structure; a different actionable descendant or an enclosing ancestor is not. `natural_focus_return` records the expected invoker, actual accessibility-focused node/subtree, current `FOCUS_INPUT` node, read-only refreshed invoker subtree, elapsed time and match result, including on failure. Node records distinguish accessibility focus from input focus and include focusability and screen bounds. These diagnostics distinguish an absent input-focus return from TalkBack ignoring or overriding it; they do not relax the accessibility-focus assertion. The harness never requests focus to satisfy this check.
-
-`M1_A11Y` status lines contain native focus/click/progress observations, node labels, checked/state values, action IDs/labels, bound-service checks, and a rolling transcript of the **last 200** relevant events. Older entries are discarded so dismissal/failure ordering remains available. The terminal bundle contains `outcome=passed` or `outcome=failed`, the check count, and the first failure message. A shell instrumentation completion by itself is insufficient; inspect that outcome and evidence.
-
-The final Saved navigation waits for the native tab's selected state and recognized destination, then event quiet, before proceeding. It sends Back only from a confirmed retained Saved detail or collection, waits for a different recognized destination after each Back, and stops at the Saved root. Unknown transitions, a missing app window, and the root never receive Back. `saved_navigation_settled` records each recognized destination; native node records include the selected flag. This preserves root/stack behavior while avoiding the earlier eager-Back harness defect.
-
-Native modal traversal proves direct accessibility focus/actions while TalkBack remains active. Successful input-filter opener records additionally establish observed gesture-driven navigation for those openers; they do not establish a full TalkBack swipe traversal of each sheet. Nothing here claims a human listened to speech or validated pronunciation. The modal assertion concerns the active window's exposed/actionable controls and direct focus ownership. Human listening and broader gesture traversal remain separate checks. Instrumentation can restart the target process; it preserves app data, and the root runner should restore the desired emulator preview afterward.
+Cancelling Filters has a known focus-return limitation on Android: TalkBack
+focus can return to Search even though keyboard focus returns to Filters.
+The runner reports this as a failure. Input focus alone does not satisfy the
+accessibility assertion. Later checks are unexecuted when this assertion fails.

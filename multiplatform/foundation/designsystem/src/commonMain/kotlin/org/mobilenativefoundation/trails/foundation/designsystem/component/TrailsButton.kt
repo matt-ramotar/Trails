@@ -28,7 +28,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
 
-/** R2 hierarchy: Hero is the one action a screen exists for, Commit applies or confirms, Secondary sits beside a primary. */
+/** Action hierarchy: Hero is the one action a screen exists for, Commit applies or confirms, Secondary sits beside a primary. */
 enum class ButtonTone { Hero, Commit, Secondary, Ghost }
 
 /** [accessibilityLabel] puts a modal invoker's label on the actionable node without a duplicate child. */

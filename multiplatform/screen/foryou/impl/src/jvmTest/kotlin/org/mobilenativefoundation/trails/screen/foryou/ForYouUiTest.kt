@@ -10,8 +10,16 @@ import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.runDesktopComposeUiTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import org.mobilenativefoundation.trails.data.trail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.data.trail.recommendation.ForYouFeed
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
+import org.mobilenativefoundation.trails.data.trail.saved.TrailSync
+import org.mobilenativefoundation.trails.data.trail.saved.TrailSyncCause
+import org.mobilenativefoundation.trails.data.trail.saved.TrailSyncStatus
 
 @OptIn(ExperimentalTestApi::class)
 class ForYouUiTest {

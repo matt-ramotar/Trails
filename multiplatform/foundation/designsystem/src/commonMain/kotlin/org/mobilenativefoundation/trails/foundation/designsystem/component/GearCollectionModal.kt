@@ -69,7 +69,6 @@ fun GearCollectionModal(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Header
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -113,7 +112,6 @@ fun GearCollectionModal(
                 }
             }
 
-            // Gear Items Section
             if (gearItems.isNotEmpty()) {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -124,7 +122,6 @@ fun GearCollectionModal(
                 }
             }
 
-            // Divider
             if (favoriteSpots.isNotEmpty()) {
                 HorizontalDivider(
                     color = Color(0xFF1E293B),
@@ -132,7 +129,6 @@ fun GearCollectionModal(
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
-                // Favorite Spots Header
                 Text(
                     text = "⭐ Favorite Spots",
                     color = Color.White,
@@ -140,7 +136,6 @@ fun GearCollectionModal(
                     fontWeight = FontWeight.SemiBold
                 )
 
-                // Favorite Spots List
                 Column(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
@@ -163,7 +158,6 @@ private fun GearItemRow(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Emoji Icon
         Box(
             modifier = Modifier
                 .size(64.dp)
@@ -176,7 +170,6 @@ private fun GearItemRow(
             )
         }
 
-        // Info Column
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(2.dp)
@@ -200,7 +193,6 @@ private fun GearItemRow(
             )
         }
 
-        // Rating Badge
         if (item.rating != null) {
             RatingBadge(rating = item.rating)
         }

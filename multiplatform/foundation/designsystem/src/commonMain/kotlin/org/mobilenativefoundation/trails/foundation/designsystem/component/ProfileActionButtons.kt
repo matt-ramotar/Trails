@@ -38,7 +38,6 @@ fun ProfileActionButtons(
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         if (isOwnProfile) {
-            // Own profile: Edit + Settings + Share
             GlassActionButton(
                 text = "Edit Profile",
                 icon = Icons.Outlined.PencilEdit,
@@ -53,7 +52,6 @@ fun ProfileActionButtons(
                 modifier = Modifier.weight(1f)
             )
         } else {
-            // Other user's profile: Follow + Message
             GradientActionButton(
                 text = if (isFollowing) "Following" else "Follow",
                 isActive = !isFollowing,
@@ -69,7 +67,6 @@ fun ProfileActionButtons(
             )
         }
 
-        // Share button (always visible)
         GlassActionButton(
             icon = Icons.Outlined.Share,
             onClick = onShareClick,

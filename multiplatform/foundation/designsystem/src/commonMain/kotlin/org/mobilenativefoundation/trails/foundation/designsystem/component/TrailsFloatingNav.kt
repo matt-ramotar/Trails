@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import org.mobilenativefoundation.trails.foundation.designsystem.icon.Icons
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
 
-/** The five R2 roots. Hosts pass only the destinations that are functional in the current milestone. */
+/** The five application roots. Each root retains an independent navigation stack. */
 enum class TrailsDestination(val label: String) {
     EXPLORE("Explore"), FOR_YOU("For You"), NAVIGATE("Navigate"), SAVED("Saved"), ACTIVITY("Activity"),
 }

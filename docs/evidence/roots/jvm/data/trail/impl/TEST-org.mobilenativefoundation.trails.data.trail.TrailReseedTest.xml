@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mobilenativefoundation.trails.data.trail.TrailReseedTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-20T05:39:51.745Z" hostname="Matts-MacBook-Pro.local" time="0.588">
-  <properties/>
-  <testcase name="failedReplacementRollsBackCatalogAndSeedVersionTogether[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailReseedTest" time="0.041"/>
-  <testcase name="reseedClearsFreshCatalogAndPreservesAuthorityAndRetiredMemberships[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailReseedTest" time="0.502"/>
-  <testcase name="restartAfterBackendCommitStillClearsOldCatalog[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailReseedTest" time="0.045"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

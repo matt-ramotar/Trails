@@ -7,12 +7,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import org.mobilenativefoundation.trails.app.MainViewController
 
 
 class MainActivity : ComponentActivity() {
-    private val app by lazy { (application as App).trailsApp }
-    private val viewController by lazy { MainViewController(app.graph) }
+    private val runtime by lazy { (application as App).runtime }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -27,7 +25,7 @@ class MainActivity : ComponentActivity() {
         content.viewTreeObserver.addOnPreDrawListener(
             object : ViewTreeObserver.OnPreDrawListener {
                 override fun onPreDraw(): Boolean {
-                    val isReady = app.graph.splashStateReader.state.value.isReady()
+                    val isReady = runtime.isReady
                     return if (isReady) {
                         content.viewTreeObserver.removeOnPreDrawListener(this)
                         true
@@ -39,7 +37,7 @@ class MainActivity : ComponentActivity() {
         )
 
         setContent {
-            viewController.Content()
+            runtime.Content()
         }
     }
 }

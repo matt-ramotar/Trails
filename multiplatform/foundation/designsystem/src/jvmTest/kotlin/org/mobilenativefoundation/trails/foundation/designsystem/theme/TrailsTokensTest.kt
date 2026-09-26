@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 
 class TrailsTokensTest {
     @Test
-    fun lightTokensMatchDesignRevisionR2() {
+    fun lightTokensMatchDefaultPalette() {
         val colors = TrailsExtendedColorsLight
         assertEquals(Color(0xFFFFFFFF), colors.background)
         assertEquals(Color(0xFFFFFFFF), colors.surface)

@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.composeMultiplatform) apply false
     alias(libs.plugins.composeCompiler) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
-    alias(libs.plugins.ktor) apply false
     alias(libs.plugins.parcelize) apply false
     alias(libs.plugins.metro) apply false
     alias(libs.plugins.ksp) apply false

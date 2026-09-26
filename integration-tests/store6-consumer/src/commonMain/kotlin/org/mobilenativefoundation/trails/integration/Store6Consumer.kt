@@ -55,7 +55,7 @@ object MembershipCodec : MutationCodec<Membership> {
 class BackendOffline : Exception("The fake backend Offline setting is applied")
 class AcknowledgementLost : Exception("The backend persisted the operation before losing its response")
 
-/** A separate disk database owns simulated server values, Offline, and operation receipts. */
+/** Persists simulated server values, Offline, and operation receipts in a separate database. */
 class DurableFixtureBackend(private val database: FixtureDatabase) {
     private val gate = Mutex()
     init { database.backendQueries.initializeSettings() }
@@ -76,7 +76,7 @@ class DurableFixtureBackend(private val database: FixtureDatabase) {
         database.backendQueries.clientIds(account, installationId).executeAsList()
     }
 
-    // Store6's current factory uses the same internal client ID for independent journals.
+    // The pinned Store6 factory uses the same internal client ID for independent journals.
     // Bind an immutable transport partition to this journal, never to process-local key extras.
     fun scoped(account: String, installationId: String): MutationServer<MembershipKey, Membership> =
         object : MutationServer<MembershipKey, Membership> {
@@ -133,7 +133,7 @@ class DurableFixtureBackend(private val database: FixtureDatabase) {
         MutationPresentAck(authoritative, etag = null, canonicalKey = null)
     }
 
-    // The bounded fixture retains receipts; retirement does not erase its operation evidence.
+    // Retirement retains receipts so tests can inspect completed operations.
     private suspend fun retireScoped(account: String, installationId: String, request: MutationRetirement) = gate.withLock {
         if (database.backendQueries.settings().executeAsOne().offline != 0L) throw BackendOffline()
         database.transaction {
@@ -233,8 +233,8 @@ class FixtureServices(
             // Nothing fallible runs after the durable result before it is returned to the Atom.
             EnqueueOutcome.Journaled(command, id)
         } catch (cancelled: CancellationException) {
-            // Account cancellation remains transparent. Any committed receipt survives for the
-            // next account-owned reconciliation; an Atom lease does not become a retry owner.
+            // Propagate account cancellation. Committed receipts survive for reconciliation
+            // by the account service. Atom does not take over retries.
             throw cancelled
         } catch (failure: Exception) {
             val recovered = try {
@@ -249,8 +249,8 @@ class FixtureServices(
             if (recovered != null) {
                 receiptOutcome(command, payload, recovered)
             } else {
-                // The single admission owner has finished, and a successful atomic-receipt read
-                // proves this command was not inserted. There is no automatic second mutate.
+                // Admission has finished. A successful read with no receipt proves this command
+                // was not inserted. Do not call mutate again automatically.
                 EnqueueOutcome.Rejected(command, failure.message?.take(200) ?: "The command was not saved")
             }
         }

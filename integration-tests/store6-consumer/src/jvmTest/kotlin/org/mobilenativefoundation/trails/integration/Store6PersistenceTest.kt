@@ -281,7 +281,7 @@ class Store6PersistenceTest {
     }
 
     private suspend fun CoroutineScope.withDisk(block: suspend (File) -> Unit) {
-        val directory = Files.createTempDirectory("trails-c3-").toFile()
+        val directory = Files.createTempDirectory("trails-consumer-").toFile()
         try { block(directory) } finally { check(directory.deleteRecursively()) }
     }
 }

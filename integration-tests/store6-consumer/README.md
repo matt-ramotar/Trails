@@ -1,17 +1,47 @@
-# Standalone C3 consumer — not yet compiled
+# Store6 and Atom consumer fixture
 
-This fixture is prepared for Trails' joint Store6/repaired Atom gate. **It has not passed C3.** It cannot configure until `prepare.py` verifies a clean Atom Task4 handoff and the selected isolated JVM/Android artifact files. Atom implementation `05daa800ac3c6d0dc1f9538234b99061c8139e40` is now known and its clean source APIs match this fixture; the owner's final evidence and released build lease are still pending. A dirty checkout is not accepted.
+This standalone JVM/Android fixture exercises generated SQLDelight queries,
+file-backed Store6 reads and mutation journals, command admission/reconciliation,
+and a finite Atom save flow. The Android host uses Circuit, Compose, and a
+generated Metro graph. Its package, databases, and controls are separate from
+the Trails app.
 
-See [dependency authority and constraints](../../docs/store6-integration.md) and the [execution recipe](../../docs/evidence/m1/dependencies/REPRODUCTION.md).
+The Android fixture retains application ID
+`org.mobilenativefoundation.trails.c3` for installed-data compatibility.
 
-The source exercises generated SQLDelight rows, a dedicated persistent mutation journal, fake-server Offline state/receipts across reopening, a finite manual Atom enqueue command, and Compose/Circuit/Metro consumption. Five JVM tests are written but unexecuted. The Android host registers one parcelable `FixtureScreen` with `Circuit.Builder`, using the Metro-provided presenter/UI, and renders it through `CircuitContent`. Its diagnostic package, databases and control surface are separate from the Trails product design and M1 acceptance.
+## Prepare and run
 
-The provisional consumer tuple is Kotlin/Compose compiler 2.3.20, Compose 1.9.1, Metro 0.11.3, KSP 2.3.10, Circuit 0.30.0, SQLDelight 2.1.0, AGP 8.12.3 and Gradle 8.13. Atom's full SHA/version are required inputs. Atom construction is manual; the KSP plugin is present without the Atom processor or generated factory registry.
+Follow [dependency setup](../../docs/dependency-setup.md) to prepare the pinned
+sources and isolated local publications. The fixture requires JVM/Android
+publications. Omit `--trails-targets` only when preparing exclusively for this
+fixture. An all-target candidate also satisfies the fixture.
 
-`prepare.py` requires `--owner-handoff`: the local coordinator's record of the received owner message, exact revision/version, released build lease and hashed evidence. The example starts in a blocked state. This checks record consistency and bytes; the coordinator still verifies who approved it and what the evidence proves. A clean descendant with the right folders is insufficient.
+From the repository root:
 
-Every preparation attempt revokes previous candidate properties before validation; source-only preparation cannot enable a build. Settings checks the paired manifest, handoff and artifact hashes, and `verifyCandidate` repeats verification before compile tasks. Configuration caching is disabled for this fixture so these checks are not bypassed by a reused configuration.
+```bash
+python3 -m unittest discover -s integration-tests/store6-consumer -p '*_test.py'
+./gradlew -p integration-tests/store6-consumer jvmTest :android-preview:assembleDebug
+```
 
-`prepare.py` does not clone sources, invoke Gradle, publish artifacts, or assert behavioral verification. Its artifact hashes must be paired with the actual producer logs. Eight synthetic Python guard tests pass; they use fake artifact bytes and do not validate the Kotlin libraries. The main Trails build has not been changed to include this fixture.
+The Python suite uses synthetic source records and artifact bytes to test guard
+behavior. It does not validate the Kotlin libraries. The JVM suite uses new
+file-backed databases and checks admission, reopening, account isolation,
+acknowledgement/adoption failure, and operation deduplication.
 
-Root KMP metadata JARs are required and hashed alongside root POM/module metadata and JVM/Android binaries. The missing-file and changed-byte regressions failed before the fix; [red and green evidence](../../docs/evidence/m1/dependencies/metadata-jar-guard/) preserves those results. Reprepare any older candidate so its manifest includes the root metadata JARs.
+## Guard contract
+
+`prepare.py` verifies clean immutable sources, the pinned provenance bundle,
+version agreement, and every required artifact hash without cloning, publishing,
+or invoking Gradle. Source-only or invalid preparation revokes an older candidate.
+`--check-candidate` is read-only even when validation fails.
+
+Gradle settings and the pre-compilation `verifyCandidate` task recheck the
+candidate. Configuration caching is disabled in this fixture. The candidate
+pairs a generated manifest with its SHA-256. The selected libraries resolve
+exclusively from the named repository outside ambient Maven Local. Root KMP
+metadata JARs are required alongside platform binaries, POMs, and module files.
+
+Atom construction is manual. KSP without the Atom processor does not
+establish generated-factory or incremental-compiler compatibility. Passing this
+fixture does not establish installed Trails behavior or iOS/JavaScript runtime
+support.

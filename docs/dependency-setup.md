@@ -2,37 +2,37 @@
 
 Trails resolves Store6 and Atom exclusively from an isolated local Maven repository. Their root multiplatform metadata refers to separate platform publications. JVM/Android artifacts alone let a JVM compile succeed while IDE sync fails on iOS and JavaScript source sets.
 
-Use the immutable Store6 revision `582edfe86e64ddc71312ecd20a1895fc3de37b52` and Atom revision `05daa800ac3c6d0dc1f9538234b99061c8139e40`. Keep the source clones and Maven repository under the checkout's ignored `.gradle/c3-dependencies/` directory. The original `/private/tmp/trails-c3-20260915` directory is historical and may no longer exist.
+Use the immutable Store6 revision `582edfe86e64ddc71312ecd20a1895fc3de37b52` and Atom revision `05daa800ac3c6d0dc1f9538234b99061c8139e40`. Keep the source clones and Maven repository under the checkout's ignored `.gradle/dependencies/` directory.
 
 The commands require Python 3, Java 17, an Android SDK, and Xcode for iOS publication. Set `ANDROID_HOME` to the installed SDK. Use each producer's checked-in Gradle wrapper and toolchains, and run producers serially. Publication is local to the specified repository.
 
 ## Prepare immutable sources
 
-From the Trails root, set `STORE6_SOURCE` and `ATOM_SOURCE` to Git repositories containing those commits. For a new setup:
+From the Trails root, set `STORE6_SOURCE` and `ATOM_SOURCE` to Git repositories containing those commits. To create new clones:
 
 ```bash
 TRAILS_ROOT="$PWD"
-TRAILS_C3_ROOT="$TRAILS_ROOT/.gradle/c3-dependencies"
-mkdir -p "$TRAILS_C3_ROOT"
-git clone --no-checkout --no-hardlinks "$STORE6_SOURCE" "$TRAILS_C3_ROOT/store6"
-git -C "$TRAILS_C3_ROOT/store6" checkout --detach 582edfe86e64ddc71312ecd20a1895fc3de37b52
-git clone --no-checkout --no-hardlinks "$ATOM_SOURCE" "$TRAILS_C3_ROOT/atom"
-git -C "$TRAILS_C3_ROOT/atom" checkout --detach 05daa800ac3c6d0dc1f9538234b99061c8139e40
+TRAILS_DEPENDENCIES="$TRAILS_ROOT/.gradle/dependencies"
+mkdir -p "$TRAILS_DEPENDENCIES"
+git clone --no-checkout --no-hardlinks "$STORE6_SOURCE" "$TRAILS_DEPENDENCIES/store6"
+git -C "$TRAILS_DEPENDENCIES/store6" checkout --detach 582edfe86e64ddc71312ecd20a1895fc3de37b52
+git clone --no-checkout --no-hardlinks "$ATOM_SOURCE" "$TRAILS_DEPENDENCIES/atom"
+git -C "$TRAILS_DEPENDENCIES/atom" checkout --detach 05daa800ac3c6d0dc1f9538234b99061c8139e40
 ```
 
-Reuse existing clean clones at those revisions when repairing a setup. Do not replace their committed source with files from a shared working tree. Verify the source and recorded owner handoff before publication:
+Reuse clean clones already at those revisions. Do not replace their committed source with files from a shared working tree. Verify the sources and pinned provenance record before publication:
 
 ```bash
 python3 integration-tests/store6-consumer/prepare.py \
-  --store6-source "$TRAILS_C3_ROOT/store6" \
-  --atom-source "$TRAILS_C3_ROOT/atom" \
+  --store6-source "$TRAILS_DEPENDENCIES/store6" \
+  --atom-source "$TRAILS_DEPENDENCIES/atom" \
   --atom-revision 05daa800ac3c6d0dc1f9538234b99061c8139e40 \
   --atom-version 0.1.0-SNAPSHOT \
-  --owner-handoff docs/evidence/m1/dependencies/atom-owner/handoff.json \
-  --repository "$TRAILS_C3_ROOT/maven"
+  --owner-handoff tooling/dependencies/atom/05daa800ac3c6d0dc1f9538234b99061c8139e40/handoff.json \
+  --repository "$TRAILS_DEPENDENCIES/maven"
 ```
 
-This source-only step revokes an older candidate. It does not enable Gradle configuration.
+Source-only preparation revokes an older candidate and does not enable Gradle configuration.
 
 ## Publish every Trails target
 
@@ -40,9 +40,9 @@ The root, JVM, Android, `iosArm64`, `iosSimulatorArm64`, `iosX64`, and JS public
 
 ```bash
 (
-  cd "$TRAILS_C3_ROOT/store6" || exit
+  cd "$TRAILS_DEPENDENCIES/store6" || exit
   for module in core sqldelight mutations mutations-sqldelight; do
-    ./gradlew -Dmaven.repo.local="$TRAILS_C3_ROOT/maven" \
+    ./gradlew -Dmaven.repo.local="$TRAILS_DEPENDENCIES/maven" \
       ":$module:publishKotlinMultiplatformPublicationToMavenLocal" \
       ":$module:publishJvmPublicationToMavenLocal" \
       ":$module:publishAndroidReleasePublicationToMavenLocal" \
@@ -53,9 +53,9 @@ The root, JVM, Android, `iosArm64`, `iosSimulatorArm64`, `iosX64`, and JS public
   done
 )
 (
-  cd "$TRAILS_C3_ROOT/atom" || exit
+  cd "$TRAILS_DEPENDENCIES/atom" || exit
   for module in core compose; do
-    ./gradlew -Dmaven.repo.local="$TRAILS_C3_ROOT/maven" \
+    ./gradlew -Dmaven.repo.local="$TRAILS_DEPENDENCIES/maven" \
       ":$module:publishKotlinMultiplatformPublicationToMavenLocal" \
       ":$module:publishJvmPublicationToMavenLocal" \
       ":$module:publishAndroidReleasePublicationToMavenLocal" \
@@ -71,24 +71,47 @@ After both producers succeed, repeat preparation with `--verify-artifacts --trai
 
 ```bash
 python3 integration-tests/store6-consumer/prepare.py \
-  --store6-source "$TRAILS_C3_ROOT/store6" \
-  --atom-source "$TRAILS_C3_ROOT/atom" \
+  --store6-source "$TRAILS_DEPENDENCIES/store6" \
+  --atom-source "$TRAILS_DEPENDENCIES/atom" \
   --atom-revision 05daa800ac3c6d0dc1f9538234b99061c8139e40 \
   --atom-version 0.1.0-SNAPSHOT \
-  --owner-handoff docs/evidence/m1/dependencies/atom-owner/handoff.json \
-  --repository "$TRAILS_C3_ROOT/maven" \
+  --owner-handoff tooling/dependencies/atom/05daa800ac3c6d0dc1f9538234b99061c8139e40/handoff.json \
+  --repository "$TRAILS_DEPENDENCIES/maven" \
   --verify-artifacts --trails-targets
 python3 integration-tests/store6-consumer/prepare.py --check-candidate --trails-targets
 ```
 
-This records 126 required POM, Gradle metadata, and binary files in `integration-tests/store6-consumer/build/preparation/manifest.json` and writes the ignored `candidate.properties`. Production settings reject missing files, unrecorded platform publications, or changed recorded bytes. The standalone C3 fixture retains its JVM/Android-only default when `--trails-targets` is omitted.
+Preparation records 126 required POM, Gradle metadata, and binary files in `integration-tests/store6-consumer/build/preparation/manifest.json` and writes the ignored `candidate.properties`. Production settings reject missing files, unrecorded platform publications, or changed recorded bytes. The standalone fixture retains its JVM/Android-only default when `--trails-targets` is omitted.
+
+## Kotlin/JS compilation
+
+The pinned Metro compiler generates top-level declarations that Kotlin/JS cannot
+currently compile incrementally (KT-82395 and KT-82989). The repository disables
+JavaScript incremental compilation in `gradle.properties` and explicitly passes
+`-Xenable-incremental-compilation=false` to JS compilation. Disabling Gradle task
+incrementality alone leaves the pinned compiler's global default in effect.
+DI generation and compiler checks remain enabled. This does not add a supported
+JavaScript host.
 
 ## Verify IDE dependency resolution
 
 ```bash
 ./gradlew --no-configuration-cache \
   -I integration-tests/store6-consumer/verify-ide-sync.init.gradle \
-  verifyC3SyncDependencies
+  verifyDependencySync
 ```
 
-The check uses Kotlin's IDE resolver for every source set and separately resolves Android compile dependencies. It fails on unresolved dependencies and writes `build/reports/dependency-sync.json`. It verifies dependency resolution, not iOS/JS application compilation, linking, or runtime behavior.
+The check resolves every source set through Kotlin's IDE resolver and resolves Android compile dependencies separately. It fails on unresolved dependencies and writes `build/reports/dependency-sync.json`. It verifies dependency resolution, not iOS/JS application compilation, linking, or runtime behavior.
+
+## Existing candidates
+
+Existing clean clones and repositories may stay at their recorded paths. If the
+checkout or provenance bundle moves, run preparation again with those paths and
+`--verify-artifacts --trails-targets`. The generated manifest records absolute
+source and provenance paths. Editing its hashes by hand does not repair the manifest.
+
+The guard reads the pinned Atom provenance bundle. Its original bytes,
+status field, and relative evidence references are retained. Verification checks
+record consistency and hashes. It does not authenticate authorship or establish
+runtime compatibility. `candidate.properties` and the generated preparation
+manifest are local outputs and must not be committed.

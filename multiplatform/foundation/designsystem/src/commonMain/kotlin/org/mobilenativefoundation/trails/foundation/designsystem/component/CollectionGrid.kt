@@ -76,7 +76,6 @@ private fun CollectionCard(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically)
     ) {
-        // Emoji with gradient background
         Box(
             modifier = Modifier
                 .size(48.dp)
@@ -94,7 +93,6 @@ private fun CollectionCard(
             )
         }
 
-        // Collection name
         Text(
             text = name,
             color = Color.White,
@@ -104,7 +102,6 @@ private fun CollectionCard(
             maxLines = 1
         )
 
-        // Item count
         Text(
             text = "$itemCount $itemType",
             color = Color.White.copy(alpha = 0.6f),

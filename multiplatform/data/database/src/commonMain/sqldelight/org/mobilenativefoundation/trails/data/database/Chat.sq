@@ -1,0 +1,36 @@
+CREATE TABLE Chat (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    createdAt INTEGER NOT NULL,
+    lastMessageAt INTEGER NOT NULL,
+    projectId TEXT,
+    archivedAt INTEGER,
+    isTemporary INTEGER,
+    lastReadAt INTEGER
+);
+
+selectAll:
+SELECT *
+FROM Chat
+ORDER BY lastMessageAt DESC;
+
+selectById:
+SELECT *
+FROM Chat
+WHERE id = ?;
+
+insert:
+INSERT OR REPLACE INTO Chat(id, title, createdAt, lastMessageAt, projectId, archivedAt, isTemporary, lastReadAt)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+updateLastMessageAt:
+UPDATE Chat
+SET lastMessageAt = ?
+WHERE id = ?;
+
+deleteById:
+DELETE FROM Chat
+WHERE id = ?;
+
+deleteAll:
+DELETE FROM Chat;

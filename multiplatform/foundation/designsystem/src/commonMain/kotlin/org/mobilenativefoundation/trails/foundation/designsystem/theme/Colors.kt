@@ -43,7 +43,7 @@ private val ErrorLight = Color(0xFFFEE2E2)
 
 private val Forest = Color(0xFF1D4B35)
 private val Citron = Color(0xFFA9F184)
-private val Stone = Color(0xFFFFFFFF) // R2 background is white; the Stone name stays for source compatibility
+private val Stone = Color(0xFFFFFFFF) // The default background is white.
 private val Ink = Color(0xFF171E14)
 private val Muted = Color(0xFF545A52)
 private val Border = Color(0xFFE6E8E4)
@@ -209,7 +209,7 @@ data class TrailsExtendedColors(
     val gradientEnd: Color,
     val attention: Color,
 
-    // M1 semantic roles. Existing ski/domain fields remain source compatible.
+    // Semantic roles used by trail browsing and synchronization controls.
     val background: Color = Stone,
     val surface: Color = White,
     val textPrimary: Color = Ink,

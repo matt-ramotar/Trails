@@ -9,14 +9,14 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-SPEC = importlib.util.spec_from_file_location("c3_prepare", Path(__file__).with_name("prepare.py"))
+SPEC = importlib.util.spec_from_file_location("dependency_prepare", Path(__file__).with_name("prepare.py"))
 PREPARE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(PREPARE)
 
 
 class PreparationGuardsTest(unittest.TestCase):
     def setUp(self):
-        self.temporary = tempfile.TemporaryDirectory(prefix="trails-c3-guards-")
+        self.temporary = tempfile.TemporaryDirectory(prefix="trails-dependency-guards-")
         self.root = Path(self.temporary.name)
         self.store = self.root / "store6"
         self.atom = self.root / "atom"

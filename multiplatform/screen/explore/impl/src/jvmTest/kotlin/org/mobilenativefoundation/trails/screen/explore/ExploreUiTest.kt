@@ -7,9 +7,14 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.runDesktopComposeUiTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.filters.FilterSection
+import org.mobilenativefoundation.trails.feature.filters.FilterSection
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailSort
 
 @OptIn(ExperimentalTestApi::class)
 class ExploreUiTest {

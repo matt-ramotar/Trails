@@ -32,7 +32,6 @@ fun ProfileHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Back button
         IconButton(
             onClick = onBackClick,
             modifier = Modifier.size(40.dp)
@@ -45,7 +44,6 @@ fun ProfileHeader(
             )
         }
 
-        // Username
         Text(
             text = "@$username",
             color = Color.White,
@@ -57,7 +55,6 @@ fun ProfileHeader(
             overflow = TextOverflow.Ellipsis
         )
 
-        // Menu button
         IconButton(
             onClick = onMenuClick,
             modifier = Modifier.size(40.dp)

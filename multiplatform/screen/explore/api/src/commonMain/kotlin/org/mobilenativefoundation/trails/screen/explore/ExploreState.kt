@@ -1,21 +1,26 @@
 package org.mobilenativefoundation.trails.screen.explore
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import com.slack.circuit.runtime.CircuitUiEvent
 import com.slack.circuit.runtime.CircuitUiState
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.filters.FilterSection
+import org.mobilenativefoundation.trails.feature.filters.FilterSection
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailSort
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
 
 data class ExploreState(
     val text: String,
     val query: TrailQuery,
     val results: LoadState<List<Trail>>,
     val saved: LoadState<SavedSnapshot>,
-    val initialScroll: M1ScrollPosition = M1ScrollPosition(),
+    val initialScroll: ScrollPosition = ScrollPosition(),
     val send: (ExploreIntent) -> Unit,
 ) : CircuitUiState
 
 sealed interface ExploreIntent : CircuitUiEvent {
-    data class ScrollChanged(val position: M1ScrollPosition) : ExploreIntent
+    data class ScrollChanged(val position: ScrollPosition) : ExploreIntent
     data class QueryChanged(val text: String) : ExploreIntent
     data object SubmitSearch : ExploreIntent
     data object ClearQuery : ExploreIntent

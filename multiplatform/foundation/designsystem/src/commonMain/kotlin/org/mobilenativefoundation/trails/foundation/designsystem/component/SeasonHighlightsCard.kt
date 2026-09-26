@@ -38,7 +38,6 @@ fun SeasonHighlightsCard(
             .padding(spacing.lgPlus),
         verticalArrangement = Arrangement.spacedBy(spacing.lg)
     ) {
-        // Header
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -73,7 +72,6 @@ fun SeasonHighlightsCard(
             }
         }
 
-        // Stats Row
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -127,7 +125,6 @@ private fun StatColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
-        // Value with gradient
         Text(
             text = buildAnnotatedString {
                 withStyle(
@@ -142,7 +139,6 @@ private fun StatColumn(
             }
         )
 
-        // Unit
         Text(
             text = unit,
             color = Color.White.copy(alpha = 0.6f),
@@ -150,7 +146,6 @@ private fun StatColumn(
             fontWeight = FontWeight.Medium
         )
 
-        // Label
         Text(
             text = label,
             color = Color.White.copy(alpha = 0.8f),

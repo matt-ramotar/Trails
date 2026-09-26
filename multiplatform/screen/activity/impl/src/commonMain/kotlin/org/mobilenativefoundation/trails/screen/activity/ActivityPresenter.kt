@@ -2,6 +2,7 @@
 
 package org.mobilenativefoundation.trails.screen.activity
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
@@ -21,16 +22,20 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.activity.ActivityRepository
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
 
 @Inject
 class ActivityPresenter(
     private val activities: ActivityRepository,
     private val trails: TrailRepository,
     private val savedRepository: SavedRepository,
-    private val navigation: M1Navigation,
+    private val navigation: AppNavigation,
     private val saves: SaveTrailFeature,
 ) : Presenter<ActivityState> {
     @Composable
@@ -49,7 +54,7 @@ class ActivityPresenter(
         val scope = rememberCoroutineScope()
         var refreshing by remember { mutableStateOf(false) }
         var refreshErrors by remember { mutableStateOf<List<String>>(emptyList()) }
-        // History remains visible while the independently loaded catalog recovers its hearts.
+        // History remains visible while the independently loaded catalog recovers saved-trail indicators.
         val catalogComplete = catalog.data?.let { cached ->
             history.data?.all { activity -> cached.any { it.id == activity.trailId } } == true
         } == true

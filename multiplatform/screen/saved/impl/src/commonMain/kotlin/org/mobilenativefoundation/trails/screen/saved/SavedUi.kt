@@ -1,5 +1,8 @@
 package org.mobilenativefoundation.trails.screen.saved
 
+import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.ui.trail.*
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -22,13 +25,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.data.trail.Trail
-import org.mobilenativefoundation.trails.data.trail.TrailCollection
-import org.mobilenativefoundation.trails.feat.savetrail.*
-import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.saved.TrailCollection
+import org.mobilenativefoundation.trails.feature.savetrail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.icon.Icons
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
-import org.mobilenativefoundation.trails.screen.explore.M1ScrollPosition
+import org.mobilenativefoundation.trails.app.navigation.ScrollPosition
 
 @Inject
 class SavedUi : Ui<SavedState> {
@@ -37,10 +39,10 @@ class SavedUi : Ui<SavedState> {
         val colors = TrailsTheme.colors
         val typography = TrailsTheme.typography
         val collectionsScroll = rememberCheckpointedListState(state.collectionsScroll.index, state.collectionsScroll.offset, state.content.data != null && !state.allTrails) { index, offset ->
-            state.send(SavedIntent.ScrollChanged(false, M1ScrollPosition(index, offset)))
+            state.send(SavedIntent.ScrollChanged(false, ScrollPosition(index, offset)))
         }
         val trailsScroll = rememberCheckpointedListState(state.trailsScroll.index, state.trailsScroll.offset, state.content.data != null && state.allTrails) { index, offset ->
-            state.send(SavedIntent.ScrollChanged(true, M1ScrollPosition(index, offset)))
+            state.send(SavedIntent.ScrollChanged(true, ScrollPosition(index, offset)))
         }
         val snapshot = state.content.data
         LazyColumn(
@@ -50,7 +52,7 @@ class SavedUi : Ui<SavedState> {
         ) {
             item(key = "heading") { Text("Saved", style = typography.displayMedium, color = colors.textPrimary, modifier = Modifier.semantics { heading() }) }
             item(key = "segments") { SavedTabs(state.allTrails) { state.send(SavedIntent.SelectSegment(it)) } }
-            if (state.content.loading) item(key = "loading") { M1Loading(if (snapshot == null) "Opening your saved trails…" else "Refreshing saved trails…") }
+            if (state.content.loading) item(key = "loading") { TrailsLoading(if (snapshot == null) "Opening your saved trails…" else "Refreshing saved trails…") }
             if (snapshot == null && !state.content.loading) item(key = "unavailable") {
                 Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                     TrailsStatusLine(StatusKind.FAILED, "Couldn’t load your saved trails", actionLabel = "Try again", onAction = { state.send(SavedIntent.Retry) })

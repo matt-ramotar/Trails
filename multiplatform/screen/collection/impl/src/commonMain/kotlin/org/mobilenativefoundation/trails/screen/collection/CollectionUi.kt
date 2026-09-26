@@ -1,5 +1,8 @@
 package org.mobilenativefoundation.trails.screen.collection
 
+import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.ui.trail.*
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,11 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.feat.savetrail.*
-import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.feature.savetrail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.icon.Icons
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
-import org.mobilenativefoundation.trails.screen.explore.M1ScrollPosition
+import org.mobilenativefoundation.trails.app.navigation.ScrollPosition
 
 @Inject
 class CollectionUi : Ui<CollectionState> {
@@ -28,15 +30,15 @@ class CollectionUi : Ui<CollectionState> {
         val snapshot = state.content.data
         val collection = snapshot?.collections?.firstOrNull { it.id == state.collectionId }
         val scroll = rememberCheckpointedListState(state.initialScroll.index, state.initialScroll.offset, collection != null) { index, offset ->
-            state.send(CollectionIntent.ScrollChanged(M1ScrollPosition(index, offset)))
+            state.send(CollectionIntent.ScrollChanged(ScrollPosition(index, offset)))
         }
         LazyColumn(
             modifier.fillMaxSize().background(colors.background), state = scroll,
             contentPadding = PaddingValues(20.dp), verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             item(key = "back") { IconButton({ state.send(CollectionIntent.Back) }) { Icon(Icons.Outlined.ArrowLeft.painter, "Back to saved", tint = colors.textPrimary) } }
-            item(key = "heading") { M1Heading(collection?.name ?: "Your collection") }
-            if (state.content.loading) item(key = "loading") { M1Loading("Opening your collection…") }
+            item(key = "heading") { TrailsHeading(collection?.name ?: "Your collection") }
+            if (state.content.loading) item(key = "loading") { TrailsLoading("Opening your collection…") }
             if (collection == null && !state.content.loading) item(key = "unavailable") {
                 TrailsStatusLine(StatusKind.FAILED, "This collection isn’t available", actionLabel = "Try again", onAction = { state.send(CollectionIntent.Retry) })
             }
@@ -55,7 +57,7 @@ class CollectionUi : Ui<CollectionState> {
                     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                         Text("A little room for adventure", style = typography.titleLarge, color = colors.textPrimary)
                         Text("Save a trail to this collection when something catches your eye.", style = typography.bodyLarge, color = colors.textSecondary)
-                        TrailsM1Button("Explore trails", { state.send(CollectionIntent.Explore) }, modifier = Modifier.fillMaxWidth())
+                        TrailsControlsButton("Explore trails", { state.send(CollectionIntent.Explore) }, modifier = Modifier.fillMaxWidth())
                     }
                 }
                 if (trails.size < ids.size) item(key = "missing-details") { TrailsStatusLine(StatusKind.INFO, "Some trail details aren’t on this device yet") }

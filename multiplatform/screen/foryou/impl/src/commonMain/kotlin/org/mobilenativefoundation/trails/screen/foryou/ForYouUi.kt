@@ -1,5 +1,8 @@
 package org.mobilenativefoundation.trails.screen.foryou
 
+import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.ui.trail.*
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -21,13 +24,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
-import org.mobilenativefoundation.trails.data.trail.SavedSnapshot
-import org.mobilenativefoundation.trails.data.trail.ForYouFeed
-import org.mobilenativefoundation.trails.data.trail.Trail
-import org.mobilenativefoundation.trails.feat.savetrail.*
-import org.mobilenativefoundation.trails.foundation.designsystem.component.*
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
+import org.mobilenativefoundation.trails.data.trail.recommendation.ForYouFeed
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.feature.savetrail.*
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
-import org.mobilenativefoundation.trails.screen.explore.M1ScrollPosition
+import org.mobilenativefoundation.trails.app.navigation.ScrollPosition
 
 @Inject
 class ForYouUi : Ui<ForYouState> {
@@ -42,14 +44,14 @@ class ForYouUi : Ui<ForYouState> {
         // checkpoint against placeholders, including a failed uncached catalog.
         val contentReady = feed != null && !state.feed.loading && state.trails.isNotEmpty()
         val scroll = rememberCheckpointedListState(state.initialScroll.index, state.initialScroll.offset, contentReady) { index, offset ->
-            state.send(ForYouIntent.ScrollChanged(M1ScrollPosition(index, offset)))
+            state.send(ForYouIntent.ScrollChanged(ScrollPosition(index, offset)))
         }
         LazyColumn(
             modifier.fillMaxSize().background(colors.background).semantics { paneTitle = "For you" }, state = scroll,
             contentPadding = PaddingValues(horizontal = 20.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             item(key = "heading") { Text("For you", style = typography.displayMedium, color = colors.textPrimary, modifier = Modifier.semantics { heading() }) }
-            if (feed == null && state.feed.loading) item(key = "loading") { M1Loading("Finding your picks…") }
+            if (feed == null && state.feed.loading) item(key = "loading") { TrailsLoading("Finding your picks…") }
             if (feed == null && !state.feed.loading) item(key = "unavailable") {
                 TrailsStatusLine(
                     if (state.feed.offline) StatusKind.OFFLINE else StatusKind.FAILED,

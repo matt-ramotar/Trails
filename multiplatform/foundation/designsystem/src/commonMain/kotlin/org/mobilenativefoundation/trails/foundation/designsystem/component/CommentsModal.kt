@@ -65,7 +65,6 @@ fun CommentsModal(
                 }
             }
 
-            // TODO
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center

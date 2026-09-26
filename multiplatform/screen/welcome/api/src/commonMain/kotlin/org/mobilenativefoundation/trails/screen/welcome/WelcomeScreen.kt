@@ -5,5 +5,3 @@ import org.mobilenativefoundation.trails.foundation.parcel.Parcelize
 
 @Parcelize
 data object WelcomeScreen : Screen
-
-

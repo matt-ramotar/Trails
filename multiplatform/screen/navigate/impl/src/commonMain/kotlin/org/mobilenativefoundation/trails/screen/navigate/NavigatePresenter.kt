@@ -1,13 +1,17 @@
 package org.mobilenativefoundation.trails.screen.navigate
 
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
+import org.mobilenativefoundation.trails.data.trail.LoadState
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedRepository
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
 
 const val RECORDING_COMING_SOON = "Recording is coming soon"
 internal const val DEFAULT_NAVIGATE_TRAIL = "half-dome"
@@ -22,7 +26,7 @@ internal fun navigateTrailId(lastOpened: String?, saved: SavedSnapshot?): String
 class NavigatePresenter(
     private val repository: TrailRepository,
     private val savedRepository: SavedRepository,
-    private val navigation: M1Navigation,
+    private val navigation: AppNavigation,
 ) : Presenter<NavigateState> {
     @Composable
     override fun present(): NavigateState {

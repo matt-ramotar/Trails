@@ -2,7 +2,11 @@ package org.mobilenativefoundation.trails.screen.navigate
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import org.mobilenativefoundation.trails.data.trail.*
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
+import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
+import org.mobilenativefoundation.trails.data.trail.saved.TrailCollection
 
 class NavigateTrailChoiceTest {
     private val trail = Trail("preikestolen", "Preikestolen", "Lysefjord, Norway", "Cliff.", TrailDifficulty.MODERATE, 8000, 350, 240, 4.8, 900, setOf(TrailFeature.SUMMIT), 2)

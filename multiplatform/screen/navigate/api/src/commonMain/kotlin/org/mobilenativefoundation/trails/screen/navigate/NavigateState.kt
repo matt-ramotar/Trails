@@ -3,7 +3,7 @@ package org.mobilenativefoundation.trails.screen.navigate
 import com.slack.circuit.runtime.CircuitUiEvent
 import com.slack.circuit.runtime.CircuitUiState
 import org.mobilenativefoundation.trails.data.trail.LoadState
-import org.mobilenativefoundation.trails.data.trail.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
 
 data class NavigateState(
     val trail: LoadState<Trail>,

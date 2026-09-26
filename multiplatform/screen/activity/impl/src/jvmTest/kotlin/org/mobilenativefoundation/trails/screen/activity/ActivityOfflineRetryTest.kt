@@ -1,5 +1,8 @@
 package org.mobilenativefoundation.trails.screen.activity
 
+import org.mobilenativefoundation.trails.data.trail.storage.PlatformTrailDatabaseDriverFactory
+
+import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.*
@@ -12,12 +15,15 @@ import kotlin.time.Duration.Companion.milliseconds
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.mobilenativefoundation.trails.data.trail.*
-import org.mobilenativefoundation.trails.feat.savetrail.SaveTrailFeature
+import org.mobilenativefoundation.trails.feature.savetrail.SaveTrailFeature
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
-import org.mobilenativefoundation.trails.screen.explore.M1Navigation
-import org.mobilenativefoundation.trails.server.BackendConfig
-import org.mobilenativefoundation.trails.server.NetworkMode
+import org.mobilenativefoundation.trails.app.navigation.AppNavigation
+import org.mobilenativefoundation.trails.data.backend.BackendConfig
+import org.mobilenativefoundation.trails.data.backend.NetworkMode
+import org.mobilenativefoundation.trails.data.trail.account.RealTrailDataFactory
+import org.mobilenativefoundation.trails.data.trail.catalog.Trail
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
+import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
 
 @OptIn(ExperimentalTestApi::class, ExperimentalCoroutinesApi::class)
 class ActivityOfflineRetryTest {
@@ -30,7 +36,7 @@ class ActivityOfflineRetryTest {
     @Test fun realUncachedOfflineRetryKeepsRecoveryAndLoadsAfterReconnect() {
         val directory = Files.createTempDirectory("activity-cold-retry").toFile()
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-        val factory = RealTrailDataFactory(PlatformM1DriverFactory(directory), scope)
+        val factory = RealTrailDataFactory(PlatformTrailDatabaseDriverFactory(directory), scope)
         val online = BackendConfig(latencyRange = 0.milliseconds..0.milliseconds)
         try {
             val account = runBlocking {
@@ -69,7 +75,7 @@ class ActivityOfflineRetryTest {
     @Test fun realUncachedPresenterRetriesTheAccountAndRecoversAfterReconnect() {
         val directory = Files.createTempDirectory("activity-cold-retry").toFile()
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-        val factory = RealTrailDataFactory(PlatformM1DriverFactory(directory), scope)
+        val factory = RealTrailDataFactory(PlatformTrailDatabaseDriverFactory(directory), scope)
         val online = BackendConfig(latencyRange = 0.milliseconds..0.milliseconds)
         try {
             val account = runBlocking {
@@ -114,7 +120,7 @@ class ActivityOfflineRetryTest {
     private fun verifyRetry(offline: Boolean) {
         val directory = Files.createTempDirectory("activity-retry").toFile()
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-        val factory = RealTrailDataFactory(PlatformM1DriverFactory(directory), scope)
+        val factory = RealTrailDataFactory(PlatformTrailDatabaseDriverFactory(directory), scope)
         val online = BackendConfig(latencyRange = 0.milliseconds..0.milliseconds)
         try {
             val account = runBlocking { factory.applyBackendConfig(online); factory.open("alice") }
@@ -156,7 +162,7 @@ class ActivityOfflineRetryTest {
         }
     }
 
-    private object Navigation : M1Navigation {
+    private object Navigation : AppNavigation {
         override fun openTrail(trailId: String) = Unit
         override fun selectExplore() = Unit
         override fun selectSaved(collectionId: String?) = Unit
