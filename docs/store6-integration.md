@@ -2,6 +2,8 @@
 
 **September 16, 2026 — bounded C3 passed for JVM and Android; production M1 is installed and accepted within its Android scope.** The standalone consumer passed 13 file-backed persistence/admission tests. Its Android package demonstrated Offline save, force-stop/reopen, an in-place schema upgrade retaining pending work, and reconnect with one backend effect. Atom core/Compose passed 288 fresh tests on the joint tuple; Metro adapters compiled. These dependency results are separate from [production acceptance](evidence/m1/continuation/README.md). The continuation reverified unchanged producer/artifact hashes and captured the actual Android runtime graph; it did not rerun the unchanged C3 suites.
 
+For production Gradle/IDE sync, follow [local dependency setup](dependency-setup.md). Trails also declares iOS and JavaScript targets, so its settings require `prepare.py --check-candidate --trails-targets`. A candidate prepared only for the JVM/Android fixture cannot satisfy production sync.
+
 ## Reproducible sources
 
 | Input | Immutable revision | Consumption |
@@ -48,6 +50,6 @@ The unused legacy TODO `PostAtom` and alpha02 generated registry path are retire
 
 ## Remaining boundaries
 
-The production M1 APK and all nine completion-script cells are tracked in [acceptance.json](evidence/m1/acceptance.json), with cumulative per-build acceptance and [the latest installed restart proof](evidence/m1/continuation/README.md). Existing iOS/JVM/JS targets are retained, but only JVM/Android dependency variants have been published and verified in this repository. The synchronous persistence adapter cannot use the existing asynchronous WebWorkerDriver; the new Web driver reports that unsupported capability explicitly. No Apple, Web, desktop-launcher, map, background recording, or release claim follows from C3.
+The production M1 APK and all nine completion-script cells are tracked in [acceptance.json](evidence/m1/acceptance.json), with cumulative per-build acceptance and [the latest installed restart proof](evidence/m1/continuation/README.md). The September 16 C3 evidence covers only JVM/Android dependency variants. Production IDE sync additionally requires the iOS/JS publications described in the setup guide; resolving them does not establish application execution on those platforms. The synchronous persistence adapter cannot use the existing asynchronous WebWorkerDriver; the new Web driver reports that unsupported capability explicitly. No Apple, Web, desktop-launcher, map, background recording, or release claim follows from C3.
 
 Later maps, Moments, recording, activity, profile and platform milestones remain open.

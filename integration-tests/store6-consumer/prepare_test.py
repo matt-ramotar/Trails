@@ -53,22 +53,123 @@ class PreparationGuardsTest(unittest.TestCase):
             self.addCleanup(active.stop)
         self.addCleanup(self.temporary.cleanup)
 
-    def prepare_artifacts(self):
+    def artifact_paths(self, trails_targets=False):
+        targets = [("", "jar"), ("-jvm", "jar"), ("-android", "aar")]
+        if trails_targets:
+            targets += [("-iosarm64", "klib"), ("-iossimulatorarm64", "klib"),
+                        ("-iosx64", "klib"), ("-js", "klib")]
+        paths = []
         for group, modules, version in (
             ("org/mobilenativefoundation/store", ("core", "sqldelight", "mutations", "mutations-sqldelight"), "6.0.0-SNAPSHOT"),
             ("dev/mattramotar/atom", ("core", "compose"), self.version),
         ):
             for module in modules:
-                for suffix in ("", "-jvm", "-android"):
+                for suffix, binary in targets:
                     artifact = module + suffix
                     directory = self.repository / group / artifact / version
-                    directory.mkdir(parents=True)
-                    extensions = ["pom", "module", "aar" if suffix == "-android" else "jar"]
-                    for extension in extensions:
-                        (directory / f"{artifact}-{version}.{extension}").write_bytes(b"synthetic artifact bytes")
+                    paths += [directory / f"{artifact}-{version}.{extension}"
+                              for extension in ("pom", "module", binary)]
+        return paths
+
+    def write_artifacts(self, trails_targets=False):
+        for path in self.artifact_paths(trails_targets):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(f"Synthetic bytes for {path.relative_to(self.repository)}".encode())
+
+    def invoke(self, arguments):
         with contextlib.redirect_stdout(io.StringIO()):
-            PREPARE.main(self.arguments + ["--verify-artifacts"])
+            try:
+                PREPARE.main(arguments)
+            except SystemExit as error:
+                self.fail(f"CLI rejected supported arguments with exit code {error.code}: {arguments}")
+
+    def prepare_artifacts(self, trails_targets=False):
+        self.write_artifacts(trails_targets)
+        flags = ["--verify-artifacts"] + (["--trails-targets"] if trails_targets else [])
+        self.invoke(self.arguments + flags)
+        with contextlib.redirect_stdout(io.StringIO()):
             PREPARE.check_candidate()
+
+    def snapshot(self):
+        return {str(path.relative_to(self.root)): (path.read_bytes(), path.stat().st_mtime_ns)
+                for path in self.root.rglob("*") if path.is_file()}
+
+    def test_default_candidate_retains_jvm_android_fixture_scope(self):
+        self.prepare_artifacts()
+        record = json.loads((self.root / "build/preparation/manifest.json").read_text())
+        self.assertEqual(len(record["artifact_files"]), 54)
+        self.assertEqual({entry["path"] for entry in record["artifact_files"]},
+                         {str(path.relative_to(self.repository)) for path in self.artifact_paths()})
+        self.invoke(["--check-candidate"])
+
+    def test_trails_candidate_records_all_required_publications_and_hashes(self):
+        self.prepare_artifacts(trails_targets=True)
+        record = json.loads((self.root / "build/preparation/manifest.json").read_text())
+        self.assertEqual(len(record["artifact_files"]), 126)
+        self.assertEqual({entry["path"]: entry["sha256"] for entry in record["artifact_files"]},
+                         {str(path.relative_to(self.repository)): PREPARE.digest(path)
+                          for path in self.artifact_paths(trails_targets=True)})
+        before = self.snapshot()
+        self.invoke(["--check-candidate", "--trails-targets"])
+        self.invoke(["--trails-targets", "--check-candidate"])
+        self.assertEqual(self.snapshot(), before)
+
+    def test_missing_native_or_js_publication_file_revokes_older_candidate(self):
+        for target in ("iosarm64", "iossimulatorarm64", "iosx64", "js"):
+            for extension in ("pom", "module", "klib"):
+                with self.subTest(target=target, extension=extension):
+                    self.prepare_artifacts()
+                    self.write_artifacts(trails_targets=True)
+                    missing = self.repository / f"dev/mattramotar/atom/core-{target}/{self.version}/core-{target}-{self.version}.{extension}"
+                    missing.unlink()
+                    with self.assertRaisesRegex(ValueError, "Required consumer artifact is absent"):
+                        self.invoke(self.arguments + ["--verify-artifacts", "--trails-targets"])
+                    self.assertFalse((self.root / "candidate.properties").exists())
+
+    def test_trails_check_rejects_fixture_manifest_even_when_all_files_exist(self):
+        self.prepare_artifacts()
+        self.write_artifacts(trails_targets=True)
+        before = self.snapshot()
+        with self.assertRaisesRegex(ValueError, "Required Trails artifact was not recorded"):
+            self.invoke(["--check-candidate", "--trails-targets"])
+        self.assertEqual(self.snapshot(), before)
+
+    def test_trails_check_rejects_missing_recorded_native_file_without_mutation(self):
+        self.prepare_artifacts(trails_targets=True)
+        native = self.repository / f"dev/mattramotar/atom/core-iosarm64/{self.version}/core-iosarm64-{self.version}.klib"
+        native.unlink()
+        before = self.snapshot()
+        with self.assertRaises((ValueError, FileNotFoundError)):
+            self.invoke(["--check-candidate", "--trails-targets"])
+        self.assertEqual(self.snapshot(), before)
+
+    def test_trails_check_rejects_native_and_js_tampering_without_mutation(self):
+        for target in ("iosarm64", "js"):
+            with self.subTest(target=target):
+                self.prepare_artifacts(trails_targets=True)
+                binary = self.repository / f"dev/mattramotar/atom/core-{target}/{self.version}/core-{target}-{self.version}.klib"
+                binary.write_bytes(b"tampered native or JS binary")
+                before = self.snapshot()
+                with self.assertRaisesRegex(ValueError, "artifact changed"):
+                    self.invoke(["--check-candidate", "--trails-targets"])
+                self.assertEqual(self.snapshot(), before)
+
+    def test_check_mode_rejects_preparation_arguments_without_mutation(self):
+        self.prepare_artifacts()
+        before = self.snapshot()
+        with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+            PREPARE.main(["--check-candidate", "--trails-targets", "--verify-artifacts"])
+        self.assertEqual(error.exception.code, 2)
+        self.assertEqual(self.snapshot(), before)
+
+    def test_help_preserves_candidate(self):
+        self.prepare_artifacts()
+        before = self.snapshot()
+        for arguments in (["--help"], ["--check-candidate", "--help"]):
+            with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as error:
+                PREPARE.main(arguments)
+            self.assertEqual(error.exception.code, 0)
+        self.assertEqual(self.snapshot(), before)
 
     def test_invalid_invocation_revokes_older_candidate(self):
         candidate = self.root / "candidate.properties"

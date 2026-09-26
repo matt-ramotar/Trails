@@ -81,7 +81,7 @@ These are file-repository development publications, not Maven Central/public pub
 
 Repeat `prepare.py` with the same source arguments plus `--verify-artifacts`. It checks expected root/JVM/Android `.pom`, `.module`, `.jar`/`.aar` files, records SHA-256 hashes and writes ignored `candidate.properties`. Preserve its `build/preparation/manifest.json` beside producer logs. Candidate properties also pin the manifest SHA-256. Settings validates that pairing, handoff records and artifact bytes, and the `verifyCandidate` task repeats the check before compilation. Configuration caching is disabled in the fixture. Hash checking records the observed bytes; only pairing with the clean producer execution establishes their provenance.
 
-This repository is deliberately incomplete for native/JS variants. Do not represent root KMP metadata references as proof those binaries were built. The standalone consumer declares only JVM and Android.
+The recipe above publishes only JVM/Android variants for the standalone consumer. Production Trails also declares iOS and JS targets. Follow [local dependency setup](../../../dependency-setup.md) to publish those variants and prepare with `--verify-artifacts --trails-targets` before production IDE sync. Root KMP metadata references alone do not prove that platform binaries exist.
 
 ## 3. Execute the consuming checks
 
