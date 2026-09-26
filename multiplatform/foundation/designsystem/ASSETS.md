@@ -6,7 +6,7 @@ Photo sources and licenses are listed in [trail photography](../../ui/trail/TRAI
 
 - **Manrope:** `wght` range 200–800, default 200. Heading weights use `FontVariation.weight` to override the variable font's default.
 - **Inter:** `wght` range 100–900, default 400. The `opsz` range is 14–32, default 14. Reading and control weights use explicit `wght` with the source default `opsz=14`. No runtime font request is made.
-- **Compass:** `trails_compass_mark.xml` converts the captured 48 × 48 SVG, preserving its path data, even-odd fill rule, viewport, and Forest fill. `TrailsCompass` allows color overrides. `TrailsBrand` uses the original lowercase Manrope Bold wordmark and -4% letter spacing.
+- **Compass:** `trails_compass_mark.xml` converts the captured 48 × 48 SVG, preserving its path data, even-odd fill rule, viewport, and Forest fill. `TrailsCompass` allows color overrides. `TrailsBrand` uses the original lowercase Manrope Bold wordmark and -4% letter spacing. Android launcher and splash screens use the same compass in Citron on Forest, with adaptive icons and a monochrome layer for themed icons.
 - **Photography:** `TrailPhoto` maps each of the 50 catalog IDs to a bundled photograph of its route, destination, or a view from it. Compose crops the image for display without changing the source JPEG bytes. TrailPhotoCredit shows credits and source/license links on trail detail and Welcome. Cards and collection tiles show only the photograph. All photos work offline.
 
 ## Copied resource hashes

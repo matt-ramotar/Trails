@@ -95,6 +95,17 @@ class ArchitectureTest(unittest.TestCase):
         self.assertTrue(any('must apply plugin.trails.library' in error for error in errors))
         self.assertTrue(any('UI dependency or plugin' in error for error in errors))
 
+    def test_rejects_legacy_filenames_even_when_declarations_are_renamed(self):
+        self.modules(':apps:android')
+        path = 'apps/android/src/main/kotlin/example/LastRunTheme.kt'
+        self.write(path, 'package example\nobject TrailsTheme\n')
+        self.write('apps/android/build/generated/LastRunTheme.kt', 'package example')
+        errors, _ = check_architecture.check(self.root)
+        self.assertEqual(len(errors), 1)
+        self.assertIn('source filename uses the retired app name', errors[0])
+        (self.root / path).rename(self.root / path.replace('LastRunTheme', 'TrailsTheme'))
+        self.assertEqual(check_architecture.check(self.root)[0], [])
+
 
 if __name__ == '__main__':
     unittest.main()

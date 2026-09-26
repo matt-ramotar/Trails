@@ -167,6 +167,8 @@ def check(root):
 
     for section in ('apps', 'multiplatform', 'tooling', 'integration-tests'):
         for source in files_under(root / section):
+            if source.name.startswith('LastRun'):
+                violation(source, 1, 'source filename uses the retired app name; name it for its Trails declaration')
             if source.suffix != '.kt' or 'src' not in source.parts:
                 continue
             parts = source.relative_to(root).parts

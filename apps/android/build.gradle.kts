@@ -25,7 +25,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.compose.activity)
     implementation(libs.androidx.core)
-    implementation(libs.google.fonts)
     implementation(libs.androidx.viewmodel)
     implementation(libs.kotlin.stdlib)
     implementation(libs.circuit.foundation)
