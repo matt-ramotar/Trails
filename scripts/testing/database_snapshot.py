@@ -78,7 +78,7 @@ def parse_json(value):
 
 
 def membership(value):
-    """Decode only the two non-secret fields from a versioned SavedValue blob."""
+    """Summarize the two membership fields from a versioned SavedValue blob."""
     parsed = parse_json(value)
     result = {'payloadSha256': digest(value)}
     if isinstance(parsed, dict) and isinstance(parsed.get('trailId'), str) and isinstance(parsed.get('collectionIds'), list):

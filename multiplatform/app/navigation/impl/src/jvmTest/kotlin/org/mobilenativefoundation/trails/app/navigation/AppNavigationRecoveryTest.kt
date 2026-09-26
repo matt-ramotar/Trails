@@ -58,7 +58,7 @@ class AppNavigationRecoveryTest {
         controller.selectSaved("weekend")
         controller.openTrail("alpine-lake-loop")
         controller.navigator.pop() // Platform Circuit navigator mutates this same back stack.
-        controller.checkpoint() // Host snapshot observer.
+        controller.checkpoint() // Simulates the host snapshot observer.
         controller.selectExplore()
         controller.selectSavedTab()
         val restored = AppNavigationController(FileStorage(path))
@@ -117,7 +117,7 @@ class AppNavigationRecoveryTest {
         assertNotNull(controller.persistenceError)
         controller.checkpoint()
         assertEquals(damaged, storage.read())
-        controller.retryCheckpoint() // Explicitly save this current place.
+        controller.retryCheckpoint()
         assertNull(controller.persistenceError)
         assertEquals(AppNavigationController.Root.EXPLORE, AppNavigationController(FileStorage(storage.path)).selectedRoot)
     }

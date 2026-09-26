@@ -19,7 +19,7 @@ import org.mobilenativefoundation.trails.android.BuildConfig
 import org.mobilenativefoundation.trails.data.trail.account.RealTrailDataFactory
 import org.mobilenativefoundation.trails.data.session.model.ActiveUser
 
-/** Debug acceptance controls only. No arbitrary SQL, path, account, reset, or reseed input. */
+/** Debug storage-fault controls. No arbitrary SQL, path, account, reset, or reseed input. */
 class StorageFaultReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val pending = goAsync()

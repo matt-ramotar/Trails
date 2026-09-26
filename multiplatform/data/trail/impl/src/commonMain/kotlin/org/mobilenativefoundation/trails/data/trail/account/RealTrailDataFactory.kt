@@ -18,7 +18,7 @@ import org.mobilenativefoundation.trails.data.trail.internal.catalog.RealTrailRe
 import org.mobilenativefoundation.trails.data.trail.storage.TrailDatabaseDriverFactory
 import org.mobilenativefoundation.trails.data.trail.storage.db.TrailDataDatabase
 
-/** App-owned public catalog/backend and one active, independently retired private account. */
+/** The app owns the public catalog and backend, plus one active private account. The account retires independently. */
 class RealTrailDataFactory internal constructor(
     private val drivers: TrailDatabaseDriverFactory,
     appScope: CoroutineScope,
@@ -28,7 +28,7 @@ class RealTrailDataFactory internal constructor(
     private val lifecycle = Mutex()
     private val job = SupervisorJob(appScope.coroutineContext[Job])
     private val scope = CoroutineScope(appScope.coroutineContext + job)
-    // File names are an installed-data contract; retain them across source and package renames.
+    // File names are an installed-data contract. Retain them across source and package renames.
     private val backendDriver = drivers.open("trails-m1-backend.db")
     private val backend = PersistentFakeBackend(TrailDataDatabase(backendDriver))
     private val catalogDriver = drivers.open("trails-m1-catalog.db")
@@ -85,7 +85,7 @@ class RealTrailDataFactory internal constructor(
         }
     }
 
-    /** Sample verification support; these inspect the durable fake server, not a process counter. */
+    /** Inspects the durable fake server, not a process counter. */
     suspend fun backendEvidence(): BackendEvidence = backend.evidence()
     suspend fun loseNextAcknowledgement() { backend.loseNextAcknowledgement() }
 }

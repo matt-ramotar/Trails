@@ -73,7 +73,7 @@ class ExplorePresenter(
     }
 }
 
-/** Clearing filters clears filters; the chosen order is not one of them. */
+/** Clearing filters preserves the chosen sort order. */
 internal fun clearedExploreSelectors(current: TrailQuery): TrailQuery = TrailQuery(sort = current.sort)
 
 /** Search edits clear a checkpointed region before applying the text query. */

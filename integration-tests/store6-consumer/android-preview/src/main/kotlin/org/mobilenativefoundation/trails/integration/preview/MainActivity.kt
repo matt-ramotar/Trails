@@ -28,7 +28,7 @@ class FixtureApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // Distinct driver authorities: journal operations never share the value adapter's gate.
+        // Separate drivers keep journal operations off the value adapter's gate.
         val values = AndroidSqliteDriver(FixtureDatabase.Schema, this, "alice-values.db")
         val journal = AndroidSqliteDriver(FixtureDatabase.Schema, this, "alice-journal.db")
         val backend = AndroidSqliteDriver(FixtureDatabase.Schema, this, "backend.db")

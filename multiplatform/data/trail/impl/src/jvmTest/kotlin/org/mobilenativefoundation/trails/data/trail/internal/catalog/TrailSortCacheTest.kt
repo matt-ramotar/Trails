@@ -18,7 +18,7 @@ import org.mobilenativefoundation.trails.data.trail.storage.PlatformTrailDatabas
 import org.mobilenativefoundation.trails.data.trail.storage.TrailDatabaseDriverFactory
 import org.mobilenativefoundation.trails.data.trail.storage.db.TrailDataDatabase
 
-/** Sort reorders one cached membership; it must never key a separate fetch. */
+/** Sort reorders one cached membership. It must never key a separate fetch. */
 class TrailSortCacheTest {
     private val online = BackendConfig(latencyRange = 0.milliseconds..0.milliseconds)
 

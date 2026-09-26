@@ -9,7 +9,6 @@ CREATE TABLE Chat (
     lastReadAt INTEGER
 );
 
--- Queries
 selectAll:
 SELECT *
 FROM Chat

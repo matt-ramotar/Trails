@@ -13,7 +13,7 @@ The Android fixture retains application ID
 
 Follow [dependency setup](../../docs/dependency-setup.md) to prepare the pinned
 sources and isolated local publications. The fixture requires JVM/Android
-publications; omit `--trails-targets` only when preparing exclusively for this
+publications. Omit `--trails-targets` only when preparing exclusively for this
 fixture. An all-target candidate also satisfies the fixture.
 
 From the repository root:
@@ -31,18 +31,17 @@ acknowledgement/adoption failure, and operation deduplication.
 ## Guard contract
 
 `prepare.py` verifies clean immutable sources, the pinned provenance bundle,
-version agreement, and every required artifact hash. It neither clones nor
-publishes libraries and never invokes Gradle. Source-only preparation or an
-invalid preparation attempt revokes an older candidate. `--check-candidate` is
-read-only, including when validation fails.
+version agreement, and every required artifact hash without cloning, publishing,
+or invoking Gradle. Source-only or invalid preparation revokes an older candidate.
+`--check-candidate` is read-only even when validation fails.
 
 Gradle settings and the pre-compilation `verifyCandidate` task recheck the
 candidate. Configuration caching is disabled in this fixture. The candidate
-pairs a generated manifest with its SHA-256 and resolves the selected libraries
+pairs a generated manifest with its SHA-256. The selected libraries resolve
 exclusively from the named repository outside ambient Maven Local. Root KMP
 metadata JARs are required alongside platform binaries, POMs, and module files.
 
-Atom construction is manual. Applying KSP without the Atom processor does not
+Atom construction is manual. KSP without the Atom processor does not
 establish generated-factory or incremental-compiler compatibility. Passing this
 fixture does not establish installed Trails behavior or iOS/JavaScript runtime
 support.

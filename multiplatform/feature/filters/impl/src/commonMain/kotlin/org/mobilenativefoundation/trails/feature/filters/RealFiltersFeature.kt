@@ -207,7 +207,7 @@ private fun SectionHeading(text: String, section: FilterSection, offsets: Mutabl
     )
 }
 
-/** One labelled native slider; the top stop means no maximum (DEV-27). */
+/** Labelled native slider whose top stop means no maximum. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun MaximumSlider(label: String, value: Int?, top: Int, step: Int, colors: SliderColors, onChange: (Int?) -> Unit) {

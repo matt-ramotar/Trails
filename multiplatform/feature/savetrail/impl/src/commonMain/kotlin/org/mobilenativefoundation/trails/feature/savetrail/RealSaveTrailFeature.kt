@@ -124,7 +124,6 @@ class RealSaveTrailFeature(private val repository: SavedRepository) : SaveTrailF
                                 else -> {
                                     if (state.phase == SavePhase.FAILED) TrailsStatusLine(StatusKind.FAILED, "Couldn’t save · Your choices are still here")
                                     if (state.collections.isEmpty()) TrailsStatusLine(StatusKind.INFO, "No collections are available for this account")
-                                    // One decision names the action and its hierarchy; saving is the hero, retrying and removing commit.
                                     val (label, tone) = when {
                                         state.phase == SavePhase.FAILED -> "Try saving again" to ButtonTone.Commit
                                         state.selected.isEmpty() && state.original.isNotEmpty() -> "Remove from saved" to ButtonTone.Commit

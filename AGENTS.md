@@ -8,22 +8,22 @@ Trails is a Kotlin Multiplatform sample with an Android host. Read
 
 - Put full-screen Circuit destinations in `multiplatform/screen/{name}`.
 - Put reusable interactions, such as filtering and saving, in
-  `multiplatform/feature/{name}`. Keep screens and features separate.
+  `multiplatform/feature/{name}`, separate from screens.
 - Use `api`/`impl` modules when callers need a stable contract without the
-  implementation. Do not split infrastructure or a private implementation just
-  to make every directory look alike.
+  implementation. Infrastructure and private utilities need no split unless
+  callers require an independent contract.
 - Keep shared trail presentation in `multiplatform/ui/trail`, reusable visual
   primitives in `multiplatform/foundation/designsystem`, and app wiring in
   `multiplatform/app/runtime`.
 - Match source directories, Kotlin packages, and Android namespaces. The root
-  namespace is `org.mobilenativefoundation.trails`; module layers are reflected
-  below it. Use lowercase domain names rather than milestone, task, or revision
-  names.
+  namespace is `org.mobilenativefoundation.trails`, followed by the module's
+  layer and domain. Use lowercase domain names rather than milestone, task, or
+  revision names.
 - Dependencies point from app composition and screens toward feature contracts,
   data contracts, and foundations. Features and data must not depend on screens
   or app composition. Keep implementation dependencies out of public APIs.
-- Only `app/runtime` and platform app hosts consume `impl` modules in production;
-  test dependencies may use implementations. Data modules use the library
+- Only `app/runtime` and platform app hosts consume `impl` modules in production.
+  Tests may depend on implementations. Data modules use the library
   convention with optional DI/storage plugins and must not depend on UI.
 
 ## State and lifetime
@@ -34,14 +34,13 @@ semantics for controls.
 
 Store6 owns persisted reads and durable mutations. Session state restores before
 account repositories open. Account services own draining, retries, and driver
-closure; retirement must cancel and join old work before another account opens.
-Atom owns the finite save draft/admission flow. Do not collect unbounded streams
-or wait for remote settlement inside its sequential interpreter.
+closure. Retirement must cancel and join old work before another account opens.
+Atom manages a bounded save draft and local admission flow. Do not collect
+unbounded streams or wait for remote settlement inside its sequential interpreter.
 
 Navigation checkpoints contain view state only. Keep installed database names,
 preference keys, serialized values, and Android application IDs compatible unless
-the change includes an explicit migration. A source rename is not permission to
-reset storage.
+the change includes an explicit migration. Renaming source must not reset storage.
 
 ## Verification
 
@@ -73,7 +72,7 @@ Write generated logs and captures under ignored build output.
 ## Documentation and assets
 
 Document only what a contributor needs to use, change, or reason about the
-system. Keep current setup and contracts in `docs/`; do not commit task plans,
+system. Keep current setup and contracts in `docs/`. Do not commit task plans,
 completion narratives, screenshots, or execution transcripts. Git preserves
 previous tracked content.
 
@@ -83,5 +82,5 @@ commands, technical identifiers, units, limitations, and compatibility contracts
 when revising prose.
 
 Keep asset licenses and source attribution. Use checked-in resources or a
-reproducible source; a developer's local directories and expiring image URLs are
+reproducible source. A developer's local directories and expiring image URLs are
 not build inputs.

@@ -235,6 +235,6 @@ internal class PersistentFakeBackend(private val database: TrailDataDatabase) {
         BackendEvidence(meta.applications, sql.receiptCount().executeAsOne(), meta.pushes, meta.requests)
     }
     suspend fun loseNextAcknowledgement() = gate.withLock { requireAvailable(); sql.setLoseAck(1) }
-    /** All backend SQL is under this gate; future delayed requests fail before touching the driver. */
+    /** All backend SQL is under this gate. Future delayed requests fail before touching the driver. */
     suspend fun close() = gate.withLock { retired = true }
 }

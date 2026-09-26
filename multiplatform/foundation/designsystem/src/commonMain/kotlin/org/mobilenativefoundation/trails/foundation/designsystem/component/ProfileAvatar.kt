@@ -33,7 +33,6 @@ fun ProfileAvatar(
         modifier = modifier.size(size),
         contentAlignment = Alignment.Center
     ) {
-        // Animated gradient ring
         val infiniteTransition = rememberInfiniteTransition(label = "gradient_rotation")
         val rotationAngle by infiniteTransition.animateFloat(
             initialValue = 0f,
@@ -45,7 +44,6 @@ fun ProfileAvatar(
             label = "rotation"
         )
 
-        // Outer gradient ring
         Box(
             modifier = Modifier
                 .size(size)
@@ -63,7 +61,6 @@ fun ProfileAvatar(
                 )
         )
 
-        // Inner avatar circle
         Box(
             modifier = Modifier
                 .size(size - 6.dp)
@@ -87,7 +84,6 @@ fun ProfileAvatar(
             )
         }
 
-        // Vibe badge (floating on bottom right)
         if (vibeBadgeEmoji != null) {
             Box(
                 modifier = Modifier
@@ -109,7 +105,6 @@ private fun VibeBadge(
     label: String,
     modifier: Modifier = Modifier
 ) {
-    // Floating animation
     val infiniteTransition = rememberInfiniteTransition(label = "float_animation")
     val floatOffset by infiniteTransition.animateFloat(
         initialValue = 0f,

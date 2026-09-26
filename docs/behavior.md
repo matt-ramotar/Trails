@@ -5,7 +5,7 @@
 Explore, For You, Navigate, Saved, and Activity retain independent back stacks.
 Returning from trail detail restores its originating root, query, selected
 segment, and scroll position. Selecting the current root does not push another
-root. Account checkpoints preserve view state; they are separate from domain
+root. Account checkpoints preserve view state separately from domain
 storage.
 
 For You reads a seeded recommendation feed. Activity reads seeded per-account
@@ -23,16 +23,16 @@ personalization, map download, sharing, or collection-management workflow.
 ## Search and filters
 
 Search matches trail name and region without case sensitivity. Query identity
-trims outer whitespace and collapses internal whitespace; the editable text is
+trims outer whitespace and collapses internal whitespace. The editable text is
 kept separately. Search input is debounced, while IME Search submits immediately.
-Clearing text preserves filters; clearing filters preserves text. A new query
+Clearing text preserves filters. Clearing filters preserves text. A new query
 resets result scroll, while returning from detail restores it.
 
 Difficulty and activity selections match any selected value within their group.
 Selected features must all match. Text, difficulty, length, elevation gain,
 features, and activity combine with AND. An empty selection imposes no constraint.
 Distances and elevation use canonical metres with inclusive bounds. The upper
-range stop means no maximum. Region has no independent control; old checkpointed
+range stop means no maximum. Region has no independent control. Old checkpointed
 region filters are discarded on restore.
 
 Most popular preserves catalog order. Highest rated, Shortest, and Longest reorder
@@ -49,34 +49,37 @@ applying without a claimed count and retrying the count separately.
 
 The save sheet waits for both account collections and the trail's current
 membership. Unknown membership is not an empty set. A failed read offers Retry
-and Cancel without enabling submission; a successful local read can establish
+and Cancel without enabling submission. A successful local read can establish
 readiness offline.
 
 Selections remain a draft until submission. Submission freezes the collection
 set and application command identity. A repeated identity cannot describe a
-different payload. The adapter records its application receipt with durable
-mutation admission. Store6's pinned
+different payload. Accepting a mutation into the persistent journal is called
+admission. The adapter records an application receipt in the same transaction.
+Store6's pinned
 [`MutationStore.mutate`](https://github.com/MobileNativeFoundation/Store/blob/582edfe86e64ddc71312ecd20a1895fc3de37b52/mutations/src/commonMain/kotlin/org/mobilenativefoundation/store6/mutations/MutationStore.kt)
-assigns the mutation ID; application command IDs and transport idempotency keys
+assigns the mutation ID. Application command IDs and transport idempotency keys
 have separate roles.
 
 The sheet closes after durable local admission, without waiting for the network.
 The completion toast offers the sole selected collection or Saved for multiple
-collections. Known non-admission retains editable choices. An uncertain outcome
-keeps the submitted payload frozen while reconciliation checks that same command;
-it must not blindly enqueue another mutation. A later status-refresh failure
-cannot turn completed admission into a failed save.
+collections. If admission is known to have failed, choices remain editable. An
+uncertain outcome keeps the payload frozen while reconciliation checks whether
+that same command was admitted. Do not enqueue another mutation without resolving
+that outcome. A later status-refresh failure cannot turn completed admission
+into a failed save.
 
-The account service owns draining, retry, acknowledgement, and local adoption.
+The account service sends queued mutations to the backend, retries them, receives
+acknowledgements, and applies acknowledged state to local storage (local adoption).
 Pending, retryable, parked, and settled states come from persisted repository
-state. Parked incompatible work has no misleading Retry action. A lost remote
+state. Parked incompatible work has no Retry action. A lost remote
 acknowledgement reuses the operation identity so the fake backend does not apply
 the same operation twice. The backend commits its authoritative change and
 operation receipt together.
 
 Removing a trail from one collection preserves its other memberships. Removing
 all memberships requires the explicit removal action. Cancelling an unsubmitted
-draft has no data effect; dismissing an admitted operation does not roll it back.
+draft has no data effect. Dismissing an admitted operation does not roll it back.
 
 ## Account and failure boundaries
 
@@ -93,7 +96,7 @@ access cannot promise data that is absent from local storage.
 
 Developer **Offline** controls the fake backend. It is independent of airplane
 mode. Settings distinguish a pending edit from the configuration actually
-applied by the backend; restart restores that applied configuration.
+applied by the backend. Restart restores that applied configuration.
 
 ## Design reference
 
@@ -106,4 +109,4 @@ brand mark. Bundled assets and their licenses are documented alongside the
 Controls must remain readable and operable at 200% font scale with at least
 48 dp touch targets. Modal traversal must not expose actionable background
 content. Automated semantics checks, observed TalkBack gestures, and human
-listening establish different coverage; none substitutes for the others.
+listening establish different coverage. None substitutes for the others.

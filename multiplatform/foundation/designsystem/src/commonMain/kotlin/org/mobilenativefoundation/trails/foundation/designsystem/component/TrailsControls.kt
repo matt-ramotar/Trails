@@ -57,7 +57,7 @@ fun TrailsCompass(
     )
 }
 
-/** The original lowercase Manrope signature; the screen supplies its own accessible heading. */
+/** Lowercase Manrope branding. The screen supplies its own accessible heading. */
 @Composable
 fun TrailsBrand(modifier: Modifier = Modifier) {
     val colors = TrailsTheme.colors
@@ -73,7 +73,7 @@ fun TrailsBrand(modifier: Modifier = Modifier) {
     }
 }
 
-/** Compatibility wrapper for existing call sites; new code uses [TrailsButton] and chooses a [ButtonTone]. */
+/** Compatibility wrapper. Use [TrailsButton] to choose a [ButtonTone] directly. */
 @Composable
 fun TrailsControlsButton(
     text: String,

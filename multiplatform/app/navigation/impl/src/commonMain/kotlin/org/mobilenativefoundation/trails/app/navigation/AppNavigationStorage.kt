@@ -1,6 +1,6 @@
 package org.mobilenativefoundation.trails.app.navigation
 
-/** Private account view checkpoint; writes either complete or throw. Never a domain-data store. */
+/** Private account view checkpoint. Writes either complete or throw. Contains no domain data. */
 interface AppNavigationStorage {
     fun read(): String?
     fun write(value: String)

@@ -42,7 +42,7 @@ internal data class AppNavigationCheckpoint(
             require(json.getValue("version").jsonPrimitive.int == 1) { "Unsupported navigation checkpoint version" }
             val scroll = json.getValue("scroll").jsonObject
             require(scroll.size <= 64)
-            // Roots added after the first checkpoints are optional so earlier snapshots still restore.
+            // Older checkpoints can omit these roots and still restore.
             fun optionalRoutes(field: String, root: String) = json[field]?.let { decodeRoutes(it, root) } ?: listOf(AppRoute(root))
             return AppNavigationCheckpoint(
                 root = AppNavigationController.Root.valueOf(json.getValue("root").jsonPrimitive.content),

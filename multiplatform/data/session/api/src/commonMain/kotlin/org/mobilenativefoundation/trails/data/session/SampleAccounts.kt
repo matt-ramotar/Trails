@@ -6,7 +6,7 @@ import org.mobilenativefoundation.trails.data.session.model.OnboardingStatus
 import org.mobilenativefoundation.trails.data.session.model.UserProfile
 import org.mobilenativefoundation.trails.data.session.model.UserSession
 
-/** Explicit local preview identities. These tokens do not authenticate with a remote service. */
+/** Local preview identities. These tokens do not authenticate with a remote service. */
 object SampleAccounts {
     val primary = account("trails-demo-alex", "Alex")
     val secondary = account("trails-demo-robin", "Robin")

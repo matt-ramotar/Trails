@@ -1,10 +1,22 @@
 # Trail photography
 
-All 50 catalog trails have bundled location photos, available without a network connection. Three photos come from Hiking Project pages that explicitly identify Creative Commons licenses; the remaining 47 are openly licensed or public-domain Wikimedia Commons photos. Selection covers the named route, a shared route segment, its destination, or a view from it; individual match notes are recorded in the manifest.
+All 50 catalog trails have bundled photos available offline. Three photos come
+from Hiking Project pages that explicitly identify Creative Commons licenses.
+The remaining 47 are openly licensed or public-domain Wikimedia Commons photos.
+Each photo shows the named route, a shared route segment, its destination, or a
+view from it. The manifest records which applies to each photo.
 
-Source JPEG bytes are preserved. Compose applies a display crop, with per-photo focal alignment to preserve summits, landmarks, and paths. Each photo keeps its individual license; these licenses do not change the application code license. Photographer credits, with source and license links, appear on trail details and Welcome; cards and collection covers show the photograph alone. Edited-source credits are retained.
+Compose crops each photo for display, positioning it to keep summits, landmarks,
+and paths visible. Source JPEG bytes are unchanged. Each photo retains its own
+license, separate from the application code license. Photographer credits,
+including edited-source credits and source/license links, appear on trail details
+and Welcome. Cards and collection covers show only the photograph.
 
-The bundled [manifest](src/commonMain/composeResources/files/trail_photography.json) records source and image URLs, photographer, title, license, match notes, and SHA-256 for every resource. The registry uses stable trail IDs, so persisted records and saved memberships need no reseed. Legacy `photoIndex` remains serialized for compatibility and is no longer used by the UI.
+The bundled [manifest](src/commonMain/composeResources/files/trail_photography.json)
+records source and image URLs, photographer, title, license, match notes, and
+SHA-256 for every resource. Photos are mapped by stable trail IDs, so persisted
+records and saved memberships need no reseed. Legacy `photoIndex` remains
+serialized for compatibility and is no longer used by the UI.
 
 | Trail | Photographer | License | Source |
 | --- | --- | --- | --- |

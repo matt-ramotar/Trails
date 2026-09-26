@@ -8,9 +8,9 @@ interface UserRepository {
     /** Emits the stored session, or a logged-out user when no row exists. Read failures propagate. */
     fun stream(): Flow<User>
 
-    /** Last observed session; logged out until [stream] has emitted its first value. */
+    /** Last observed session. Logged out until [stream] has emitted its first value. */
     val current: User
 
-    /** Returns after the session is committed to disk; storage failures propagate. */
+    /** Returns after the session is committed to disk. Storage failures propagate. */
     suspend fun persist(user: User)
 }

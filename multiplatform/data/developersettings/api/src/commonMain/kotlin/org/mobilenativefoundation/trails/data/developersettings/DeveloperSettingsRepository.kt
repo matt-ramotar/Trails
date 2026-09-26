@@ -5,14 +5,14 @@ import kotlinx.coroutines.flow.flowOf
 
 /**
  * Mutations return after settings are persisted and propagate persistence failures and cancellation.
- * [stream] and [current] observe storage asynchronously; runtime backend application is separate.
+ * [stream] and [current] observe storage asynchronously. Runtime backend application is separate.
  */
 interface DeveloperSettingsRepository {
     fun stream(): Flow<DeveloperSettings>
 
     val current: DeveloperSettings
 
-    /** Read failure is separate from the last applied settings; never invent defaults on failure. */
+    /** Read failure is separate from the last applied settings. Never invent defaults on failure. */
     fun readFailures(): Flow<String?> = flowOf(null)
     fun retryRead() = Unit
 

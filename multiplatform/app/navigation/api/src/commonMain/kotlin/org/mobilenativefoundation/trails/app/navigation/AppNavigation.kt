@@ -9,7 +9,7 @@ interface AppNavigation {
     fun selectForYou() {}
     fun selectNavigate() {}
     fun selectActivity() {}
-    /** The trail most recently opened from any root; Navigate previews it. */
+    /** The trail most recently opened from any root. Navigate previews it. */
     val lastOpenedTrailId: String? get() = null
     val exploreView: ExploreViewState get() = ExploreViewState()
     val savedAllTrails: Boolean get() = false

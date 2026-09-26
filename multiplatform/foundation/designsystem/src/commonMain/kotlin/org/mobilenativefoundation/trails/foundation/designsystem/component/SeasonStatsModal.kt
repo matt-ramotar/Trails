@@ -54,7 +54,6 @@ fun SeasonStatsModal(
                 .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Header
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -76,7 +75,6 @@ fun SeasonStatsModal(
                 }
             }
 
-            // Stats Grid - Row 1
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -93,7 +91,6 @@ fun SeasonStatsModal(
                 )
             }
 
-            // Stats Grid - Row 2
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -110,7 +107,6 @@ fun SeasonStatsModal(
                 )
             }
 
-            // Stats Grid - Row 3
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)

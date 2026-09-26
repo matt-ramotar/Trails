@@ -12,7 +12,7 @@ import org.mobilenativefoundation.trails.data.backend.BackendConfig
 import org.mobilenativefoundation.trails.data.backend.NetworkMode
 import org.mobilenativefoundation.trails.data.trail.LoadState
 
-/** Folds Store results into LoadState; cached data stays visible through later failures. */
+/** Cached LoadState data stays visible when later Store results fail. */
 internal fun <V : Any> Flow<StoreResult<V>>.loadStates(config: StateFlow<BackendConfig?>, onData: () -> Unit = {}): Flow<LoadState<V>> =
     combine(flow {
         var latest = LoadState<V>()

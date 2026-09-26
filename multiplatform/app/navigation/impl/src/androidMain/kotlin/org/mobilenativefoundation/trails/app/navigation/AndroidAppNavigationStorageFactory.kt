@@ -2,7 +2,7 @@ package org.mobilenativefoundation.trails.app.navigation
 
 import android.content.Context
 
-/** A small, account-partitioned UI snapshot. commit() returns only after the disk write finishes. */
+/** An account-partitioned UI snapshot. commit() returns only after the disk write finishes. */
 class AndroidAppNavigationStorageFactory(context: Context) : AppNavigationStorageFactory {
     private val appContext = context.applicationContext
     override fun forAccount(accountId: String): AppNavigationStorage {

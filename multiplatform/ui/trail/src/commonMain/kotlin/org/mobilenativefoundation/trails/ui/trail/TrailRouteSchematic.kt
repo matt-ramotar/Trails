@@ -34,7 +34,7 @@ internal fun schematicRoute(seed: String, loop: Boolean, points: Int = 14): List
     }
 }
 
-/** Route preview without a basemap: halo, route line, start marker and (for non-loops) a citron end marker. Decorative; the screen labels it schematic (DEV-32). */
+/** Decorative route preview without a basemap: halo, route line, start marker and a citron end marker for non-loops. The screen labels it schematic. */
 @Composable
 fun TrailRouteSchematic(seed: String, loop: Boolean, modifier: Modifier = Modifier) {
     val colors = TrailsTheme.colors

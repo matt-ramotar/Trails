@@ -1,13 +1,13 @@
 # Trails
 
-Trails is a Kotlin Multiplatform hiking sample built with Compose Multiplatform,
-Circuit, Metro, Store6, and Atom. It demonstrates persisted trail browsing,
-account-scoped saved lists, and durable offline saves against an in-process fake
-backend.
+Trails is a Kotlin Multiplatform sample for browsing trails and saving them to
+account-specific lists. Saves persist across offline restarts and synchronize
+with an in-process fake backend. The app uses Compose Multiplatform, Circuit,
+Metro, Store6, and Atom.
 
 Explore, For You, Navigate, Saved, and Activity have independent navigation
 stacks. Recommendations and activity history are sample data. Navigate displays
-a labelled schematic route; maps, location tracking, and recording are not
+a labelled schematic route. Maps, location tracking, and recording are not
 implemented.
 
 ## Run on Android
@@ -19,9 +19,9 @@ then build and install:
 ./gradlew :apps:android:assembleDebug :apps:android:installDebug
 ```
 
-Android is the runnable sample host. The shared modules also declare JVM, iOS,
-and JavaScript targets. Resolving those targets does not establish application
-or persistence support on each platform.
+The sample runs on Android. Shared modules also declare JVM, iOS, and JavaScript
+targets, but dependency resolution alone does not establish application or
+persistence support on those platforms.
 
 ## Development
 

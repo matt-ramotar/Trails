@@ -38,7 +38,7 @@ internal class AccountFeed<T : Any>(
         writeRow = { k, value -> queries.writeCache(k.kind, k.id, Json.encodeToString(serializer, value).encodeToByteArray()) },
         deleteRow = { queries.deleteCache(it.kind, it.id) },
         deleteNamespaceRows = { queries.deleteNamespace(it.value) },
-        // The saved rows share this database; a clear-all for this feed only clears its namespace.
+        // The saved rows share this database. A clear-all for this feed only clears its namespace.
         deleteAllRows = { queries.deleteNamespace(kind) },
     ))
     private val store = store<CatalogKey, T> {
@@ -49,7 +49,7 @@ internal class AccountFeed<T : Any>(
 
     fun observe(): Flow<LoadState<T>> = store.stream(key).loadStates(backend.config)
 
-    /** Invalidation keeps cached content visible; the stream reports a failed fetch. */
+    /** Invalidation keeps cached content visible. The stream reports a failed fetch. */
     suspend fun refresh() {
         store.invalidate(key)
         try { store.get(key, Freshness.MustBeFresh) }

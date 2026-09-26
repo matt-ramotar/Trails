@@ -86,7 +86,7 @@ public final class TrailsAccessibilityInstrumentation extends Instrumentation {
                         type != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED &&
                         type != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) return;
                 synchronized (events) {
-                    // Preserve dismissal and failure ordering rather than only startup events.
+                    // Keep recent events so dismissal and failure remain in the log.
                     if (events.size() == 200) events.remove(0);
                     events.add(eventRecord(event, startupReady).toString());
                 }
@@ -143,7 +143,7 @@ public final class TrailsAccessibilityInstrumentation extends Instrumentation {
         require(maximum.getClassName().toString().contains("SeekBar"), "Maximum is a native adjustable SeekBar");
         checkModal("filters");
 
-        // First widen the maximum if needed, keeping a nonzero range for the minimum check.
+        // The minimum check needs a nonzero range.
         require(maximum.getRangeInfo().getMax() == MAXIMUM_LENGTH_KM, "Maximum length range ends at 50 kilometers");
         if (initialMaximum < 2) setProgress(MAXIMUM, MAXIMUM_LENGTH_KM);
         minimum = waitControl(MINIMUM, SET_PROGRESS);
@@ -168,7 +168,7 @@ public final class TrailsAccessibilityInstrumentation extends Instrumentation {
     }
 
     private void checkSaveSheet() throws Exception {
-        // The documented fixture precondition keeps this known trail in Explore's applied query.
+        // The fixture must include this trail in Explore's applied query.
         AccessibilityNodeInfo trail = findOrScroll(TRAIL_NAME, true);
         click(trail);
         await(() -> isTrailDetail(appRoot()), "known trail detail");

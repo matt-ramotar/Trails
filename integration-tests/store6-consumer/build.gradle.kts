@@ -14,7 +14,6 @@ plugins {
     id("app.cash.sqldelight") version "2.1.0"
 }
 
-// Load the dependency versions from the hash-verified local candidate.
 val candidate = Properties().apply {
     rootProject.file("candidate.properties").inputStream().use(::load)
 }

@@ -46,7 +46,7 @@ class AppNavigationController(private val storage: AppNavigationStorage = InMemo
     fun selectSavedTab() { selectedRoot = Root.SAVED; changed() }
     override fun selectSaved(collectionId: String?) {
         selectedRoot = Root.SAVED
-        // Explicit success actions open the named destination; tab selection preserves its stack.
+        // Success actions open the named destination. Tab selection preserves its stack.
         while (savedStack.size > 1) navigator.pop()
         if (collectionId != null) navigator.goTo(CollectionScreen(collectionId))
         changed()
@@ -96,7 +96,7 @@ class AppNavigationController(private val storage: AppNavigationStorage = InMemo
         }
     }
 
-    /** Explicitly saves the current place after a read/write error; never changes domain data. */
+    /** Saves the current place after a read/write error. Never changes domain data. */
     fun retryCheckpoint() { changed() }
     private fun changed() { restoreFailed = false; checkpoint() }
 

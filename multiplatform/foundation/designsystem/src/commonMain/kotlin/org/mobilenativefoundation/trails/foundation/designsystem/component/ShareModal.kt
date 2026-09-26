@@ -48,7 +48,6 @@ fun ShareModal(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            // Title
             Text(
                 text = "Share Profile",
                 color = Color.White,
@@ -57,7 +56,7 @@ fun ShareModal(
                 textAlign = TextAlign.Center
             )
 
-            // QR Code Placeholder
+            // The QR code is a placeholder.
             Box(
                 modifier = Modifier
                     .size(180.dp)
@@ -70,7 +69,6 @@ fun ShareModal(
                     .background(Color(0xFF1E293B)),
                 contentAlignment = Alignment.Center
             ) {
-                // QR Placeholder content
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -87,7 +85,6 @@ fun ShareModal(
                 }
             }
 
-            // Scan text
             Text(
                 text = "Scan to follow @$username",
                 color = Color(0xFF94A3B8),
@@ -95,12 +92,10 @@ fun ShareModal(
                 textAlign = TextAlign.Center
             )
 
-            // Buttons Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                // Copy Link button (gradient)
                 Box(
                     modifier = Modifier
                         .weight(1f)
@@ -118,7 +113,6 @@ fun ShareModal(
                     )
                 }
 
-                // Share button (glass)
                 Box(
                     modifier = Modifier
                         .weight(1f)

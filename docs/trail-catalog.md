@@ -3,23 +3,23 @@
 The sample contains 50 real routes: 42 day hikes followed by eight multi-day
 itineraries. Half Dome and Trolltunga are first. Stable IDs join catalog rows,
 saved memberships, feeds, and bundled photographs. Catalog order supplies the
-**Most popular** sort; it does not imply personalization.
+**Most popular** sort. It does not imply personalization.
 
-Ratings, review counts, and review excerpts are authored sample data. Route
+Ratings, review counts, and review excerpts are sample data. Route
 descriptions are summaries. Distances are rounded to 100 m. Return routes include
-both directions; point-to-point figures cover one direction. Day-hike durations
+both directions. Point-to-point figures cover one direction. Day-hike durations
 are estimates. Multi-day durations encode itinerary days as `days * 1440`,
 including overnight time rather than continuous movement.
 
-The eight itineraries use `STRENUOUS`; day hikes retain their source-led grades.
+The eight itineraries use `STRENUOUS`. Day-hike grades follow their sources.
 Every route has `HIKING`, and the eight itineraries also have `BACKPACKING`.
 Dog-friendly is a positive fixture tag, not a guarantee about current access.
 No highest-point or kid-friendly attribute is inferred from these sources.
 
 The source review was recorded on September 18, 2026. Not every field on every
-route was independently reverified; the limitations below are part of the
-fixture's provenance. Source links do not establish current access, conditions,
-or the precision of every stored value. The source research record had SHA-256
+route was independently reverified. The source limitations below describe those
+gaps. Source links do not establish current access, conditions, or the precision
+of every stored value. The source research record had SHA-256
 `c07537016be9db2a3f9a24bf6716074e56e974300bf95733174b27fd7e7592f3`.
 
 Photographs are bundled by trail ID. Their separate sources, match notes,
@@ -29,7 +29,12 @@ the current image.
 
 ## Ordered routes and sources
 
-`+m` is the stored ascent estimate. Read the source notes below for its precision and provenance. Feature abbreviations: **L** lake, **F** forest, **W** waterfall, **S** summit or named high viewpoint, **O** loop, **D** dog friendly. A dash means no applicable feature in the closed enum, not an absence of scenery. The Trail model has no route-type field; the route column records the variant used to interpret the distance.
+`+m` is the stored ascent estimate. The source notes below describe its precision
+and provenance. Feature abbreviations: **L** lake, **F** forest, **W** waterfall,
+**S** summit or named high viewpoint, **O** loop, **D** dog friendly. A dash means
+none of the defined features applies. It does not mean an absence of scenery.
+The Trail model has no route-type field. The route column identifies the variant
+whose distance is listed.
 
 | # | Trail | Region | Route variant | km | +m | Time | Grade | Features | Sources |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |

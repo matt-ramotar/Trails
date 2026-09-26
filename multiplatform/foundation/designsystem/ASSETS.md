@@ -1,11 +1,13 @@
 # Bundled assets
 
-The fonts and compass come from the Trails Figma design. The original variable fonts remain unmodified and are distributed with their SIL Open Font License files under `composeResources/files/fonts`. Location photography has separate sources and licenses listed in [trail photography](../../ui/trail/TRAIL_PHOTOS.md).
+The fonts and compass come from the Trails Figma design. The variable fonts are
+unmodified, with SIL Open Font License files under `composeResources/files/fonts`.
+Photo sources and licenses are listed in [trail photography](../../ui/trail/TRAIL_PHOTOS.md).
 
-- **Manrope:** original `wght` range 200–800, default 200. Heading weights are explicitly selected through `FontVariation.weight`, preventing the variable-font default from silently becoming the heading face.
-- **Inter:** original `wght` range 100–900, default 400; `opsz` range 14–32, default 14. Reading and control weights use explicit `wght` plus the source default `opsz=14`. No runtime font request is made.
-- **Compass:** `trails_compass_mark.xml` is a mechanical conversion of the captured 48 × 48 SVG. Its path data, even-odd fill rule, viewport and Forest fill are preserved. `TrailsCompass` permits semantic recoloring; `TrailsBrand` uses the original lowercase Manrope Bold signature and -4% letter spacing. Android launcher artwork is a separate platform task.
-- **Photography:** `TrailPhoto` resolves each of the 50 catalog IDs to a bundled photograph of its route, destination, or a view from it. Source JPEG bytes remain unchanged; Compose crops the displayed image to fit. Credits, source and license links appear on trail detail and Welcome through TrailPhotoCredit; cards and collection tiles show the photograph alone. All photos work offline.
+- **Manrope:** `wght` range 200–800, default 200. Heading weights use `FontVariation.weight` to override the variable font's default.
+- **Inter:** `wght` range 100–900, default 400. The `opsz` range is 14–32, default 14. Reading and control weights use explicit `wght` with the source default `opsz=14`. No runtime font request is made.
+- **Compass:** `trails_compass_mark.xml` converts the captured 48 × 48 SVG, preserving its path data, even-odd fill rule, viewport, and Forest fill. `TrailsCompass` allows color overrides. `TrailsBrand` uses the original lowercase Manrope Bold wordmark and -4% letter spacing.
+- **Photography:** `TrailPhoto` maps each of the 50 catalog IDs to a bundled photograph of its route, destination, or a view from it. Compose crops the image for display without changing the source JPEG bytes. TrailPhotoCredit shows credits and source/license links on trail detail and Welcome. Cards and collection tiles show only the photograph. All photos work offline.
 
 ## Copied resource hashes
 
@@ -18,4 +20,5 @@ The fonts and compass come from the Trails Figma design. The original variable f
 
 ## Theme and presentation
 
-The default theme uses the Stone/Forest palette. Explicit heading weights and the original compass geometry are preserved by the theme and brand components. Trail photography belongs to `ui/trail`; the design system owns typography, color, spacing, and generic controls.
+The default theme uses the Stone/Forest palette. Trail photography belongs to
+`ui/trail`. The design system owns typography, color, spacing, and generic controls.

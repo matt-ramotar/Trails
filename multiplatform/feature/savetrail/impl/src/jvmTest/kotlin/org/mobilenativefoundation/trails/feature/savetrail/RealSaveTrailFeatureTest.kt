@@ -23,7 +23,7 @@ import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
 import org.mobilenativefoundation.trails.data.trail.saved.SetCollectionsCommand
 import org.mobilenativefoundation.trails.data.trail.saved.TrailCollection
 
-/** The JOURNALED completion path: the sheet closes and the toast names where the trail landed. */
+/** JOURNALED closes the sheet and names the destination in the toast. */
 @OptIn(ExperimentalTestApi::class)
 class RealSaveTrailFeatureTest {
     @Test

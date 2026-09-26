@@ -29,7 +29,6 @@ internal interface InactiveGraph {
     @SingleIn(InactiveScope::class)
     fun provideCircuit(): Circuit {
         val builder = Circuit.Builder()
-        // TODO
         return builder.build()
     }
 

@@ -24,7 +24,7 @@ import org.mobilenativefoundation.trails.data.trail.saved.SavedSnapshot
 import org.mobilenativefoundation.trails.data.trail.saved.SetCollectionsCommand
 import org.mobilenativefoundation.trails.data.trail.saved.TrailCollection
 
-/** Finite UI admission semantics only; real persistence/retirement lives in data-layer tests. */
+/** Tests finite UI admission. Data-layer tests cover persistence and retirement. */
 class SaveTrailAtomTest {
     @Test
     fun repeatedSubmitWhileAdmissionRunsCallsSaveOnce() = runBlocking {

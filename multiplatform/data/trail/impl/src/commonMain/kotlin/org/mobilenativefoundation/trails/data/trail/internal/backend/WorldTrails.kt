@@ -7,12 +7,12 @@ import org.mobilenativefoundation.trails.data.trail.catalog.TrailDifficulty
 import org.mobilenativefoundation.trails.data.trail.catalog.TrailFeature
 
 /**
- * The finite recommended ("For you") order: globally recognized day hikes rotate across
- * continents first, followed by the remaining day hikes, then eight iconic multi-day treks.
+ * The recommended ("For you") order starts with day hikes across continents,
+ * followed by the remaining day hikes, then eight multi-day treks.
  * Ratings, counts and review excerpts are sample content. Location photos are bundled separately
- * and resolved by trail ID; photoIndex is retained for compatibility with persisted records.
+ * and resolved by trail ID. photoIndex is retained for compatibility with persisted records.
  * The eight multi-day treks carry the Strenuous tier because they are overnight
- * itineraries; day hikes keep the source-led grades recorded in the catalog specification.
+ * itineraries. Day hikes keep the source-led grades recorded in the catalog specification.
  * Route variants, sources and approximate elevation figures are recorded in
  * docs/trail-catalog.md.
  */

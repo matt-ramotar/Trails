@@ -54,7 +54,7 @@ class ActivityPresenter(
         val scope = rememberCoroutineScope()
         var refreshing by remember { mutableStateOf(false) }
         var refreshErrors by remember { mutableStateOf<List<String>>(emptyList()) }
-        // History remains visible while the independently loaded catalog recovers its hearts.
+        // History remains visible while the independently loaded catalog recovers saved-trail indicators.
         val catalogComplete = catalog.data?.let { cached ->
             history.data?.all { activity -> cached.any { it.id == activity.trailId } } == true
         } == true

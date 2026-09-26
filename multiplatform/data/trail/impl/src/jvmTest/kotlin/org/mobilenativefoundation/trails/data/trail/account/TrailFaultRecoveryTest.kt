@@ -240,8 +240,8 @@ class TrailFaultRecoveryTest {
             val receiveFailure = AtomicReference<Throwable?>()
             val uncaught = AtomicReference<Throwable?>()
             val policy = AccountRecoveryPolicy(awaitRetry = { wake ->
-                // Force the previously racy order: a premature channel close cannot return to
-                // account.close until the receiver has observed its result on another thread.
+                // Make an early channel close observable: account.close cannot continue until
+                // the receiver has observed its result on another thread.
                 (wake as Channel<Unit>).invokeOnClose {
                     check(receiveEnded.await(5, TimeUnit.SECONDS)) { "The retry receiver did not finish" }
                 }
@@ -314,7 +314,7 @@ private class FaultRig(
     fun receipt(id: String) = database("journal").trailDataQueries.acceptance("alice", id).executeAsOneOrNull()?.mutation_id
     suspend fun assertNoJournalIntents() {
         SqlDelightMutationJournalStorage(driver("journal"), database("journal")).transaction { tx ->
-            // The immutable Store6 factory defaults to client-0; use its public transaction seam.
+            // The Store6 factory defaults to client-0. Use its public transaction seam.
             assertTrue(tx.intents("client-0").isEmpty())
             assertTrue(tx.executions("client-0").isEmpty())
         }

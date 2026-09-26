@@ -67,7 +67,7 @@ class TrailReviewPersistenceTest {
             original.close()
             current = null
 
-            // Model a pre-excerpt install while retaining the actual backend receipt and queue.
+            // Model an install without review excerpts while retaining the backend receipt and queue.
             val backendDriver = drivers.open("trails-m1-backend.db")
             val receiptBefore = try {
                 val database = TrailDataDatabase(backendDriver)

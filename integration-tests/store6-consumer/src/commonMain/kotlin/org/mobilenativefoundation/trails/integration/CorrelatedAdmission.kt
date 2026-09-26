@@ -43,7 +43,7 @@ internal data class AdmissionReceipt(val payload: SavedCommandPayload, val mutat
 
 /**
  * Adds admission metadata to Store6's own transaction. [database] must use the same driver as
- * [delegate]. The receipt outlives Store6 pruning; it never drives transport or queue phases.
+ * [delegate]. The receipt outlives Store6 pruning. It never drives transport or queue phases.
  */
 internal class CorrelatedJournalStorage(
     private val account: String,

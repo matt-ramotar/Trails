@@ -24,7 +24,6 @@ internal class RealSplashStateManager : SplashStateManager {
     override fun write(value: SplashState) {
         if (value == SplashState.READY) {
             while (Clock.System.now() < earliestEnd) {
-                // Loop
             }
         }
         _state.value = value

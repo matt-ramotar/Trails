@@ -56,7 +56,7 @@ internal class RealBootstrapCoordinator(
 
     override fun start() {
         if (owner != null) return
-        // The native launch screen can yield to our loading/error UI and developer settings.
+        // The native launch screen can yield to loading/error UI and developer settings.
         splashStateManager.write(SplashState.READY)
         owner = appScope.launch {
             // No account fetch or drain can run under a synthetic initial Online setting.
@@ -64,7 +64,7 @@ internal class RealBootstrapCoordinator(
             while (currentCoroutineContext().isActive) {
                 try {
                     // collect (not collectLatest) completes retirement before a new account opens.
-                    // Equal Store6 source echoes are not retries; the retry counter remains independent.
+                    // Equal Store6 source echoes are not retries. The retry counter remains independent.
                     combine(userRepository.stream().distinctUntilChanged(), retries) { user, _ -> user }.collect { user ->
                         if (mutableRoute.value is AppRoot.Failed) mutableRoute.value = AppRoot.Splash
                         try {

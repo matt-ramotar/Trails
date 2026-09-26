@@ -38,7 +38,7 @@ class ForYouPresenter(
         val scope = rememberCoroutineScope()
         var refreshing by remember { mutableStateOf(false) }
         var refreshErrors by remember { mutableStateOf<List<String>>(emptyList()) }
-        // The existing feed load state describes readiness and failures of the whole root.
+        // The feed load state describes readiness and failures of the whole root.
         // Keep its cached payload while the independently observed catalog loads or fails.
         val root = content.copy(
             loading = content.loading || catalog.loading || refreshing,

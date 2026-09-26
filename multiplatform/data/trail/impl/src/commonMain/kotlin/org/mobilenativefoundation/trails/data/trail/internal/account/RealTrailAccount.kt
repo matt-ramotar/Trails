@@ -148,7 +148,7 @@ internal class RealTrailAccount(
                     }
                     if (!retry) break
                     // Store6 eligibility can be five minutes away. Keep bounded passes alive for
-                    // this account until settled; a new save or settings change wakes this wait.
+                    // this account until settled. A new save or settings change wakes this wait.
                     recovery.awaitRetry(wake)
                 }
             }
@@ -159,8 +159,8 @@ internal class RealTrailAccount(
     private suspend fun observeKey(trailId: String) = keyGate.withLock {
         if (trailId in observing) return@withLock
         val key = SavedKey(accountId, trailId)
-        // A locally provisioned demo account starts with no memberships. Empty values are durable;
-        // reopened mutation overlays reconstruct submitted choices over these confirmed bases.
+        // A locally provisioned demo account starts with no memberships. Empty values are durable.
+        // Reopened mutation overlays reconstruct submitted choices over these confirmed bases.
         if (source.reader(key).first() == null) source.write(key, SavedValue(trailId, emptySet()))
         val first = store.stream(key, Freshness.LocalOnly).first { it is StoreResult.Data || it is StoreResult.Error }
         if (first is StoreResult.Error) error(first.error.messageText())

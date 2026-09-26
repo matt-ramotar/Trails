@@ -6,7 +6,7 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.withTimeoutOrNull
 import org.mobilenativefoundation.store6.core.seam.WallClock
 
-/** Internal scheduling seam: each pass still uses the durable journal and Store6 drainer. */
+/** Recovery passes use the durable journal and Store6 drainer even with custom scheduling. */
 internal class AccountRecoveryPolicy(
     val automatic: Boolean = true,
     val clock: WallClock? = null,

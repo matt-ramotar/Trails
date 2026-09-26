@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Verify clean source handoff and record the isolated dependency artifacts.
+"""Verify dependency source revisions and record the isolated dependency artifacts.
 
 Does not clone, publish, invoke Gradle, or accept the dirty application/library checkout.
-The build runner must retain producer logs and execute the consumer gate separately.
+Retain publisher logs and run consumer tests separately.
 """
 
 import argparse
