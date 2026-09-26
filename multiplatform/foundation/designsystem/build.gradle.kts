@@ -18,7 +18,6 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(libs.androidx.core)
-                implementation(libs.google.fonts)
             }
         }
 

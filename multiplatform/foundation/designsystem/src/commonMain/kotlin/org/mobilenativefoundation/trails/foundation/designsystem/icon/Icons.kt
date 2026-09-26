@@ -197,14 +197,6 @@ object Icons {
             @Composable
             get(): Icon = IconProvider(contentDescription = "Mountain") { painterResource(Res.drawable.mountain_stroke_rounded) }
 
-        val Ski
-            @Composable
-            get(): Icon = IconProvider(contentDescription = "Ski") { painterResource(Res.drawable.ski_stroke_rounded) }
-
-        val Snow
-            @Composable
-            get(): Icon = IconProvider(contentDescription = "Snow") { painterResource(Res.drawable.snow_stroke_rounded) }
-
         val Thermometer
             @Composable
             get(): Icon = IconProvider(contentDescription = "Thermometer") { painterResource(Res.drawable.thermometer_stroke_rounded) }
@@ -360,14 +352,6 @@ object Icons {
     }
 
     object Brand {
-        val Google
-            @Composable
-            get(): Icon = IconProvider(contentDescription = "Google") { painterResource(Res.drawable.google) }
-
-        val Apple
-            @Composable
-            get(): Icon = IconProvider(contentDescription = "Apple") { painterResource(Res.drawable.apple) }
-
         val Wave
             @Composable
             get(): Icon = IconProvider(contentDescription = "Wave") { painterResource(Res.drawable.wave_solid_rounded) }
