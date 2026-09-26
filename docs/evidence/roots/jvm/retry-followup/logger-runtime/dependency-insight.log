@@ -1,0 +1,545 @@
+Calculating task graph as no cached configuration is available for tasks: :multiplatform:screen:activity:impl:dependencyInsight --dependency slf4j-api --configuration jvmTestRuntimeClasspath
+Type-safe project accessors is an incubating feature.
+> Task :tooling:plugins:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tooling:plugins:compileKotlin UP-TO-DATE
+> Task :tooling:plugins:compileJava NO-SOURCE
+> Task :tooling:plugins:pluginDescriptors UP-TO-DATE
+> Task :tooling:plugins:processResources UP-TO-DATE
+> Task :tooling:plugins:classes UP-TO-DATE
+> Task :tooling:plugins:jar UP-TO-DATE
+
+> Task :multiplatform:screen:activity:impl:dependencyInsight
+org.slf4j:slf4j-api:2.0.17
+  Variant runtime:
+    | Attribute Name                     | Provided     | Requested    |
+    |------------------------------------|--------------|--------------|
+    | org.gradle.status                  | release      |              |
+    | org.gradle.category                | library      | library      |
+    | org.gradle.libraryelements         | jar          | jar          |
+    | org.gradle.usage                   | java-runtime | java-runtime |
+    | org.gradle.dependency.bundling     |              | external     |
+    | org.gradle.jvm.environment         |              | standard-jvm |
+    | org.gradle.jvm.version             |              | 17           |
+    | org.jetbrains.kotlin.platform.type |              | jvm          |
+   Selection reasons:
+      - By conflict resolution: between versions 2.0.17 and 1.7.32
+
+org.slf4j:slf4j-api:2.0.17
++--- io.ktor:ktor-client-cio-jvm:3.3.0
+|    \--- io.ktor:ktor-client-cio:3.3.0
+|         \--- project :multiplatform:foundation:networking
+|              \--- project :multiplatform:foundation:designsystem
+|                   +--- jvmTestRuntimeClasspath
+|                   \--- project :multiplatform:feat:savetrail:impl
+|                        \--- jvmTestRuntimeClasspath
++--- io.ktor:ktor-client-content-negotiation-jvm:3.3.0
+|    \--- io.ktor:ktor-client-content-negotiation:3.3.0
+|         \--- project :multiplatform:foundation:networking (*)
++--- io.ktor:ktor-client-core-jvm:3.3.0
+|    \--- io.ktor:ktor-client-core:3.3.0
+|         +--- project :multiplatform:foundation:networking (*)
+|         +--- io.coil-kt.coil3:coil-network-ktor3-jvm:3.3.0 (requested io.ktor:ktor-client-core:3.1.0)
+|         |    \--- io.coil-kt.coil3:coil-network-ktor3:3.3.0
+|         |         \--- project :multiplatform:foundation:designsystem (*)
+|         +--- io.ktor:ktor-client-content-negotiation-jvm:3.3.0 (*)
+|         +--- io.ktor:ktor-client-logging-jvm:3.3.0
+|         |    \--- io.ktor:ktor-client-logging:3.3.0
+|         |         \--- project :multiplatform:foundation:networking (*)
+|         \--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
++--- io.ktor:ktor-client-logging-jvm:3.3.0 (*)
++--- io.ktor:ktor-events-jvm:3.3.0
+|    \--- io.ktor:ktor-events:3.3.0
+|         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
++--- io.ktor:ktor-http-cio-jvm:3.3.0
+|    \--- io.ktor:ktor-http-cio:3.3.0
+|         +--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
+|         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
++--- io.ktor:ktor-http-jvm:3.3.0
+|    \--- io.ktor:ktor-http:3.3.0
+|         +--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+|         +--- io.ktor:ktor-http-cio-jvm:3.3.0 (*)
+|         +--- io.ktor:ktor-websockets-jvm:3.3.0
+|         |    \--- io.ktor:ktor-websockets:3.3.0
+|         |         +--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
+|         |         \--- io.ktor:ktor-serialization-jvm:3.3.0
+|         |              \--- io.ktor:ktor-serialization:3.3.0
+|         |                   +--- io.ktor:ktor-client-content-negotiation-jvm:3.3.0 (*)
+|         |                   +--- io.ktor:ktor-websocket-serialization-jvm:3.3.0
+|         |                   |    \--- io.ktor:ktor-websocket-serialization:3.3.0
+|         |                   |         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+|         |                   \--- io.ktor:ktor-serialization-kotlinx-jvm:3.3.0
+|         |                        \--- io.ktor:ktor-serialization-kotlinx:3.3.0
+|         |                             \--- io.ktor:ktor-serialization-kotlinx-json-jvm:3.3.0
+|         |                                  \--- io.ktor:ktor-serialization-kotlinx-json:3.3.0
+|         |                                       \--- project :multiplatform:foundation:networking (*)
+|         \--- io.ktor:ktor-network-tls-jvm:3.3.0
+|              \--- io.ktor:ktor-network-tls:3.3.0
+|                   \--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
++--- io.ktor:ktor-io-jvm:3.3.0
+|    \--- io.ktor:ktor-io:3.3.0
+|         +--- io.ktor:ktor-http-cio-jvm:3.3.0 (*)
+|         \--- io.ktor:ktor-utils-jvm:3.3.0
+|              \--- io.ktor:ktor-utils:3.3.0
+|                   +--- io.ktor:ktor-websockets-jvm:3.3.0 (*)
+|                   +--- io.ktor:ktor-network-tls-jvm:3.3.0 (*)
+|                   +--- io.ktor:ktor-http-jvm:3.3.0 (*)
+|                   +--- io.ktor:ktor-events-jvm:3.3.0 (*)
+|                   +--- io.ktor:ktor-sse-jvm:3.3.0
+|                   |    \--- io.ktor:ktor-sse:3.3.0
+|                   |         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+|                   \--- io.ktor:ktor-network-jvm:3.3.0
+|                        \--- io.ktor:ktor-network:3.3.0
+|                             +--- io.ktor:ktor-http-cio-jvm:3.3.0 (*)
+|                             \--- io.ktor:ktor-network-tls-jvm:3.3.0 (*)
++--- io.ktor:ktor-network-jvm:3.3.0 (*)
++--- io.ktor:ktor-network-tls-jvm:3.3.0 (*)
++--- io.ktor:ktor-serialization-jvm:3.3.0 (*)
++--- io.ktor:ktor-serialization-kotlinx-json-jvm:3.3.0 (*)
++--- io.ktor:ktor-serialization-kotlinx-jvm:3.3.0 (*)
++--- io.ktor:ktor-sse-jvm:3.3.0 (*)
++--- io.ktor:ktor-utils-jvm:3.3.0 (*)
++--- io.ktor:ktor-websocket-serialization-jvm:3.3.0 (*)
+\--- io.ktor:ktor-websockets-jvm:3.3.0 (*)
+
+org.slf4j:slf4j-api:1.7.32 -> 2.0.17
+\--- org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.10.2
+     +--- io.ktor:ktor-client-logging-jvm:3.3.0
+     |    \--- io.ktor:ktor-client-logging:3.3.0
+     |         \--- project :multiplatform:foundation:networking
+     |              \--- project :multiplatform:foundation:designsystem
+     |                   +--- jvmTestRuntimeClasspath
+     |                   \--- project :multiplatform:feat:savetrail:impl
+     |                        \--- jvmTestRuntimeClasspath
+     +--- io.ktor:ktor-client-core-jvm:3.3.0
+     |    \--- io.ktor:ktor-client-core:3.3.0
+     |         +--- project :multiplatform:foundation:networking (*)
+     |         +--- io.coil-kt.coil3:coil-network-ktor3-jvm:3.3.0 (requested io.ktor:ktor-client-core:3.1.0)
+     |         |    \--- io.coil-kt.coil3:coil-network-ktor3:3.3.0
+     |         |         \--- project :multiplatform:foundation:designsystem (*)
+     |         +--- io.ktor:ktor-client-content-negotiation-jvm:3.3.0
+     |         |    \--- io.ktor:ktor-client-content-negotiation:3.3.0
+     |         |         \--- project :multiplatform:foundation:networking (*)
+     |         +--- io.ktor:ktor-client-logging-jvm:3.3.0 (*)
+     |         \--- io.ktor:ktor-client-cio-jvm:3.3.0
+     |              \--- io.ktor:ktor-client-cio:3.3.0
+     |                   \--- project :multiplatform:foundation:networking (*)
+     \--- org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2
+          +--- org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.10.2 (*)
+          +--- org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.10.2
+          |    +--- org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2 (*)
+          |    \--- org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2
+          |         +--- jvmTestRuntimeClasspath
+          |         +--- org.jetbrains.compose.ui:ui-test-junit4-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0)
+          |         |    \--- org.jetbrains.compose.ui:ui-test-junit4:1.9.1
+          |         |         \--- jvmTestRuntimeClasspath
+          |         +--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0)
+          |         |    \--- org.jetbrains.compose.ui:ui-test:1.9.1
+          |         |         \--- org.jetbrains.compose.ui:ui-test-junit4-desktop:1.9.1 (*)
+          |         +--- app.cash.turbine:turbine-jvm:1.2.1
+          |         |    \--- app.cash.turbine:turbine:1.2.1
+          |         |         \--- jvmTestRuntimeClasspath
+          |         \--- org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2 (*)
+          \--- org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2
+               +--- org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2 (*)
+               +--- org.jetbrains.skiko:skiko-awt:0.9.22.2 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.8.0)
+               |    +--- org.jetbrains.compose.ui:ui-test-junit4-desktop:1.9.1 (*)
+               |    +--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (*)
+               |    +--- org.jetbrains.skiko:skiko-awt-runtime-macos-arm64:0.9.22.2
+               |    |    \--- org.jetbrains.compose.desktop:desktop-jvm-macos-arm64:1.9.1
+               |    |         \--- jvmTestRuntimeClasspath
+               |    \--- org.jetbrains.skiko:skiko:0.9.22.2
+               |         +--- org.jetbrains.compose.foundation:foundation-desktop:1.9.1
+               |         |    \--- org.jetbrains.compose.foundation:foundation:1.9.1
+               |         |         +--- project :multiplatform:foundation:designsystem (*)
+               |         |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0
+               |         |         |    \--- org.jetbrains.compose.material3:material3:1.9.0
+               |         |         |         +--- jvmTestRuntimeClasspath
+               |         |         |         +--- project :multiplatform:screen:activity:api
+               |         |         |         |    \--- jvmTestRuntimeClasspath
+               |         |         |         +--- project :multiplatform:feat:savetrail:impl (*)
+               |         |         |         +--- project :multiplatform:foundation:designsystem (*)
+               |         |         |         +--- project :multiplatform:feat:savetrail:api
+               |         |         |         |    +--- jvmTestRuntimeClasspath
+               |         |         |         |    \--- project :multiplatform:feat:savetrail:impl (*)
+               |         |         |         +--- project :multiplatform:data:trail:impl
+               |         |         |         |    \--- jvmTestRuntimeClasspath
+               |         |         |         +--- project :multiplatform:screen:explore:api
+               |         |         |         |    \--- project :multiplatform:screen:activity:api (*)
+               |         |         |         +--- project :multiplatform:feat:filters:api
+               |         |         |         |    \--- project :multiplatform:screen:explore:api (*)
+               |         |         |         +--- project :multiplatform:data:trail:api
+               |         |         |         |    +--- project :multiplatform:screen:activity:api (*)
+               |         |         |         |    +--- project :multiplatform:feat:savetrail:api (*)
+               |         |         |         |    +--- project :multiplatform:data:trail:impl (*)
+               |         |         |         |    +--- project :multiplatform:screen:explore:api (*)
+               |         |         |         |    \--- project :multiplatform:feat:filters:api (*)
+               |         |         |         \--- project :multiplatform:foundation:networking (*)
+               |         |         +--- org.jetbrains.compose.components:components-resources-desktop:1.9.1
+               |         |         |    \--- org.jetbrains.compose.components:components-resources:1.9.1
+               |         |         |         +--- jvmTestRuntimeClasspath
+               |         |         |         +--- project :multiplatform:screen:activity:api (*)
+               |         |         |         +--- project :multiplatform:feat:savetrail:impl (*)
+               |         |         |         +--- project :multiplatform:foundation:designsystem (*)
+               |         |         |         +--- project :multiplatform:feat:savetrail:api (*)
+               |         |         |         +--- project :multiplatform:data:trail:impl (*)
+               |         |         |         +--- project :multiplatform:screen:explore:api (*)
+               |         |         |         +--- project :multiplatform:feat:filters:api (*)
+               |         |         |         +--- project :multiplatform:data:trail:api (*)
+               |         |         |         \--- project :multiplatform:foundation:networking (*)
+               |         |         +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (requested org.jetbrains.compose.foundation:foundation:1.8.2)
+               |         |         |    \--- com.slack.circuit:circuit-foundation:0.30.0
+               |         |         |         +--- jvmTestRuntimeClasspath
+               |         |         |         +--- project :multiplatform:screen:activity:api (*)
+               |         |         |         +--- project :multiplatform:feat:savetrail:impl (*)
+               |         |         |         +--- project :multiplatform:foundation:designsystem (*)
+               |         |         |         +--- project :multiplatform:feat:savetrail:api (*)
+               |         |         |         +--- project :multiplatform:data:trail:impl (*)
+               |         |         |         +--- project :multiplatform:screen:explore:api (*)
+               |         |         |         +--- project :multiplatform:feat:filters:api (*)
+               |         |         |         +--- project :multiplatform:data:trail:api (*)
+               |         |         |         \--- project :multiplatform:foundation:networking (*)
+               |         |         +--- org.jetbrains.compose.desktop:desktop-jvm:1.9.1
+               |         |         |    \--- org.jetbrains.compose.desktop:desktop:1.9.1
+               |         |         |         \--- org.jetbrains.compose.desktop:desktop-jvm-macos-arm64:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.material:material-desktop:1.9.1
+               |         |         |    \--- org.jetbrains.compose.material:material:1.9.1
+               |         |         |         \--- org.jetbrains.compose.desktop:desktop-jvm:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.material:material-ripple-desktop:1.9.1
+               |         |         |    \--- org.jetbrains.compose.material:material-ripple:1.9.1
+               |         |         |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+               |         |         |         \--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+               |         |         +--- com.slack.circuit:circuit-sharedelements-jvm:0.30.0 (requested org.jetbrains.compose.foundation:foundation:1.8.2)
+               |         |         |    \--- com.slack.circuit:circuit-sharedelements:0.30.0
+               |         |         |         \--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+               |         |         \--- io.coil-kt.coil3:coil-compose-core-jvm:3.3.0 (requested org.jetbrains.compose.foundation:foundation:1.8.2)
+               |         |              \--- io.coil-kt.coil3:coil-compose-core:3.3.0
+               |         |                   \--- io.coil-kt.coil3:coil-compose-jvm:3.3.0
+               |         |                        \--- io.coil-kt.coil3:coil-compose:3.3.0
+               |         |                             \--- project :multiplatform:foundation:designsystem (*)
+               |         +--- org.jetbrains.compose.ui:ui-desktop:1.9.1
+               |         |    \--- org.jetbrains.compose.ui:ui:1.9.1
+               |         |         +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (requested org.jetbrains.compose.ui:ui:1.8.2) (*)
+               |         |         +--- com.slack.circuit:circuit-runtime-ui-jvm:0.30.0 (requested org.jetbrains.compose.ui:ui:1.8.2)
+               |         |         |    \--- com.slack.circuit:circuit-runtime-ui:0.30.0
+               |         |         |         \--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+               |         |         +--- org.jetbrains.compose.desktop:desktop-jvm:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+               |         |         +--- com.slack.circuit:circuit-sharedelements-jvm:0.30.0 (requested org.jetbrains.compose.ui:ui:1.8.2) (*)
+               |         |         +--- org.jetbrains.compose.foundation:foundation-desktop:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.animation:animation-desktop:1.9.1
+               |         |         |    \--- org.jetbrains.compose.animation:animation:1.9.1
+               |         |         |         +--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+               |         |         |         +--- org.jetbrains.compose.material:material-ripple-desktop:1.9.1 (*)
+               |         |         |         \--- org.jetbrains.compose.foundation:foundation-desktop:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.animation:animation-core-desktop:1.9.1
+               |         |         |    \--- org.jetbrains.compose.animation:animation-core:1.9.1
+               |         |         |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+               |         |         |         +--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+               |         |         |         \--- org.jetbrains.compose.animation:animation-desktop:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.foundation:foundation-layout-desktop:1.9.1
+               |         |         |    \--- org.jetbrains.compose.foundation:foundation-layout:1.9.1
+               |         |         |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+               |         |         |         +--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+               |         |         |         +--- org.jetbrains.compose.foundation:foundation-desktop:1.9.1 (*)
+               |         |         |         \--- org.jetbrains.compose.animation:animation-desktop:1.9.1 (*)
+               |         |         +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (requested org.jetbrains.compose.ui:ui:1.8.2)
+               |         |         |    \--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.1
+               |         |         |         +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+               |         |         |         \--- com.slack.circuit:circuit-retained-jvm:0.30.0
+               |         |         |              \--- com.slack.circuit:circuit-retained:0.30.0
+               |         |         |                   \--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+               |         |         +--- com.slack.circuit:circuit-backstack-jvm:0.30.0 (requested org.jetbrains.compose.ui:ui:1.8.2)
+               |         |         |    \--- com.slack.circuit:circuit-backstack:0.30.0
+               |         |         |         \--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+               |         |         \--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (*)
+               |         +--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1
+               |         |    \--- org.jetbrains.compose.ui:ui-text:1.9.1
+               |         |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+               |         |         +--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.foundation:foundation-desktop:1.9.1 (*)
+               |         |         +--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (*)
+               |         |         \--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+               |         +--- org.jetbrains.compose.ui:ui-graphics-desktop:1.9.1
+               |         |    \--- org.jetbrains.compose.ui:ui-graphics:1.9.1
+               |         |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+               |         |         +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+               |         |         \--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1 (*)
+               |         \--- io.coil-kt.coil3:coil-core-jvm:3.3.0 (requested org.jetbrains.skiko:skiko:0.9.4.2)
+               |              \--- io.coil-kt.coil3:coil-core:3.3.0
+               |                   +--- io.coil-kt.coil3:coil-compose-core-jvm:3.3.0 (*)
+               |                   +--- io.coil-kt.coil3:coil-network-ktor3-jvm:3.3.0 (*)
+               |                   +--- io.coil-kt.coil3:coil-jvm:3.3.0
+               |                   |    \--- io.coil-kt.coil3:coil:3.3.0
+               |                   |         \--- io.coil-kt.coil3:coil-compose-jvm:3.3.0 (*)
+               |                   \--- io.coil-kt.coil3:coil-network-core-jvm:3.3.0
+               |                        \--- io.coil-kt.coil3:coil-network-core:3.3.0
+               |                             \--- io.coil-kt.coil3:coil-network-ktor3-jvm:3.3.0 (*)
+               \--- org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2
+                    +--- jvmTestRuntimeClasspath
+                    +--- project :multiplatform:feat:savetrail:impl (*)
+                    +--- project :multiplatform:foundation:designsystem (*)
+                    +--- project :multiplatform:data:trail:api (*)
+                    +--- project :multiplatform:foundation:networking (*)
+                    +--- org.jetbrains.compose.components:components-resources-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+                    +--- com.slack.circuit:circuit-runtime-jvm:0.30.0
+                    |    \--- com.slack.circuit:circuit-runtime:0.30.0
+                    |         +--- jvmTestRuntimeClasspath
+                    |         +--- project :multiplatform:screen:activity:api (*)
+                    |         +--- project :multiplatform:feat:savetrail:impl (*)
+                    |         +--- project :multiplatform:foundation:designsystem (*)
+                    |         +--- project :multiplatform:feat:savetrail:api (*)
+                    |         +--- project :multiplatform:data:trail:impl (*)
+                    |         +--- project :multiplatform:screen:explore:api (*)
+                    |         +--- project :multiplatform:feat:filters:api (*)
+                    |         +--- project :multiplatform:data:trail:api (*)
+                    |         +--- project :multiplatform:foundation:networking (*)
+                    |         +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+                    |         +--- com.slack.circuit:circuit-runtime-presenter-jvm:0.30.0
+                    |         |    \--- com.slack.circuit:circuit-runtime-presenter:0.30.0
+                    |         |         \--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (*)
+                    |         \--- com.slack.circuit:circuit-runtime-ui-jvm:0.30.0 (*)
+                    +--- org.jetbrains.compose.desktop:desktop-jvm:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- org.jetbrains.compose.animation:animation-core-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- com.slack.circuit:circuit-retained-jvm:0.30.0 (*)
+                    +--- com.slack.circuit:circuit-backstack-jvm:0.30.0 (*)
+                    +--- org.jetbrains.compose.ui:ui-test-junit4-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- org.jetbrains.compose.ui:ui-backhandler-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0)
+                    |    \--- org.jetbrains.compose.ui:ui-backhandler:1.9.1
+                    |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+                    |         +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (requested org.jetbrains.compose.ui:ui-backhandler:1.8.2) (*)
+                    |         \--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    +--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- app.cash.turbine:turbine-jvm:1.2.1 (*)
+                    +--- io.ktor:ktor-client-content-negotiation-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-client-logging-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+                    +--- org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.10.2 (*)
+                    +--- org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2 (*)
+                    +--- org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.10.2 (*)
+                    +--- project :server:api
+                    |    \--- project :multiplatform:data:trail:api (*)
+                    +--- dev.mattramotar.atom:core-jvm:0.1.0-SNAPSHOT (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0)
+                    |    \--- dev.mattramotar.atom:core:0.1.0-SNAPSHOT
+                    |         \--- project :multiplatform:feat:savetrail:impl (*)
+                    +--- io.coil-kt.coil3:coil-core-jvm:3.3.0 (*)
+                    +--- org.jetbrains.skiko:skiko-awt:0.9.22.2 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0) (*)
+                    +--- org.mobilenativefoundation.store:core-jvm:6.0.0-SNAPSHOT (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1)
+                    |    \--- org.mobilenativefoundation.store:core:6.0.0-SNAPSHOT
+                    |         +--- project :multiplatform:data:trail:impl (*)
+                    |         +--- org.mobilenativefoundation.store:sqldelight-jvm:6.0.0-SNAPSHOT
+                    |         |    \--- org.mobilenativefoundation.store:sqldelight:6.0.0-SNAPSHOT
+                    |         |         \--- project :multiplatform:data:trail:impl (*)
+                    |         \--- org.mobilenativefoundation.store:mutations-jvm:6.0.0-SNAPSHOT
+                    |              \--- org.mobilenativefoundation.store:mutations:6.0.0-SNAPSHOT
+                    |                   +--- project :multiplatform:data:trail:impl (*)
+                    |                   \--- org.mobilenativefoundation.store:mutations-sqldelight-jvm:6.0.0-SNAPSHOT
+                    |                        \--- org.mobilenativefoundation.store:mutations-sqldelight:6.0.0-SNAPSHOT
+                    |                             \--- project :multiplatform:data:trail:impl (*)
+                    +--- org.jetbrains.androidx.savedstate:savedstate:1.3.1 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0)
+                    |    \--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (*)
+                    +--- androidx.lifecycle:lifecycle-viewmodel-savedstate-desktop:2.9.4 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1)
+                    |    \--- androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4
+                    |         +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.5
+                    |         |    +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (requested org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.1) (*)
+                    |         |    \--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         +--- androidx.lifecycle:lifecycle-runtime-desktop:2.9.4
+                    |         |    \--- androidx.lifecycle:lifecycle-runtime:2.9.4
+                    |         |         +--- org.jetbrains.androidx.lifecycle:lifecycle-runtime:2.9.5
+                    |         |         |    +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |    \--- org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.5
+                    |         |         |         \--- org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.9.5
+                    |         |         |              +--- jvmTestRuntimeClasspath (requested org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.9.4)
+                    |         |         |              +--- com.slack.circuit:circuit-retained-jvm:0.30.0 (requested org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.9.1) (*)
+                    |         |         |              +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |              \--- org.jetbrains.compose.ui:ui-backhandler-desktop:1.9.1 (*)
+                    |         |         +--- androidx.lifecycle:lifecycle-viewmodel-savedstate-desktop:2.9.4 (*)
+                    |         |         +--- androidx.lifecycle:lifecycle-viewmodel-desktop:2.9.4
+                    |         |         |    \--- androidx.lifecycle:lifecycle-viewmodel:2.9.4
+                    |         |         |         +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel:2.9.5
+                    |         |         |         |    +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (requested org.jetbrains.androidx.lifecycle:lifecycle-viewmodel:2.9.1) (*)
+                    |         |         |         |    \--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |         +--- androidx.lifecycle:lifecycle-runtime-desktop:2.9.4 (*)
+                    |         |         |         +--- androidx.lifecycle:lifecycle-viewmodel-savedstate-desktop:2.9.4 (*)
+                    |         |         |         +--- androidx.lifecycle:lifecycle-common-jvm:2.9.4
+                    |         |         |         |    \--- androidx.lifecycle:lifecycle-common:2.9.4
+                    |         |         |         |         +--- org.jetbrains.androidx.lifecycle:lifecycle-common:2.9.5
+                    |         |         |         |         |    +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (requested org.jetbrains.androidx.lifecycle:lifecycle-common:2.9.1) (*)
+                    |         |         |         |         |    +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |         |         |    +--- org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.5 (*)
+                    |         |         |         |         |    \--- org.jetbrains.androidx.savedstate:savedstate:1.3.1 (requested org.jetbrains.androidx.lifecycle:lifecycle-common:2.9.1) (*)
+                    |         |         |         |         +--- androidx.lifecycle:lifecycle-runtime-desktop:2.9.4 (*)
+                    |         |         |         |         +--- androidx.lifecycle:lifecycle-viewmodel-savedstate-desktop:2.9.4 (*)
+                    |         |         |         |         +--- androidx.lifecycle:lifecycle-viewmodel-desktop:2.9.4 (*)
+                    |         |         |         |         +--- androidx.savedstate:savedstate-desktop:1.3.3 (requested androidx.lifecycle:lifecycle-common:2.9.2)
+                    |         |         |         |         |    \--- androidx.savedstate:savedstate:1.3.3
+                    |         |         |         |         |         +--- org.jetbrains.androidx.savedstate:savedstate:1.3.1 (requested androidx.savedstate:savedstate:1.3.0) (*)
+                    |         |         |         |         |         +--- androidx.lifecycle:lifecycle-viewmodel-savedstate-desktop:2.9.4 (requested androidx.savedstate:savedstate:1.3.1) (*)
+                    |         |         |         |         |         \--- androidx.savedstate:savedstate-compose-desktop:1.3.3
+                    |         |         |         |         |              \--- androidx.savedstate:savedstate-compose:1.3.3
+                    |         |         |         |         |                   +--- androidx.compose.runtime:runtime-saveable-desktop:1.9.3
+                    |         |         |         |         |                   |    \--- androidx.compose.runtime:runtime-saveable:1.9.3
+                    |         |         |         |         |                   |         +--- org.jetbrains.compose.runtime:runtime-saveable-desktop:1.9.1
+                    |         |         |         |         |                   |         |    \--- org.jetbrains.compose.runtime:runtime-saveable:1.9.1
+                    |         |         |         |         |                   |         |         +--- com.slack.circuit:circuit-retained-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime-saveable:1.8.2) (*)
+                    |         |         |         |         |                   |         |         +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (requested org.jetbrains.compose.runtime:runtime-saveable:1.8.2) (*)
+                    |         |         |         |         |                   |         |         +--- com.slack.circuit:circuit-backstack-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime-saveable:1.8.2) (*)
+                    |         |         |         |         |                   |         |         +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |         \--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         +--- androidx.compose.runtime:runtime-annotation-jvm:1.9.3
+                    |         |         |         |         |                   |         |    \--- androidx.compose.runtime:runtime-annotation:1.9.3
+                    |         |         |         |         |                   |         |         +--- androidx.compose.runtime:runtime-saveable-desktop:1.9.3 (*)
+                    |         |         |         |         |                   |         |         \--- androidx.compose.runtime:runtime-desktop:1.9.3
+                    |         |         |         |         |                   |         |              \--- androidx.compose.runtime:runtime:1.9.3
+                    |         |         |         |         |                   |         |                   +--- org.jetbrains.compose.runtime:runtime-desktop:1.9.1
+                    |         |         |         |         |                   |         |                   |    \--- org.jetbrains.compose.runtime:runtime:1.9.1
+                    |         |         |         |         |                   |         |                   |         +--- jvmTestRuntimeClasspath
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:screen:activity:api (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:feat:savetrail:impl (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:foundation:designsystem (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:feat:savetrail:api (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:data:trail:impl (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:screen:explore:api (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:feat:filters:api (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:data:trail:api (*)
+                    |         |         |         |         |                   |         |                   |         +--- project :multiplatform:foundation:networking (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.material3:material3-desktop:1.9.0 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.components:components-resources-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-foundation-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-runtime-presenter-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-runtime-ui-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-runtime-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.desktop:desktop-jvm:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.material:material-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.material:material-ripple-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-sharedelements-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.foundation:foundation-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.animation:animation-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.animation:animation-core-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.foundation:foundation-layout-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-retained-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-desktop:2.9.1 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-backstack-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2) (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-backhandler-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-graphics-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- com.slack.circuit:circuit-runtime-screen-jvm:0.30.0 (requested org.jetbrains.compose.runtime:runtime:1.8.2)
+                    |         |         |         |         |                   |         |                   |         |    \--- com.slack.circuit:circuit-runtime-screen:0.30.0
+                    |         |         |         |         |                   |         |                   |         |         +--- com.slack.circuit:circuit-runtime-presenter-jvm:0.30.0 (*)
+                    |         |         |         |         |                   |         |                   |         |         +--- com.slack.circuit:circuit-runtime-ui-jvm:0.30.0 (*)
+                    |         |         |         |         |                   |         |                   |         |         +--- com.slack.circuit:circuit-runtime-jvm:0.30.0 (*)
+                    |         |         |         |         |                   |         |                   |         |         \--- com.slack.circuit:circuit-backstack-jvm:0.30.0 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.9.1
+                    |         |         |         |         |                   |         |                   |         |    \--- org.jetbrains.compose.ui:ui-tooling-preview:1.9.1
+                    |         |         |         |         |                   |         |                   |         |         \--- org.jetbrains.compose.desktop:desktop-jvm:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.compose.ui:ui-unit-desktop:1.9.1
+                    |         |         |         |         |                   |         |                   |         |    \--- org.jetbrains.compose.ui:ui-unit:1.9.1
+                    |         |         |         |         |                   |         |                   |         |         +--- org.jetbrains.compose.animation:animation-core-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         |         +--- org.jetbrains.compose.ui:ui-test-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         |         +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         |         +--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         |         \--- org.jetbrains.compose.ui:ui-graphics-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |         +--- org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.5 (*)
+                    |         |         |         |         |                   |         |                   |         \--- org.jetbrains.compose.ui:ui-geometry-desktop:1.9.1
+                    |         |         |         |         |                   |         |                   |              \--- org.jetbrains.compose.ui:ui-geometry:1.9.1
+                    |         |         |         |         |                   |         |                   |                   +--- org.jetbrains.compose.animation:animation-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |                   +--- org.jetbrains.compose.ui:ui-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |                   +--- org.jetbrains.compose.ui:ui-text-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |                   +--- org.jetbrains.compose.ui:ui-graphics-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   |                   \--- org.jetbrains.compose.ui:ui-unit-desktop:1.9.1 (*)
+                    |         |         |         |         |                   |         |                   +--- androidx.compose.runtime:runtime-saveable-desktop:1.9.3 (*)
+                    |         |         |         |         |                   |         |                   +--- androidx.compose.runtime:runtime-annotation-jvm:1.9.3 (*)
+                    |         |         |         |         |                   |         |                   +--- androidx.savedstate:savedstate-compose-desktop:1.3.3 (requested androidx.compose.runtime:runtime:1.9.0) (*)
+                    |         |         |         |         |                   |         |                   \--- androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.4 (requested androidx.compose.runtime:runtime:1.9.0)
+                    |         |         |         |         |                   |         |                        \--- androidx.lifecycle:lifecycle-runtime-compose:2.9.4
+                    |         |         |         |         |                   |         |                             +--- org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.5 (*)
+                    |         |         |         |         |                   |         |                             +--- androidx.compose.runtime:runtime-saveable-desktop:1.9.3 (*)
+                    |         |         |         |         |                   |         |                             +--- androidx.lifecycle:lifecycle-runtime-desktop:2.9.4 (*)
+                    |         |         |         |         |                   |         |                             +--- androidx.lifecycle:lifecycle-viewmodel-savedstate-desktop:2.9.4 (*)
+                    |         |         |         |         |                   |         |                             +--- androidx.lifecycle:lifecycle-viewmodel-desktop:2.9.4 (*)
+                    |         |         |         |         |                   |         |                             \--- androidx.lifecycle:lifecycle-common-jvm:2.9.4 (*)
+                    |         |         |         |         |                   |         \--- androidx.compose.runtime:runtime-desktop:1.9.3 (*)
+                    |         |         |         |         |                   \--- androidx.savedstate:savedstate-desktop:1.3.3 (*)
+                    |         |         |         |         \--- androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.4 (*)
+                    |         |         |         \--- androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.4 (*)
+                    |         |         +--- androidx.lifecycle:lifecycle-common-jvm:2.9.4 (*)
+                    |         |         \--- androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.4 (*)
+                    |         +--- androidx.lifecycle:lifecycle-viewmodel-desktop:2.9.4 (*)
+                    |         +--- androidx.lifecycle:lifecycle-common-jvm:2.9.4 (*)
+                    |         \--- androidx.lifecycle:lifecycle-runtime-compose-desktop:2.9.4 (*)
+                    +--- androidx.lifecycle:lifecycle-viewmodel-desktop:2.9.4 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1) (*)
+                    +--- androidx.savedstate:savedstate-desktop:1.3.3 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1) (*)
+                    +--- androidx.lifecycle:lifecycle-common-jvm:2.9.4 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1) (*)
+                    +--- androidx.compose.runtime:runtime-desktop:1.9.3 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1) (*)
+                    +--- io.ktor:ktor-serialization-kotlinx-json-jvm:3.3.0
+                    |    \--- io.ktor:ktor-serialization-kotlinx-json:3.3.0
+                    |         \--- project :multiplatform:foundation:networking (*)
+                    +--- app.cash.sqldelight:coroutines-extensions-jvm:2.1.0 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0)
+                    |    \--- app.cash.sqldelight:coroutines-extensions:2.1.0
+                    |         \--- org.mobilenativefoundation.store:sqldelight-jvm:6.0.0-SNAPSHOT (*)
+                    +--- io.ktor:ktor-http-cio-jvm:3.3.0
+                    |    \--- io.ktor:ktor-http-cio:3.3.0
+                    |         +--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
+                    |         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-websocket-serialization-jvm:3.3.0
+                    |    \--- io.ktor:ktor-websocket-serialization:3.3.0
+                    |         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-serialization-kotlinx-jvm:3.3.0
+                    |    \--- io.ktor:ktor-serialization-kotlinx:3.3.0
+                    |         \--- io.ktor:ktor-serialization-kotlinx-json-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-serialization-jvm:3.3.0
+                    |    \--- io.ktor:ktor-serialization:3.3.0
+                    |         +--- io.ktor:ktor-client-content-negotiation-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-websocket-serialization-jvm:3.3.0 (*)
+                    |         \--- io.ktor:ktor-serialization-kotlinx-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-websockets-jvm:3.3.0
+                    |    \--- io.ktor:ktor-websockets:3.3.0
+                    |         +--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
+                    |         \--- io.ktor:ktor-serialization-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-network-tls-jvm:3.3.0
+                    |    \--- io.ktor:ktor-network-tls:3.3.0
+                    |         \--- io.ktor:ktor-client-cio-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-http-jvm:3.3.0
+                    |    \--- io.ktor:ktor-http:3.3.0
+                    |         +--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-http-cio-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-websockets-jvm:3.3.0 (*)
+                    |         \--- io.ktor:ktor-network-tls-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-events-jvm:3.3.0
+                    |    \--- io.ktor:ktor-events:3.3.0
+                    |         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-sse-jvm:3.3.0
+                    |    \--- io.ktor:ktor-sse:3.3.0
+                    |         \--- io.ktor:ktor-client-core-jvm:3.3.0 (*)
+                    +--- app.cash.sqldelight:async-extensions-jvm:2.1.0 (requested org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0)
+                    |    \--- app.cash.sqldelight:async-extensions:2.1.0
+                    |         \--- app.cash.sqldelight:coroutines-extensions-jvm:2.1.0 (*)
+                    +--- io.ktor:ktor-network-jvm:3.3.0
+                    |    \--- io.ktor:ktor-network:3.3.0
+                    |         +--- io.ktor:ktor-http-cio-jvm:3.3.0 (*)
+                    |         \--- io.ktor:ktor-network-tls-jvm:3.3.0 (*)
+                    +--- io.ktor:ktor-utils-jvm:3.3.0
+                    |    \--- io.ktor:ktor-utils:3.3.0
+                    |         +--- io.ktor:ktor-websockets-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-network-tls-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-http-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-events-jvm:3.3.0 (*)
+                    |         +--- io.ktor:ktor-sse-jvm:3.3.0 (*)
+                    |         \--- io.ktor:ktor-network-jvm:3.3.0 (*)
+                    \--- io.ktor:ktor-io-jvm:3.3.0
+                         \--- io.ktor:ktor-io:3.3.0
+                              +--- io.ktor:ktor-http-cio-jvm:3.3.0 (*)
+                              \--- io.ktor:ktor-utils-jvm:3.3.0 (*)
+
+(*) - Indicates repeated occurrences of a transitive dependency subtree. Gradle expands transitive dependency subtrees only once per project; repeat occurrences only display the root of the subtree, followed by this annotation.
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+BUILD SUCCESSFUL in 3s
+5 actionable tasks: 1 executed, 4 up-to-date
+Configuration cache entry stored.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.activity.ActivityRecoveryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-20T07:56:26.198Z" hostname="Matts-MacBook-Pro.local" time="0.626">
+  <properties/>
+  <testcase name="terminatedCatalogObserverReconnectsAndRecoversHeart[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityRecoveryTest" time="0.36"/>
+  <testcase name="historyBeforeFailedCatalogRetainsHistoryAndScrollAndRecoversHeart[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityRecoveryTest" time="0.144"/>
+  <testcase name="terminatedCatalogRetainsItsLastTrailData[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityRecoveryTest" time="0.122"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

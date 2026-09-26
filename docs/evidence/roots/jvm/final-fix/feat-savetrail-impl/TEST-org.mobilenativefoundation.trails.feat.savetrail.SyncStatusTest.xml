@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-09-20T06:58:10.869Z" hostname="Matts-MacBook-Pro.local" time="0.004">
+  <properties/>
+  <testcase name="parkedIncompatibleWorkAsksForAnUpdate[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.002"/>
+  <testcase name="parkedIncompatibleCauseOutranksALongReason[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <testcase name="retryableFailureIsFailedWithRetry[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <testcase name="pendingCopyFollowsPlacementAndOffline[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <testcase name="syncedHasNoLine[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <testcase name="parkedLongUnrecognisedReasonFallsBackToGenericCopy[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <testcase name="parkedShortUnrecognisedReasonIsShownVerbatim[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <testcase name="parkedOtherCauseKeepsItsBoundedReasonEvenWhenItMentionsANewerApp[jvm]" classname="org.mobilenativefoundation.trails.feat.savetrail.SyncStatusTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

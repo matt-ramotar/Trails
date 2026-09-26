@@ -1,0 +1,612 @@
+Calculating task graph as no cached configuration is available for tasks: :multiplatform:di:graph:active:jvmTest --tests *M1NavigationRecoveryTest*
+Type-safe project accessors is an incubating feature.
+> Task :tooling:plugins:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tooling:plugins:compileKotlin UP-TO-DATE
+> Task :tooling:plugins:compileJava NO-SOURCE
+> Task :tooling:plugins:pluginDescriptors UP-TO-DATE
+> Task :tooling:plugins:processResources UP-TO-DATE
+> Task :tooling:plugins:classes UP-TO-DATE
+> Task :tooling:plugins:jar UP-TO-DATE
+> Task :multiplatform:foundation:networking:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:di:scope:jvmProcessResources NO-SOURCE
+> Task :multiplatform:di:scope:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:designsystem:kmpPartiallyResolvedDependenciesChecker
+> Task :server:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:coroutines:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:networking:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:coroutines:jvmProcessResources NO-SOURCE
+> Task :server:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:di:scope:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:coroutines:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :server:api:jvmProcessResources NO-SOURCE
+> Task :server:api:processJvmMainResources SKIPPED
+> Task :multiplatform:di:scope:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:networking:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:coroutines:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:networking:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:parcel:jvmProcessResources NO-SOURCE
+> Task :multiplatform:foundation:networking:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:parcel:processJvmMainResources SKIPPED
+> Task :multiplatform:model:domain:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:networking:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:designsystem:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:parcel:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:model:domain:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:parcel:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:model:domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:networking:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:model:domain:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:app:scaffold:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:app:scaffold:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:app:scaffold:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:assembleJvmMainResources
+> Task :multiplatform:foundation:networking:assembleJvmMainResources
+> Task :multiplatform:foundation:designsystem:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:foundation:networking:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:foundation:networking:generateComposeResClass
+> Task :multiplatform:app:scaffold:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:foundation:networking:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:app:scaffold:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:app:scaffold:api:generateComposeResClass
+> Task :multiplatform:app:scaffold:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:app:scaffold:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:generateComposeResClass
+> Task :multiplatform:app:scaffold:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:model:domain:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:home:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:home:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:home:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:model:domain:generateComposeResClass
+> Task :multiplatform:app:scaffold:api:assembleJvmMainResources
+> Task :multiplatform:app:scaffold:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:profile:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:profile:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:profile:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:model:domain:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:profile:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:profile:api:assembleJvmMainResources
+> Task :multiplatform:data:post:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:home:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:data:post:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:app:scaffold:impl:generateComposeResClass
+> Task :multiplatform:screen:home:api:generateComposeResClass
+> Task :multiplatform:data:post:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:data:trail:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:data:trail:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:app:scaffold:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:data:post:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:generateComposeResClass
+> Task :multiplatform:data:post:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:api:assembleJvmMainResources
+> Task :multiplatform:data:trail:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:app:scaffold:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:data:post:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:data:post:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:assembleJvmMainResources
+> Task :multiplatform:di:graph:active:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:di:graph:active:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:data:trail:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:post:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:data:post:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:data:trail:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:data:post:api:generateComposeResClass
+> Task :multiplatform:data:post:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:di:graph:active:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:data:trail:api:generateComposeResClass
+> Task :multiplatform:feat:filters:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:data:trail:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:data:post:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:post:api:assembleJvmMainResources
+> Task :multiplatform:feat:filters:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:feat:filters:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:di:graph:active:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:assembleJvmMainResources
+> Task :multiplatform:feat:filters:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:feat:filters:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:di:graph:active:generateComposeResClass
+> Task :multiplatform:feat:filters:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:data:post:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:di:graph:active:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:feat:savetrail:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:feat:filters:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateComposeResClass
+> Task :multiplatform:feat:filters:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:feat:filters:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:feat:filters:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:feat:savetrail:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:feat:savetrail:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:feat:filters:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:generateComposeResClass
+> Task :multiplatform:feat:filters:api:assembleJvmMainResources
+> Task :multiplatform:feat:savetrail:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:feat:savetrail:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:generateComposeResClass
+> Task :multiplatform:feat:savetrail:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:di:graph:active:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:collection:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:feat:savetrail:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:feat:savetrail:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:assembleJvmMainResources
+> Task :multiplatform:feat:savetrail:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:generateComposeResClass
+> Task :multiplatform:screen:collection:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:feat:savetrail:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:explore:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:collection:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:feat:savetrail:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:collection:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:assembleJvmMainResources
+> Task :multiplatform:screen:explore:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:generateComposeResClass
+> Task :multiplatform:screen:explore:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:collection:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:collection:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:explore:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:assembleJvmMainResources
+> Task :multiplatform:screen:explore:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:assembleJvmMainResources
+> Task :multiplatform:screen:explore:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:generateComposeResClass
+> Task :multiplatform:screen:explore:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:explore:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:collection:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:explore:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:feat:savetrail:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:explore:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:collection:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:explore:api:assembleJvmMainResources
+> Task :multiplatform:screen:collection:impl:generateComposeResClass
+> Task :multiplatform:screen:collection:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:collection:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:home:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:collection:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:home:impl:assembleJvmMainResources
+> Task :multiplatform:screen:profile:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:profile:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:profile:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:home:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:home:impl:generateComposeResClass
+> Task :multiplatform:screen:collection:impl:assembleJvmMainResources
+> Task :multiplatform:screen:explore:impl:assembleJvmMainResources
+> Task :multiplatform:screen:profile:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:saved:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:explore:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:collection:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:saved:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:saved:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:home:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:explore:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:saved:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:saved:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:saved:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:impl:generateComposeResClass
+> Task :multiplatform:screen:saved:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:assembleJvmMainResources
+> Task :multiplatform:screen:saved:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:saved:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:saved:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:saved:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:traildetail:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:saved:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:profile:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:profile:impl:generateComposeResClass
+> Task :multiplatform:screen:saved:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:traildetail:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:traildetail:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:traildetail:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:saved:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:saved:impl:generateComposeResClass
+> Task :multiplatform:screen:traildetail:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:assembleJvmMainResources
+> Task :multiplatform:screen:traildetail:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:generateComposeResClass
+> Task :multiplatform:screen:saved:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:saved:api:generateComposeResClass
+> Task :multiplatform:screen:saved:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:di:graph:active:convertXmlValueResourcesForCommonTest NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:traildetail:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:di:graph:active:convertXmlValueResourcesForJvmTest NO-SOURCE
+> Task :multiplatform:di:graph:active:copyNonXmlValueResourcesForCommonTest NO-SOURCE
+> Task :multiplatform:screen:traildetail:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:di:graph:active:copyNonXmlValueResourcesForJvmTest NO-SOURCE
+> Task :multiplatform:di:graph:active:prepareComposeResourcesTaskForCommonTest NO-SOURCE
+> Task :multiplatform:di:graph:active:prepareComposeResourcesTaskForJvmTest NO-SOURCE
+> Task :multiplatform:di:graph:active:generateResourceAccessorsForCommonTest NO-SOURCE
+> Task :multiplatform:di:graph:active:generateResourceAccessorsForJvmTest NO-SOURCE
+> Task :multiplatform:screen:traildetail:impl:assembleJvmMainResources
+> Task :multiplatform:di:graph:active:assembleJvmMainResources
+> Task :multiplatform:screen:saved:impl:assembleJvmMainResources
+> Task :multiplatform:screen:traildetail:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:saved:api:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:saved:api:assembleJvmMainResources
+> Task :multiplatform:screen:traildetail:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:di:graph:active:assembleJvmTestResources
+> Task :multiplatform:screen:saved:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:traildetail:impl:generateComposeResClass
+> Task :multiplatform:di:graph:active:koverFindJar
+> Task :multiplatform:foundation:designsystem:copyNonXmlValueResourcesForCommonMain
+> Task :multiplatform:foundation:designsystem:prepareComposeResourcesTaskForCommonMain
+> Task :multiplatform:foundation:designsystem:generateResourceAccessorsForCommonMain
+> Task :multiplatform:foundation:designsystem:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:foundation:designsystem:assembleJvmMainResources
+> Task :multiplatform:di:scope:compileKotlinJvm
+> Task :multiplatform:di:scope:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:di:scope:jvmMainClasses
+> Task :multiplatform:foundation:coroutines:compileKotlinJvm
+> Task :multiplatform:di:scope:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:coroutines:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:foundation:coroutines:jvmMainClasses
+> Task :multiplatform:foundation:coroutines:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:parcel:compileKotlinJvm
+> Task :multiplatform:foundation:parcel:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:foundation:parcel:jvmMainClasses
+> Task :multiplatform:foundation:parcel:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:networking:kspKotlinJvm SKIPPED
+> Task :multiplatform:model:domain:kspKotlinJvm SKIPPED
+> Task :multiplatform:foundation:networking:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:foundation:networking:processJvmMainResources SKIPPED
+> Task :multiplatform:model:domain:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:model:domain:processJvmMainResources SKIPPED
+> Task :server:api:compileKotlinJvm
+> Task :server:api:compileJvmMainJava NO-SOURCE
+> Task :server:api:jvmMainClasses
+> Task :server:api:jvmJar UP-TO-DATE
+> Task :multiplatform:data:trail:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:data:trail:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:data:trail:api:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:networking:compileKotlinJvm
+> Task :multiplatform:foundation:networking:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:foundation:networking:jvmMainClasses
+> Task :multiplatform:foundation:networking:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:kspKotlinJvm SKIPPED
+> Task :multiplatform:foundation:designsystem:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:processJvmMainResources SKIPPED
+> Task :multiplatform:model:domain:compileKotlinJvm
+> Task :multiplatform:model:domain:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:model:domain:jvmMainClasses
+> Task :multiplatform:model:domain:jvmJar UP-TO-DATE
+> Task :multiplatform:data:post:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:data:post:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:data:post:api:processJvmMainResources SKIPPED
+> Task :multiplatform:data:trail:api:compileKotlinJvm
+> Task :multiplatform:data:trail:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:data:trail:api:jvmMainClasses
+> Task :multiplatform:data:trail:api:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:filters:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:feat:savetrail:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:feat:filters:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:feat:filters:api:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:savetrail:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:processJvmMainResources SKIPPED
+> Task :multiplatform:data:post:api:compileKotlinJvm
+> Task :multiplatform:data:post:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:data:post:api:jvmMainClasses
+> Task :multiplatform:data:post:api:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:compileKotlinJvm
+> Task :multiplatform:feat:savetrail:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:jvmMainClasses
+> Task :multiplatform:feat:savetrail:api:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:filters:api:compileKotlinJvm
+> Task :multiplatform:feat:filters:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:filters:api:jvmMainClasses
+> Task :multiplatform:feat:filters:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:explore:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:explore:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:explore:api:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:explore:api:compileKotlinJvm
+> Task :multiplatform:screen:explore:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:explore:api:jvmMainClasses
+> Task :multiplatform:screen:explore:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:collection:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:traildetail:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:saved:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:collection:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:collection:api:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:traildetail:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:traildetail:api:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:saved:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:saved:api:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:collection:api:compileKotlinJvm
+> Task :multiplatform:screen:collection:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:collection:api:jvmMainClasses
+> Task :multiplatform:screen:collection:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:traildetail:api:compileKotlinJvm
+> Task :multiplatform:screen:traildetail:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:traildetail:api:jvmMainClasses
+> Task :multiplatform:screen:traildetail:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:saved:api:compileKotlinJvm
+> Task :multiplatform:screen:saved:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:saved:api:jvmMainClasses
+> Task :multiplatform:screen:saved:api:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:compileKotlinJvm
+> Task :multiplatform:foundation:designsystem:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:foundation:designsystem:jvmMainClasses
+> Task :multiplatform:foundation:designsystem:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:home:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:profile:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:feat:savetrail:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:app:scaffold:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:home:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:home:api:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:profile:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:profile:api:processJvmMainResources SKIPPED
+> Task :multiplatform:app:scaffold:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:app:scaffold:api:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:savetrail:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:app:scaffold:api:compileKotlinJvm
+> Task :multiplatform:app:scaffold:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:app:scaffold:api:jvmMainClasses
+> Task :multiplatform:app:scaffold:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:profile:api:compileKotlinJvm
+> Task :multiplatform:screen:profile:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:profile:api:jvmMainClasses
+> Task :multiplatform:screen:profile:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:profile:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:profile:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:profile:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:home:api:compileKotlinJvm
+> Task :multiplatform:screen:home:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:home:api:jvmMainClasses
+> Task :multiplatform:screen:home:api:jvmJar UP-TO-DATE
+> Task :multiplatform:app:scaffold:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:home:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:app:scaffold:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:app:scaffold:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:home:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:home:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:savetrail:impl:compileKotlinJvm
+> Task :multiplatform:feat:savetrail:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:jvmMainClasses
+> Task :multiplatform:feat:savetrail:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:filters:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:collection:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:explore:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:traildetail:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:saved:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:collection:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:collection:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:traildetail:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:traildetail:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:saved:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:saved:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:explore:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:explore:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:filters:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:feat:filters:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:app:scaffold:impl:compileKotlinJvm
+> Task :multiplatform:app:scaffold:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:app:scaffold:impl:jvmMainClasses
+> Task :multiplatform:app:scaffold:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:home:impl:compileKotlinJvm
+> Task :multiplatform:screen:home:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:home:impl:jvmMainClasses
+> Task :multiplatform:screen:home:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:profile:impl:compileKotlinJvm
+> Task :multiplatform:screen:profile:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:profile:impl:jvmMainClasses
+> Task :multiplatform:screen:profile:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:collection:impl:compileKotlinJvm
+> Task :multiplatform:screen:collection:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:collection:impl:jvmMainClasses
+> Task :multiplatform:screen:collection:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:saved:impl:compileKotlinJvm
+> Task :multiplatform:screen:saved:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:saved:impl:jvmMainClasses
+> Task :multiplatform:screen:saved:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:traildetail:impl:compileKotlinJvm
+> Task :multiplatform:screen:traildetail:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:traildetail:impl:jvmMainClasses
+> Task :multiplatform:screen:traildetail:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:filters:impl:compileKotlinJvm
+> Task :multiplatform:feat:filters:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:filters:impl:jvmMainClasses
+> Task :multiplatform:screen:explore:impl:compileKotlinJvm
+> Task :multiplatform:screen:explore:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:explore:impl:jvmMainClasses
+> Task :multiplatform:feat:filters:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:explore:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:di:graph:active:kspKotlinJvm SKIPPED
+> Task :multiplatform:di:graph:active:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:di:graph:active:processJvmMainResources SKIPPED
+> Task :multiplatform:di:graph:active:compileKotlinJvm
+> Task :multiplatform:di:graph:active:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:di:graph:active:jvmMainClasses
+> Task :multiplatform:di:graph:active:kspTestKotlinJvm SKIPPED
+> Task :multiplatform:di:graph:active:jvmJar UP-TO-DATE
+> Task :multiplatform:di:graph:active:jvmTestProcessResources UP-TO-DATE
+> Task :multiplatform:di:graph:active:processJvmTestResources SKIPPED
+
+> Task :multiplatform:di:graph:active:compileTestKotlinJvm FAILED
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:21:49 Unresolved reference 'navigate'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:22:49 Unresolved reference 'activity'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:23:49 Unresolved reference 'foryou'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:135:9 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:135:22 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:135:29 Unresolved reference 'ForYouScreen'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:135:53 Unresolved reference 'forYouStack'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:135:71 Unresolved reference 'it'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:136:9 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:136:22 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:136:29 Unresolved reference 'NavigateScreen'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:136:55 Unresolved reference 'navigateStack'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:136:75 Unresolved reference 'it'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:137:9 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:137:22 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:137:29 Unresolved reference 'ActivityScreen'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:137:55 Unresolved reference 'activityStack'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:137:75 Unresolved reference 'it'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:138:29 Unresolved reference 'lastOpenedTrailId'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:145:15 Unresolved reference 'selectActivity'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:147:15 Unresolved reference 'selectForYou'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:150:15 Unresolved reference 'selectNavigate'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:154:50 Unresolved reference 'NAVIGATE'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:155:61 Unresolved reference 'ActivityScreen'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:155:87 Unresolved reference 'activityStack'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:155:107 Unresolved reference 'it'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:156:62 Unresolved reference 'ForYouScreen'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:156:86 Unresolved reference 'forYouStack'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:156:104 Unresolved reference 'it'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:157:9 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:157:22 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:157:29 Unresolved reference 'NavigateScreen'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:157:55 Unresolved reference 'navigateStack'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:157:75 Unresolved reference 'it'.
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/di/graph/active/src/jvmTest/kotlin/org/mobilenativefoundation/trails/di/graph/active/M1NavigationRecoveryTest.kt:158:45 Unresolved reference 'lastOpenedTrailId'.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':multiplatform:di:graph:active:compileTestKotlinJvm'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 33s
+215 actionable tasks: 158 executed, 57 up-to-date
+Configuration cache entry stored.

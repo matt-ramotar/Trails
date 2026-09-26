@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.activity.ActivityUiTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:11:19.587Z" hostname="Matts-MacBook-Pro.local" time="0.277">
+  <properties/>
+  <testcase name="emptyHistoryOffersExplore[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityUiTest" time="0.037"/>
+  <testcase name="rowShowsSaveSyncTransitionsWithoutOpeningTrail[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityUiTest" time="0.108"/>
+  <testcase name="heroShowsSaveSyncTransitionsWithoutOpeningTrail[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityUiTest" time="0.1"/>
+  <testcase name="historyRendersTotalsHeroAndRowsAndRowsOpenTheirTrail[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityUiTest" time="0.03"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

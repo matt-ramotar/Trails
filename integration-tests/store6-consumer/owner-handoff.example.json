@@ -1,0 +1,13 @@
+{
+  "status": "WAITING_FOR_OWNER",
+  "build_lease_released": false,
+  "revision": null,
+  "version": null,
+  "owner_thread_id": null,
+  "received_at_utc": null,
+  "owner_message": {
+    "path": "REQUIRED: saved exact owner message",
+    "sha256": "REQUIRED: message file SHA-256"
+  },
+  "evidence": []
+}

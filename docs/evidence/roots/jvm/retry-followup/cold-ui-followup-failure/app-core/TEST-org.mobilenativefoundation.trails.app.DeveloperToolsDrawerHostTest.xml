@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:01:40.235Z" hostname="Matts-MacBook-Pro.local" time="6.521">
+  <properties/>
+  <testcase name="unavailableBackendDoesNotClaimToBeLive[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.364"/>
+  <testcase name="controllerStartsBackendSettingsSynchronizationBeforeTheFirstScreen[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.004"/>
+  <testcase name="backendApplyFailureStaysVisibleAfterPersistenceAndRetryUsesTheSynchronizer[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.316"/>
+  <testcase name="settingsAreNotShownAsAppliedUntilTheBackendFinishes[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.259"/>
+  <testcase name="reseedFailureIsVisibleAndCanBeRetried[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.291"/>
+  <testcase name="reseedChordOnlyRunsWhileFocusIsInsideTheOpenDrawer[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.416"/>
+  <testcase name="retainedActivityLosesRetryWhenRouteOrAccountScopeChanges[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.937"/>
+  <testcase name="escapeFromDrawerFocusClosesIt[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.275"/>
+  <testcase name="failedResetIsVisibleAndSuccessfulRetryClearsTheFailure[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.625"/>
+  <testcase name="earlierReplayCompletionDoesNotClearANewerResetFailure[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="1.415"/>
+  <testcase name="failedSettingsWriteIsVisibleWithoutClaimingItIsApplied[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.438"/>
+  <testcase name="healthyActivityExposesGenuineRetryAndDisposesItWithItsScreen[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.471"/>
+  <testcase name="replayFailureHasNoSuccessAcknowledgementAndExplainsTheLimitedReplayScope[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.678"/>
+  <testcase name="ordinaryTypingInAppContentDoesNotReseedWithDrawerClosed[jvm]" classname="org.mobilenativefoundation.trails.app.DeveloperToolsDrawerHostTest" time="0.031"/>
+  <system-out><![CDATA[BackendConfigSync: Failed to sync backend config. 
+
+ Cause: java.lang.IllegalStateException: backend down
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

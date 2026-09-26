@@ -1,0 +1,50 @@
+CREATE TABLE posts (
+  id TEXT NOT NULL PRIMARY KEY,
+  author_id TEXT NOT NULL,
+  run_id TEXT NOT NULL,
+  run_resort_id TEXT NOT NULL,
+  resort_id TEXT NOT NULL,
+  weather_id TEXT NOT NULL,
+  weather_resort_id TEXT NOT NULL,
+  json TEXT NOT NULL
+);
+
+CREATE TABLE feed_posts (
+  feed_key TEXT NOT NULL,
+  post_id TEXT NOT NULL,
+  position INTEGER NOT NULL,
+  PRIMARY KEY(feed_key, post_id)
+);
+
+selectPostById:
+SELECT id, author_id, run_id, run_resort_id, resort_id, weather_id, weather_resort_id, json FROM posts
+WHERE id = ?;
+
+upsertPost:
+INSERT OR REPLACE INTO posts(id, author_id, run_id, run_resort_id, resort_id, weather_id, weather_resort_id, json)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+deletePostById:
+DELETE FROM posts
+WHERE id = ?;
+
+deleteAllPosts:
+DELETE FROM posts;
+
+selectFeedPosts:
+SELECT posts.id, posts.author_id, posts.run_id, posts.run_resort_id, posts.resort_id, posts.weather_id, posts.weather_resort_id, posts.json
+FROM feed_posts
+JOIN posts ON posts.id = feed_posts.post_id
+WHERE feed_posts.feed_key = ?
+ORDER BY feed_posts.position ASC;
+
+clearFeed:
+DELETE FROM feed_posts
+WHERE feed_key = ?;
+
+insertFeedPost:
+INSERT OR REPLACE INTO feed_posts(feed_key, post_id, position)
+VALUES (?, ?, ?);
+
+deleteAllFeedPosts:
+DELETE FROM feed_posts;

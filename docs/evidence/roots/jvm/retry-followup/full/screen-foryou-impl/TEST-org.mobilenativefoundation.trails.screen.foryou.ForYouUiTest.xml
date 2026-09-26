@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:14.386Z" hostname="Matts-MacBook-Pro.local" time="1.047">
+  <properties/>
+  <testcase name="bookmarkDispatchesSaveWithFocusReturnCallback[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" time="0.274"/>
+  <testcase name="uncachedOfflineFeedOffersRetry[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" time="0.095"/>
+  <testcase name="recommendationShowsSaveSyncTransitionsWithoutOpeningTrail[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" time="0.297"/>
+  <testcase name="featureCardSectionAndRowsRenderAndOpenTheirTrails[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" time="0.27"/>
+  <testcase name="missingRecommendationDetailsOfferRetry[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" time="0.058"/>
+  <testcase name="cachedFeedFailureRetainsContentAndOffersRetry[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouUiTest" time="0.052"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

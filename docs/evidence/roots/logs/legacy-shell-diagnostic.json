@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/matt/Library/Android/sdk/platform-tools/adb",
+    "-s",
+    "emulator-5554",
+    "shell",
+    "-x",
+    "-T",
+    "-n",
+    "getprop",
+    "sys.boot_completed"
+  ],
+  "timeoutSeconds": 8
+}

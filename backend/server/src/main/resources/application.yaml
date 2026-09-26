@@ -1,6 +1,0 @@
-ktor:
-  application:
-    modules:
-      - org.mobilenativefoundation.trails.backend.server.ApplicationKt.module
-  deployment:
-    port: $PORT

@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS backend_feed_posts;
+DROP TABLE IF EXISTS backend_posts;
+DROP TABLE IF EXISTS backend_user_state;
+
+ALTER TABLE developer_settings ADD COLUMN latency_min_ms INTEGER NOT NULL DEFAULT 50;
+ALTER TABLE developer_settings ADD COLUMN latency_max_ms INTEGER NOT NULL DEFAULT 200;
+ALTER TABLE developer_settings ADD COLUMN error_rate REAL NOT NULL DEFAULT 0.0;
+ALTER TABLE developer_settings ADD COLUMN rate_limit_per_minute INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE developer_settings ADD COLUMN backend_conflict_mode TEXT NOT NULL DEFAULT 'DISABLED';
+ALTER TABLE developer_settings ADD COLUMN conflict_probability REAL NOT NULL DEFAULT 0.0;
+ALTER TABLE developer_settings ADD COLUMN seed_scenario TEXT NOT NULL DEFAULT 'DEFAULT';

@@ -4,30 +4,31 @@ import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.mobilenativefoundation.trails.tooling.extensions.BuildFlavor
-import org.mobilenativefoundation.trails.tooling.extensions.BuildType
-import org.mobilenativefoundation.trails.tooling.extensions.FlavorDimension
-import org.mobilenativefoundation.trails.tooling.extensions.Versions
 import org.mobilenativefoundation.trails.tooling.extensions.configureAndroid
-import org.mobilenativefoundation.trails.tooling.extensions.configureAndroidCompose
-import org.mobilenativefoundation.trails.tooling.extensions.configureFlavors
+import org.mobilenativefoundation.trails.tooling.extensions.configureKotlin
+import org.mobilenativefoundation.trails.tooling.extensions.getVersions
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
+        val versions = target.getVersions()
         with(target) {
             with(pluginManager) {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
             }
 
+            configureKotlin()
+
             extensions.configure<ApplicationExtension> {
                 defaultConfig {
-                    targetSdk = Versions.TARGET_SDK
-                    missingDimensionStrategy(
-                        FlavorDimension.contentType.name,
-                        BuildFlavor.demo.name
-                    )
+                    targetSdk = versions.targetSdk
+                    compileSdk = versions.compileSdk
+                }
+
+                compileOptions {
+                    sourceCompatibility = versions.javaVersion
+                    targetCompatibility = versions.javaVersion
                 }
 
                 buildFeatures {
@@ -35,16 +36,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 }
 
                 configureAndroid()
-                configureAndroidCompose(this)
-                configureFlavors(this)
-
-                buildTypes {
-                    getByName(BuildType.DEBUG.applicationIdSuffix) {
-                    }
-
-                    getByName(BuildType.RELEASE.applicationIdSuffix) {
-                    }
-                }
             }
         }
     }

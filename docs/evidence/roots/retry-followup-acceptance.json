@@ -1,0 +1,28 @@
+{
+  "sourceCommit": "036ed843b3c3bb411c9176e958ff13a71514f1da",
+  "testOnlyFollowup": "a3df23f0f3367052e1ef5f53740d3c43f8bb4dfb",
+  "requirement": "Task8 cached Activity Offline Try again keeps content and shows no failure for the cached feed",
+  "result": "measured pass; independent Task8 spec-plus-quality review approved",
+  "installedIdentity": "retry-followup-build-install.json",
+  "offlineAppliedCapture": "87-retry-followup-offline-applied",
+  "offlineRetryTap": {
+    "time": "2026-09-20T08:11:39.610796+00:00",
+    "action": "tap",
+    "label": "Try again",
+    "index": 0,
+    "x": 174,
+    "y": 607
+  },
+  "retainedContentCaptures": [
+    "88-retry-followup-offline-after-retry",
+    "89-retry-followup-offline-top",
+    "90-retry-followup-offline-rows"
+  ],
+  "positiveOnlineFailureCapture": "92-retry-followup-online-failure-visible",
+  "onlineRecoveryCapture": "94-retry-followup-online-recovered",
+  "restoredSettings": "logs/retry-followup-device-settings.json",
+  "databaseComparison": "database/retry-followup-comparison.json",
+  "isolatedAdbServerStopped": true,
+  "deviceFailuresInThisFollowup": [],
+  "boundary": "Offline requests throw before the backend request counter increments; proof uses actual UI action plus real-account behavioral tests and installed content/status observations."
+}

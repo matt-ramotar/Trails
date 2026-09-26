@@ -1,0 +1,15 @@
+CREATE TABLE user_state (
+  id TEXT NOT NULL PRIMARY KEY,
+  json TEXT NOT NULL
+);
+
+selectById:
+SELECT json FROM user_state
+WHERE id = ?;
+
+upsert:
+INSERT OR REPLACE INTO user_state(id, json)
+VALUES (?, ?);
+
+deleteAll:
+DELETE FROM user_state;

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.foryou.ForYouRecoveryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:07:07.141Z" hostname="Matts-MacBook-Pro.local" time="7.243">
+  <properties/>
+  <testcase name="cachedFeedAndFailedCatalogExposeRetryAndRecoverBothRepositories[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouRecoveryTest" time="7.095"/>
+  <testcase name="feedBeforeCatalogPreservesCheckpointUntilRecommendationRowsArrive[jvm]" classname="org.mobilenativefoundation.trails.screen.foryou.ForYouRecoveryTest" time="0.148"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

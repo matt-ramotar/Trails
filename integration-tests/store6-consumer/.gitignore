@@ -1,0 +1,6 @@
+.gradle/
+build/
+android-preview/build/
+candidate.properties
+local.properties
+

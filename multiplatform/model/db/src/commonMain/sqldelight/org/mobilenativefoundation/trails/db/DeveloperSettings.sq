@@ -1,0 +1,45 @@
+CREATE TABLE developer_settings (
+  id INTEGER NOT NULL PRIMARY KEY,
+  offline_mode INTEGER NOT NULL,
+  conflicts_enabled INTEGER NOT NULL,
+  conflict_strategy TEXT NOT NULL,
+  latency_min_ms INTEGER NOT NULL,
+  latency_max_ms INTEGER NOT NULL,
+  error_rate REAL NOT NULL,
+  rate_limit_per_minute INTEGER NOT NULL,
+  backend_conflict_mode TEXT NOT NULL,
+  conflict_probability REAL NOT NULL,
+  seed_scenario TEXT NOT NULL
+);
+
+selectSettings:
+SELECT offline_mode AS offlineMode,
+  conflicts_enabled AS conflictsEnabled,
+  conflict_strategy AS conflictStrategy,
+  latency_min_ms AS latencyMinMs,
+  latency_max_ms AS latencyMaxMs,
+  error_rate AS errorRate,
+  rate_limit_per_minute AS rateLimitPerMinute,
+  backend_conflict_mode AS backendConflictMode,
+  conflict_probability AS conflictProbability,
+  seed_scenario AS simulationSeedPreset
+FROM developer_settings
+WHERE id = 0;
+
+upsertSettings:
+INSERT OR REPLACE INTO developer_settings(
+  id,
+  offline_mode,
+  conflicts_enabled,
+  conflict_strategy,
+  latency_min_ms,
+  latency_max_ms,
+  error_rate,
+  rate_limit_per_minute,
+  backend_conflict_mode,
+  conflict_probability,
+  seed_scenario
+) VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+clearSettings:
+DELETE FROM developer_settings;

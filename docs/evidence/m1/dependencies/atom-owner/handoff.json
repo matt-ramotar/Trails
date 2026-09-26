@@ -1,0 +1,32 @@
+{
+  "status": "READY_FOR_C3_SOURCE_CONSUMPTION",
+  "build_lease_released": true,
+  "revision": "05daa800ac3c6d0dc1f9538234b99061c8139e40",
+  "version": "0.1.0-SNAPSHOT",
+  "owner_thread_id": "01a0a594-4ac4-7022-a88c-d8f5ec6c4e09",
+  "received_at_utc": "2026-09-16T09:07:00Z",
+  "owner_message": {
+    "path": "owner-message.txt",
+    "sha256": "ad9d7b8353ad2a3c48acd6c246981e067371491456255c3cbbf4892393f8e474"
+  },
+  "evidence": [
+    {
+      "path": "final-matrix.log",
+      "sha256": "295939ee24a0fb0c13d26e17e06fd9132bf7c0a88ecac04177870398d2c0685f"
+    },
+    {
+      "path": "final-matrix-summary.json",
+      "sha256": "5533dfd27d7f347c6186255682e06a3b2b9d6c3446bb0e14152023b2671b2bc0"
+    },
+    {
+      "path": "final-source.json",
+      "sha256": "b3dabd68937415ade83bdf3c9323b16b85f700da6b939f7a9814bdbe7f539b30"
+    }
+  ],
+  "source_files_verified_against_clean_clone": 152,
+  "limitations": [
+    "Independent Atom tuple evidence only; C3 remains unexecuted",
+    "KLIB API checks skipped; Intel iOS tests linked only",
+    "Exact received timestamp rounded to minute"
+  ]
+}

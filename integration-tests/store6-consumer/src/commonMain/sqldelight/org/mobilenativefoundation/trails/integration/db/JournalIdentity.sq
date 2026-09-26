@@ -1,0 +1,11 @@
+CREATE TABLE journal_identity (
+    id INTEGER NOT NULL PRIMARY KEY CHECK(id = 1),
+    account TEXT NOT NULL,
+    installation_id TEXT NOT NULL
+);
+
+initializeIdentity:
+INSERT OR IGNORE INTO journal_identity(id, account, installation_id) VALUES (1, ?, ?);
+
+identity:
+SELECT * FROM journal_identity WHERE id = 1;

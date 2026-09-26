@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.navigate.NavigateTrailChoiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T06:58:04.192Z" hostname="Matts-MacBook-Pro.local" time="0.281">
+  <properties/>
+  <testcase name="lastOpenedWinsThenFirstSavedThenHalfDome[jvm]" classname="org.mobilenativefoundation.trails.screen.navigate.NavigateTrailChoiceTest" time="0.281"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

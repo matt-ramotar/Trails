@@ -1,0 +1,3 @@
+package org.mobilenativefoundation.trails.foundation.designsystem.component
+
+interface Avatar

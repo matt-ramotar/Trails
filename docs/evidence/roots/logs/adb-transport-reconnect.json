@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/Users/matt/Library/Android/sdk/platform-tools/adb",
+    "-s",
+    "emulator-5554",
+    "reconnect"
+  ],
+  "exit": 0,
+  "stdout": "reconnecting emulator-5554 [device]\n\n",
+  "stderr": ""
+}

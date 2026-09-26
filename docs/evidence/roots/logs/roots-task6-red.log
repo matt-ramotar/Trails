@@ -1,0 +1,255 @@
+Calculating task graph as no cached configuration is available for tasks: :multiplatform:screen:foryou:impl:jvmTest
+Type-safe project accessors is an incubating feature.
+> Task :tooling:plugins:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tooling:plugins:compileKotlin UP-TO-DATE
+> Task :tooling:plugins:compileJava NO-SOURCE
+> Task :tooling:plugins:pluginDescriptors UP-TO-DATE
+> Task :tooling:plugins:processResources UP-TO-DATE
+> Task :tooling:plugins:classes UP-TO-DATE
+> Task :tooling:plugins:jar UP-TO-DATE
+> Task :multiplatform:foundation:networking:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :server:api:jvmProcessResources NO-SOURCE
+> Task :multiplatform:foundation:parcel:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:parcel:jvmProcessResources NO-SOURCE
+> Task :multiplatform:di:scope:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:designsystem:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:di:scope:jvmProcessResources NO-SOURCE
+> Task :multiplatform:foundation:designsystem:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:parcel:processJvmMainResources SKIPPED
+> Task :multiplatform:di:scope:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:networking:kmpPartiallyResolvedDependenciesChecker
+> Task :server:api:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:designsystem:generateComposeResClass UP-TO-DATE
+> Task :multiplatform:foundation:networking:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:designsystem:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:generateComposeResClass UP-TO-DATE
+> Task :server:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:networking:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:parcel:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :server:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:data:trail:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:data:trail:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:di:scope:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:networking:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:data:trail:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateComposeResClass UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:data:trail:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:data:trail:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateComposeResClass UP-TO-DATE
+> Task :multiplatform:feat:filters:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:feat:filters:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:data:trail:api:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:data:trail:api:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:feat:filters:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:networking:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:foundation:networking:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:generateComposeResClass UP-TO-DATE
+> Task :multiplatform:feat:filters:api:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:foundation:networking:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:foundation:networking:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :server:api:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:filters:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:di:scope:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:foundation:parcel:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:feat:savetrail:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:generateComposeResClass UP-TO-DATE
+> Task :server:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:networking:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:di:scope:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:di:scope:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:feat:filters:api:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:screen:explore:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:explore:api:generateComposeResClass UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:feat:savetrail:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:foundation:parcel:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:generateComposeResClass UP-TO-DATE
+> Task :multiplatform:foundation:parcel:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:screen:explore:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:feat:savetrail:impl:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :server:api:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:foryou:impl:kmpPartiallyResolvedDependenciesChecker
+> Task :multiplatform:screen:foryou:api:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:copyNonXmlValueResourcesForCommonMain UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :multiplatform:screen:explore:api:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:screen:explore:api:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:screen:explore:api:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:di:scope:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:foryou:api:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:screen:explore:api:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:screen:explore:api:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:foundation:parcel:jvmJar UP-TO-DATE
+> Task :server:api:jvmJar UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:prepareComposeResourcesTaskForCommonMain UP-TO-DATE
+> Task :multiplatform:foundation:networking:kspKotlinJvm SKIPPED
+> Task :multiplatform:data:trail:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:foundation:designsystem:generateResourceAccessorsForCommonMain UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:assembleJvmMainResources UP-TO-DATE
+> Task :multiplatform:foundation:networking:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:data:trail:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:generateActualResourceCollectorsForJvmMain UP-TO-DATE
+> Task :multiplatform:foundation:networking:processJvmMainResources SKIPPED
+> Task :multiplatform:data:trail:api:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:foryou:impl:convertXmlValueResourcesForCommonTest NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:convertXmlValueResourcesForJvmTest NO-SOURCE
+> Task :multiplatform:data:trail:api:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:copyNonXmlValueResourcesForCommonTest NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:copyNonXmlValueResourcesForJvmTest NO-SOURCE
+> Task :multiplatform:foundation:networking:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:foundation:networking:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:data:trail:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:foundation:networking:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:data:trail:api:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:data:trail:api:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:filters:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:feat:savetrail:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:foundation:networking:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:filters:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:kspKotlinJvm SKIPPED
+> Task :multiplatform:feat:filters:api:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:savetrail:api:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:designsystem:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:savetrail:api:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:filters:api:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:savetrail:api:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:foundation:designsystem:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:filters:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:prepareComposeResourcesTaskForCommonTest NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :multiplatform:feat:filters:api:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:prepareComposeResourcesTaskForJvmTest NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:generateResourceAccessorsForCommonTest NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :multiplatform:foundation:designsystem:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:foundation:designsystem:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:generateResourceAccessorsForJvmMain NO-SOURCE
+> Task :multiplatform:feat:savetrail:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:generateResourceAccessorsForJvmTest NO-SOURCE
+> Task :multiplatform:feat:filters:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:explore:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:explore:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:explore:api:processJvmMainResources SKIPPED
+> Task :multiplatform:foundation:designsystem:jvmJar UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:feat:savetrail:impl:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:foryou:impl:assembleJvmTestResources
+> Task :multiplatform:screen:explore:api:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:screen:explore:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:explore:api:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:feat:savetrail:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:feat:savetrail:impl:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:koverFindJar
+> Task :multiplatform:screen:explore:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:generateExpectResourceCollectorsForCommonMain
+> Task :multiplatform:screen:foryou:impl:assembleJvmMainResources
+> Task :multiplatform:screen:foryou:api:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:foryou:api:jvmProcessResources UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:processJvmMainResources SKIPPED
+> Task :multiplatform:feat:savetrail:impl:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:generateActualResourceCollectorsForJvmMain
+> Task :multiplatform:screen:foryou:impl:generateComposeResClass
+> Task :multiplatform:screen:foryou:api:compileKotlinJvm UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:foryou:api:jvmMainClasses UP-TO-DATE
+> Task :multiplatform:screen:foryou:api:jvmJar UP-TO-DATE
+> Task :multiplatform:screen:foryou:impl:kspKotlinJvm SKIPPED
+> Task :multiplatform:screen:foryou:impl:jvmProcessResources
+> Task :multiplatform:screen:foryou:impl:processJvmMainResources SKIPPED
+> Task :multiplatform:screen:foryou:impl:compileKotlinJvm
+> Task :multiplatform:screen:foryou:impl:compileJvmMainJava NO-SOURCE
+> Task :multiplatform:screen:foryou:impl:jvmMainClasses
+> Task :multiplatform:screen:foryou:impl:kspTestKotlinJvm SKIPPED
+> Task :multiplatform:screen:foryou:impl:jvmTestProcessResources
+> Task :multiplatform:screen:foryou:impl:processJvmTestResources SKIPPED
+> Task :multiplatform:screen:foryou:impl:jvmJar
+
+> Task :multiplatform:screen:foryou:impl:compileTestKotlinJvm FAILED
+e: file:///Users/matt/src/mobilenativefoundation/Trails/multiplatform/screen/foryou/impl/src/jvmTest/kotlin/org/mobilenativefoundation/trails/screen/foryou/ForYouUiTest.kt:26:36 Unresolved reference 'ForYouUi'.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':multiplatform:screen:foryou:impl:compileTestKotlinJvm'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+92 actionable tasks: 23 executed, 69 up-to-date
+Configuration cache entry stored.

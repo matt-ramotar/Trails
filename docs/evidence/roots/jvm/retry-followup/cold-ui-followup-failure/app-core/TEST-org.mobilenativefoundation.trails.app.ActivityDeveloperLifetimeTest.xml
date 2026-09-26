@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.app.ActivityDeveloperLifetimeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:01:36.253Z" hostname="Matts-MacBook-Pro.local" time="3.978">
+  <properties/>
+  <testcase name="actualControllerRetiresActionsOnNavigationAndGraphReplacement[jvm]" classname="org.mobilenativefoundation.trails.app.ActivityDeveloperLifetimeTest" time="3.978"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.screen.activity.ActivityOfflineRetryTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T08:06:26.678Z" hostname="Matts-MacBook-Pro.local" time="3.256">
+  <properties/>
+  <testcase name="realOnlineCachedFailureStillOffersRetry[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityOfflineRetryTest" time="2.685"/>
+  <testcase name="realUncachedOfflineRetryKeepsRecoveryAndLoadsAfterReconnect[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityOfflineRetryTest" time="0.217"/>
+  <testcase name="realUncachedPresenterRetriesTheAccountAndRecoversAfterReconnect[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityOfflineRetryTest" time="0.08"/>
+  <testcase name="realCachedOfflineRetryRetainsHistoryWithoutFailure[jvm]" classname="org.mobilenativefoundation.trails.screen.activity.ActivityOfflineRetryTest" time="0.274"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>

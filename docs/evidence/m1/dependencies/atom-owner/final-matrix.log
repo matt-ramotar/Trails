@@ -1,0 +1,1154 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+Type-safe project accessors is an incubating feature.
+> Task :tooling:plugins:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tooling:plugins:compileKotlin UP-TO-DATE
+> Task :tooling:plugins:compileJava NO-SOURCE
+> Task :tooling:plugins:pluginDescriptors UP-TO-DATE
+> Task :tooling:plugins:processResources UP-TO-DATE
+> Task :tooling:plugins:classes UP-TO-DATE
+> Task :tooling:plugins:jar UP-TO-DATE
+
+> Configure project :gradle-plugin
+WARNING: Unsupported Kotlin plugin version.
+The `embedded-kotlin` and `kotlin-dsl` plugins rely on features of Kotlin `2.0.21` that might work differently than in the requested version `2.2.20`.
+
+> Task :core:kmpPartiallyResolvedDependenciesChecker
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:jvmProcessResources NO-SOURCE
+> Task :core:processJvmMainResources SKIPPED
+> Task :core:jvmTestProcessResources NO-SOURCE
+> Task :core:processJvmTestResources SKIPPED
+> Task :core:koverFindJar UP-TO-DATE
+> Task :compose:kmpPartiallyResolvedDependenciesChecker
+> Task :compose:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compose:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForCommonMain SKIPPED
+> Task :compose:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForJvmMain SKIPPED
+> Task :compose:generateActualResourceCollectorsForJvmMain SKIPPED
+> Task :compose:generateComposeResClass SKIPPED
+> Task :compose:generateExpectResourceCollectorsForCommonMain SKIPPED
+> Task :compose:convertXmlValueResourcesForCommonTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForCommonTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForCommonTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForCommonTest SKIPPED
+> Task :compose:convertXmlValueResourcesForJvmTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForJvmTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForJvmTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForJvmTest SKIPPED
+> Task :compose:assembleJvmMainResources UP-TO-DATE
+> Task :compose:jvmProcessResources UP-TO-DATE
+> Task :compose:processJvmMainResources SKIPPED
+> Task :compose:assembleJvmTestResources UP-TO-DATE
+> Task :compose:jvmTestProcessResources UP-TO-DATE
+> Task :compose:processJvmTestResources SKIPPED
+> Task :compose:koverFindJar UP-TO-DATE
+> Task :serialization-kotlinx:kmpPartiallyResolvedDependenciesChecker
+> Task :serialization-kotlinx:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :serialization-kotlinx:jvmProcessResources NO-SOURCE
+> Task :serialization-kotlinx:processJvmMainResources SKIPPED
+> Task :serialization-kotlinx:jvmTestProcessResources NO-SOURCE
+> Task :serialization-kotlinx:processJvmTestResources SKIPPED
+> Task :serialization-kotlinx:koverFindJar UP-TO-DATE
+> Task :sample:kmpPartiallyResolvedDependenciesChecker
+> Task :sample:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :sample:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForCommonMain SKIPPED
+> Task :sample:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForJvmMain SKIPPED
+> Task :sample:generateActualResourceCollectorsForJvmMain SKIPPED
+> Task :sample:generateComposeResClass SKIPPED
+> Task :sample:generateExpectResourceCollectorsForCommonMain SKIPPED
+> Task :core:transformCommonMainDependenciesMetadata UP-TO-DATE
+> Task :core:generateProjectStructureMetadata UP-TO-DATE
+> Task :core:metadataCommonMainProcessResources NO-SOURCE
+> Task :core:compileCommonMainKotlinMetadata
+> Task :core:compileKotlinJvm
+> Task :core:commonizeNativeDistribution UP-TO-DATE
+> Task :core:compileJvmMainJava NO-SOURCE
+> Task :core:jvmMainClasses
+> Task :core:jvmJar
+> Task :core:compileTestKotlinJvm UP-TO-DATE
+> Task :core:compileJvmTestJava NO-SOURCE
+> Task :core:jvmTestClasses UP-TO-DATE
+> Task :core:jvmTest
+> Task :core:metadataCommonMainClasses
+> Task :core:allMetadataJar
+> Task :core:transformNativeMainDependenciesMetadata UP-TO-DATE
+> Task :serialization-kotlinx:compileKotlinJvm
+> Task :compose:compileKotlinJvm
+> Task :core:compileNativeMainKotlinMetadata
+> Task :compose:compileJvmMainJava NO-SOURCE
+> Task :compose:jvmMainClasses
+> Task :compose:jvmJar UP-TO-DATE
+> Task :serialization-kotlinx:compileJvmMainJava NO-SOURCE
+> Task :serialization-kotlinx:jvmMainClasses
+> Task :serialization-kotlinx:jvmJar UP-TO-DATE
+> Task :compose:compileTestKotlinJvm
+> Task :core:metadataNativeMainProcessResources NO-SOURCE
+> Task :compose:compileJvmTestJava NO-SOURCE
+> Task :compose:jvmTestClasses
+> Task :serialization-kotlinx:compileTestKotlinJvm
+> Task :compose:jvmTest
+> Task :serialization-kotlinx:compileJvmTestJava NO-SOURCE
+> Task :serialization-kotlinx:jvmTestClasses
+> Task :serialization-kotlinx:jvmTest
+> Task :core:metadataNativeMainClasses
+> Task :core:transformAppleMainDependenciesMetadata UP-TO-DATE
+> Task :core:compileAppleMainKotlinMetadata NO-SOURCE
+> Task :core:metadataAppleMainProcessResources NO-SOURCE
+> Task :core:metadataAppleMainClasses UP-TO-DATE
+> Task :core:transformIosMainDependenciesMetadata UP-TO-DATE
+> Task :core:compileIosMainKotlinMetadata NO-SOURCE
+> Task :core:metadataIosMainProcessResources NO-SOURCE
+> Task :core:metadataIosMainClasses UP-TO-DATE
+> Task :core:exportCommonSourceSetsMetadataLocationsForMetadataApiElements
+> Task :core:iosArm64MetadataElements UP-TO-DATE
+> Task :core:iosSimulatorArm64MetadataElements UP-TO-DATE
+> Task :core:iosX64MetadataElements UP-TO-DATE
+> Task :compose:transformCommonMainDependenciesMetadata
+> Task :core:exportRootPublicationCoordinatesForMetadataApiElements UP-TO-DATE
+> Task :compose:generateProjectStructureMetadata UP-TO-DATE
+> Task :compose:metadataCommonMainProcessResources NO-SOURCE
+> Task :ksp:kmpPartiallyResolvedDependenciesChecker
+> Task :ksp:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ksp:jvmProcessResources UP-TO-DATE
+> Task :ksp:processJvmMainResources SKIPPED
+> Task :compose:commonizeNativeDistribution UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForNativeMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForNativeMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForNativeMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForNativeMain SKIPPED
+> Task :ksp:compileKotlinJvm
+> Task :compose:transformNativeMainDependenciesMetadata
+> Task :ksp:compileJvmMainJava NO-SOURCE
+> Task :ksp:jvmMainClasses
+> Task :ksp:jvmJar UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForAppleMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAppleMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAppleMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForAppleMain SKIPPED
+> Task :compose:metadataNativeMainProcessResources NO-SOURCE
+> Task :compose:transformAppleMainDependenciesMetadata
+> Task :compose:convertXmlValueResourcesForIosMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosMain SKIPPED
+> Task :compose:metadataAppleMainProcessResources NO-SOURCE
+> Task :compose:transformIosMainDependenciesMetadata
+> Task :compose:metadataIosMainProcessResources NO-SOURCE
+> Task :compose:compileCommonMainKotlinMetadata
+> Task :serialization-kotlinx:transformCommonMainDependenciesMetadata
+> Task :compose:metadataCommonMainClasses
+> Task :compose:allMetadataJar UP-TO-DATE
+> Task :compose:compileNativeMainKotlinMetadata NO-SOURCE
+> Task :compose:metadataNativeMainClasses UP-TO-DATE
+> Task :compose:compileAppleMainKotlinMetadata NO-SOURCE
+> Task :compose:metadataAppleMainClasses UP-TO-DATE
+> Task :compose:compileIosMainKotlinMetadata NO-SOURCE
+> Task :compose:metadataIosMainClasses UP-TO-DATE
+> Task :compose:exportCommonSourceSetsMetadataLocationsForMetadataApiElements UP-TO-DATE
+> Task :compose:iosArm64MetadataElements UP-TO-DATE
+> Task :compose:iosSimulatorArm64MetadataElements UP-TO-DATE
+> Task :compose:iosX64MetadataElements UP-TO-DATE
+> Task :serialization-kotlinx:generateProjectStructureMetadata UP-TO-DATE
+> Task :serialization-kotlinx:metadataCommonMainProcessResources NO-SOURCE
+> Task :serialization-kotlinx:commonizeNativeDistribution UP-TO-DATE
+> Task :serialization-kotlinx:compileCommonMainKotlinMetadata
+> Task :serialization-kotlinx:transformNativeMainDependenciesMetadata
+> Task :serialization-kotlinx:metadataCommonMainClasses
+> Task :serialization-kotlinx:allMetadataJar UP-TO-DATE
+> Task :serialization-kotlinx:compileNativeMainKotlinMetadata NO-SOURCE
+> Task :serialization-kotlinx:metadataNativeMainProcessResources NO-SOURCE
+> Task :serialization-kotlinx:metadataNativeMainClasses UP-TO-DATE
+> Task :serialization-kotlinx:transformAppleMainDependenciesMetadata
+> Task :serialization-kotlinx:compileAppleMainKotlinMetadata NO-SOURCE
+> Task :serialization-kotlinx:metadataAppleMainProcessResources NO-SOURCE
+> Task :serialization-kotlinx:metadataAppleMainClasses UP-TO-DATE
+> Task :serialization-kotlinx:transformIosMainDependenciesMetadata
+> Task :serialization-kotlinx:compileIosMainKotlinMetadata NO-SOURCE
+> Task :serialization-kotlinx:metadataIosMainProcessResources NO-SOURCE
+> Task :serialization-kotlinx:metadataIosMainClasses UP-TO-DATE
+> Task :serialization-kotlinx:exportCommonSourceSetsMetadataLocationsForMetadataApiElements UP-TO-DATE
+> Task :serialization-kotlinx:iosArm64MetadataElements UP-TO-DATE
+> Task :serialization-kotlinx:iosSimulatorArm64MetadataElements UP-TO-DATE
+> Task :serialization-kotlinx:iosX64MetadataElements UP-TO-DATE
+> Task :sample:transformCommonMainDependenciesMetadata
+> Task :sample:kspKotlinJvm SKIPPED
+> Task :sample:convertXmlValueResourcesForCommonTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForCommonTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForCommonTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForCommonTest SKIPPED
+> Task :sample:convertXmlValueResourcesForJvmTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForJvmTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForJvmTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForJvmTest SKIPPED
+> Task :sample:assembleJvmMainResources UP-TO-DATE
+> Task :sample:jvmProcessResources UP-TO-DATE
+> Task :sample:processJvmMainResources SKIPPED
+> Task :sample:assembleJvmTestResources UP-TO-DATE
+> Task :sample:koverFindJar UP-TO-DATE
+
+> Task :core:verifyCoreIsolation
+CORE_ISOLATION androidDebugCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION androidDebugRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION androidReleaseCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION androidReleaseRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION commonMainResolvableDependenciesMetadata: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu:0.23.1, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION debugCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION debugRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION iosArm64CompileKlibraries: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu-iosarm64:0.25.0, org.jetbrains.kotlinx:atomicfu:0.25.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION iosSimulatorArm64CompileKlibraries: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.25.0, org.jetbrains.kotlinx:atomicfu:0.25.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION iosX64CompileKlibraries: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu-iosx64:0.25.0, org.jetbrains.kotlinx:atomicfu:0.25.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-iosx64:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION jsCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-dom-api-compat:2.2.20, org.jetbrains.kotlin:kotlin-stdlib-js:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu-js:0.25.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION jsRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-dom-api-compat:2.2.20, org.jetbrains.kotlin:kotlin-stdlib-js:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlin:kotlinx-atomicfu-runtime:2.0.0, org.jetbrains.kotlinx:atomicfu-js:0.25.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION jvmCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION jvmMainCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION jvmMainRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION jvmRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION metadataAppleMainCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu:0.23.1, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION metadataCommonMainCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu:0.23.1, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION metadataCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu:0.23.1, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION metadataIosMainCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu:0.23.1, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION metadataNativeMainCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:atomicfu:0.23.1, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0]
+CORE_ISOLATION releaseCompileClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+CORE_ISOLATION releaseRuntimeClasspath: [dev.mattramotar.atom:core:0.1.0-SNAPSHOT, org.jetbrains.kotlin:kotlin-stdlib:2.2.20, org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0, org.jetbrains:annotations:23.0.0]
+
+> Task :integration-tests:core-consumer:kmpPartiallyResolvedDependenciesChecker
+> Task :integration-tests:core-consumer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :integration-tests:core-consumer:compileKotlinJvm NO-SOURCE
+> Task :integration-tests:core-consumer:compileJvmMainJava NO-SOURCE
+> Task :integration-tests:core-consumer:jvmProcessResources NO-SOURCE
+> Task :integration-tests:core-consumer:processJvmMainResources SKIPPED
+> Task :integration-tests:core-consumer:jvmMainClasses UP-TO-DATE
+> Task :integration-tests:core-consumer:jvmJar UP-TO-DATE
+> Task :integration-tests:core-consumer:jvmTestProcessResources NO-SOURCE
+> Task :integration-tests:core-consumer:processJvmTestResources SKIPPED
+> Task :runtime:kmpPartiallyResolvedDependenciesChecker
+> Task :runtime:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :runtime:compileKotlinJvm NO-SOURCE
+> Task :runtime:compileJvmMainJava NO-SOURCE
+> Task :runtime:jvmProcessResources NO-SOURCE
+> Task :runtime:processJvmMainResources SKIPPED
+> Task :runtime:jvmMainClasses UP-TO-DATE
+> Task :runtime:jvmJar UP-TO-DATE
+> Task :integration-tests:aggregate-consumer:kmpPartiallyResolvedDependenciesChecker
+> Task :integration-tests:aggregate-consumer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :integration-tests:aggregate-consumer:compileKotlinJvm NO-SOURCE
+> Task :integration-tests:aggregate-consumer:compileJvmMainJava NO-SOURCE
+> Task :integration-tests:aggregate-consumer:jvmProcessResources NO-SOURCE
+> Task :integration-tests:aggregate-consumer:processJvmMainResources SKIPPED
+> Task :integration-tests:aggregate-consumer:jvmMainClasses UP-TO-DATE
+> Task :integration-tests:core-consumer:compileTestKotlinJvm
+> Task :integration-tests:aggregate-consumer:jvmJar UP-TO-DATE
+> Task :integration-tests:core-consumer:compileJvmTestJava NO-SOURCE
+> Task :integration-tests:core-consumer:jvmTestClasses
+> Task :integration-tests:core-consumer:jvmTest
+> Task :integration-tests:aggregate-consumer:jvmTestProcessResources NO-SOURCE
+> Task :integration-tests:aggregate-consumer:processJvmTestResources SKIPPED
+
+> Task :integration-tests:aggregate-consumer:verifySingleImplementation
+SINGLE_IMPLEMENTATION: 105 Atom classes, exactly one owner each; aggregate has no classes
+
+> Task :metro:kmpPartiallyResolvedDependenciesChecker
+> Task :metro:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :metro:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForCommonMain SKIPPED
+> Task :metro:convertXmlValueResourcesForJvmMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForJvmMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForJvmMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForJvmMain SKIPPED
+> Task :metro:generateActualResourceCollectorsForJvmMain SKIPPED
+> Task :metro:generateComposeResClass SKIPPED
+> Task :metro:generateExpectResourceCollectorsForCommonMain SKIPPED
+> Task :integration-tests:aggregate-consumer:compileTestKotlinJvm
+> Task :integration-tests:aggregate-consumer:compileJvmTestJava NO-SOURCE
+> Task :integration-tests:aggregate-consumer:jvmTestClasses
+> Task :metro:compileKotlinJvm
+> Task :integration-tests:aggregate-consumer:jvmTest
+> Task :metro:compileJvmMainJava NO-SOURCE
+> Task :metro:assembleJvmMainResources UP-TO-DATE
+> Task :metro:jvmProcessResources UP-TO-DATE
+> Task :metro:processJvmMainResources SKIPPED
+> Task :metro:jvmMainClasses
+> Task :metro:jvmJar UP-TO-DATE
+> Task :ksp:jvmTestProcessResources NO-SOURCE
+> Task :ksp:processJvmTestResources SKIPPED
+> Task :ksp:koverFindJar UP-TO-DATE
+> Task :gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:compileTestKotlin UP-TO-DATE
+> Task :gradle-plugin:compileTestJava NO-SOURCE
+> Task :gradle-plugin:koverFindJar UP-TO-DATE
+> Task :gradle-plugin:pluginUnderTestMetadata UP-TO-DATE
+> Task :gradle-plugin:processTestResources NO-SOURCE
+> Task :gradle-plugin:testClasses UP-TO-DATE
+> Task :gradle-plugin:test UP-TO-DATE
+> Task :core:preBuild UP-TO-DATE
+> Task :core:preDebugBuild UP-TO-DATE
+> Task :core:generateDebugResValues UP-TO-DATE
+> Task :core:generateDebugResources UP-TO-DATE
+> Task :core:packageDebugResources UP-TO-DATE
+> Task :core:parseDebugLocalResources UP-TO-DATE
+> Task :core:generateDebugRFile UP-TO-DATE
+> Task :ksp:compileTestKotlinJvm
+> Task :ksp:compileJvmTestJava NO-SOURCE
+> Task :ksp:jvmTestClasses
+> Task :sample:kspCommonMainKotlinMetadata
+> Task :core:compileDebugKotlinAndroid
+> Task :ksp:jvmTest
+> Task :core:javaPreCompileDebug UP-TO-DATE
+> Task :core:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:preDebugUnitTestBuild UP-TO-DATE
+> Task :core:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :core:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :core:processDebugJavaRes UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAndroidMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForAndroidMain SKIPPED
+> Task :compose:generateActualResourceCollectorsForAndroidMain SKIPPED
+> Task :compose:preBuild UP-TO-DATE
+> Task :compose:preDebugBuild UP-TO-DATE
+> Task :sample:compileKotlinJvm
+> Task :compose:generateDebugResValues UP-TO-DATE
+> Task :sample:compileJvmMainJava NO-SOURCE
+> Task :sample:jvmMainClasses
+> Task :sample:jvmJar UP-TO-DATE
+> Task :sample:kspTestKotlinJvm SKIPPED
+> Task :core:bundleLibRuntimeToJarDebug
+> Task :core:bundleLibCompileToJarDebug
+> Task :sample:jvmTestProcessResources UP-TO-DATE
+> Task :sample:processJvmTestResources SKIPPED
+> Task :sample:compileTestKotlinJvm
+> Task :sample:compileJvmTestJava NO-SOURCE
+> Task :sample:jvmTestClasses
+> Task :sample:jvmTest
+> Task :compose:generateDebugResources UP-TO-DATE
+> Task :compose:packageDebugResources UP-TO-DATE
+> Task :compose:parseDebugLocalResources UP-TO-DATE
+> Task :compose:generateDebugRFile UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAndroidDebug NO-SOURCE
+> Task :compose:generateResourceAccessorsForAndroidDebug SKIPPED
+> Task :compose:javaPreCompileDebug UP-TO-DATE
+> Task :compose:preDebugUnitTestBuild UP-TO-DATE
+> Task :compose:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForAndroidUnitTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAndroidUnitTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAndroidUnitTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForAndroidUnitTest SKIPPED
+> Task :compose:convertXmlValueResourcesForAndroidUnitTestDebug NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAndroidUnitTestDebug NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAndroidUnitTestDebug NO-SOURCE
+> Task :compose:generateResourceAccessorsForAndroidUnitTestDebug SKIPPED
+> Task :compose:compileDebugKotlinAndroid
+> Task :compose:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :compose:compileDebugJavaWithJavac NO-SOURCE
+> Task :compose:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :compose:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :compose:processDebugJavaRes UP-TO-DATE
+> Task :serialization-kotlinx:preBuild UP-TO-DATE
+> Task :serialization-kotlinx:preDebugBuild UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugResValues UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugResources UP-TO-DATE
+> Task :serialization-kotlinx:packageDebugResources UP-TO-DATE
+> Task :serialization-kotlinx:parseDebugLocalResources UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugRFile UP-TO-DATE
+> Task :compose:compileDebugUnitTestKotlinAndroid
+> Task :compose:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :compose:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :serialization-kotlinx:compileDebugKotlinAndroid
+> Task :compose:testDebugUnitTest
+> Task :serialization-kotlinx:javaPreCompileDebug UP-TO-DATE
+> Task :serialization-kotlinx:compileDebugJavaWithJavac NO-SOURCE
+> Task :serialization-kotlinx:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :serialization-kotlinx:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :serialization-kotlinx:preDebugUnitTestBuild UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :serialization-kotlinx:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :serialization-kotlinx:processDebugJavaRes UP-TO-DATE
+> Task :sample:convertXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForAndroidMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForAndroidMain SKIPPED
+> Task :sample:generateActualResourceCollectorsForAndroidMain SKIPPED
+> Task :sample:preBuild UP-TO-DATE
+> Task :sample:preDebugBuild UP-TO-DATE
+> Task :sample:generateDebugResValues UP-TO-DATE
+> Task :sample:generateDebugResources UP-TO-DATE
+> Task :sample:packageDebugResources UP-TO-DATE
+> Task :sample:parseDebugLocalResources UP-TO-DATE
+> Task :sample:generateDebugRFile UP-TO-DATE
+> Task :sample:convertXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForAndroidDebug NO-SOURCE
+> Task :sample:generateResourceAccessorsForAndroidDebug SKIPPED
+> Task :sample:kspDebugKotlinAndroid SKIPPED
+> Task :serialization-kotlinx:compileDebugUnitTestKotlinAndroid
+> Task :core:compileDebugUnitTestKotlinAndroid
+> Task :core:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :core:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :sample:compileDebugKotlinAndroid
+> Task :core:testDebugUnitTest
+> Task :serialization-kotlinx:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :serialization-kotlinx:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :serialization-kotlinx:testDebugUnitTest
+> Task :sample:javaPreCompileDebug UP-TO-DATE
+> Task :sample:compileDebugJavaWithJavac NO-SOURCE
+> Task :sample:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :sample:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :sample:preDebugUnitTestBuild UP-TO-DATE
+> Task :sample:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :sample:convertXmlValueResourcesForAndroidUnitTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForAndroidUnitTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForAndroidUnitTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForAndroidUnitTest SKIPPED
+> Task :sample:convertXmlValueResourcesForAndroidUnitTestDebug NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForAndroidUnitTestDebug NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForAndroidUnitTestDebug NO-SOURCE
+> Task :sample:generateResourceAccessorsForAndroidUnitTestDebug SKIPPED
+> Task :sample:kspDebugUnitTestKotlinAndroid SKIPPED
+> Task :sample:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :sample:processDebugJavaRes UP-TO-DATE
+> Task :sample:compileDebugUnitTestKotlinAndroid
+> Task :core:compileKotlinIosSimulatorArm64
+> Task :sample:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :sample:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :sample:testDebugUnitTest
+> Task :core:iosSimulatorArm64ProcessResources NO-SOURCE
+> Task :core:iosSimulatorArm64MainKlibrary
+> Task :core:compileTestKotlinIosSimulatorArm64
+> Task :core:linkDebugTestIosSimulatorArm64
+> Task :core:iosSimulatorArm64Test
+> Task :compose:convertXmlValueResourcesForIosSimulatorArm64Main NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosSimulatorArm64Main NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosSimulatorArm64Main NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosSimulatorArm64Main SKIPPED
+> Task :compose:generateActualResourceCollectorsForIosSimulatorArm64Main SKIPPED
+> Task :compose:compileKotlinIosSimulatorArm64
+> Task :compose:convertXmlValueResourcesForAppleTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAppleTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAppleTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForAppleTest SKIPPED
+> Task :compose:convertXmlValueResourcesForIosSimulatorArm64Test NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosSimulatorArm64Test NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosSimulatorArm64Test NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosSimulatorArm64Test SKIPPED
+> Task :compose:convertXmlValueResourcesForIosTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosTest SKIPPED
+> Task :compose:convertXmlValueResourcesForNativeTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForNativeTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForNativeTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForNativeTest SKIPPED
+> Task :compose:iosSimulatorArm64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :compose:assembleIosSimulatorArm64MainResources UP-TO-DATE
+> Task :compose:iosSimulatorArm64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:iosSimulatorArm64AggregateResources UP-TO-DATE
+> Task :compose:iosSimulatorArm64ProcessResources UP-TO-DATE
+> Task :compose:iosSimulatorArm64MainKlibrary
+> Task :compose:compileTestKotlinIosSimulatorArm64
+> Task :compose:assembleIosSimulatorArm64TestResources UP-TO-DATE
+> Task :compose:copyTestComposeResourcesForIosSimulatorArm64 UP-TO-DATE
+> Task :compose:linkDebugTestIosSimulatorArm64
+> Task :compose:iosSimulatorArm64Test
+> Task :serialization-kotlinx:compileKotlinIosSimulatorArm64
+> Task :serialization-kotlinx:iosSimulatorArm64ProcessResources NO-SOURCE
+> Task :serialization-kotlinx:iosSimulatorArm64MainKlibrary
+> Task :serialization-kotlinx:compileTestKotlinIosSimulatorArm64
+> Task :serialization-kotlinx:linkDebugTestIosSimulatorArm64
+> Task :serialization-kotlinx:iosSimulatorArm64Test
+> Task :sample:convertXmlValueResourcesForAppleMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForAppleMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForAppleMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForAppleMain SKIPPED
+> Task :sample:convertXmlValueResourcesForIosMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForIosMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForIosMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForIosMain SKIPPED
+> Task :sample:convertXmlValueResourcesForIosSimulatorArm64Main NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForIosSimulatorArm64Main NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForIosSimulatorArm64Main NO-SOURCE
+> Task :sample:generateResourceAccessorsForIosSimulatorArm64Main SKIPPED
+> Task :sample:convertXmlValueResourcesForNativeMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForNativeMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForNativeMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForNativeMain SKIPPED
+> Task :sample:generateActualResourceCollectorsForIosSimulatorArm64Main SKIPPED
+> Task :sample:kspKotlinIosSimulatorArm64 SKIPPED
+
+> Task :sample:compileKotlinIosSimulatorArm64
+
+> Task :sample:convertXmlValueResourcesForAppleTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForAppleTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForAppleTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForAppleTest SKIPPED
+> Task :sample:convertXmlValueResourcesForIosSimulatorArm64Test NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForIosSimulatorArm64Test NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForIosSimulatorArm64Test NO-SOURCE
+> Task :sample:generateResourceAccessorsForIosSimulatorArm64Test SKIPPED
+> Task :sample:convertXmlValueResourcesForIosTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForIosTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForIosTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForIosTest SKIPPED
+> Task :sample:convertXmlValueResourcesForNativeTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForNativeTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForNativeTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForNativeTest SKIPPED
+> Task :compose:iosSimulatorArm64CopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:iosSimulatorArm64ZipMultiplatformResourcesForPublication UP-TO-DATE
+> Task :sample:iosSimulatorArm64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :sample:assembleIosSimulatorArm64MainResources UP-TO-DATE
+> Task :sample:iosSimulatorArm64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :sample:iosSimulatorArm64AggregateResources UP-TO-DATE
+> Task :sample:iosSimulatorArm64ProcessResources UP-TO-DATE
+> Task :sample:iosSimulatorArm64MainKlibrary
+> Task :sample:kspTestKotlinIosSimulatorArm64 SKIPPED
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/BoardAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<BoardState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/BoardAtom_Entry.kt:31:40 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<BoardState>'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/PostAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<PostState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/PostAtom_Entry.kt:31:39 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<PostState>'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/TaskAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<TaskState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/TaskAtom_Entry.kt:31:39 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<TaskState>'.
+> Task :sample:compileTestKotlinIosSimulatorArm64
+> Task :sample:assembleIosSimulatorArm64TestResources UP-TO-DATE
+> Task :sample:copyTestComposeResourcesForIosSimulatorArm64 UP-TO-DATE
+> Task :sample:linkDebugTestIosSimulatorArm64
+> Task :sample:iosSimulatorArm64Test
+> Task :kotlinKotlinNpmCachesSetup
+> Task :kotlinNodeJsSetup
+> Task :kotlinRestoreYarnLock
+> Task :kotlinYarnSetup
+> Task :core:jsPackageJson
+> Task :compose:jsPackageJson
+> Task :compose:jsTestPackageJson
+> Task :core:jsTestPackageJson
+> Task :metro:jsPackageJson
+> Task :metro:jsTestPackageJson
+> Task :serialization-kotlinx:jsPackageJson
+> Task :runtime:jsPackageJson
+> Task :runtime:jsTestPackageJson
+> Task :sample:jsPackageJson
+> Task :sample:jsTestPackageJson
+> Task :serialization-kotlinx:jsTestPackageJson
+> Task :compose:jsPublicPackageJson
+> Task :compose:jsTestPublicPackageJson
+> Task :core:jsPublicPackageJson
+> Task :core:jsTestPublicPackageJson
+> Task :metro:jsPublicPackageJson
+> Task :metro:jsTestPublicPackageJson
+> Task :runtime:jsPublicPackageJson
+> Task :runtime:jsTestPublicPackageJson
+> Task :sample:jsPublicPackageJson
+> Task :sample:jsTestPublicPackageJson
+> Task :serialization-kotlinx:jsPublicPackageJson
+> Task :serialization-kotlinx:jsTestPublicPackageJson
+> Task :kotlinPackageJsonUmbrella
+> Task :rootPackageJson
+
+> Task :kotlinNpmInstall
+(node:68268) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning Ignored scripts due to flag.
+
+> Task :kotlinStoreYarnLock
+> Task :core:jsProcessResources NO-SOURCE
+> Task :core:jsTestProcessResources NO-SOURCE
+> Task :core:kotlinNodeJsSetup
+> Task :compose:convertXmlValueResourcesForJsMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForJsMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForJsMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForJsMain SKIPPED
+> Task :compose:convertXmlValueResourcesForWebMain NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForWebMain NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForWebMain NO-SOURCE
+> Task :compose:generateResourceAccessorsForWebMain SKIPPED
+> Task :compose:generateActualResourceCollectorsForJsMain SKIPPED
+> Task :compose:convertXmlValueResourcesForJsTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForJsTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForJsTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForJsTest SKIPPED
+> Task :compose:convertXmlValueResourcesForWebTest NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForWebTest NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForWebTest NO-SOURCE
+> Task :compose:generateResourceAccessorsForWebTest SKIPPED
+> Task :compose:jsResolveResourcesFromDependencies UP-TO-DATE
+> Task :compose:assembleJsMainResources UP-TO-DATE
+> Task :compose:jsResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:jsAggregateResources UP-TO-DATE
+> Task :compose:unpackSkikoWasmRuntime SKIPPED
+> Task :compose:jsProcessResources UP-TO-DATE
+> Task :compose:assembleJsTestResources
+> Task :compose:jsTestProcessResources
+> Task :compose:kotlinNodeJsSetup
+> Task :serialization-kotlinx:jsProcessResources NO-SOURCE
+> Task :serialization-kotlinx:jsTestProcessResources NO-SOURCE
+> Task :serialization-kotlinx:kotlinNodeJsSetup
+> Task :sample:convertXmlValueResourcesForJsMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForJsMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForJsMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForJsMain SKIPPED
+> Task :sample:convertXmlValueResourcesForWebMain NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForWebMain NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForWebMain NO-SOURCE
+> Task :sample:generateResourceAccessorsForWebMain SKIPPED
+> Task :sample:generateActualResourceCollectorsForJsMain SKIPPED
+> Task :sample:convertXmlValueResourcesForJsTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForJsTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForJsTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForJsTest SKIPPED
+> Task :sample:convertXmlValueResourcesForWebTest NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForWebTest NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForWebTest NO-SOURCE
+> Task :sample:generateResourceAccessorsForWebTest SKIPPED
+> Task :compose:jsCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:jsZipMultiplatformResourcesForPublication UP-TO-DATE
+> Task :sample:jsResolveResourcesFromDependencies
+> Task :sample:assembleJsMainResources
+> Task :sample:jsResolveSelfResourcesCopyHierarchicalMultiplatformResources
+> Task :sample:jsAggregateResources
+> Task :sample:unpackSkikoWasmRuntime
+> Task :sample:jsProcessResources
+> Task :sample:assembleJsTestResources
+> Task :sample:jsTestProcessResources UP-TO-DATE
+> Task :sample:kotlinNodeJsSetup
+> Task :metro:convertXmlValueResourcesForJsMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForJsMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForJsMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForJsMain SKIPPED
+> Task :metro:convertXmlValueResourcesForWebMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForWebMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForWebMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForWebMain SKIPPED
+> Task :metro:generateActualResourceCollectorsForJsMain SKIPPED
+> Task :metro:convertXmlValueResourcesForAppleMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForAppleMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForAppleMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForAppleMain SKIPPED
+> Task :metro:convertXmlValueResourcesForIosMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForIosMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForIosMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForIosMain SKIPPED
+> Task :metro:convertXmlValueResourcesForIosSimulatorArm64Main NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForIosSimulatorArm64Main NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForIosSimulatorArm64Main NO-SOURCE
+> Task :metro:generateResourceAccessorsForIosSimulatorArm64Main SKIPPED
+> Task :metro:convertXmlValueResourcesForNativeMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForNativeMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForNativeMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForNativeMain SKIPPED
+> Task :metro:generateActualResourceCollectorsForIosSimulatorArm64Main SKIPPED
+> Task :core:compileKotlinJs
+> Task :metro:compileKotlinIosSimulatorArm64
+> Task :core:jsMainClasses
+> Task :metro:convertXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForAndroidMain NO-SOURCE
+> Task :metro:generateResourceAccessorsForAndroidMain SKIPPED
+> Task :metro:generateActualResourceCollectorsForAndroidMain SKIPPED
+> Task :metro:preBuild UP-TO-DATE
+> Task :metro:preDebugBuild UP-TO-DATE
+> Task :metro:generateDebugResValues UP-TO-DATE
+> Task :metro:generateDebugResources UP-TO-DATE
+> Task :metro:packageDebugResources UP-TO-DATE
+> Task :metro:parseDebugLocalResources UP-TO-DATE
+> Task :metro:generateDebugRFile UP-TO-DATE
+> Task :metro:convertXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForAndroidDebug NO-SOURCE
+> Task :metro:generateResourceAccessorsForAndroidDebug SKIPPED
+> Task :core:preReleaseBuild UP-TO-DATE
+> Task :core:generateReleaseResValues UP-TO-DATE
+> Task :core:generateReleaseResources UP-TO-DATE
+> Task :core:packageReleaseResources UP-TO-DATE
+> Task :core:parseReleaseLocalResources UP-TO-DATE
+> Task :core:generateReleaseRFile UP-TO-DATE
+> Task :metro:compileDebugKotlinAndroid
+> Task :core:javaPreCompileRelease UP-TO-DATE
+> Task :core:klibApiExtractForValidation SKIPPED
+> Task :serialization-kotlinx:compileKotlinJs
+> Task :compose:compileKotlinJs
+> Task :core:jvmApiBuild
+> Task :core:compileTestKotlinJs
+> Task :core:compileKotlinIosArm64
+> Task :core:jsTestClasses
+> Task :compose:jsMainClasses
+> Task :serialization-kotlinx:jsMainClasses
+> Task :sample:kspKotlinJs SKIPPED
+> Task :core:jvmApiCheck
+> Task :core:iosArm64ProcessResources NO-SOURCE
+> Task :core:iosArm64MainKlibrary
+> Task :core:iosArm64ApiBuild SKIPPED
+> Task :core:iosSimulatorArm64ApiBuild SKIPPED
+> Task :core:compileReleaseKotlinAndroid
+> Task :serialization-kotlinx:compileTestKotlinJs
+> Task :metro:compileKotlinJs
+> Task :compose:compileTestKotlinJs
+> Task :core:compileKotlinIosX64
+> Task :compose:jsTestClasses
+> Task :serialization-kotlinx:jsTestClasses
+> Task :core:compileReleaseJavaWithJavac NO-SOURCE
+> Task :core:iosX64ProcessResources NO-SOURCE
+> Task :core:iosX64MainKlibrary
+> Task :core:iosX64ApiBuild SKIPPED
+> Task :core:jsApiBuild SKIPPED
+> Task :core:klibApiMerge SKIPPED
+> Task :core:klibApiCheck SKIPPED
+> Task :compose:preReleaseBuild UP-TO-DATE
+> Task :compose:generateReleaseResValues UP-TO-DATE
+> Task :compose:generateReleaseResources UP-TO-DATE
+> Task :compose:packageReleaseResources UP-TO-DATE
+> Task :compose:parseReleaseLocalResources UP-TO-DATE
+> Task :compose:generateReleaseRFile UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForAndroidRelease NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForAndroidRelease NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForAndroidRelease NO-SOURCE
+> Task :compose:generateResourceAccessorsForAndroidRelease SKIPPED
+> Task :compose:javaPreCompileRelease UP-TO-DATE
+> Task :core:bundleLibCompileToJarRelease
+> Task :compose:klibApiExtractForValidation SKIPPED
+> Task :compose:convertXmlValueResourcesForIosArm64Main NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosArm64Main NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosArm64Main NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosArm64Main SKIPPED
+> Task :compose:generateActualResourceCollectorsForIosArm64Main SKIPPED
+> Task :compose:jvmApiBuild
+> Task :compose:compileReleaseKotlinAndroid
+> Task :core:androidApiBuild
+> Task :compose:compileKotlinIosArm64
+> Task :core:androidApiCheck
+> Task :core:apiCheck
+> Task :compose:compileReleaseJavaWithJavac NO-SOURCE
+> Task :compose:androidApiBuild UP-TO-DATE
+> Task :compose:androidApiCheck
+> Task :compose:jvmApiCheck
+> Task :compose:iosArm64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :compose:assembleIosArm64MainResources UP-TO-DATE
+> Task :compose:iosArm64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:iosArm64AggregateResources UP-TO-DATE
+> Task :compose:iosArm64ProcessResources UP-TO-DATE
+> Task :compose:iosArm64MainKlibrary
+> Task :compose:iosArm64ApiBuild SKIPPED
+> Task :compose:iosSimulatorArm64ApiBuild SKIPPED
+> Task :compose:convertXmlValueResourcesForIosX64Main NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosX64Main NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosX64Main NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosX64Main SKIPPED
+> Task :compose:generateActualResourceCollectorsForIosX64Main SKIPPED
+
+> Task :sample:compileKotlinJs
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/BoardAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<BoardState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/BoardAtom_Entry.kt:31:40 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<BoardState>'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/PostAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<PostState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/PostAtom_Entry.kt:31:39 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<PostState>'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/TaskAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<TaskState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/TaskAtom_Entry.kt:31:39 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<TaskState>'.
+
+> Task :compose:compileKotlinIosX64
+> Task :sample:jsMainClasses
+> Task :sample:kspTestKotlinJs SKIPPED
+> Task :compose:iosX64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :compose:assembleIosX64MainResources UP-TO-DATE
+> Task :compose:iosX64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:iosX64AggregateResources UP-TO-DATE
+> Task :compose:iosX64ProcessResources UP-TO-DATE
+> Task :compose:iosX64MainKlibrary
+> Task :compose:iosX64ApiBuild SKIPPED
+> Task :compose:jsApiBuild SKIPPED
+> Task :compose:klibApiMerge SKIPPED
+> Task :compose:klibApiCheck SKIPPED
+> Task :compose:apiCheck
+> Task :serialization-kotlinx:preReleaseBuild UP-TO-DATE
+> Task :serialization-kotlinx:generateReleaseResValues UP-TO-DATE
+> Task :serialization-kotlinx:generateReleaseResources UP-TO-DATE
+> Task :serialization-kotlinx:packageReleaseResources UP-TO-DATE
+> Task :serialization-kotlinx:parseReleaseLocalResources UP-TO-DATE
+> Task :serialization-kotlinx:generateReleaseRFile UP-TO-DATE
+> Task :serialization-kotlinx:javaPreCompileRelease UP-TO-DATE
+> Task :serialization-kotlinx:klibApiExtractForValidation SKIPPED
+> Task :serialization-kotlinx:compileReleaseKotlinAndroid
+> Task :serialization-kotlinx:jvmApiBuild
+> Task :serialization-kotlinx:compileKotlinIosArm64
+> Task :serialization-kotlinx:compileReleaseJavaWithJavac NO-SOURCE
+> Task :serialization-kotlinx:androidApiBuild UP-TO-DATE
+> Task :serialization-kotlinx:androidApiCheck
+> Task :serialization-kotlinx:jvmApiCheck
+> Task :serialization-kotlinx:iosArm64ProcessResources NO-SOURCE
+> Task :serialization-kotlinx:iosArm64MainKlibrary
+> Task :serialization-kotlinx:iosArm64ApiBuild SKIPPED
+> Task :serialization-kotlinx:iosSimulatorArm64ApiBuild SKIPPED
+> Task :serialization-kotlinx:compileKotlinIosX64
+> Task :serialization-kotlinx:iosX64ProcessResources NO-SOURCE
+> Task :serialization-kotlinx:iosX64MainKlibrary
+> Task :serialization-kotlinx:iosX64ApiBuild SKIPPED
+> Task :serialization-kotlinx:jsApiBuild SKIPPED
+> Task :serialization-kotlinx:klibApiMerge SKIPPED
+> Task :serialization-kotlinx:klibApiCheck SKIPPED
+> Task :serialization-kotlinx:apiCheck
+> Task :compose:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :runtime:preBuild UP-TO-DATE
+> Task :runtime:preReleaseBuild UP-TO-DATE
+> Task :runtime:generateReleaseResValues UP-TO-DATE
+> Task :runtime:generateReleaseResources UP-TO-DATE
+> Task :runtime:packageReleaseResources UP-TO-DATE
+> Task :runtime:parseReleaseLocalResources UP-TO-DATE
+> Task :runtime:generateReleaseRFile UP-TO-DATE
+> Task :serialization-kotlinx:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :runtime:compileReleaseKotlinAndroid NO-SOURCE
+> Task :runtime:javaPreCompileRelease UP-TO-DATE
+> Task :runtime:compileReleaseJavaWithJavac NO-SOURCE
+> Task :runtime:androidApiBuild UP-TO-DATE
+> Task :runtime:androidApiCheck
+> Task :runtime:klibApiExtractForValidation SKIPPED
+> Task :runtime:compileKotlinIosArm64 NO-SOURCE
+> Task :runtime:iosArm64ProcessResources NO-SOURCE
+> Task :runtime:iosArm64MainKlibrary UP-TO-DATE
+> Task :runtime:iosArm64ApiBuild SKIPPED
+> Task :runtime:compileKotlinIosSimulatorArm64 NO-SOURCE
+> Task :runtime:iosSimulatorArm64ProcessResources NO-SOURCE
+> Task :runtime:iosSimulatorArm64MainKlibrary UP-TO-DATE
+> Task :runtime:iosSimulatorArm64ApiBuild SKIPPED
+> Task :runtime:compileKotlinIosX64 NO-SOURCE
+> Task :runtime:iosX64ProcessResources NO-SOURCE
+> Task :runtime:iosX64MainKlibrary UP-TO-DATE
+> Task :runtime:iosX64ApiBuild SKIPPED
+> Task :runtime:compileKotlinJs NO-SOURCE
+> Task :runtime:jsProcessResources NO-SOURCE
+> Task :runtime:jsMainClasses UP-TO-DATE
+> Task :runtime:jsApiBuild SKIPPED
+> Task :runtime:klibApiMerge SKIPPED
+> Task :runtime:klibApiCheck SKIPPED
+> Task :metro:preReleaseBuild UP-TO-DATE
+> Task :metro:generateReleaseResValues UP-TO-DATE
+> Task :metro:generateReleaseResources UP-TO-DATE
+> Task :runtime:jvmApiBuild
+> Task :metro:packageReleaseResources UP-TO-DATE
+> Task :runtime:jvmApiCheck
+> Task :runtime:apiCheck
+> Task :metro:parseReleaseLocalResources UP-TO-DATE
+> Task :metro:generateReleaseRFile UP-TO-DATE
+> Task :metro:convertXmlValueResourcesForAndroidRelease NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForAndroidRelease NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForAndroidRelease NO-SOURCE
+> Task :metro:generateResourceAccessorsForAndroidRelease SKIPPED
+> Task :metro:javaPreCompileRelease UP-TO-DATE
+> Task :metro:klibApiExtractForValidation SKIPPED
+> Task :metro:convertXmlValueResourcesForIosArm64Main NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForIosArm64Main NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForIosArm64Main NO-SOURCE
+> Task :metro:generateResourceAccessorsForIosArm64Main SKIPPED
+> Task :metro:generateActualResourceCollectorsForIosArm64Main SKIPPED
+> Task :metro:compileReleaseKotlinAndroid
+> Task :metro:jvmApiBuild
+> Task :sample:compileTestKotlinJs
+> Task :metro:compileKotlinIosArm64
+> Task :sample:jsTestClasses
+> Task :metro:compileReleaseJavaWithJavac NO-SOURCE
+> Task :metro:androidApiBuild UP-TO-DATE
+> Task :metro:androidApiCheck
+> Task :metro:jvmApiCheck
+> Task :compose:iosArm64CopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:iosArm64ZipMultiplatformResourcesForPublication UP-TO-DATE
+> Task :metro:iosArm64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :metro:assembleIosArm64MainResources UP-TO-DATE
+> Task :metro:iosArm64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :metro:iosArm64AggregateResources UP-TO-DATE
+> Task :metro:iosArm64ProcessResources UP-TO-DATE
+> Task :metro:iosArm64MainKlibrary
+> Task :metro:iosArm64ApiBuild SKIPPED
+> Task :metro:iosSimulatorArm64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :metro:assembleIosSimulatorArm64MainResources UP-TO-DATE
+> Task :metro:iosSimulatorArm64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :metro:iosSimulatorArm64AggregateResources UP-TO-DATE
+> Task :metro:iosSimulatorArm64ProcessResources UP-TO-DATE
+> Task :metro:iosSimulatorArm64MainKlibrary
+> Task :metro:iosSimulatorArm64ApiBuild SKIPPED
+> Task :metro:convertXmlValueResourcesForIosX64Main NO-SOURCE
+> Task :metro:copyNonXmlValueResourcesForIosX64Main NO-SOURCE
+> Task :metro:prepareComposeResourcesTaskForIosX64Main NO-SOURCE
+> Task :metro:generateResourceAccessorsForIosX64Main SKIPPED
+> Task :metro:generateActualResourceCollectorsForIosX64Main SKIPPED
+> Task :metro:compileKotlinIosX64
+> Task :compose:iosX64CopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :compose:iosX64ZipMultiplatformResourcesForPublication UP-TO-DATE
+> Task :metro:iosX64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :metro:assembleIosX64MainResources UP-TO-DATE
+> Task :metro:iosX64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :metro:iosX64AggregateResources UP-TO-DATE
+> Task :metro:iosX64ProcessResources UP-TO-DATE
+> Task :metro:iosX64MainKlibrary
+> Task :metro:iosX64ApiBuild SKIPPED
+> Task :metro:jsResolveResourcesFromDependencies UP-TO-DATE
+> Task :metro:assembleJsMainResources UP-TO-DATE
+> Task :metro:jsResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :metro:jsAggregateResources UP-TO-DATE
+> Task :metro:unpackSkikoWasmRuntime SKIPPED
+> Task :metro:jsProcessResources UP-TO-DATE
+> Task :metro:jsMainClasses
+> Task :metro:jsApiBuild SKIPPED
+> Task :metro:klibApiMerge SKIPPED
+> Task :metro:klibApiCheck SKIPPED
+> Task :metro:apiCheck
+> Task :core:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:mergeDebugNativeLibs NO-SOURCE
+> Task :core:stripDebugDebugSymbols NO-SOURCE
+> Task :core:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :core:extractDebugAnnotations
+> Task :core:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :core:mergeDebugShaders UP-TO-DATE
+> Task :core:compileDebugShaders NO-SOURCE
+> Task :core:debugAssetsCopyForAGP NO-SOURCE
+> Task :core:generateDebugAssets UP-TO-DATE
+> Task :core:mergeDebugAssets UP-TO-DATE
+> Task :core:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :core:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :core:prepareDebugArtProfile UP-TO-DATE
+> Task :core:prepareLintJarForPublish UP-TO-DATE
+> Task :core:processDebugManifest UP-TO-DATE
+> Task :core:mergeDebugJavaResource UP-TO-DATE
+> Task :core:syncDebugLibJars
+> Task :core:writeDebugAarMetadata UP-TO-DATE
+> Task :core:bundleDebugLocalLintAar
+> Task :core:createFullJarDebug
+> Task :core:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :core:writeDebugLintModelMetadata UP-TO-DATE
+> Task :core:extractProguardFiles UP-TO-DATE
+> Task :core:generateDebugLintReportModel
+> Task :core:generateDebugAndroidTestLintModel
+> Task :core:generateDebugUnitTestLintModel
+> Task :compose:copyDebugComposeResourcesToAndroidAssets UP-TO-DATE
+> Task :compose:convertXmlValueResourcesForIosX64Test NO-SOURCE
+> Task :compose:copyNonXmlValueResourcesForIosX64Test NO-SOURCE
+> Task :compose:prepareComposeResourcesTaskForIosX64Test NO-SOURCE
+> Task :compose:generateResourceAccessorsForIosX64Test SKIPPED
+> Task :compose:mergeDebugJniLibFolders UP-TO-DATE
+> Task :compose:mergeDebugNativeLibs NO-SOURCE
+> Task :compose:stripDebugDebugSymbols NO-SOURCE
+> Task :compose:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :compose:extractDebugAnnotations
+> Task :compose:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :compose:mergeDebugShaders UP-TO-DATE
+> Task :compose:compileDebugShaders NO-SOURCE
+> Task :compose:debugAssetsCopyForAGP NO-SOURCE
+> Task :compose:generateDebugAssets UP-TO-DATE
+> Task :compose:mergeDebugAssets UP-TO-DATE
+> Task :compose:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :compose:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :compose:prepareDebugArtProfile UP-TO-DATE
+> Task :compose:prepareLintJarForPublish UP-TO-DATE
+> Task :compose:processDebugManifest UP-TO-DATE
+> Task :compose:mergeDebugJavaResource UP-TO-DATE
+> Task :compose:syncDebugLibJars UP-TO-DATE
+> Task :compose:writeDebugAarMetadata UP-TO-DATE
+> Task :compose:bundleDebugLocalLintAar UP-TO-DATE
+> Task :compose:createFullJarDebug UP-TO-DATE
+> Task :compose:preDebugAndroidTestBuild UP-TO-DATE
+> Task :compose:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :compose:writeDebugLintModelMetadata UP-TO-DATE
+> Task :compose:extractProguardFiles UP-TO-DATE
+> Task :compose:generateDebugAndroidTestLintModel
+> Task :core:generateDebugLintModel
+> Task :compose:generateDebugLintReportModel
+> Task :compose:generateDebugUnitTestLintModel
+> Task :serialization-kotlinx:mergeDebugJniLibFolders UP-TO-DATE
+> Task :serialization-kotlinx:mergeDebugNativeLibs NO-SOURCE
+> Task :serialization-kotlinx:stripDebugDebugSymbols NO-SOURCE
+> Task :serialization-kotlinx:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :serialization-kotlinx:extractDebugAnnotations
+> Task :serialization-kotlinx:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :serialization-kotlinx:mergeDebugShaders UP-TO-DATE
+> Task :serialization-kotlinx:compileDebugShaders NO-SOURCE
+> Task :serialization-kotlinx:debugAssetsCopyForAGP NO-SOURCE
+> Task :serialization-kotlinx:generateDebugAssets UP-TO-DATE
+> Task :serialization-kotlinx:mergeDebugAssets UP-TO-DATE
+> Task :serialization-kotlinx:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :serialization-kotlinx:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :serialization-kotlinx:prepareDebugArtProfile UP-TO-DATE
+> Task :serialization-kotlinx:prepareLintJarForPublish UP-TO-DATE
+> Task :serialization-kotlinx:processDebugManifest UP-TO-DATE
+> Task :serialization-kotlinx:mergeDebugJavaResource UP-TO-DATE
+> Task :serialization-kotlinx:syncDebugLibJars UP-TO-DATE
+> Task :serialization-kotlinx:writeDebugAarMetadata UP-TO-DATE
+> Task :serialization-kotlinx:bundleDebugLocalLintAar UP-TO-DATE
+> Task :serialization-kotlinx:createFullJarDebug UP-TO-DATE
+> Task :serialization-kotlinx:preDebugAndroidTestBuild UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :serialization-kotlinx:writeDebugLintModelMetadata UP-TO-DATE
+> Task :serialization-kotlinx:extractProguardFiles UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugAndroidTestLintModel
+> Task :serialization-kotlinx:generateDebugLintReportModel
+> Task :serialization-kotlinx:generateDebugUnitTestLintModel
+> Task :compose:generateDebugLintModel
+> Task :metro:copyDebugComposeResourcesToAndroidAssets UP-TO-DATE
+> Task :metro:mergeDebugJniLibFolders UP-TO-DATE
+> Task :metro:mergeDebugNativeLibs NO-SOURCE
+> Task :metro:stripDebugDebugSymbols NO-SOURCE
+> Task :metro:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :metro:extractDebugAnnotations
+> Task :metro:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :metro:mergeDebugShaders UP-TO-DATE
+> Task :metro:compileDebugShaders NO-SOURCE
+> Task :metro:debugAssetsCopyForAGP NO-SOURCE
+> Task :metro:generateDebugAssets UP-TO-DATE
+> Task :metro:mergeDebugAssets UP-TO-DATE
+> Task :metro:javaPreCompileDebug UP-TO-DATE
+> Task :metro:compileDebugJavaWithJavac NO-SOURCE
+> Task :metro:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :metro:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :metro:prepareDebugArtProfile UP-TO-DATE
+> Task :metro:prepareLintJarForPublish UP-TO-DATE
+> Task :metro:processDebugManifest UP-TO-DATE
+> Task :metro:processDebugJavaRes UP-TO-DATE
+> Task :metro:mergeDebugJavaResource UP-TO-DATE
+> Task :metro:syncDebugLibJars UP-TO-DATE
+> Task :metro:writeDebugAarMetadata UP-TO-DATE
+> Task :metro:bundleDebugLocalLintAar UP-TO-DATE
+> Task :metro:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :metro:createFullJarDebug UP-TO-DATE
+> Task :metro:preDebugAndroidTestBuild UP-TO-DATE
+> Task :metro:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :metro:writeDebugLintModelMetadata UP-TO-DATE
+> Task :metro:extractProguardFiles UP-TO-DATE
+> Task :metro:generateDebugLintReportModel
+> Task :metro:generateDebugAndroidTestLintModel
+> Task :metro:preDebugUnitTestBuild UP-TO-DATE
+> Task :metro:generateDebugUnitTestLintModel
+> Task :sample:copyDebugComposeResourcesToAndroidAssets UP-TO-DATE
+> Task :sample:convertXmlValueResourcesForIosX64Main NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForIosX64Main NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForIosX64Main NO-SOURCE
+> Task :sample:generateResourceAccessorsForIosX64Main SKIPPED
+> Task :sample:convertXmlValueResourcesForIosX64Test NO-SOURCE
+> Task :sample:copyNonXmlValueResourcesForIosX64Test NO-SOURCE
+> Task :sample:prepareComposeResourcesTaskForIosX64Test NO-SOURCE
+> Task :sample:generateResourceAccessorsForIosX64Test SKIPPED
+> Task :sample:mergeDebugJniLibFolders UP-TO-DATE
+> Task :sample:mergeDebugNativeLibs NO-SOURCE
+> Task :sample:stripDebugDebugSymbols NO-SOURCE
+> Task :sample:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :sample:extractDebugAnnotations
+> Task :sample:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :sample:mergeDebugShaders UP-TO-DATE
+> Task :sample:compileDebugShaders NO-SOURCE
+> Task :sample:debugAssetsCopyForAGP NO-SOURCE
+> Task :sample:generateDebugAssets UP-TO-DATE
+> Task :sample:mergeDebugAssets UP-TO-DATE
+> Task :sample:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :sample:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :sample:prepareDebugArtProfile UP-TO-DATE
+> Task :sample:prepareLintJarForPublish UP-TO-DATE
+> Task :sample:processDebugManifest UP-TO-DATE
+> Task :sample:mergeDebugJavaResource UP-TO-DATE
+> Task :sample:syncDebugLibJars UP-TO-DATE
+> Task :sample:writeDebugAarMetadata UP-TO-DATE
+> Task :sample:bundleDebugLocalLintAar UP-TO-DATE
+> Task :sample:createFullJarDebug UP-TO-DATE
+> Task :sample:preDebugAndroidTestBuild UP-TO-DATE
+> Task :sample:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :sample:writeDebugLintModelMetadata UP-TO-DATE
+> Task :sample:extractProguardFiles UP-TO-DATE
+> Task :serialization-kotlinx:generateDebugLintModel
+> Task :sample:generateDebugAndroidTestLintModel
+> Task :sample:generateDebugLintReportModel
+> Task :sample:generateDebugUnitTestLintModel
+> Task :core:compileTestKotlinIosX64
+> Task :core:lintAnalyzeDebugAndroidTest
+> Task :core:lintAnalyzeDebugUnitTest
+> Task :serialization-kotlinx:compileTestDevelopmentExecutableKotlinJs
+> Task :core:compileTestDevelopmentExecutableKotlinJs
+> Task :core:lintAnalyzeDebug
+> Task :compose:compileTestDevelopmentExecutableKotlinJs
+> Task :sample:compileTestDevelopmentExecutableKotlinJs
+> Task :core:linkDebugTestIosX64
+> Task :core:jsTestTestDevelopmentExecutableCompileSync
+
+ChromeHeadless was not killed in 2000 ms, sending SIGKILL.
+> Task :core:jsBrowserTest
+> Task :compose:jsTestTestDevelopmentExecutableCompileSync
+
+> Task :compose:jsBrowserTest
+> Task :serialization-kotlinx:jsTestTestDevelopmentExecutableCompileSync
+
+> Task :serialization-kotlinx:jsBrowserTest
+
+> Task :sample:jsTestTestDevelopmentExecutableCompileSync
+file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/main/js-reexport-symbols.mjs' will be copied to '/Users/matt/src/matt-ramotar/atom/build/js/packages/atom-sample-test/kotlin/js-reexport-symbols.mjs', overwriting file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/test/js-reexport-symbols.mjs', which has already been copied there.
+file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/main/skiko.mjs' will be copied to '/Users/matt/src/matt-ramotar/atom/build/js/packages/atom-sample-test/kotlin/skiko.mjs', overwriting file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/test/skiko.mjs', which has already been copied there.
+file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/main/skiko.wasm' will be copied to '/Users/matt/src/matt-ramotar/atom/build/js/packages/atom-sample-test/kotlin/skiko.wasm', overwriting file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/test/skiko.wasm', which has already been copied there.
+file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/main/skikod8.mjs' will be copied to '/Users/matt/src/matt-ramotar/atom/build/js/packages/atom-sample-test/kotlin/skikod8.mjs', overwriting file '/Users/matt/src/matt-ramotar/atom/sample/build/processedResources/js/test/skikod8.mjs', which has already been copied there.
+
+ChromeHeadless was not killed in 2000 ms, sending SIGKILL.
+
+> Task :sample:jsBrowserTest
+> Task :core:lintReportDebug
+> Task :compose:lintAnalyzeDebugAndroidTest
+> Task :compose:compileTestKotlinIosX64
+> Task :core:lintDebug
+> Task :compose:assembleIosX64TestResources UP-TO-DATE
+> Task :compose:copyTestComposeResourcesForIosX64 UP-TO-DATE
+> Task :compose:lintAnalyzeDebug
+> Task :compose:lintAnalyzeDebugUnitTest
+> Task :serialization-kotlinx:lintAnalyzeDebug
+> Task :compose:linkDebugTestIosX64
+> Task :compose:lintReportDebug
+> Task :serialization-kotlinx:lintAnalyzeDebugAndroidTest
+> Task :serialization-kotlinx:lintAnalyzeDebugUnitTest
+> Task :serialization-kotlinx:compileTestKotlinIosX64
+> Task :compose:lintDebug
+> Task :serialization-kotlinx:lintReportDebug
+> Task :metro:lintAnalyzeDebugAndroidTest
+> Task :metro:lintAnalyzeDebug
+> Task :serialization-kotlinx:linkDebugTestIosX64
+> Task :serialization-kotlinx:lintDebug
+> Task :sample:generateActualResourceCollectorsForIosX64Main SKIPPED
+> Task :sample:kspKotlinIosX64 SKIPPED
+> Task :metro:lintAnalyzeDebugUnitTest
+> Task :sample:lintAnalyzeDebugAndroidTest
+
+> Task :sample:compileKotlinIosX64
+
+> Task :sample:iosX64ResolveResourcesFromDependencies UP-TO-DATE
+> Task :sample:assembleIosX64MainResources UP-TO-DATE
+> Task :sample:iosX64ResolveSelfResourcesCopyHierarchicalMultiplatformResources UP-TO-DATE
+> Task :sample:iosX64AggregateResources UP-TO-DATE
+> Task :sample:iosX64ProcessResources UP-TO-DATE
+> Task :sample:iosX64MainKlibrary
+> Task :sample:kspTestKotlinIosX64 SKIPPED
+> Task :metro:lintReportDebug
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/BoardAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<BoardState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/BoardAtom_Entry.kt:31:40 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<BoardState>'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/PostAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<PostState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/PostAtom_Entry.kt:31:39 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<PostState>'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/TaskAtom_Entry.kt:23:68 Unchecked cast of 'StateSerializer<TaskState>?' to 'StateSerializer<Any>?'.
+w: file:///Users/matt/src/matt-ramotar/atom/sample/build/generated/ksp/metadata/commonMain/kotlin/dev/mattramotar/atom/generated/TaskAtom_Entry.kt:31:39 Unchecked cast of 'StateHandle<Any>' to 'StateHandle<TaskState>'.
+> Task :sample:lintAnalyzeDebug
+> Task :sample:lintAnalyzeDebugUnitTest
+> Task :sample:compileTestKotlinIosX64
+> Task :metro:lintDebug
+> Task :sample:assembleIosX64TestResources UP-TO-DATE
+> Task :sample:copyTestComposeResourcesForIosX64 UP-TO-DATE
+> Task :sample:lintReportDebug
+> Task :sample:linkDebugTestIosX64
+> Task :sample:lintDebug
+
+BUILD SUCCESSFUL in 1m 57s
+541 actionable tasks: 233 executed, 308 up-to-date

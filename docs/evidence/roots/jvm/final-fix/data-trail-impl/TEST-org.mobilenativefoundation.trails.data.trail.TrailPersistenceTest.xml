@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.data.trail.TrailPersistenceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-09-20T06:58:12.528Z" hostname="Matts-MacBook-Pro.local" time="1.107">
+  <properties/>
+  <testcase name="accountCloseJoinsInProgressAdmissionBeforeClosingDrivers[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailPersistenceTest" time="0.278"/>
+  <testcase name="normalizedSearchAndFiltersCompose[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailPersistenceTest" time="0.0"/>
+  <testcase name="wholeCollectionSetAndReceiptSurviveOfflineRestartAndReconnect[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailPersistenceTest" time="0.476"/>
+  <testcase name="lateEarlierQueryCannotChangeAnotherQueriesResults[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailPersistenceTest" time="0.329"/>
+  <testcase name="offlineColdQueryIsUnavailableAndWarmQuerySurvivesReopen[jvm]" classname="org.mobilenativefoundation.trails.data.trail.TrailPersistenceTest" time="0.023"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

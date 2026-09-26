@@ -1,0 +1,613 @@
+{
+  "revision": "05daa800ac3c6d0dc1f9538234b99061c8139e40",
+  "files": [
+    {
+      "path": "build.gradle.kts",
+      "sha256": "0c118861a48af1589f8ed686e79c7b119560aba88441bef88aebfe1249524438"
+    },
+    {
+      "path": "compose/api/android/compose.api",
+      "sha256": "186a42d086cd9e6d07db612ea76ad0e856f86485b0bad2e1cfe6ea164393db30"
+    },
+    {
+      "path": "compose/api/jvm/compose.api",
+      "sha256": "186a42d086cd9e6d07db612ea76ad0e856f86485b0bad2e1cfe6ea164393db30"
+    },
+    {
+      "path": "compose/build.gradle.kts",
+      "sha256": "a2861388f5a85dbf3c6a7792d283e6a7b7e08d4e2f9c5444e3b4a416d94a3ae2"
+    },
+    {
+      "path": "compose/src/commonMain/kotlin/dev/mattramotar/atom/runtime/compose/AtomCompose.kt",
+      "sha256": "82a0e19182a9859dd72aa5df9ec98d0a147aebd9b0f59b935052ac5200eacb34"
+    },
+    {
+      "path": "compose/src/commonMain/kotlin/dev/mattramotar/atom/runtime/compose/AtomCompositionLocals.kt",
+      "sha256": "c3923ae4367cf26690f101715df3657b5e6498f0e6830f7036a953a611afa563"
+    },
+    {
+      "path": "compose/src/commonMain/kotlin/dev/mattramotar/atom/runtime/compose/AtomDI.kt",
+      "sha256": "5c6ac9b2c342f1cb0ac54e6e61922c7d99b8fae10c7795a21b64326656dd688f"
+    },
+    {
+      "path": "compose/src/commonMain/kotlin/dev/mattramotar/atom/runtime/compose/CompositionLocals.kt",
+      "sha256": "55acbff1a76a7afab4d0727e8c28eb5c93cb7cb2d0ab805afd6fb0662b930c35"
+    },
+    {
+      "path": "compose/src/commonTest/kotlin/dev/mattramotar/atom/runtime/compose/AtomComposeTest.kt",
+      "sha256": "2c4d38983ca3b735293ce56a5e9d089fad6eaca33850662d37dcdc5c28d1e26b"
+    },
+    {
+      "path": "core/api/android/core.api",
+      "sha256": "30910efcb071d3296ec19066ddb703b684888d6490a3119513822e404dcee804"
+    },
+    {
+      "path": "core/api/jvm/core.api",
+      "sha256": "30910efcb071d3296ec19066ddb703b684888d6490a3119513822e404dcee804"
+    },
+    {
+      "path": "core/build.gradle.kts",
+      "sha256": "5fc67c76620bbee8ab6b40616f2e72d0d3fc865186342055b8aa31ea76c3e6d9"
+    },
+    {
+      "path": "core/src/androidMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/Lock.android.kt",
+      "sha256": "ab3688a943f766c07fd3f992c19862e3a535140729d866de28c51c5981005144"
+    },
+    {
+      "path": "core/src/androidMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/StartSignal.android.kt",
+      "sha256": "ff23b927d303ff0349057dbc070df45abd4905de5a44d27a62268b06e2860b95"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/Admission.kt",
+      "sha256": "c97b38f7e932cc8ec8fef290b074af6bfaf4729108c7d349264d40e03e490c4f"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/Atom.kt",
+      "sha256": "0b0bec5e469842027192fab18bbcdc96b0eb79dbc40e053e5e4bab9569213f0a"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/AtomChannelConfig.kt",
+      "sha256": "0d370a5091e2741aa26166dbbe72b56e6878388843b6756bbf565a15e4429c29"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/AtomKey.kt",
+      "sha256": "43d26913ab49a8948f9f3990cb57a767486ae64e91e5cc35bfec752c9ca1f2e0"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/AtomLifecycle.kt",
+      "sha256": "7f29cdbc020ef3e614ee0643040b5f2eced1512b31dab4c45374e1fbb656f793"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/EffectCapacityExceeded.kt",
+      "sha256": "8f9a4eb8c47685c821ee5c645e65576b0fcaa0b4c3eed994b07b361bc91e4871"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/EffectDiagnostic.kt",
+      "sha256": "9e40e11ad04e3ab41ba22e50d5d91e45e13cd663f49a7129c59864793b09e416"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/EffectInterpreter.kt",
+      "sha256": "91b91b3944a86f1a7deaa9a05391a96e954a9722e32dfce85819e7f41bf475b2"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/RuntimeStatus.kt",
+      "sha256": "c0c54e99a37579ca4c803249d1cdf11c2c524ffaaa4b9b059644ac95fefde70c"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/annotations/AtomQualifier.kt",
+      "sha256": "f0d75248b7f089aacca3ef6a6baabddbaf7dbb1503be8bd1025af97b33f6cb23"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/annotations/AutoAtom.kt",
+      "sha256": "b7472daec7aa93551da05239daa41c5e00fc9d11c8882c755cfa9b8315c9679c"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/annotations/AutoSerializer.kt",
+      "sha256": "f916538629a9b014b02d0b96c963df546e909e7b6e13ff56934a9bf09d5f09b0"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/annotations/InferredScope.kt",
+      "sha256": "83b1d75129d9030561f4fb82bc95e919da3338988d1e52860d64c8d5ba411256"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/annotations/InferredType.kt",
+      "sha256": "baf0633e6417f8eee89d672ebc7aae6e5b08d36b0dbaa4c7b9b21ee175a186e1"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/annotations/InitialState.kt",
+      "sha256": "0982ef3ebabc67875e27ad69503e2a9d49f6235d19c8691cae67155fde181c36"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/child/ChildAtomProvider.kt",
+      "sha256": "c660ceb5479b56ce20ad49b1685b71710d0cb1f7bf8e90dd59f9412b3ae784f9"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/di/AtomContainer.kt",
+      "sha256": "e0bd2136d558f37fd79ccf3482f3bc9554752443da921a340033f32534f40af9"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/di/AtomContainerExtensions.kt",
+      "sha256": "7a83279c9f5acbd9048b4963ee7256038fff668919a053c5125db6f3543f5da8"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/factory/AnyAtomFactoryEntry.kt",
+      "sha256": "6fb7a47971793e746b5850236e2d57507fce29d63822f675e5a2f9d90cc3c2ab"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/factory/AtomFactory.kt",
+      "sha256": "19eb12eab707d50d002bd3efb1b67b070514d939a7e8b1c7223b9edf1de4f24c"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/factory/AtomFactoryEntry.kt",
+      "sha256": "eb85821d5448bfd6b545f5facd643d0a0e0224d14b718d4bb32ce982bde1e3ae"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/factory/AtomFactoryExtensions.kt",
+      "sha256": "0ab158d3bb3ab9e38cfe01fa8a456e861716ab281f8b484d68f93c2905a20330"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/factory/AtomFactoryRegistry.kt",
+      "sha256": "a9e5a363b886809c67a2ad41caf6735dbe4616777bae6fb025b6da89da2a5ee3"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/factory/EmptyAtomFactoryRegistry.kt",
+      "sha256": "63568881683edaf63fac67a3adb04f52b9d0d7f3f1cdd9f66e309f1bcc16f9d1"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/EffectType.kt",
+      "sha256": "749c46c27ba0966cee4ce125ab30841e3c1a50ed45d6e7525303787faaff46d7"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/Event.kt",
+      "sha256": "21c54e815ec3fbd8800c298135d346d4b27c5a57582ad8cfb4e128a471f46c06"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/Intent.kt",
+      "sha256": "90c115de200e5cc0a34dc717510da49b3de40fac93a3ae59b43d0bec39be56fe"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/SideEffect.kt",
+      "sha256": "3a25782eb923170cf19631f63baa8fb23e208f6cfdb2ddda8c195771f3f9d21a"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/Transition.kt",
+      "sha256": "5ac563e39c658d85e10312639dec06a67d26ef60d9b5040ff61d2b0cd1d76903"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/TransitionBuilder.kt",
+      "sha256": "097bfb06f7705b15517c58fc7822e8ea534947d84bf07d822967280fae57aa38"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/fsm/TransitionScope.kt",
+      "sha256": "50ed129ac01465c9d5e22109e9b0962d263940fe1f398b862539b792c0118dd0"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/internal/EffectBatch.kt",
+      "sha256": "724ebc3e711201294729edc0dddfce110e2eae677f229eabb043ec7e9a79a6e9"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/Lock.kt",
+      "sha256": "c7e0d74ca1c63b91d604708f3636b4602c69e077482ab912987050bc13c29516"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/StartSignal.kt",
+      "sha256": "f5898c9c1f9bf486093eedf1ca495e6f39d22a7f326e7b3419a67c030e2ada7a"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/serialization/StateSerializer.kt",
+      "sha256": "9b800fba3282f92544fc1326b9699130120bc13a8427cfc06f1e2b8acdda0cad"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/state/InMemoryStateHandle.kt",
+      "sha256": "044d6c5a12cbb0dd8dc30b6b0badfd8287ba3caa8248dd29df9d750a7510f628"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/state/InMemoryStateHandleFactory.kt",
+      "sha256": "62f205215190e60ab886caefb16b78177c08be7063fd37da6c495893594c996a"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/state/StateHandle.kt",
+      "sha256": "1926c239d1dbbb1d932aadc598c5717654c9a0957d8f1c0a5c518fee03eb2645"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/state/StateHandleFactory.kt",
+      "sha256": "be30d444ea561c463ccf7960b076ac4c2832be010b111438881258f472f6209e"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/store/AtomLease.kt",
+      "sha256": "b0ac5bfaed5eff76c9aa4c71df0bcd521c078828a1b68bc9ae6928e6f3f2aae5"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/store/AtomReservation.kt",
+      "sha256": "75bfb3f29ae75e72bd676a4db5849587fc619a12d1b88add903bc8ae62da2eb3"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/store/AtomStore.kt",
+      "sha256": "14f2edb265bdf0b614e7a39397e2d9dd8796ba42b352ecd23083529e69d5dd9a"
+    },
+    {
+      "path": "core/src/commonMain/kotlin/dev/mattramotar/atom/runtime/store/AtomStoreOwner.kt",
+      "sha256": "a025ca8d73786cd8c54c2d09af877ce3ee3da39ee7d48cc4d42cd6251f06f1bf"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/AdmissionContractTest.kt",
+      "sha256": "7c88300bd09f763b37c8ca0098afe49998de5cffaf726d68bbdde5adf79211fb"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/AtomChannelTest.kt",
+      "sha256": "fec0fd54c2c9c2ea843cfcad085ad8909ff627bede9909e9d6b9e0ee1bd120d6"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/EffectProtocolContractTest.kt",
+      "sha256": "d687665406ac93276bb3cd0c28bbec3d44bc82121de32ca46533c126a9f4c227"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/LifecycleFailureContractTest.kt",
+      "sha256": "eaacfa25229792f02d73bddb999202a520b58bd5d33bf66ea07bafb2a7fad0ce"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/PressureContractTest.kt",
+      "sha256": "a8aa57d304eee9bd97d9c45323a02d6782b4db04273f31caf0dc49784160ba49"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/child/ChildAtomProviderContractTest.kt",
+      "sha256": "8351097cd315eff5cc7c337091b48072e7e9a37ac1d48cffc2e8fe421e3f198f"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/child/ChildAtomProviderTerminalTest.kt",
+      "sha256": "f468cc9ef9be96994eba10ee5b1a04be24671bef10292ee7077e541d9996e8c8"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/child/ChildAtomProviderTest.kt",
+      "sha256": "b80b9cee3d6d2a7b409a697b6eadd49eababfa35d947dec34dd3574374d0258f"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/store/AtomStoreStagedReservationTest.kt",
+      "sha256": "e13b9fc433a49d3e2667242185bf6424008d759d0cdf30fc3e46b98bcf3eb58e"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/store/AtomStoreTest.kt",
+      "sha256": "541e1ed248da41547e6450342131e04661e796312d0cc703df6ed2fc14af96e1"
+    },
+    {
+      "path": "core/src/commonTest/kotlin/dev/mattramotar/atom/runtime/store/OwnerLeaseContractTest.kt",
+      "sha256": "d30043c7bcc92c3e6d34fb9cf3d2f63ebe2ef0a3be04245f559737b3276e2305"
+    },
+    {
+      "path": "core/src/jvmMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/Lock.jvm.kt",
+      "sha256": "ab3688a943f766c07fd3f992c19862e3a535140729d866de28c51c5981005144"
+    },
+    {
+      "path": "core/src/jvmMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/StartSignal.jvm.kt",
+      "sha256": "ff23b927d303ff0349057dbc070df45abd4905de5a44d27a62268b06e2860b95"
+    },
+    {
+      "path": "core/src/jvmTest/kotlin/dev/mattramotar/atom/runtime/AdmissionConcurrencyTest.kt",
+      "sha256": "a3be72876bcb1589cc8d350a80c94e689c3d22296fc670e5229e3872f59d4b3a"
+    },
+    {
+      "path": "core/src/jvmTest/kotlin/dev/mattramotar/atom/runtime/EffectProtocolConcurrencyTest.kt",
+      "sha256": "f3a7d0a3884b4fdb8e5109b6f84573e09bce91f5c6529ad8da353579d1c98732"
+    },
+    {
+      "path": "core/src/jvmTest/kotlin/dev/mattramotar/atom/runtime/child/ChildAtomProviderConcurrencyTest.kt",
+      "sha256": "65b5341470c73db54ca83cc348cd09e58991737028bbd1ca3f2d4d0e49af22fe"
+    },
+    {
+      "path": "core/src/jvmTest/kotlin/dev/mattramotar/atom/runtime/store/AtomStoreConcurrencyTest.kt",
+      "sha256": "ddaa21962356088d9066cb0e7accbdb6907792435f990d498d21106a6c36ffa1"
+    },
+    {
+      "path": "core/src/jvmTest/kotlin/dev/mattramotar/atom/runtime/store/AtomStoreReservationTest.kt",
+      "sha256": "9e2e28f2c17e9ef0fa199497b764b260cebe330f07e564190600a13b0b2d22f6"
+    },
+    {
+      "path": "core/src/jvmTest/kotlin/dev/mattramotar/atom/runtime/store/AtomStoreStagedReservationConcurrencyTest.kt",
+      "sha256": "22e27686bfe320adb6c0d9b782dbd9cd8d14c81f80bcc47f8793f27371d509d0"
+    },
+    {
+      "path": "core/src/nativeMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/Lock.native.kt",
+      "sha256": "c3ba4b7a283993b0573b6df72aba49ff3850087fc298ba16ca1ca6e2fdd7ff7f"
+    },
+    {
+      "path": "core/src/nativeMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/StartSignal.native.kt",
+      "sha256": "ae13ab843abaf696573c1d458baf336378f5ac503a089cdf89b2c4c2f16d2f16"
+    },
+    {
+      "path": "core/src/webMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/Lock.web.kt",
+      "sha256": "cf081877be5abd5c447c0d050b1bc6f7dd67044e0a05c76e8c5740a373c48534"
+    },
+    {
+      "path": "core/src/webMain/kotlin/dev/mattramotar/atom/runtime/internal/coroutines/StartSignal.web.kt",
+      "sha256": "b8d44bedab82294c8476a734f244655d79dc5fb5a9aa0061abde94a11ec3f01e"
+    },
+    {
+      "path": "gradle-plugin/api/gradle-plugin.api",
+      "sha256": "307eae8a05c594fef7cde30c7d30dada6fd71ffb7b5fc23e4a45e32ad73db2c3"
+    },
+    {
+      "path": "gradle-plugin/build.gradle.kts",
+      "sha256": "4961a4b5507eda44ad7e6f3808f4544c6a9f07a7d7e7248a42a939c922b8031f"
+    },
+    {
+      "path": "gradle-plugin/src/main/kotlin/dev/mattramotar/atom/gradle/AtomExtension.kt",
+      "sha256": "05f6b010a4d801ca9ca4e11266549b84450eef01ecaff4af1a4f9b3cf7fbd475"
+    },
+    {
+      "path": "gradle-plugin/src/main/kotlin/dev/mattramotar/atom/gradle/AtomPlugin.kt",
+      "sha256": "4a7592e62eca372d0f4a957fbe74ecda469c386b7352cfb1dabfafeef38829e5"
+    },
+    {
+      "path": "gradle-plugin/src/main/kotlin/dev/mattramotar/atom/gradle/DI.kt",
+      "sha256": "99c5aec926f8c255bab7a5203a50f7135751c75ff0887477265c6f3cd59c462c"
+    },
+    {
+      "path": "gradle-plugin/src/main/kotlin/dev/mattramotar/atom/gradle/internal/AtomDependencies.kt",
+      "sha256": "3fad78a7652bbb0440cd21e1e52715a2dbda990c66883a24744c9e883576ecf3"
+    },
+    {
+      "path": "gradle-plugin/src/main/kotlin/dev/mattramotar/atom/gradle/internal/KotlinConfiguration.kt",
+      "sha256": "922f0cc4c86ca45d1e57531df7733fc4a708aa3c6ae947717a979ec7e9f99dcf"
+    },
+    {
+      "path": "gradle-plugin/src/main/kotlin/dev/mattramotar/atom/gradle/internal/KspConfiguration.kt",
+      "sha256": "29aaca35dda2f892394f441cc3cb461ea3bf9c7040319dbfb88fdca72c55060c"
+    },
+    {
+      "path": "gradle-plugin/src/test/kotlin/dev/mattramotar/atom/gradle/AtomPluginFunctionalTest.kt",
+      "sha256": "cd565eb2f61e897a938b537114fb9a62340352ef404431733d2ab7cb0a5e0fc2"
+    },
+    {
+      "path": "gradle.properties",
+      "sha256": "12f36feb5b857ada675c2cc7ac83ceab0d774e49027c4ab6e5f244eec977c0a7"
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "sha256": "3ffaeb4c27fe52f35eba03b348afd67cac4d95b9df7cf9bb0fdd287c442f8529"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "498495120a03b9a6ab5d155f5de3c8f0d986a449153702fb80fc80e134484f17"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde"
+    },
+    {
+      "path": "gradlew",
+      "sha256": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3"
+    },
+    {
+      "path": "integration-tests/README.md",
+      "sha256": "1ab277bb658da09779a005d8ee9bdeae70ee0fd0cf2c97033d11faebd94e2636"
+    },
+    {
+      "path": "integration-tests/aggregate-consumer/build.gradle.kts",
+      "sha256": "ccd920577213726acd189527cb753547fb31d2cf2cce45b61326f33f60164c11"
+    },
+    {
+      "path": "integration-tests/aggregate-consumer/src/jvmTest/kotlin/dev/mattramotar/atom/fixture/AggregateConsumerTest.kt",
+      "sha256": "6310e4d83d53e17be0db38527c3e1907ed8cdfe5e7591aa05c566878e26de1f3"
+    },
+    {
+      "path": "integration-tests/core-consumer/build.gradle.kts",
+      "sha256": "0bd5635a00756e793b154639f4b09778e21d8a048ccb83dd8dbff1a9f6e0545a"
+    },
+    {
+      "path": "integration-tests/core-consumer/src/jvmTest/kotlin/dev/mattramotar/atom/fixture/CoreConsumerTest.kt",
+      "sha256": "151e8d8e108d0f27b32e8150b58ab17c509ec450fa56b274baa1fdce7e80d7ea"
+    },
+    {
+      "path": "ksp/api/ksp.api",
+      "sha256": "843de461506e94a3b12f0c681f0b31ab82c3a47bdb3077bc154feaf43569d396"
+    },
+    {
+      "path": "ksp/build.gradle.kts",
+      "sha256": "61a8f2e0dfac92c414b467ac6875076f1d8d3f07877b979163bc89d9e5391271"
+    },
+    {
+      "path": "ksp/src/main/kotlin/dev/mattramotar/atom/ksp/AtomProcessor.kt",
+      "sha256": "bce352b48e1cd5cd81001619b955d18f419c573a3d8c0b4a22a34353c311713f"
+    },
+    {
+      "path": "ksp/src/main/kotlin/dev/mattramotar/atom/ksp/AtomProcessorProvider.kt",
+      "sha256": "cb3254710b397f89564191ea1092cae136b2bcce35b7dd7eafac0695dbf2f728"
+    },
+    {
+      "path": "ksp/src/main/kotlin/dev/mattramotar/atom/ksp/Codegen.kt",
+      "sha256": "190889b828849220a7fc017f3e94f987bf11be1f4040f3f7ad0b3cb5da5871be"
+    },
+    {
+      "path": "ksp/src/main/resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider",
+      "sha256": "6cca6c47363b25fdfd81ea9bd261641edc4526484823e7ecf57f18531748f871"
+    },
+    {
+      "path": "ksp/src/test/kotlin/dev/mattramotar/atom/ksp/AtomProcessorCompileTest.kt",
+      "sha256": "edc7ffad1a9619dee9a9abb66d3407c01d2392b247f6d40b11699c6a1b3306f8"
+    },
+    {
+      "path": "ksp/src/test/kotlin/dev/mattramotar/atom/ksp/CodegenContractTest.kt",
+      "sha256": "e21b6e0a0ac3b4b004ad08af387b3e6113208d28bf7ed233d6e1fa894dc5c812"
+    },
+    {
+      "path": "ksp/src/test/kotlin/dev/mattramotar/atom/ksp/KspCompileTestHarness.kt",
+      "sha256": "1aac54c24c4e01636ab95f44f53fde94690d11a172b9aa446228112a7b91d918"
+    },
+    {
+      "path": "metro/api/android/metro.api",
+      "sha256": "29565852daf2883c81646980bba0845be51cd8284a79a95599093d150da59e9f"
+    },
+    {
+      "path": "metro/api/jvm/metro.api",
+      "sha256": "29565852daf2883c81646980bba0845be51cd8284a79a95599093d150da59e9f"
+    },
+    {
+      "path": "metro/build.gradle.kts",
+      "sha256": "fa8694a3404484f76bbbd9ca13b12915d26d2dc64a35d147864355e82a50ff4d"
+    },
+    {
+      "path": "metro/src/commonMain/kotlin/dev/mattramotar/atom/metro/AtomMetroBindings.kt",
+      "sha256": "0c7e4cad09c446f6ba4fcbc6520555612e5c86a37cd17436db4ce02c8f3750d1"
+    },
+    {
+      "path": "metro/src/commonMain/kotlin/dev/mattramotar/atom/metro/AtomMetroCompose.kt",
+      "sha256": "c92fbd38596d1bda09dd323395b9c73cf975f67aabba6bfcb499d4ae996117ad"
+    },
+    {
+      "path": "metro/src/commonMain/kotlin/dev/mattramotar/atom/metro/MetroAtomFactoryRegistry.kt",
+      "sha256": "817b1c851e5fcfab33103274ebae27694d447fc211e7055798b1830c71103e44"
+    },
+    {
+      "path": "runtime/README.md",
+      "sha256": "1be05298227cba372d89a62063cac82668efd23b008dcb29471c1aa25196a3e2"
+    },
+    {
+      "path": "runtime/api/android/runtime.api",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime/api/jvm/runtime.api",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime/build.gradle.kts",
+      "sha256": "d8b49a47c5247f735fd7c50ae3d774f26cd8de08c9416959406d226917978610"
+    },
+    {
+      "path": "sample/build.gradle.kts",
+      "sha256": "6f75c5d7621ce2e50e756e92196c6e03de2a55c849d3cbdf5fb4d5a9fce4a3d4"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/BoardAtom.kt",
+      "sha256": "4614d55935112d27d79605f0d5027b9b21b892d23f3c131729522d363ac1cb96"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/PostAtom.kt",
+      "sha256": "4ad760a50e8ead02909c61c03e7cdb4d3836703f4acc912771a0d3209bbdb136"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/SampleAtomScaffold.kt",
+      "sha256": "36f22580a5614233ef0b6e3ffbbf681d1c4692ac0c80b002aa4233b4dfc00297"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/SampleDiagnostics.kt",
+      "sha256": "b3ee97fe246f50e529b07595013db47a94cb2e8529332e7ae75d1785dd7f016a"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/SampleDomainModels.kt",
+      "sha256": "ae60703fc3ead9e57c8f81c6c30f43636035d5edbc7bc6b7376971c51b4e65d6"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/SampleShowcaseShell.kt",
+      "sha256": "c30ae45c18c56b2c1fdf86e8a41a767cff9a3ae8c4aecd680f4feba52f9c4140"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/SampleTaskRepository.kt",
+      "sha256": "d9abdf381b506f079a0df6a70f16fab9bfe7e1ff81da3feae37b72227a7433cc"
+    },
+    {
+      "path": "sample/src/commonMain/kotlin/dev/mattramotar/atom/sample/TaskAtom.kt",
+      "sha256": "830a7cda9493649f35435c0c1141cc5f32885c7d34ae2c98e02d6a109fd880e1"
+    },
+    {
+      "path": "sample/src/commonTest/kotlin/dev/mattramotar/atom/sample/BoardAtomTest.kt",
+      "sha256": "f1d97f7891169d5bf272c9cbef9ac865f7fc95f933c5b62deb2b91a41a8c0a91"
+    },
+    {
+      "path": "sample/src/commonTest/kotlin/dev/mattramotar/atom/sample/SampleDiagnosticsTest.kt",
+      "sha256": "7e1838e3fbbb1d7d932e60c1840746416fa38d0b307fa93769778bc082462864"
+    },
+    {
+      "path": "sample/src/commonTest/kotlin/dev/mattramotar/atom/sample/SampleTaskRepositoryTest.kt",
+      "sha256": "37665b5550c119761ec5ed19445b70c52d7ffc7ab836c820e5522a666c6ce7a8"
+    },
+    {
+      "path": "sample/src/commonTest/kotlin/dev/mattramotar/atom/sample/TaskAtomTest.kt",
+      "sha256": "fab1e1af1188b450d1a2132291d8a5bf9cd491a8ae127b02561c5cff638c0cf2"
+    },
+    {
+      "path": "sample/src/jvmMain/kotlin/dev/mattramotar/atom/sample/SampleLauncher.kt",
+      "sha256": "82c53060f2b877843e18585472aa6663e0476afad85c622dc7918487c27df793"
+    },
+    {
+      "path": "sample/src/jvmTest/kotlin/dev/mattramotar/atom/sample/TaskAtomComposeIdentityTest.kt",
+      "sha256": "01d25d32bea7e0a764adfd83f0e1c41f85123d8c6c7b150ef8ad5980a7813131"
+    },
+    {
+      "path": "serialization-kotlinx/api/android/serialization-kotlinx.api",
+      "sha256": "66ac9cdaf52d02f11111a07f9506eb9870934c14eeefe84b826a94e11595a859"
+    },
+    {
+      "path": "serialization-kotlinx/api/jvm/serialization-kotlinx.api",
+      "sha256": "66ac9cdaf52d02f11111a07f9506eb9870934c14eeefe84b826a94e11595a859"
+    },
+    {
+      "path": "serialization-kotlinx/build.gradle.kts",
+      "sha256": "86f9c4e927bc5bf2096acf2eba5d5440c6266c65126a63fc94c2bacd0184ab83"
+    },
+    {
+      "path": "serialization-kotlinx/src/commonMain/kotlin/dev/mattramotar/atom/runtime/serialization/KotlinxStateSerializer.kt",
+      "sha256": "fd981b841bbe1b8b37b3efbf88181638c4dbc8d621b7e10f8d7bcaec9b4a704e"
+    },
+    {
+      "path": "serialization-kotlinx/src/commonTest/kotlin/dev/mattramotar/atom/runtime/serialization/KotlinxStateSerializerTest.kt",
+      "sha256": "ea0ed1ade7ae8234d77381f97ee0afcb7902f8c0149a3ce65a74359d99b114d7"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "8cb16defedb7d01195d061605fd95ee6892bd581ab9930bab13d972d06a62745"
+    },
+    {
+      "path": "tooling/gradle.properties",
+      "sha256": "c5b6a6c6518f2592a944eb354f931c55108fecce515bcc03723cbb4475c87d94"
+    },
+    {
+      "path": "tooling/gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "c5a643cf80162e665cc228f7b16f343fef868e47d3a4836f62e18b7e17ac018a"
+    },
+    {
+      "path": "tooling/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde"
+    },
+    {
+      "path": "tooling/plugins/build.gradle.kts",
+      "sha256": "e3e75ab1ba384e1b83360d1533c9bbadcc393ebc6eefbb0cd8faa248ea7830d6"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/extensions/Android.kt",
+      "sha256": "720ef91849937d0bc74e22b1162813bbe6126414ceb05f67ad2bb5a4ff40390a"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/extensions/Java.kt",
+      "sha256": "e25dc6888b5f2641fe98bcf05de8218c78bc8dab453903c64f34af9df761e891"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/extensions/Kotlin.kt",
+      "sha256": "44ace599776077f8997648bfba44d856c593eb5b55db9434cfdcd46474128ce1"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/extensions/VersionCatalog.kt",
+      "sha256": "424ece0b070907ce2a5c69edc4e376a8f6a59d964dceb7415baef0d1b560d6b9"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/plugins/AndroidLibraryConventionPlugin.kt",
+      "sha256": "ba525d3df557c63c08aa8537e88799e7fb374365dd288a4bef26037d99ef040f"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/plugins/KotlinAndroidLibraryConventionPlugin.kt",
+      "sha256": "bfe26e6bed46fed37de2d10338d072cf0643cfa481a20f35d9d4482f5e4c31bf"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/plugins/KotlinMultiplatformConventionPlugin.kt",
+      "sha256": "22a847a9e869868d57b205b7cd42511830cdfc3f699be5d6b0c30908be47ab00"
+    },
+    {
+      "path": "tooling/plugins/src/main/kotlin/dev/mattramotar/atom/tooling/plugins/MavenPublishConventionPlugin.kt",
+      "sha256": "8a059afa26db66967540bf7533df5dbe802e8eb1521cde32d3fdc3c0d011f4ee"
+    },
+    {
+      "path": "tooling/settings.gradle.kts",
+      "sha256": "d067cd28a5657099a339e74b5dec0db70087afe38a7448ee0fee2e394fb917e7"
+    }
+  ]
+}

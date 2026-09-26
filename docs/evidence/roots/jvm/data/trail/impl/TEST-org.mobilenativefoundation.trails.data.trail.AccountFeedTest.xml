@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.mobilenativefoundation.trails.data.trail.AccountFeedTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-20T05:39:23.573Z" hostname="Matts-MacBook-Pro.local" time="14.502">
+  <properties/>
+  <testcase name="feedsSeedOncePerAccountAndSurviveAnOfflineReopen[jvm]" classname="org.mobilenativefoundation.trails.data.trail.AccountFeedTest" time="14.502"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
