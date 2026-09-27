@@ -5,12 +5,10 @@ import org.mobilenativefoundation.trails.ui.trail.*
 import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,12 +17,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.paneTitle
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
 import kotlinx.datetime.TimeZone
@@ -57,11 +53,13 @@ class ActivityUi : Ui<ActivityState> {
             }
             if (history == null && state.history.loading) item(key = "loading") { TrailsLoading("Opening your activity…") }
             if (history == null && !state.history.loading) item(key = "unavailable") {
-                TrailsStatusLine(
-                    if (state.history.offline) StatusKind.OFFLINE else StatusKind.FAILED,
-                    if (state.history.offline) "Offline · Activity isn’t on this device yet" else "Couldn’t load your activity",
-                    actionLabel = "Try again", onAction = { state.send(ActivityIntent.Retry) },
-                )
+                TrailsSurface(Modifier.fillMaxWidth()) {
+                    TrailsStatusLine(
+                        if (state.history.offline) StatusKind.OFFLINE else StatusKind.FAILED,
+                        if (state.history.offline) "Offline · Activity isn’t on this device yet" else "Couldn’t load your activity",
+                        actionLabel = "Try again", onAction = { state.send(ActivityIntent.Retry) },
+                    )
+                }
             }
             if (history != null) {
                 item(key = "month") { MonthCard(monthSummary(history, state.nowEpochMillis, zone)) }
@@ -70,10 +68,12 @@ class ActivityUi : Ui<ActivityState> {
                 }
                 item(key = "recent") { Text("Your recent adventures", style = typography.titleLarge, color = colors.textPrimary, modifier = Modifier.semantics { heading() }) }
                 if (history.isEmpty()) item(key = "empty") {
-                    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                        Text("Your hikes will show up here", style = typography.titleSmall, color = colors.textPrimary)
-                        Text("Find a trail worth walking and it’ll be waiting for you here afterwards.", style = typography.bodyLarge, color = colors.textSecondary)
-                        TrailsButton("Explore trails", { state.send(ActivityIntent.Explore) }, Modifier.fillMaxWidth(), tone = ButtonTone.Commit)
+                    TrailsSurface(Modifier.fillMaxWidth()) {
+                        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                            Text("Your hikes will show up here", style = typography.titleSmall, color = colors.textPrimary)
+                            Text("Find a trail worth walking and it’ll be waiting for you here afterwards.", style = typography.bodyLarge, color = colors.textSecondary)
+                            TrailsButton("Explore trails", { state.send(ActivityIntent.Explore) }, Modifier.fillMaxWidth(), tone = ButtonTone.Commit)
+                        }
                     }
                 }
                 val sorted = history.sortedByDescending { it.completedAtEpochMillis }
@@ -84,21 +84,21 @@ class ActivityUi : Ui<ActivityState> {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun MonthCard(summary: MonthSummary) {
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
-    Column(
-        Modifier.fillMaxWidth().clip(RoundedCornerShape(TrailsTheme.radii.card)).background(colors.dark).padding(20.dp).semantics(mergeDescendants = true) {},
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
-        Text(summary.monthLabel.uppercase(), style = typography.labelMedium, color = colors.citron)
-        Row(horizontalArrangement = Arrangement.spacedBy(28.dp)) {
-            MonthStat(kilometres(summary.distanceMeters), "km walked")
-            MonthStat("${summary.trails}", if (summary.trails == 1) "trail" else "trails")
-            MonthStat("${summary.minutesOutside / 60}h", "outside")
+    TrailsCard(Modifier.fillMaxWidth().semantics(mergeDescendants = true) {}) {
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            Text(summary.monthLabel.uppercase(), style = typography.titleMedium, color = colors.textPrimary)
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(28.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                MonthStat(kilometres(summary.distanceMeters), "km walked")
+                MonthStat("${summary.trails}", if (summary.trails == 1) "trail" else "trails")
+                MonthStat("${summary.minutesOutside / 60}h", "outside")
+            }
+            LastSevenDaysBars(summary.lastSevenDaysMeters)
         }
-        LastSevenDaysBars(summary.lastSevenDaysMeters)
     }
 }
 
@@ -107,8 +107,8 @@ private fun MonthStat(value: String, label: String) {
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-        Text(value, style = typography.headlineMedium, color = colors.onDark)
-        Text(label, style = typography.bodySmall, color = colors.onDark.copy(alpha = 0.72f))
+        Text(value, style = typography.headlineMedium, color = colors.textPrimary)
+        Text(label, style = typography.bodyMedium, color = colors.textSecondary)
     }
 }
 
@@ -125,8 +125,8 @@ private fun LastSevenDaysBars(values: List<Int>) {
             val height = size.height * (0.16f + 0.84f * meters / max.toFloat())
             val color = when {
                 index == highlight -> colors.citron
-                meters > 0 -> colors.onDark.copy(alpha = 0.55f)
-                else -> colors.onDark.copy(alpha = 0.18f)
+                meters > 0 -> colors.textPrimary.copy(alpha = 0.55f)
+                else -> colors.textPrimary.copy(alpha = 0.18f)
             }
             drawRoundRect(color, topLeft = Offset(index * (width + gap), size.height - height), size = Size(width, height), cornerRadius = CornerRadius(6.dp.toPx()))
         }
@@ -138,15 +138,17 @@ private fun ActivityHero(activity: CompletedActivity, state: ActivityState, zone
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
     val trail = state.trails[activity.trailId]
-    Column(Modifier.fillMaxWidth().clickable(role = Role.Button) { state.send(ActivityIntent.OpenTrail(activity.trailId)) }, verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        Box(Modifier.fillMaxWidth().height(200.dp).clip(RoundedCornerShape(TrailsTheme.radii.lg))) {
-            TrailPhoto(activity.trailId, Modifier.fillMaxSize())
-            if (trail != null) TrailBookmark(trail.name, state.saved.data?.memberships?.get(trail.id)?.isNotEmpty(), { onDismiss -> state.send(ActivityIntent.SaveTrail(trail, onDismiss)) }, Modifier.align(Alignment.TopEnd).padding(12.dp))
-        }
-        Text(activity.trailName, style = typography.titleSmall.copy(fontSize = 18.sp, lineHeight = 24.sp), color = colors.textPrimary)
-        Text(activitySummaryLine(activity, state.nowEpochMillis, zone), style = typography.bodyMedium, color = colors.textSecondary)
-        syncStatus(state.saved.data?.syncByTrail?.get(activity.trailId), state.saved.data?.offline == true)?.let {
-            TrailsStatusLine(it.kind, it.message)
+    TrailsCard(Modifier.fillMaxWidth(), onClick = { state.send(ActivityIntent.OpenTrail(activity.trailId)) }) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Box(Modifier.fillMaxWidth().height(200.dp).clip(RoundedCornerShape(TrailsTheme.radii.lg))) {
+                TrailPhoto(activity.trailId, Modifier.fillMaxSize())
+                if (trail != null) TrailBookmark(trail.name, state.saved.data?.memberships?.get(trail.id)?.isNotEmpty(), { onDismiss -> state.send(ActivityIntent.SaveTrail(trail, onDismiss)) }, Modifier.align(Alignment.TopEnd).padding(12.dp))
+            }
+            Text(activity.trailName, style = typography.titleMedium, color = colors.textPrimary)
+            Text(activitySummaryLine(activity, state.nowEpochMillis, zone), style = typography.bodyLarge, color = colors.textSecondary)
+            syncStatus(state.saved.data?.syncByTrail?.get(activity.trailId), state.saved.data?.offline == true)?.let {
+                TrailsStatusLine(it.kind, it.message)
+            }
         }
     }
 }
@@ -156,21 +158,20 @@ private fun ActivityRow(activity: CompletedActivity, state: ActivityState, zone:
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
     val trail = state.trails[activity.trailId]
-    Column {
-        Row(
-            Modifier.fillMaxWidth().clickable(role = Role.Button) { state.send(ActivityIntent.OpenTrail(activity.trailId)) }.padding(vertical = 12.dp),
-            horizontalArrangement = Arrangement.spacedBy(14.dp), verticalAlignment = Alignment.CenterVertically,
+    TrailsListGroup {
+        TrailsListItem(
+            onClick = { state.send(ActivityIntent.OpenTrail(activity.trailId)) },
+            leading = { TrailPhoto(activity.trailId, Modifier.size(64.dp).clip(RoundedCornerShape(TrailsTheme.radii.md))) },
+            trailing = {
+                if (trail != null) TrailBookmark(trail.name, state.saved.data?.memberships?.get(trail.id)?.isNotEmpty(), { onDismiss -> state.send(ActivityIntent.SaveTrail(trail, onDismiss)) })
+            },
         ) {
-            TrailPhoto(activity.trailId, Modifier.size(64.dp).clip(RoundedCornerShape(TrailsTheme.radii.md)))
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(activity.trailName, style = typography.titleSmall, color = colors.textPrimary)
-                Text(activitySummaryLine(activity, state.nowEpochMillis, zone), style = typography.bodyMedium, color = colors.textSecondary)
-            }
-            if (trail != null) TrailBookmark(trail.name, state.saved.data?.memberships?.get(trail.id)?.isNotEmpty(), { onDismiss -> state.send(ActivityIntent.SaveTrail(trail, onDismiss)) })
+            Text(activity.trailName, style = typography.titleSmall, color = colors.textPrimary)
+            Text(activitySummaryLine(activity, state.nowEpochMillis, zone), style = typography.bodyMedium, color = colors.textSecondary)
         }
         syncStatus(state.saved.data?.syncByTrail?.get(activity.trailId), state.saved.data?.offline == true)?.let {
             TrailsStatusLine(it.kind, it.message)
         }
-        HorizontalDivider(color = colors.border)
+        TrailsSeparator()
     }
 }

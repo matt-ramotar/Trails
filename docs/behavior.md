@@ -100,11 +100,20 @@ applied by the backend. Restart restores that applied configuration.
 
 ## Design reference
 
-The [Trails Figma file](https://www.figma.com/design/4B7GK9ndPVQ1BFIKGg0Zqj/Trails?node-id=153-97)
-is the visual reference. The app uses native Compose controls, Android insets,
-keyboard behavior, and accessibility semantics. The original compass remains the
-brand mark. Bundled assets and their licenses are documented alongside the
+The [Compose component contract](components.md) pins HeroUI Native geometry,
+states, and motion. That component styling takes precedence over conflicting
+components in the [Trails Figma file](https://www.figma.com/design/4B7GK9ndPVQ1BFIKGg0Zqj/Trails?node-id=153-97).
+Trails retains its palette, fonts, original compass, and domain content.
+Photographs, difficulty symbols, route drawings, and activity charts remain
+domain assets or drawings inside shared component surfaces. Bundled assets and
+their licenses are documented alongside the
 [design system](../multiplatform/foundation/designsystem/ASSETS.md).
+
+Compose owns native input, insets, keyboard behavior, focus and accessibility
+semantics. Adapting component appearance must preserve save admission,
+repository state, navigation stacks and modal dismissal guards. The developer
+drawer retains native side-drawer behavior. Navigate's bottom panel remains a
+persistent surface rather than a modal sheet.
 
 Controls must remain readable and operable at 200% font scale with at least
 48 dp touch targets. Modal traversal must not expose actionable background

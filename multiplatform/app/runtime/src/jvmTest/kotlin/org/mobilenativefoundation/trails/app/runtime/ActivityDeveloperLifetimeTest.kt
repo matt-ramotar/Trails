@@ -108,6 +108,7 @@ class ActivityDeveloperLifetimeTest {
                 val owner = object : LifecycleOwner { override val lifecycle = LifecycleRegistry.createUnsafe(this) }
                 setContent { CompositionLocalProvider(LocalLifecycleOwner provides owner) { controller.Content() } }
                 openDrawer()
+                onNodeWithText("Session").performScrollTo().performClick()
                 onNodeWithText("Try again").performScrollTo().performClick()
                 runOnIdle { assertEquals(listOf("first"), calls); firstNavigation.openTrail("half-dome") }
                 onNodeWithText("Try again").assertDoesNotExist()
@@ -121,6 +122,7 @@ class ActivityDeveloperLifetimeTest {
                 runOnIdle { route.value = AppRoot.Main(active("replacement", AppNavigationController().apply { selectActivity() })) }
                 runOnIdle { registrations.getValue("first").retry(); assertEquals(1, calls.size) }
                 openDrawer()
+                onNodeWithText("Session").performScrollTo().performClick()
                 onNodeWithText("Try again").performScrollTo().performClick()
                 runOnIdle { assertEquals(listOf("first", "replacement"), calls); route.value = AppRoot.Splash }
                 runOnIdle { registrations.getValue("replacement").retry(); assertEquals(2, calls.size) }

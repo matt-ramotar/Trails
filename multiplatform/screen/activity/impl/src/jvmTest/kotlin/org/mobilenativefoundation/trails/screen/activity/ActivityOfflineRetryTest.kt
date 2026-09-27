@@ -21,6 +21,7 @@ import org.mobilenativefoundation.trails.app.navigation.AppNavigation
 import org.mobilenativefoundation.trails.data.backend.BackendConfig
 import org.mobilenativefoundation.trails.data.backend.NetworkMode
 import org.mobilenativefoundation.trails.data.trail.account.RealTrailDataFactory
+import org.mobilenativefoundation.trails.data.trail.activity.ActivityRepository
 import org.mobilenativefoundation.trails.data.trail.catalog.Trail
 import org.mobilenativefoundation.trails.data.trail.catalog.TrailQuery
 import org.mobilenativefoundation.trails.data.trail.catalog.TrailRepository
@@ -125,14 +126,22 @@ class ActivityOfflineRetryTest {
         try {
             val account = runBlocking { factory.applyBackendConfig(online); factory.open("alice") }
             runDesktopComposeUiTest {
-                val presenter = ActivityPresenter(account.activities, factory.trails, account.saved, Navigation, Saves)
+                val refreshStarted = CompletableDeferred<Unit>()
+                val releaseRefresh = CompletableDeferred<Unit>()
+                val activities = object : ActivityRepository by account.activities {
+                    override suspend fun refresh() {
+                        refreshStarted.complete(Unit)
+                        releaseRefresh.await()
+                        account.activities.refresh()
+                    }
+                }
+                val presenter = ActivityPresenter(activities, factory.trails, account.saved, Navigation, Saves)
                 val owner = object : LifecycleOwner { override val lifecycle = LifecycleRegistry.createUnsafe(this) }
                 var latest: ActivityState? = null
-                var observedRefresh = false
                 setContent {
                     CompositionLocalProvider(LocalLifecycleOwner provides owner) {
                         val state = presenter.present()
-                        SideEffect { latest = state; if (state.history.loading) observedRefresh = true }
+                        SideEffect { latest = state }
                         TrailsTheme { ActivityUi().Content(state, Modifier) }
                     }
                 }
@@ -140,8 +149,12 @@ class ActivityOfflineRetryTest {
                 val before = runOnIdle { requireNotNull(latest).history.data }
                 runBlocking { factory.applyBackendConfig(if (offline) online.copy(networkMode = NetworkMode.OFFLINE) else online.copy(errorRate = 1f)) }
                 if (offline) waitUntil(timeoutMillis = 5_000) { latest?.history?.offline == true }
-                runOnIdle { observedRefresh = false; requireNotNull(latest).send(ActivityIntent.Retry) }
-                waitUntil(timeoutMillis = 10_000) { observedRefresh && latest?.history?.loading == false }
+                runOnIdle { requireNotNull(latest).send(ActivityIntent.Retry) }
+                // Keep the retry pending until Compose observes it: a zero-latency backend
+                // can otherwise finish between frames and never render the loading state.
+                waitUntil(timeoutMillis = 10_000) { refreshStarted.isCompleted && latest?.history?.loading == true }
+                runOnIdle { releaseRefresh.complete(Unit) }
+                waitUntil(timeoutMillis = 10_000) { latest?.history?.loading == false }
                 runOnIdle {
                     assertEquals(before, requireNotNull(latest).history.data)
                     if (offline) assertNull(requireNotNull(latest).history.error)
@@ -150,6 +163,7 @@ class ActivityOfflineRetryTest {
                 if (offline) onNodeWithText("Couldn’t refresh · Showing this device’s copy").assertDoesNotExist()
                 else {
                     onNodeWithText("Couldn’t refresh · Showing this device’s copy").performScrollTo().assertIsDisplayed()
+                    onNodeWithText("Try again").performScrollTo().assertIsDisplayed().assertIsEnabled()
                     runBlocking { factory.applyBackendConfig(online.copy(networkMode = NetworkMode.OFFLINE)) }
                     waitUntil(timeoutMillis = 5_000) { latest?.history?.offline == true }
                     runOnIdle { assertNotNull(requireNotNull(latest).history.error, "Changing mode must not erase an earlier online failure") }

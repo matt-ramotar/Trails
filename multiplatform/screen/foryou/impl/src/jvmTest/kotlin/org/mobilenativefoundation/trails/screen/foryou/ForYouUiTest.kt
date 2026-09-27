@@ -4,6 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
@@ -114,5 +115,18 @@ class ForYouUiTest {
             assertEquals(emptyList(), sent.filterIsInstance<ForYouIntent.OpenTrail>())
             save.onDismiss()
         }
+    }
+
+    @Test
+    fun featuredCardWithoutCatalogDetailsStaysDisabled() = runDesktopComposeUiTest {
+        val sent = mutableListOf<ForYouIntent>()
+        val state = ForYouState(
+            LoadState(feed, loading = false),
+            mapOf(halfDome.id to halfDome, mist.id to mist),
+            LoadState(loading = false),
+        ) { sent += it }
+        setContent { TrailsTheme { ForYouUi().Content(state, Modifier) } }
+        onNodeWithText(feed.headline).assertIsDisplayed().assertIsNotEnabled().performClick()
+        runOnIdle { assertEquals(emptyList(), sent.filterIsInstance<ForYouIntent.OpenTrail>()) }
     }
 }

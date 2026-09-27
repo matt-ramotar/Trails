@@ -8,10 +8,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.ExperimentalTestApi
-import androidx.compose.ui.test.assertHeightIsEqualTo
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -21,6 +21,8 @@ import androidx.compose.ui.test.runDesktopComposeUiTest
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.LayoutDirection
+import kotlin.math.abs
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -28,6 +30,27 @@ import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsThe
 
 @OptIn(ExperimentalTestApi::class)
 class TrailsFloatingNavTest {
+    @Test
+    fun indicatorTracksSelectedDestinationInRightToLeftLayout() = runDesktopComposeUiTest {
+        var selected by mutableStateOf(TrailsDestination.EXPLORE)
+        setContent {
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                TrailsTheme {
+                    Box(Modifier.width(360.dp)) {
+                        TrailsFloatingNav(TrailsDestination.entries, selected, { selected = it })
+                    }
+                }
+            }
+        }
+        for (destination in listOf(TrailsDestination.SAVED, TrailsDestination.EXPLORE)) {
+            onNodeWithText(destination.label).performClick().assertIsSelected()
+            val tab = onNodeWithText(destination.label).fetchSemanticsNode().boundsInRoot
+            val indicator = onNodeWithTag("Trails root navigation indicator").fetchSemanticsNode().boundsInRoot
+            assertTrue(abs(indicator.left - tab.left) <= 1f && abs(indicator.right - tab.right) <= 1f,
+                "The selected surface must stay under ${destination.label} in RTL: $indicator vs $tab")
+        }
+    }
+
     @Test
     fun allFiveLabelsFitAtDoubleFontScaleOnNarrowPhone() = assertAllDestinationsFit(width = 320, fontScale = 2f)
 
@@ -71,7 +94,7 @@ class TrailsFloatingNavTest {
         }
         if (fontScale == 1f) {
             assertEquals(1, tabBounds.map { it.top }.distinct().size, "Default navigation remains one row")
-            onNodeWithTag("nav").assertHeightIsEqualTo(88.dp)
+            assertTrue(navBounds.height <= 88f, "Compact Native tabs must leave at least as much room for content")
         }
     }
 

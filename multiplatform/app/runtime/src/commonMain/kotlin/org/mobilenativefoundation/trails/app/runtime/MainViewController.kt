@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
+import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
@@ -21,7 +21,9 @@ import org.mobilenativefoundation.trails.foundation.designsystem.component.Trail
 import org.mobilenativefoundation.trails.foundation.designsystem.component.ButtonTone
 import org.mobilenativefoundation.trails.foundation.designsystem.component.StatusKind
 import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsButton
+import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsLoading
 import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsStatusLine
+import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsAlert
 import org.mobilenativefoundation.trails.app.runtime.bootstrap.AppRoot
 import org.mobilenativefoundation.trails.app.runtime.graph.app.AppGraph
 import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsTheme
@@ -43,37 +45,13 @@ internal class MainViewController(
 
         when (val current = root) {
             is AppRoot.Failed -> TrailsTheme {
-                Column(
-                    Modifier.fillMaxSize().background(TrailsTheme.colors.background)
-                        .windowInsetsPadding(WindowInsets.safeDrawing)
-                        .verticalScroll(rememberScrollState()).padding(24.dp),
-                    verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    TrailsBrand()
-                    TrailsStatusLine(StatusKind.FAILED, current.message)
-                    TrailsButton("Try again", bootstrapCoordinator::retry, tone = ButtonTone.Commit, modifier = Modifier.fillMaxWidth())
-                }
+                StartupFailureContent(current.message, bootstrapCoordinator::retry)
             }
             AppRoot.Splash -> TrailsTheme {
-                Column(
-                    Modifier.fillMaxSize().background(TrailsTheme.colors.background)
-                        .windowInsetsPadding(WindowInsets.safeDrawing)
-                        .verticalScroll(rememberScrollState()).padding(24.dp),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    TrailsBrand()
-                    Spacer(Modifier.height(24.dp))
-                    val failure = backendConfigStatus as? BackendConfigSyncStatus.Failed
-                    if (failure == null) {
-                        CircularProgressIndicator()
-                        Text("Restoring your trails…", style = TrailsTheme.typography.bodyMedium)
-                    } else {
-                        Text(failure.message, style = TrailsTheme.typography.bodyMedium)
-                        Button(onClick = backendConfigSynchronizer::retry) { Text("Try again") }
-                    }
-                }
+                StartupSplashContent(
+                    failureMessage = (backendConfigStatus as? BackendConfigSyncStatus.Failed)?.message,
+                    onRetry = backendConfigSynchronizer::retry,
+                )
             }
 
             is AppRoot.Welcome -> {
@@ -132,6 +110,40 @@ internal class MainViewController(
             CircuitCompositionLocals(circuit) {
                 content()
             }
+        }
+    }
+}
+
+@Composable
+internal fun StartupFailureContent(message: String, onRetry: () -> Unit) {
+    Column(
+        Modifier.fillMaxSize().background(TrailsTheme.colors.background)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+            .verticalScroll(rememberScrollState()).padding(24.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        TrailsBrand()
+        TrailsStatusLine(StatusKind.FAILED, message)
+        TrailsButton("Try again", onRetry, tone = ButtonTone.Commit, modifier = Modifier.fillMaxWidth())
+    }
+}
+
+@Composable
+internal fun StartupSplashContent(failureMessage: String?, onRetry: () -> Unit) {
+    Column(
+        Modifier.fillMaxSize().background(TrailsTheme.colors.background)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+            .verticalScroll(rememberScrollState()).padding(24.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        TrailsBrand()
+        Spacer(Modifier.height(24.dp))
+        if (failureMessage == null) {
+            TrailsLoading("Restoring your trails…")
+        } else {
+            TrailsAlert(failureMessage, StatusKind.FAILED, actionLabel = "Try again", onAction = onRetry)
         }
     }
 }

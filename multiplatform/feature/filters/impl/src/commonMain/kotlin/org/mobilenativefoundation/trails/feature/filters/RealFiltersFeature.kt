@@ -3,8 +3,6 @@ package org.mobilenativefoundation.trails.feature.filters
 import org.mobilenativefoundation.trails.ui.trail.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.selection.toggleable
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -12,12 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInParent
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.stateDescription
-import androidx.compose.ui.semantics.text
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.CancellationException
@@ -83,12 +77,8 @@ class RealFiltersFeature(private val repository: TrailRepository) : FiltersFeatu
                 if (current.section != FilterSection.ALL && sectionTarget != null) scroll.animateScrollTo(sectionTarget)
             }
             val matchingCount = countFor == draft && !count.loading
-            val rangeColors = SliderDefaults.colors(thumbColor = colors.textPrimary, activeTrackColor = colors.textPrimary, inactiveTrackColor = colors.border)
-            ModalBottomSheet(
+            TrailsBottomSheet(
                 onDismissRequest = { current.result.complete(null) },
-                sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
-                containerColor = colors.surface,
-                shape = RoundedCornerShape(topStart = TrailsTheme.radii.sheet, topEnd = TrailsTheme.radii.sheet),
             ) {
                 Column(
                     Modifier.fillMaxWidth().verticalScroll(scroll).padding(horizontal = 24.dp)
@@ -117,20 +107,19 @@ class RealFiltersFeature(private val repository: TrailRepository) : FiltersFeatu
                     Text("$minimumKm–${draft.maxMeters?.let { "$maximumKm" } ?: "${MAX_LENGTH_METERS / 1000}+"} km", style = typography.bodyMedium, color = colors.textSecondary)
                     Column {
                         Text("Minimum length · $minimumKm km", style = typography.bodyMedium, color = colors.textPrimary)
-                        Slider(
+                        TrailsSlider(
                             value = minimumKm.toFloat(),
                             onValueChange = { value -> update(draft.copy(minMeters = value.roundToInt().coerceIn(0, maximumKm) * 1000)) },
                             enabled = maximumKm > 0,
                             valueRange = 0f..maximumKm.toFloat(),
                             steps = (maximumKm - 1).coerceAtLeast(0),
-                            colors = rangeColors,
-                            track = { StepTrack(it, rangeColors, maximumKm > 0) },
-                            modifier = Modifier.semantics { text = AnnotatedString("Minimum length"); stateDescription = "$minimumKm kilometers" },
+                            label = "Minimum length",
+                            valueDescription = "$minimumKm kilometers",
                         )
                     }
                     Column {
                         Text("Maximum length · ${draft.maxMeters?.let { "$maximumKm km" } ?: "No maximum"}", style = typography.bodyMedium, color = colors.textPrimary)
-                        Slider(
+                        TrailsSlider(
                             value = maximumKm.toFloat(),
                             onValueChange = { value ->
                                 val maximum = value.roundToInt().coerceIn(minimumKm, MAX_LENGTH_METERS / 1000) * 1000
@@ -139,19 +128,18 @@ class RealFiltersFeature(private val repository: TrailRepository) : FiltersFeatu
                             enabled = minimumKm < MAX_LENGTH_METERS / 1000,
                             valueRange = minimumKm.toFloat()..(MAX_LENGTH_METERS / 1000).toFloat(),
                             steps = (MAX_LENGTH_METERS / 1000 - minimumKm - 1).coerceAtLeast(0),
-                            colors = rangeColors,
-                            track = { StepTrack(it, rangeColors, minimumKm < MAX_LENGTH_METERS / 1000) },
-                            modifier = Modifier.semantics { text = AnnotatedString("Maximum length"); stateDescription = draft.maxMeters?.let { "$maximumKm kilometers" } ?: "No maximum length" },
+                            label = "Maximum length",
+                            valueDescription = draft.maxMeters?.let { "$maximumKm kilometers" } ?: "No maximum length",
                         )
                     }
 
                     SectionHeading("Elevation gain", FilterSection.ELEVATION, sectionOffsets)
                     MaximumSlider(
-                        label = "Maximum elevation gain", value = draft.maxElevationGain, top = MAX_GAIN_METERS, step = 100, colors = rangeColors,
+                        label = "Maximum elevation gain", value = draft.maxElevationGain, top = MAX_GAIN_METERS, step = 100,
                         onChange = { update(draft.copy(maxElevationGain = it)) },
                     )
 
-                    SwitchRow("Dog-friendly", draft.dogFriendly) { update(draft.copy(dogFriendly = it)) }
+                    TrailsSwitchRow("Dog-friendly", draft.dogFriendly, { update(draft.copy(dogFriendly = it)) })
 
                     Text("Activity", style = typography.titleLarge, color = colors.textPrimary, modifier = Modifier.semantics { heading() })
                     FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -164,16 +152,12 @@ class RealFiltersFeature(private val repository: TrailRepository) : FiltersFeatu
 
                     Text("Trail features", style = typography.titleLarge, color = colors.textPrimary, modifier = Modifier.semantics { heading() })
                     listOf(TrailFeature.LAKE to "Lakes & water", TrailFeature.FOREST to "Forest shade", TrailFeature.SUMMIT to "Big views").forEach { (feature, label) ->
-                        Row(
-                            Modifier.fillMaxWidth().heightIn(min = 48.dp).toggleableRow(feature in draft.features) {
+                        TrailsCheckboxRow(
+                            label, feature in draft.features,
+                            onCheckedChange = {
                                 update(draft.copy(features = if (feature in draft.features) draft.features - feature else draft.features + feature))
                             },
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Checkbox(checked = feature in draft.features, onCheckedChange = null, colors = CheckboxDefaults.colors(checkedColor = colors.accent))
-                            Spacer(Modifier.width(12.dp))
-                            Text(label, style = typography.bodyLarge, color = colors.textPrimary)
-                        }
+                        )
                     }
 
                     if (matchingCount && count.error != null) TrailsStatusLine(StatusKind.FAILED, "Couldn’t count trails · Filters are kept", actionLabel = "Retry count", onAction = { count = LoadState(); countFor = null; retry++ })
@@ -208,45 +192,20 @@ private fun SectionHeading(text: String, section: FilterSection, offsets: Mutabl
 }
 
 /** Labelled native slider whose top stop means no maximum. */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MaximumSlider(label: String, value: Int?, top: Int, step: Int, colors: SliderColors, onChange: (Int?) -> Unit) {
+private fun MaximumSlider(label: String, value: Int?, top: Int, step: Int, onChange: (Int?) -> Unit) {
     val typography = TrailsTheme.typography
     val palette = TrailsTheme.colors
     val shown = value?.let { metres(it) } ?: "No maximum"
     Column {
         Text("$label · $shown", style = typography.bodyMedium, color = palette.textPrimary)
-        Slider(
+        TrailsSlider(
             value = (value ?: top).toFloat(),
             onValueChange = { raw -> val rounded = (raw / step).roundToInt() * step; onChange(rounded.takeIf { it < top }) },
             valueRange = 0f..top.toFloat(),
             steps = (top / step - 1).coerceAtLeast(0),
-            colors = colors,
-            track = { StepTrack(it, colors) },
-            modifier = Modifier.semantics { text = AnnotatedString(label); stateDescription = shown },
+            label = label,
+            valueDescription = shown,
         )
     }
 }
-
-/** The stepped values stay for keyboard and accessibility increments; dense tick dots are omitted from the filter sheet. */
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun StepTrack(state: SliderState, colors: SliderColors, enabled: Boolean = true) {
-    SliderDefaults.Track(sliderState = state, enabled = enabled, colors = colors, drawTick = { _, _ -> })
-}
-
-@Composable
-private fun SwitchRow(label: String, checked: Boolean, onChange: (Boolean) -> Unit) {
-    val colors = TrailsTheme.colors
-    Row(
-        Modifier.fillMaxWidth().heightIn(min = 48.dp).toggleable(value = checked, role = Role.Switch, onValueChange = onChange),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        Text(label, style = TrailsTheme.typography.bodyLarge, color = colors.textPrimary)
-        Switch(checked = checked, onCheckedChange = null, colors = SwitchDefaults.colors(checkedTrackColor = colors.dark, checkedThumbColor = colors.surface))
-    }
-}
-
-private fun Modifier.toggleableRow(checked: Boolean, onClick: () -> Unit): Modifier =
-    toggleable(value = checked, role = Role.Checkbox, onValueChange = { onClick() })

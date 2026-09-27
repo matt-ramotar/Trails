@@ -7,9 +7,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -36,11 +33,20 @@ class CollectionUi : Ui<CollectionState> {
             modifier.fillMaxSize().background(colors.background), state = scroll,
             contentPadding = PaddingValues(20.dp), verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
-            item(key = "back") { IconButton({ state.send(CollectionIntent.Back) }) { Icon(Icons.Outlined.ArrowLeft.painter, "Back to saved", tint = colors.textPrimary) } }
+            item(key = "back") {
+                TrailsIconCircle(
+                    icon = Icons.Outlined.ArrowLeft.painter,
+                    contentDescription = "Back to saved",
+                    onClick = { state.send(CollectionIntent.Back) },
+                    container = colors.soft,
+                )
+            }
             item(key = "heading") { TrailsHeading(collection?.name ?: "Your collection") }
             if (state.content.loading) item(key = "loading") { TrailsLoading("Opening your collection…") }
             if (collection == null && !state.content.loading) item(key = "unavailable") {
-                TrailsStatusLine(StatusKind.FAILED, "This collection isn’t available", actionLabel = "Try again", onAction = { state.send(CollectionIntent.Retry) })
+                TrailsSurface(Modifier.fillMaxWidth()) {
+                    TrailsStatusLine(StatusKind.FAILED, "This collection isn’t available", actionLabel = "Try again", onAction = { state.send(CollectionIntent.Retry) })
+                }
             }
             if (snapshot != null && collection != null) {
                 val ids = snapshot.memberships.filterValues { collection.id in it }.keys
@@ -54,10 +60,12 @@ class CollectionUi : Ui<CollectionState> {
                     SavedSyncNotice(snapshot.copy(syncByTrail = snapshot.syncByTrail.filterKeys { it in ids })) { state.send(CollectionIntent.RetrySync) }
                 }
                 if (ids.isEmpty()) item(key = "empty") {
-                    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                        Text("A little room for adventure", style = typography.titleLarge, color = colors.textPrimary)
-                        Text("Save a trail to this collection when something catches your eye.", style = typography.bodyLarge, color = colors.textSecondary)
-                        TrailsControlsButton("Explore trails", { state.send(CollectionIntent.Explore) }, modifier = Modifier.fillMaxWidth())
+                    TrailsSurface(Modifier.fillMaxWidth()) {
+                        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                            Text("A little room for adventure", style = typography.titleLarge, color = colors.textPrimary)
+                            Text("Save a trail to this collection when something catches your eye.", style = typography.bodyLarge, color = colors.textSecondary)
+                            TrailsControlsButton("Explore trails", { state.send(CollectionIntent.Explore) }, modifier = Modifier.fillMaxWidth())
+                        }
                     }
                 }
                 if (trails.size < ids.size) item(key = "missing-details") { TrailsStatusLine(StatusKind.INFO, "Some trail details aren’t on this device yet") }

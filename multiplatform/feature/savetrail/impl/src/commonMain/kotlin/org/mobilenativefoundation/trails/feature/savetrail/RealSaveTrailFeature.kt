@@ -4,13 +4,11 @@ package org.mobilenativefoundation.trails.feature.savetrail
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import dev.mattramotar.atom.runtime.Admission
 import dev.mattramotar.atom.runtime.state.InMemoryStateHandle
@@ -75,11 +73,9 @@ class RealSaveTrailFeature(private val repository: SavedRepository) : SaveTrailF
             }
             val latestCanDismiss by rememberUpdatedState(state.canDismiss)
             val sheet = rememberModalBottomSheetState(skipPartiallyExpanded = true, confirmValueChange = { it != SheetValue.Hidden || latestCanDismiss })
-            ModalBottomSheet(
+            TrailsBottomSheet(
                 onDismissRequest = { if (state.canDismiss) dismiss(current) },
                 sheetState = sheet,
-                containerColor = colors.surface,
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(topStart = TrailsTheme.radii.sheet, topEnd = TrailsTheme.radii.sheet),
             ) {
                 Column(
                     Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp)
@@ -102,17 +98,11 @@ class RealSaveTrailFeature(private val repository: SavedRepository) : SaveTrailF
                         SavePhase.JOURNALED -> Unit
                         else -> {
                             state.collections.forEach { collection ->
-                                Row(
-                                    Modifier.fillMaxWidth().heightIn(min = 52.dp).toggleable(
-                                        value = collection.id in state.selected, enabled = state.editable, role = Role.Checkbox,
-                                        onValueChange = { send(SaveFlowIntent.Toggle(collection.id)) },
-                                    ),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                ) {
-                                    Checkbox(collection.id in state.selected, onCheckedChange = null, enabled = state.editable, colors = CheckboxDefaults.colors(checkedColor = colors.accent))
-                                    Spacer(Modifier.width(12.dp))
-                                    Text(collection.name, style = typography.bodyLarge, color = colors.textPrimary)
-                                }
+                                TrailsCheckboxRow(
+                                    collection.name, collection.id in state.selected,
+                                    onCheckedChange = { send(SaveFlowIntent.Toggle(collection.id)) },
+                                    enabled = state.editable,
+                                )
                             }
                             when (state.phase) {
                                 SavePhase.ADMITTING -> TrailsStatusLine(StatusKind.PENDING, "Saving on this device…")
