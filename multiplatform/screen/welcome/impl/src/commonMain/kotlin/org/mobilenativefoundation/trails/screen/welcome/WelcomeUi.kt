@@ -4,11 +4,12 @@ import org.mobilenativefoundation.trails.ui.trail.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -30,6 +31,7 @@ import dev.zacsweers.metro.ContributesBinding
 import dev.zacsweers.metro.Inject
 import org.mobilenativefoundation.trails.ui.trail.TrailPhoto
 import org.mobilenativefoundation.trails.ui.trail.TrailPhotoCredit
+import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsSurface
 import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsBrand
 import org.mobilenativefoundation.trails.foundation.designsystem.component.TrailsControlsButton
 import org.mobilenativefoundation.trails.foundation.designsystem.component.StatusKind
@@ -55,15 +57,19 @@ class WelcomeUi : Ui<WelcomeState> {
             verticalArrangement = Arrangement.spacedBy(spacing.xl),
         ) {
             TrailsBrand()
-            Box(Modifier.fillMaxWidth().aspectRatio(1.35f).clip(RoundedCornerShape(radii.card))) {
-                TrailPhoto("half-dome", modifier = Modifier.fillMaxSize())
-                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color.Transparent, colors.dark.copy(alpha = 0.65f)))))
-                Text(
-                    "A little closer to outside.",
-                    modifier = Modifier.align(Alignment.BottomStart).padding(horizontal = spacing.xl, vertical = spacing.xxl),
-                    style = typography.titleLarge,
-                    color = colors.citron,
-                )
+            TrailsSurface(Modifier.fillMaxWidth()) {
+                BoxWithConstraints(Modifier.fillMaxWidth()) {
+                    Box(Modifier.fillMaxWidth().heightIn(min = maxWidth / 1.35f).clip(RoundedCornerShape(radii.lg))) {
+                        TrailPhoto("half-dome", modifier = Modifier.matchParentSize())
+                        Box(Modifier.matchParentSize().background(Brush.verticalGradient(listOf(Color.Transparent, colors.dark.copy(alpha = 0.65f)))))
+                        Text(
+                            "A little closer to outside.",
+                            modifier = Modifier.align(Alignment.BottomStart).padding(horizontal = spacing.xl, vertical = spacing.xxl),
+                            style = typography.titleMedium,
+                            color = colors.citron,
+                        )
+                    }
+                }
             }
             TrailPhotoCredit("half-dome")
             Column(verticalArrangement = Arrangement.spacedBy(spacing.md)) {

@@ -35,9 +35,12 @@ class RealSaveTrailFeatureTest {
         waitUntil(timeoutMillis = 10_000) { onAllNodesWithText("Weekend adventures").fetchSemanticsNodes().isNotEmpty() }
         onNodeWithText("Save to a list").assertExists()
         onNodeWithText("Weekend adventures").performScrollTo().performClick()
-        onNodeWithText("Save trail").performScrollTo().performClick()
+        onNodeWithText("Save trail").performScrollTo()
+        // Sample the transient completion toast without auto-advancing through its lifetime.
+        mainClock.autoAdvance = false
+        onNodeWithText("Save trail").performClick()
 
-        waitUntil(timeoutMillis = 10_000) { onAllNodesWithText("Saved to Weekend adventures").fetchSemanticsNodes().isNotEmpty() }
+        waitUntil(timeoutMillis = 10_000) { mainClock.advanceTimeByFrame(); onAllNodesWithText("Saved to Weekend adventures").fetchSemanticsNodes().isNotEmpty() }
         onNodeWithText("View").assertExists()
         onNodeWithText("Save to a list").assertDoesNotExist()
         assertEquals(listOf(setOf("weekend")), repository.saves.map { it.collectionIds })
@@ -51,9 +54,12 @@ class RealSaveTrailFeatureTest {
         waitUntil(timeoutMillis = 10_000) { onAllNodesWithText("Weekend adventures").fetchSemanticsNodes().isNotEmpty() }
         onNodeWithText("Weekend adventures").performScrollTo().performClick()
         onNodeWithText("My favorites").performScrollTo().performClick()
-        onNodeWithText("Save trail").performScrollTo().performClick()
+        onNodeWithText("Save trail").performScrollTo()
+        // Sample the transient completion toast without auto-advancing through its lifetime.
+        mainClock.autoAdvance = false
+        onNodeWithText("Save trail").performClick()
 
-        waitUntil(timeoutMillis = 10_000) { onAllNodesWithText("Saved to 2 lists").fetchSemanticsNodes().isNotEmpty() }
+        waitUntil(timeoutMillis = 10_000) { mainClock.advanceTimeByFrame(); onAllNodesWithText("Saved to 2 lists").fetchSemanticsNodes().isNotEmpty() }
         onNodeWithText("Save to a list").assertDoesNotExist()
     }
 

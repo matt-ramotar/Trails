@@ -4,19 +4,16 @@ import org.mobilenativefoundation.trails.foundation.designsystem.component.*
 import org.mobilenativefoundation.trails.ui.trail.*
 import org.mobilenativefoundation.trails.app.navigation.*
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.paneTitle
 import androidx.compose.ui.semantics.semantics
@@ -53,11 +50,13 @@ class ForYouUi : Ui<ForYouState> {
             item(key = "heading") { Text("For you", style = typography.displayMedium, color = colors.textPrimary, modifier = Modifier.semantics { heading() }) }
             if (feed == null && state.feed.loading) item(key = "loading") { TrailsLoading("Finding your picks…") }
             if (feed == null && !state.feed.loading) item(key = "unavailable") {
-                TrailsStatusLine(
-                    if (state.feed.offline) StatusKind.OFFLINE else StatusKind.FAILED,
-                    if (state.feed.offline) "Offline · Picks aren’t on this device yet" else "Couldn’t load your picks",
-                    actionLabel = "Try again", onAction = { state.send(ForYouIntent.Retry) },
-                )
+                TrailsSurface(Modifier.fillMaxWidth()) {
+                    TrailsStatusLine(
+                        if (state.feed.offline) StatusKind.OFFLINE else StatusKind.FAILED,
+                        if (state.feed.offline) "Offline · Picks aren’t on this device yet" else "Couldn’t load your picks",
+                        actionLabel = "Try again", onAction = { state.send(ForYouIntent.Retry) },
+                    )
+                }
             }
             if (feed != null) {
                 item(key = "feature") { FeatureCard(feed, state.trails[feed.featuredTrailId]) { trail -> state.send(ForYouIntent.OpenTrail(trail)) } }
@@ -90,20 +89,27 @@ class ForYouUi : Ui<ForYouState> {
 private fun FeatureCard(feed: ForYouFeed, trail: Trail?, onOpen: (Trail) -> Unit) {
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
-    Box(
-        Modifier.fillMaxWidth().height(280.dp).clip(RoundedCornerShape(TrailsTheme.radii.card))
-            .clickable(enabled = trail != null, role = Role.Button) { trail?.let(onOpen) }
-            .semantics(mergeDescendants = true) {},
+    TrailsCard(
+        modifier = Modifier.fillMaxWidth(),
+        onClick = { trail?.let(onOpen) },
+        enabled = trail != null,
     ) {
-        TrailPhoto(feed.featuredTrailId, Modifier.fillMaxSize())
-        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(colors.dark.copy(alpha = 0.10f), colors.dark.copy(alpha = 0.60f)))))
-        Row(Modifier.align(Alignment.TopStart).padding(20.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-            TrailsCompass(Modifier.size(22.dp), tint = colors.onDark)
-            Text("trails", style = typography.displayLarge.copy(fontSize = 24.sp, lineHeight = 30.sp, letterSpacing = (-0.96).sp), color = colors.onDark)
-        }
-        Column(Modifier.align(Alignment.BottomStart).padding(20.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(feed.headline, style = typography.headlineMedium, color = colors.onDark)
-            Text(feed.subline, style = typography.bodyMedium, color = colors.onDark.copy(alpha = 0.78f))
+        Box(Modifier.fillMaxWidth().clip(RoundedCornerShape(TrailsTheme.radii.lg))) {
+            TrailPhoto(feed.featuredTrailId, Modifier.matchParentSize())
+            Box(Modifier.matchParentSize().background(Brush.verticalGradient(listOf(colors.dark.copy(alpha = 0.10f), colors.dark.copy(alpha = 0.60f)))))
+            Column(
+                Modifier.fillMaxWidth().heightIn(min = 248.dp).padding(16.dp),
+                verticalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                    TrailsCompass(Modifier.size(22.dp), tint = colors.onDark)
+                    Text("trails", style = typography.displayLarge.copy(fontSize = 24.sp, lineHeight = 30.sp, letterSpacing = (-0.96).sp), color = colors.onDark)
+                }
+                Column(Modifier.padding(top = 24.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(feed.headline, style = typography.titleMedium, color = colors.onDark)
+                    Text(feed.subline, style = typography.bodyLarge, color = colors.onDark.copy(alpha = 0.78f))
+                }
+            }
         }
     }
 }
@@ -112,21 +118,18 @@ private fun FeatureCard(feed: ForYouFeed, trail: Trail?, onOpen: (Trail) -> Unit
 private fun RecommendationRow(trail: Trail, saved: SavedSnapshot?, onOpen: () -> Unit, onSave: (() -> Unit) -> Unit) {
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
-    Column {
-        Row(
-            Modifier.fillMaxWidth().clickable(role = Role.Button, onClick = onOpen).padding(vertical = 12.dp),
-            horizontalArrangement = Arrangement.spacedBy(14.dp), verticalAlignment = Alignment.CenterVertically,
+    TrailsListGroup {
+        TrailsListItem(
+            onClick = onOpen,
+            leading = { TrailPhoto(trail.id, Modifier.size(64.dp).clip(RoundedCornerShape(TrailsTheme.radii.md))) },
+            trailing = { TrailBookmark(trail.name, saved?.memberships?.get(trail.id)?.isNotEmpty(), onSave) },
         ) {
-            TrailPhoto(trail.id, Modifier.size(64.dp).clip(RoundedCornerShape(TrailsTheme.radii.md)))
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(trail.name, style = typography.titleSmall, color = colors.textPrimary)
-                TrailFactsRow(trail, showCount = false)
-            }
-            TrailBookmark(trail.name, saved?.memberships?.get(trail.id)?.isNotEmpty(), onSave)
+            Text(trail.name, style = typography.titleSmall, color = colors.textPrimary)
+            TrailFactsRow(trail, showCount = false)
         }
         syncStatus(saved?.syncByTrail?.get(trail.id), saved?.offline == true)?.let {
             TrailsStatusLine(it.kind, it.message)
         }
-        HorizontalDivider(color = colors.border)
+        TrailsSeparator()
     }
 }

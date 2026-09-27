@@ -17,6 +17,20 @@ The checker reads literal Gradle declarations and checked-in convention plugins.
 It does not resolve external dependencies or replace compilation. Generated build
 output and SQLDelight schema directories are excluded from Kotlin package checks.
 
+Check direct Material visual-control usage against the shared adapter boundary:
+
+```bash
+python3 scripts/check_components.py
+python3 -m unittest discover -s scripts/testing -p test_components.py
+```
+
+The component check catches known Material controls imported directly, aliased,
+used through wildcard imports, or fully qualified outside the design system.
+Text, Icon, native state APIs and annotations remain available. The only
+layout-only `Scaffold` exception is `app/runtime`'s `AccountContent.kt`.
+The checker is lexical and does not prove that custom surfaces or the adapters
+themselves match HeroUI. Review the [component inventory](components.md) as well.
+
 Run the relevant module's `jvmTest` and compile task. Navigation and host examples:
 
 ```bash
@@ -36,6 +50,73 @@ The [standalone consumer](../integration-tests/store6-consumer/README.md) covers
 library integration and file-backed recovery separately from the application.
 Keep the first failure. Report which tasks ran freshly, were cached, or did not
 start. Do not infer installed behavior from compilation or source inspection.
+
+## Component verification
+
+For a shared-component change, inspect every affected use in the
+[screen and feature inventory](components.md#screen-and-feature-inventory).
+Compare geometry, typography roles, state appearance and motion against the
+pinned Native source. A source-usage check does not establish this comparison.
+
+Run the affected design-system, shared trail UI, screen, feature and runtime
+module tests in one serialized Gradle invocation, followed by the Android build.
+Retain tests for independent card/bookmark actions, description expansion,
+toast callbacks/timeout/tap interception, all five navigation destinations,
+scroll restoration, sync-state meaning and guarded save dismissal. Add focused
+behavior tests when an adapter changes those contracts.
+
+Capture installed screens at normal and 200% font scale using the following
+matrix. Record the relevant state separately when one capture cannot show it.
+An unavailable fixture or state is a gap to report, not a passed check.
+
+| Surface | States and interactions |
+| --- | --- |
+| Welcome | Hero card and links; opening sample/loading action; failure and retry. |
+| Explore | Search/clear/IME, filter triggers, sort popup, loaded cards, loading, no matches and recovery. |
+| For You | Featured card, recommendation rows and hearts; loading, missing details and cached refresh failure. |
+| Navigate | Trail-name action, schematic-label chip, persistent panel, placeholder-recording toast, loading and unavailable/retry. |
+| Saved | Both tabs, collection tiles/placeholders, trail cards, empty, missing details and pending/failed sync. |
+| Activity | Summary card, chart, hero and rows, independent hearts, loading, empty and cached recovery. |
+| Collection | Back action, counts, cards, empty, unavailable, missing details and sync notices. |
+| Trail Detail | Photo actions, content surface, facts/separators, chips, description expand/collapse, links, save and recovery. |
+| Filters | All control families, min/max and upper-stop values, counting, count failure, applying and draft cancellation. |
+| Save Trail | Loading/unavailable membership, collection rows, editable draft, admitting/reconciling, removal confirmation and completion toast. |
+| Developer tools | Each tab, status chip, settings groups, controls, menus, pending/failed/unavailable runtime, copy/reset and account actions. |
+| Runtime/account shell | Splash, configuration restoration, startup failure/retry, navigation-checkpoint failure and overlays above the current root. |
+
+Check normal, pressed, focused, selected, disabled and loading appearance where
+applicable. Verify system-disabled animations, keyboard traversal, focus return,
+Android Back/Escape and modal isolation. Native range actions must expose labels,
+units and bounds. Checkbox and switch rows must have one action each. A heart
+inside a clickable card must invoke saving without opening the trail. Loading
+must remain understandable when animation is disabled.
+
+Retain narrow-phone navigation checks at 320 and 360 dp with 200% fonts, plus
+the normal-text single-row case. Verify all labels and 48 dp action targets
+remain visible and usable. Inspect longer labels and right-to-left layout where
+the adapter uses directional geometry. Screen layout and custom drawing do not
+become HeroUI components merely because their controls pass these checks.
+
+Record the pinned reference SHA, application source/diff identity, dependency
+manifest, local and installed APK hashes, device/OS, font and animation settings,
+actions and results under ignored `build/verification/` output. Keep any
+packaging difference separate from code/resource identity. Capture the original
+account and developer/system settings and restore them after checks. Follow the
+persistence acceptance below when adapting save, toast, state or overlay flows.
+
+## Developer tools
+
+Swipe right from inside the left side of the app to open the drawer. On Android
+with gesture navigation, start beyond the system Back gesture strip. Close it
+with the close button, Android Back, or Escape on a keyboard.
+
+**Network** contains Offline, latency, error rate, and rate limit. **Sync** contains
+conflict simulation. **Session** contains sample accounts, simulation seed, and
+Activity refresh when Activity is the current destination. Settings save
+automatically; **Applied** means the backend has accepted the saved configuration.
+**Reset** restores saved defaults, and **Copy config** copies the supported backend
+configuration as JSON. At large text sizes, scroll the form and the tab strip to
+reach every control.
 
 ## Android persistence acceptance
 

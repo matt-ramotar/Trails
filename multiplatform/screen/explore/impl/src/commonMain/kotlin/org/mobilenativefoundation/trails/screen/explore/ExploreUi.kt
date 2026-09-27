@@ -9,22 +9,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.paneTitle
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.text
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.runtime.ui.Ui
 import dev.zacsweers.metro.Inject
@@ -89,21 +83,25 @@ class ExploreUi : Ui<ExploreState> {
             val trails = state.results.data
             if (state.results.loading) item(key = "loading") { TrailsLoading(if (trails == null) "Finding trails…" else "Refreshing trails…") }
             if (state.results.error != null) item(key = "error") {
-                TrailsStatusLine(
-                    if (trails != null) StatusKind.FAILED else if (state.results.offline) StatusKind.OFFLINE else StatusKind.FAILED,
-                    if (trails != null) "Couldn’t refresh · Showing saved trails"
-                    else if (state.results.offline) "Offline · Saved trails are still here"
-                    else "Couldn’t load trails",
-                    actionLabel = if (state.results.loading) null else if (trails == null && state.results.offline) "Open Saved" else "Try again",
-                    onAction = { if (trails == null && state.results.offline) state.send(ExploreIntent.OpenSaved) else state.send(ExploreIntent.Retry) },
-                )
+                TrailsSurface(Modifier.fillMaxWidth()) {
+                    TrailsStatusLine(
+                        if (trails != null) StatusKind.FAILED else if (state.results.offline) StatusKind.OFFLINE else StatusKind.FAILED,
+                        if (trails != null) "Couldn’t refresh · Showing saved trails"
+                        else if (state.results.offline) "Offline · Saved trails are still here"
+                        else "Couldn’t load trails",
+                        actionLabel = if (state.results.loading) null else if (trails == null && state.results.offline) "Open Saved" else "Try again",
+                        onAction = { if (trails == null && state.results.offline) state.send(ExploreIntent.OpenSaved) else state.send(ExploreIntent.Retry) },
+                    )
+                }
             }
             if (trails != null) {
                 if (trails.isEmpty()) item(key = "empty") {
-                    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                        TrailsHeading("No trails match yet")
-                        Text("Try a wider length or fewer filters.", style = typography.bodyLarge, color = colors.textSecondary)
-                        TrailsButton("Clear filters", { state.send(ExploreIntent.ClearFilters) }, tone = ButtonTone.Commit, modifier = Modifier.fillMaxWidth())
+                    TrailsSurface(Modifier.fillMaxWidth()) {
+                        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                            TrailsHeading("No trails match yet")
+                            Text("Try a wider length or fewer filters.", style = typography.bodyLarge, color = colors.textSecondary)
+                            TrailsButton("Clear filters", { state.send(ExploreIntent.ClearFilters) }, tone = ButtonTone.Commit, modifier = Modifier.fillMaxWidth())
+                        }
                     }
                 } else {
                     item(key = "count") {
@@ -136,15 +134,12 @@ internal fun appliedSummary(query: TrailQuery): String? {
 
 @Composable
 private fun SortMenu(selected: TrailSort, onSelect: (TrailSort) -> Unit) {
-    var open by remember { mutableStateOf(false) }
-    Box {
-        TextButton(onClick = { open = true }, modifier = Modifier.semantics { text = AnnotatedString("Sort by ${selected.displayName()}") }) {
-            Text("${selected.displayName()} ⌄", modifier = Modifier.clearAndSetSemantics {}, style = TrailsTheme.typography.labelMedium, color = TrailsTheme.colors.textPrimary)
-        }
-        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-            TrailSort.entries.forEach { sort ->
-                DropdownMenuItem(text = { Text(sort.displayName()) }, onClick = { open = false; onSelect(sort) })
-            }
-        }
-    }
+    TrailsSelect(
+        label = "Sort by ${selected.displayName()}",
+        selected = selected,
+        options = TrailSort.entries,
+        optionLabel = { it.displayName() },
+        onSelected = onSelect,
+        compact = true,
+    )
 }

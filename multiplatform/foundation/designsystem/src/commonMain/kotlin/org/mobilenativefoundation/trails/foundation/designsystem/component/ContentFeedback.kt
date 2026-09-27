@@ -14,7 +14,7 @@ import org.mobilenativefoundation.trails.foundation.designsystem.theme.TrailsThe
 fun TrailsLoading(label: String, modifier: Modifier = Modifier) {
     val colors = TrailsTheme.colors
     Row(modifier.fillMaxWidth().padding(vertical = 24.dp), horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
-        CircularProgressIndicator(Modifier.size(24.dp), color = colors.accent, strokeWidth = 2.dp)
+        TrailsSpinner(color = colors.accent)
         Text(label, style = TrailsTheme.typography.bodyLarge, color = colors.textSecondary)
     }
 }

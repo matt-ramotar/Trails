@@ -59,7 +59,7 @@ internal fun AccountContent(graph: ActiveGraph) = key(graph.account) {
         Box(Modifier.fillMaxSize().padding(padding)) {
             Column(Modifier.fillMaxSize()) {
                 navigation.persistenceError?.let {
-                    TrailsStatusLine(StatusKind.FAILED, "Couldn’t save your place", Modifier.padding(horizontal = 20.dp, vertical = 8.dp), actionLabel = "Retry", onAction = navigation::retryCheckpoint)
+                    NavigationCheckpointFailure(onRetry = navigation::retryCheckpoint)
                 }
                 savedState.SaveableStateProvider(navigation.selectedRoot.name) {
                     val platformNavigator = rememberCircuitNavigator(
@@ -89,4 +89,15 @@ private fun Root.destination(): TrailsDestination = when (this) {
     Root.NAVIGATE -> TrailsDestination.NAVIGATE
     Root.SAVED -> TrailsDestination.SAVED
     Root.ACTIVITY -> TrailsDestination.ACTIVITY
+}
+
+@Composable
+internal fun NavigationCheckpointFailure(onRetry: () -> Unit) {
+    TrailsStatusLine(
+        StatusKind.FAILED,
+        "Couldn’t save your place",
+        Modifier.padding(horizontal = 20.dp, vertical = 8.dp),
+        actionLabel = "Retry",
+        onAction = onRetry,
+    )
 }

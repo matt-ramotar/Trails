@@ -11,20 +11,21 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -100,22 +101,19 @@ fun TrailsFilterChip(
 ) {
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
-    FilterChip(
-        selected = selected,
-        onClick = onClick,
-        modifier = modifier.heightIn(min = 48.dp),
-        enabled = enabled,
-        label = { Text(text, style = typography.labelMedium) },
-        leadingIcon = leadingIcon,
-        shape = RoundedCornerShape(TrailsTheme.radii.pill),
-        border = null,
-        colors = FilterChipDefaults.filterChipColors(
-            containerColor = colors.soft,
-            labelColor = colors.textPrimary,
-            selectedContainerColor = colors.accent,
-            selectedLabelColor = colors.onAccent,
-        ),
-    )
+    val shape = RoundedCornerShape(24.dp)
+    val interaction = remember { MutableInteractionSource() }
+    Row(
+        modifier.heightIn(min = 48.dp).alpha(if (enabled) 1f else 0.5f).clip(shape)
+            .trailsPressFeedback(interaction, enabled, shape = shape)
+            .background(if (selected) colors.accent.copy(alpha = 0.15f) else colors.soft)
+            .selectable(selected = selected, interactionSource = interaction, indication = null, enabled = enabled, role = Role.Checkbox, onClick = onClick)
+            .padding(horizontal = 12.dp, vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (leadingIcon != null) { leadingIcon(); Spacer(Modifier.width(6.dp)) }
+        Text(text, style = typography.labelLarge, color = if (selected && enabled) colors.accent else colors.textPrimary)
+    }
 }
 
 @Composable
@@ -128,7 +126,7 @@ fun TrailsSearchField(
 ) {
     val colors = TrailsTheme.colors
     val typography = TrailsTheme.typography
-    val shape = RoundedCornerShape(TrailsTheme.radii.pill)
+    val shape = RoundedCornerShape(14.dp)
     val interaction = remember { MutableInteractionSource() }
     val focused by interaction.collectIsFocusedAsState()
     val keyboard = LocalSoftwareKeyboardController.current
@@ -138,27 +136,25 @@ fun TrailsSearchField(
         modifier = modifier
             .heightIn(min = 48.dp)
             .background(colors.soft, shape)
-            .border(if (focused) 2.dp else 0.dp, if (focused) colors.accent else Color.Transparent, shape)
+            .border(if (focused) 1.5.dp else 0.dp, if (focused) colors.accent else Color.Transparent, shape)
             .semantics { contentDescription = "Search trails" },
-        textStyle = typography.bodyMedium.copy(color = colors.textPrimary),
+        textStyle = typography.bodyLarge.copy(color = colors.textPrimary),
         singleLine = true,
         interactionSource = interaction,
         cursorBrush = SolidColor(colors.accent),
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
         keyboardActions = KeyboardActions(onSearch = { onSearch(); keyboard?.hide() }),
         decorationBox = { input ->
-            Row(Modifier.padding(start = 14.dp, end = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                Icon(painterResource(Res.drawable.search_01_stroke_rounded), null, Modifier.size(20.dp), tint = colors.textSecondary)
+            Row(Modifier.padding(start = 12.dp, end = 0.dp), verticalAlignment = Alignment.CenterVertically) {
+                Icon(painterResource(Res.drawable.search_01_stroke_rounded), null, Modifier.size(16.dp), tint = colors.textSecondary)
                 Spacer(Modifier.width(8.dp))
                 Box(Modifier.weight(1f).padding(vertical = 14.dp)) {
-                    if (value.isEmpty()) Text(placeholder, color = colors.textSecondary, style = typography.bodyMedium)
+                    if (value.isEmpty()) Text(placeholder, color = colors.textSecondary, style = typography.bodyLarge)
                     input()
                 }
                 if (value.isNotEmpty()) {
-                    IconButton(onClick = { onValueChange("") }, modifier = Modifier.size(48.dp)) {
-                        Icon(painterResource(Res.drawable.cancel_01_stroke_rounded), "Clear search", Modifier.size(20.dp), tint = colors.textSecondary)
-                    }
-                }
+                    TrailsIconButton(painterResource(Res.drawable.cancel_01_stroke_rounded), "Clear search", { onValueChange("") })
+                } else Spacer(Modifier.width(48.dp))
             }
         },
     )

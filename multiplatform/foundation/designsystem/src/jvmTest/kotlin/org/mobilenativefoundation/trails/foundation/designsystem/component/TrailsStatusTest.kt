@@ -52,6 +52,8 @@ class TrailsStatusTest {
         mainClock.advanceTimeByFrame()
         onNodeWithText("Saved to Weekend adventures").assertIsDisplayed()
         mainClock.advanceTimeBy(5_100)
+        assertEquals(null, toast, "Dismissal callback still runs at five seconds")
+        mainClock.advanceTimeBy(350) // Allow the Native exit and content-size transition to finish.
         mainClock.advanceTimeByFrame()
         onNodeWithText("Saved to Weekend adventures").assertDoesNotExist()
     }
